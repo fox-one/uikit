@@ -3,10 +3,18 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from "vue-property-decorator";
+import { Component, Mixins } from "vue-property-decorator";
+import page from "@/mixins/page";
 
 @Component
-class Page extends Vue {
+class Page extends Mixins(page) {
+  get appbar() {
+    return {
+      title: `${this.component}`,
+      back: true,
+    };
+  }
+
   get component() {
     return this.$route.params.component;
   }

@@ -29,13 +29,17 @@ class FAppBottomNav extends Vue {
     const h = this.$createElement;
     const active = this.nav === nav.value;
 
+    if (!this.animation) {
+      return null;
+    }
+
     return h(
       "div",
       {
         staticClass: "f-bottom-nav__dot-wrapper",
         class: [active ? "animate__bounceIn animate__animated" : ""],
       },
-      [h("span", { staticClass: "f-bottom-nav__dot" })]
+      [h("span", { staticClass: "f-bottom-nav__dot" })],
     );
   }
 
@@ -71,15 +75,16 @@ class FAppBottomNav extends Vue {
         grow: true,
         app: true,
         mandatory: false,
-        "input-value": Boolean(this.nav),
         value: this.nav,
+        "input-value": Boolean(this.nav),
+        ...this.$attrs,
       },
     };
 
     return h(
       VBottomNavigation,
       data,
-      this.items.map((btn) => this.genBtn(btn))
+      this.items.map((btn) => this.genBtn(btn)),
     );
   }
 }

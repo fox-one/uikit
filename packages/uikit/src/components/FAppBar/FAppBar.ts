@@ -3,46 +3,26 @@ import { Component, Vue, Prop } from "vue-property-decorator";
 import { VNode, CreateElement } from "vue";
 import { mdiArrowLeft } from "@mdi/js";
 
-interface AppbarProps {
-  back?: boolean;
-  show?: boolean;
-  color?: string;
-  height?: string;
-  dark?: boolean;
-  title?: string;
-  style?: any;
-}
-
-const defaultProps = {
-  back: false,
-  show: true,
-  color: "#FAFAFA",
-  style: "",
-  height: "48",
-  dark: false,
-  title: "",
-};
-
 @Component
 class FAppBar extends Vue {
-  @Prop({ type: Object, default: defaultProps }) appbar!: AppbarProps;
+  @Prop({ type: Boolean, default: true }) show!: boolean;
 
-  mounted() {
-    console.log(this, (this as any).$vuetify);
-  }
+  @Prop({ type: Boolean, default: false }) back!: boolean;
+
+  @Prop({ type: String, default: "" }) title!: string;
 
   handleBack() {
     this.$emit("back");
   }
 
   genBackBtn() {
-    if (!this.appbar.back) {
+    if (!this.back) {
       return null;
     }
 
     const h = this.$createElement;
     const data = {
-      props: { small: true, icon: true, color: this.appbar.color },
+      props: { small: true, icon: true },
       on: { click: this.handleBack },
     };
 
@@ -50,17 +30,15 @@ class FAppBar extends Vue {
   }
 
   render(h: CreateElement): VNode | null {
-    if (!this.appbar.show) return null;
+    if (!this.show) return null;
 
     const data = {
+      ...this.$attrs,
       props: {
         app: true,
         fixed: true,
         flat: true,
-        height: this.appbar.height,
-        dark: this.appbar.dark,
-        color: this.appbar.color,
-        style: this.appbar.style,
+        ...this.$attrs,
       },
     };
 
@@ -69,7 +47,7 @@ class FAppBar extends Vue {
       h(
         VToolbarTitle,
         { staticClass: "pl-2 text-capitalize font-weight-bold" },
-        [this.appbar.title],
+        [this.title],
       ),
     ]);
   }

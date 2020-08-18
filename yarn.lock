@@ -1682,12 +1682,7 @@
     npmlog "^4.1.2"
     write-file-atomic "^2.3.0"
 
-"@mdi/js@^5.4.55":
-  version "5.5.55"
-  resolved "https://registry.npm.taobao.org/@mdi/js/download/@mdi/js-5.5.55.tgz?cache=0&sync_timestamp=1597068946433&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40mdi%2Fjs%2Fdownload%2F%40mdi%2Fjs-5.5.55.tgz#8dc97fbcc47d1f6bfa3343d4f7c7f5c0e2990151"
-  integrity sha1-jcl/vMR9H2v6M0PU98f1wOKZAVE=
-
-"@mdi/js@^5.5.55":
+"@mdi/js@^5.4.55", "@mdi/js@^5.5.55":
   version "5.5.55"
   resolved "https://registry.npm.taobao.org/@mdi/js/download/@mdi/js-5.5.55.tgz#8dc97fbcc47d1f6bfa3343d4f7c7f5c0e2990151"
   integrity sha1-jcl/vMR9H2v6M0PU98f1wOKZAVE=
@@ -11084,6 +11079,11 @@ vuetify@^2.2.11, vuetify@^2.3.8:
   version "2.3.8"
   resolved "https://registry.npm.taobao.org/vuetify/download/vuetify-2.3.8.tgz#4b468f0eaa780107d6a89249856e46f96e1e1bda"
   integrity sha1-S0aPDqp4AQfWqJJJhW5G+W4eG9o=
+
+vuex-class@^0.3.2:
+  version "0.3.2"
+  resolved "https://registry.npm.taobao.org/vuex-class/download/vuex-class-0.3.2.tgz#c7e96a076c1682137d4d23a8dcfdc63f220e17a8"
+  integrity sha1-x+lqB2wWghN9TSOo3P3GPyIOF6g=
 
 vuex@^3.4.0:
   version "3.5.1"

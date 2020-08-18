@@ -9,8 +9,8 @@
   &.elevation-low {
     box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.08);
   }
-  
+
   &.elevation-none {
-    box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(0, 0, 0, 0.1);
   }
 }

@@ -10,7 +10,7 @@ const routes: Array<RouteConfig> = [
     component: () => import("@/views/index.vue"),
   },
   {
-    path: "/page/:component",
+    path: "/components/:component",
     name: "page-component",
     component: () => import("@/views/_components.vue"),
   },

@@ -16,10 +16,11 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from "vue-property-decorator";
+import { Component, Mixins } from "vue-property-decorator";
 import upperFirst from "lodash/upperFirst";
 import camelCase from "lodash/camelCase";
 import { mdiChevronRight } from "@mdi/js";
+import page from "@/mixins/page";
 
 const requireComponent = require.context("../components", true, /\.vue$/);
 const componentsList = requireComponent.keys().map((key) => {
@@ -31,9 +32,16 @@ const componentsList = requireComponent.keys().map((key) => {
 });
 
 @Component
-class Page extends Vue {
+class Page extends Mixins(page) {
   mdiChevronRight = mdiChevronRight;
   componentsList = componentsList;
+
+  get appbar() {
+    return {
+      title: "组件列表",
+      back: false,
+    };
+  }
 
   handleViewComponent(item) {
     this.$router.push({

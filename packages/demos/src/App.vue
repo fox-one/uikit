@@ -1,23 +1,22 @@
 <template>
-  <v-fade-transition mode="out-in">
-    <v-app>
-      <v-main>
-        <v-responsive class="mx-auto overflow-visible" max-width="1024">
-          <v-container>
-            <v-responsive class="overflow-visible" min-height="90vh">
-              <router-view />
-            </v-responsive>
-          </v-container>
-        </v-responsive>
-      </v-main>
-    </v-app>
-  </v-fade-transition>
+  <document-layout />
 </template>
 
 <script lang="ts">
 import Vue from "vue";
+import DocumentLayout from "./layout/document/Index.vue";
 
 export default Vue.extend({
   name: "App",
+
+  components: {
+    DocumentLayout,
+  },
+
+  methods: {
+    handleBack() {
+      this.$router.back();
+    },
+  },
 });
 </script>

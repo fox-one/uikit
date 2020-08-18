@@ -1,3 +1,4 @@
+import "./FActionBar.scss";
 import { Component, Vue, Prop } from "vue-property-decorator";
 import { CreateElement, VNode } from "vue";
 import FPanel from "../FPanel";
@@ -26,15 +27,23 @@ class FActionBar extends Vue {
       ]),
     ]);
 
-    return h("div", { on: { click: () => this.handleClick(action) } }, [
-      btn,
-      action.text,
-    ]);
+    return h(
+      "div",
+      {
+        staticClass: "f-actionbar--action",
+        on: { click: () => this.handleClick(action) },
+      },
+      [btn, action.text],
+    );
   }
 
   render(h: CreateElement): VNode {
     const actions = this.actions.map((action) => this.genAction(action));
-    return h(FPanel, { props: { elevation: "high" } }, actions);
+    return h(
+      FPanel,
+      { staticClass: "f-actionbar", props: { elevation: "high" } },
+      actions,
+    );
   }
 }
 
