@@ -1,5 +1,10 @@
 <template>
-  <f-selector :filter.sync="filter" :show.sync="sheet" scrollable>
+  <f-selector
+    :filter.sync="filter"
+    :show.sync="sheet"
+    scrollable
+    class="f-phone-input"
+  >
     <template #activator="{ on }">
       <v-text-field
         v-model.trim="bindPhone"
@@ -9,7 +14,7 @@
         :placeholder="$t('common.phone-number')"
       >
         <template v-slot:prepend-inner>
-          <div class="px-4 code-selector" v-on="on">
+          <div class="px-4 f-phone-input--code" v-on="on">
             {{ `+${bindCode}` }}
           </div>
         </template>
@@ -41,7 +46,7 @@
 
 <script lang="ts">
 import { Component, Vue, PropSync } from "vue-property-decorator";
-import countries from "../assets/country-code.json";
+import countries from "../../assets/country-code.json";
 
 @Component
 class FPhoneNumberInput extends Vue {
@@ -68,9 +73,11 @@ class FPhoneNumberInput extends Vue {
   }
 }
 export default FPhoneNumberInput;
+export { FPhoneNumberInput };
 </script>
-<style lang="scss" scoped>
-.code-selector {
+
+<style lang="scss">
+.f-phone-input .f-phone-input--code {
   height: 24px;
   display: flex;
   align-items: center;

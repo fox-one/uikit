@@ -1,7 +1,7 @@
 import "./FLoading.scss";
 import { Component, Vue, Prop } from "vue-property-decorator";
 import { CreateElement } from "vue";
-import { VNode } from "vue/types/umd";
+import { VNode } from "vue";
 import { VOverlay, VProgressCircular } from "vuetify/lib";
 
 @Component
@@ -22,7 +22,7 @@ class FLoading extends Vue {
         }),
         h(
           "span",
-          { staticClass: "f-loading--text text--secondary caption" },
+          { staticClass: "f-loading--text mt-2 text--secondary caption" },
           this.$slots.text,
         ),
       ]),
