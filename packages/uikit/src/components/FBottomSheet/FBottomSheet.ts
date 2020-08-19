@@ -1,10 +1,11 @@
-import { Vue, Component } from "vue-property-decorator";
+import "./FBottomSheet.scss";
+import { Vue, Component, PropSync } from "vue-property-decorator";
 import { CreateElement, VNode } from "vue/types/umd";
-import { VBottomSheet, VSheet, VTextField } from "vuetify/lib";
+import { VBottomSheet, VCard, VCardTitle, VCardText } from "vuetify/lib";
 
 @Component
 class FBottomSheet extends Vue {
-  show = false;
+  @PropSync("show") bindShow!: boolean;
 
   render(h: CreateElement): VNode {
     const activator = this.$scopedSlots.activator!;
@@ -13,10 +14,10 @@ class FBottomSheet extends Vue {
       VBottomSheet,
       {
         props: {
-          value: this.show,
+          value: this.bindShow,
           "content-class": "f-bottom-sheet",
         },
-        on: { change: (e) => this.$emit("change:show", e) },
+        on: { input: (val) => (this.bindShow = val) },
         scopedSlots: {
           activator: function ({ on }) {
             return activator({ on });
@@ -25,14 +26,23 @@ class FBottomSheet extends Vue {
       },
       [
         h(
-          VSheet,
+          VCard,
           {
-            staticClass: "f-bottom-sheet--content pa-5",
+            staticClass: "f-bottom-sheet--content",
             props: { elevation: 0 },
           },
           [
-            h("div", { staticClass: "f-bottom-sheet--title" }),
-            this.$slots.default,
+            h(
+              VCardTitle,
+              { staticClass: "f-bottom-sheet--title subtitle-1" },
+              this.$slots.title,
+            ),
+            h(VCardText, this.$slots.subheader),
+            h(
+              VCardText,
+              { staticClass: "f-bottom-sheet--body" },
+              this.$slots.default,
+            ),
           ],
         ),
       ],

@@ -1,11 +1,18 @@
 .f-bottom-sheet {
   box-shadow: none;
-}
 
-.f-bottom-sheet--content {
-  border-top-left-radius: 16px;
-  border-top-right-radius: 16px;
-}
+  .f-bottom-sheet--content {
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
+  }
 
-.f-bottom-sheet--title {
+  .f-bottom-sheet--title {
+    display: flex;
+    justify-content: center;
+  }
+
+  .f-bottom-sheet--body {
+    height: 60vh;
+    overflow: auto;
+  }
 }

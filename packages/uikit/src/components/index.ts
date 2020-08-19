@@ -5,5 +5,6 @@ export * from "./FAppBar";
 export * from "./FLoading";
 export * from "./FPayingModal";
 export * from "./FQrCode";
-// export * from "./FBottomSelector";
+export * from "./FBottomSheet";
 export * from "./FToast";
+export * from "./FPhoneInput";

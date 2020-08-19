@@ -19,20 +19,37 @@ class FPayingModal extends Vue {
     ]);
   }
 
+  genActions() {
+    const h = this.$createElement;
+    const actions = [
+      h(
+        VBtn,
+        {
+          props: {
+            outlined: true,
+            block: true,
+            rounded: true,
+          },
+          on: {
+            click: (e) => this.$emit("cancel", e),
+          },
+        },
+        ["cancel"],
+      ),
+    ];
+    return h("div", { staticClass: "f-payment--actions" }, [actions]);
+  }
+
   render(h: CreateElement): VNode {
     return h(
       VOverlay,
       { staticClass: "f-payment-loading", props: { value: this.show } },
       [
         this.genSpinner(),
-        h("div", { staticClass: "f-payment--hint" }, [this.text]),
-        h("div", { staticClass: "f-payment--actions" }, [
-          h(
-            VBtn,
-            { props: { outlined: true, block: true, color: "primary" } },
-            ["cancel"],
-          ),
+        h("div", { staticClass: "f-payment--hint subtitle-2 my-5" }, [
+          this.text,
         ]),
+        this.genActions(),
       ],
     );
   }

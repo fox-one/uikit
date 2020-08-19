@@ -1,0 +1,44 @@
+.f-payment-loading {
+  .f-spinner--wrapper {
+    display: flex;
+    justify-content: center;
+
+    .f-spinner--rect {
+      display: inline-block;
+      background-color: #fff;
+      margin: 0 2px;
+      width: 6px;
+      height: 18px;
+      opacity: 0.8;
+      animation: f-spinner 1s infinite ease;
+
+      &:nth-child(2) {
+        animation-delay: 0.1s;
+      }
+
+      &:nth-child(3) {
+        animation-delay: 0.2s;
+      }
+
+      &:nth-child(4) {
+        animation-delay: 0.3s;
+      }
+    }
+  }
+
+  .f-payment--actions {
+    margin-top: 30px;
+  }
+}
+
+@keyframes f-spinner {
+  0% {
+    transform: scaleY(1);
+  }
+  25% {
+    transform: scaleY(2);
+  }
+  50% {
+    transform: scaleY(1);
+  }
+}

@@ -7,7 +7,7 @@
     </v-row>
     <v-row>
       <v-col>
-        <f-action-bar :actions="btns"></f-action-bar>
+        <f-action-bar fixed :actions="btns.slice(0, 3)"></f-action-bar>
       </v-col>
     </v-row>
     <v-row>

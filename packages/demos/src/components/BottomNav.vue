@@ -1,26 +1,30 @@
 <template>
   <div>
-    <v-row class="my-5">
-      <f-app-bottom-nav
-        :nav="bottomNav"
-        :items="bottomNavItems"
-        :animation="true"
-        :app="false"
-        :fixed="false"
-        active-class="primary-color"
-        @change="handleChange"
-      ></f-app-bottom-nav>
+    <v-row>
+      <v-col>
+        <f-app-bottom-nav
+          :nav="bottomNav"
+          :items="bottomNavItems"
+          :animation="true"
+          :app="false"
+          :fixed="false"
+          active-class="primary-color"
+          @change="handleChange"
+        ></f-app-bottom-nav>
+      </v-col>
     </v-row>
-    <v-row class="my-5">
-      <f-app-bottom-nav
-        :nav="bottomNav"
-        :items="bottomNavItems"
-        :animation="false"
-        :app="false"
-        :fixed="false"
-        active-class="primary-color"
-        @change="handleChange"
-      ></f-app-bottom-nav>
+    <v-row>
+      <v-col>
+        <f-app-bottom-nav
+          :nav="bottomNav"
+          :items="bottomNavItems"
+          :animation="false"
+          :app="false"
+          :fixed="false"
+          active-class="primary-color"
+          @change="handleChange"
+        ></f-app-bottom-nav>
+      </v-col>
     </v-row>
   </div>
 </template>

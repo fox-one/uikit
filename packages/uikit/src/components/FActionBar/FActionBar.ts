@@ -15,6 +15,8 @@ export interface ActionButton {
 class FActionBar extends Vue {
   @Prop() actions!: ActionButton[];
 
+  @Prop({ type: Boolean, default: false }) fixed!: boolean;
+
   handleClick(btn: ActionButton) {
     this.$emit("click", btn);
   }
@@ -41,7 +43,13 @@ class FActionBar extends Vue {
     const actions = this.actions.map((action) => this.genAction(action));
     return h(
       FPanel,
-      { staticClass: "f-actionbar", props: { elevation: "high" } },
+      {
+        staticClass: "f-actionbar",
+        class: [this.fixed ? "f-actionbar--fixed" : ""],
+        props: {
+          elevation: "high",
+        },
+      },
       actions,
     );
   }
