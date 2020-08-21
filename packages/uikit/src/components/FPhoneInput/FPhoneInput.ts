@@ -5,7 +5,6 @@ import FBottomSheet from "../FBottomSheet";
 import {
   VTextField,
   VList,
-  VListGroup,
   VListItem,
   VListItemTitle,
 } from "vuetify/lib";
@@ -27,7 +26,6 @@ class FPhoneInput extends Vue {
   sheet = false;
 
   get filterCounties() {
-    console.log("filterCounties");
     return countries.filter((country) => {
       const name = String(country.name).toLowerCase();
       const code = String(country.code).toLowerCase();
@@ -93,13 +91,14 @@ class FPhoneInput extends Vue {
       h(
         VListItem,
         {
+          staticClass: "pa-0",
           props: { value: item.code },
           on: { click: () => this.handleSelect(item.code) },
         },
         [
           h(VListItemTitle, [
+            h("span", { staticClass: "font-weight-bold mr-2" }, [item.code]),
             item.name,
-            h("span", { staticClass: "font-weight-bold ml-2" }, [item.code]),
           ]),
         ],
       ),
@@ -113,10 +112,10 @@ class FPhoneInput extends Vue {
       FBottomSheet,
       {
         props: {
-          show: this.sheet,
+          value: this.sheet,
         },
         on: {
-          "update:show": (val) => (this.sheet = val),
+          "change": (val) => (this.sheet = val),
         },
         scopedSlots: {
           activator: ({ on }) => {

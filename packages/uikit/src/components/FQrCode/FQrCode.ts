@@ -2,6 +2,7 @@ import "./FQrCode.scss";
 import { Component, Vue, Prop, Watch } from "vue-property-decorator";
 import { CreateElement, VNode } from "vue/types/umd";
 import QRCode from "qrcode";
+import { VSheet } from "vuetify/lib";
 
 @Component
 class FQrCode extends Vue {
@@ -13,16 +14,19 @@ class FQrCode extends Vue {
   draw() {
     this.$nextTick(() => {
       const canvas = this.$refs["qrcode-canvas"] as HTMLCanvasElement;
-      QRCode.toCanvas(canvas, this.text, { width: this.size, margin: 0 });
+      QRCode.toCanvas(canvas, this.text, {
+        width: this.size,
+        margin: 1,
+      });
     });
   }
 
   render(h: CreateElement): VNode {
-    const content = h("canvas", {
+    return h("canvas", {
       ref: "qrcode-canvas",
       staticClass: "f-qrcode__canvas",
     });
-    return h("div", { staticClass: "f-qrcode" }, [content]);
+    // return h(VSheet, { staticClass: "f-qrcode" }, [content]);
   }
 }
 

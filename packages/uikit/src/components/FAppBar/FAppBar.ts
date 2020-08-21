@@ -49,6 +49,7 @@ class FAppBar extends Vue {
         { staticClass: "pl-2 text-capitalize font-weight-bold" },
         [this.title],
       ),
+      this.$slots.default,
     ]);
   }
 }

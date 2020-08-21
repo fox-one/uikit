@@ -12,7 +12,7 @@
   }
 
   .f-bottom-sheet--body {
-    height: 60vh;
+    max-height: 60vh;
     overflow: auto;
   }
 }

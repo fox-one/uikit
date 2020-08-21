@@ -4,7 +4,7 @@ import router from "./router";
 import store from "./store";
 import "./plugins/foxoneUI";
 import "./components";
-import vuetify from "./plugins/vuetify";
+import useVuetify from "./plugins/vuetify";
 
 import "animate.css";
 
@@ -13,6 +13,6 @@ Vue.config.productionTip = false;
 new Vue({
   router,
   store,
-  vuetify,
+  vuetify: useVuetify(store),
   render: (h) => h(App),
 }).$mount("#app");

@@ -1,0 +1,45 @@
+.f-asset-amount-input {
+  display: flex;
+  align-items: center;
+  min-height: 64px;
+  padding-left: 16px !important;
+
+  .v-text-field {
+    padding-top: 0;
+    margin-top: 0;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.5, 1);
+    transition-delay: 0.1s;
+  }
+
+  input {
+    padding-bottom: 0px;
+    font-size: 22px;
+  }
+
+  .v-label {
+    transition-delay: 0.1s;
+  }
+
+  .v-text-field.v-input--is-label-active,
+  .v-text-field.v-input--is-focused {
+    padding-top: 12px;
+    transition-delay: 0s;
+  }
+
+  .v-text-field > .v-input__control > .v-input__slot:before,
+  .v-text-field > .v-input__control > .v-input__slot:after {
+    display: none;
+  }
+
+  .f-asset-amount-input__activator {
+    align-self: stretch;
+    display: flex;
+    align-items: center;
+    padding: 0 12px;
+    background-color: #f2f5f8;
+  }
+}
+
+.theme--dark .f-asset-amount-input__activator {
+  background-color: #6f767c;
+}

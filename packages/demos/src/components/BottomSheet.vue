@@ -1,7 +1,7 @@
 <template>
   <v-row>
     <v-col>
-      <f-bottom-sheet :show.sync="show">
+      <f-bottom-sheet v-model="show">
         <template #activator="{ on }">
           <v-btn color="primary" outlined rounded block v-on="on">
             Show Selector

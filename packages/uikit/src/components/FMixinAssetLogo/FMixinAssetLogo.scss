@@ -1,0 +1,20 @@
+.f-asset-logo {
+  position: relative;
+  overflow: visible;
+
+  .f-asset-logo__chain {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &--small {
+      width: 16px;
+      height: 16px;
+    }
+  }
+}

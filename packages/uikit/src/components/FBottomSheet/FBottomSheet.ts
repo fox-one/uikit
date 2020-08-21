@@ -1,11 +1,11 @@
 import "./FBottomSheet.scss";
-import { Vue, Component, PropSync } from "vue-property-decorator";
+import { Vue, Component, Model } from "vue-property-decorator";
 import { CreateElement, VNode } from "vue/types/umd";
 import { VBottomSheet, VCard, VCardTitle, VCardText } from "vuetify/lib";
 
 @Component
 class FBottomSheet extends Vue {
-  @PropSync("show") bindShow!: boolean;
+  @Model("change") value!: boolean;
 
   render(h: CreateElement): VNode {
     const activator = this.$scopedSlots.activator!;
@@ -14,10 +14,10 @@ class FBottomSheet extends Vue {
       VBottomSheet,
       {
         props: {
-          value: this.bindShow,
+          value: this.value,
           "content-class": "f-bottom-sheet",
         },
-        on: { input: (val) => (this.bindShow = val) },
+        on: { input: (val) => this.$emit("change", val) },
         scopedSlots: {
           activator: function ({ on }) {
             return activator({ on });
