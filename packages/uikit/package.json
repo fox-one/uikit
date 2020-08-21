@@ -3,10 +3,18 @@
   "version": "1.0.0",
   "description": "",
   "main": "src/index.ts",
+  "files": [
+    "src/"
+  ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fox-one/foxone-uikit",
+    "directory": "packages/uikit"
+  },
+  "author": "foxone",
   "license": "ISC",
   "dependencies": {
     "animate.css": "^4.1.0",
