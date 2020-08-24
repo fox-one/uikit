@@ -26,7 +26,6 @@ class FQrCode extends Vue {
       ref: "qrcode-canvas",
       staticClass: "f-qrcode__canvas",
     });
-    // return h(VSheet, { staticClass: "f-qrcode" }, [content]);
   }
 }
 

@@ -73,6 +73,7 @@ class FAssetsSheet extends Vue {
 
   render(h: CreateElement): VNode {
     const activator = this.$scopedSlots.activator!;
+    const $t = (key: string) => this.$vuetify.lang.t("$vuetify.uikit." + key);
 
     const filter = h(VTextField, {
       props: {
@@ -80,7 +81,7 @@ class FAssetsSheet extends Vue {
         "hide-details": true,
         "single-line": true,
         clearable: true,
-        label: "搜索",
+        label: $t("search"),
       },
       slot: "subheader",
       on: { input: (val) => (this.filter = val) },
@@ -101,7 +102,11 @@ class FAssetsSheet extends Vue {
           },
         },
       },
-      [h("div", { slot: "title" }, ["选择币种"]), filter, this.genList()],
+      [
+        h("div", { slot: "title" }, [$t("select_asset")]),
+        filter,
+        this.genList(),
+      ],
     );
   }
 }

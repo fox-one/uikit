@@ -14,6 +14,10 @@ class PhoneInput extends Vue {
   code = "86";
 
   phone = "";
+
+  mounted() {
+    console.log(this.$i18n);
+  }
 }
 export default PhoneInput;
 </script>

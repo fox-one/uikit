@@ -28,19 +28,19 @@ class FBottomSheet extends Vue {
         h(
           VCard,
           {
-            staticClass: "f-bottom-sheet--content",
+            staticClass: "f-bottom-sheet__content",
             props: { elevation: 0 },
           },
           [
             h(
               VCardTitle,
-              { staticClass: "f-bottom-sheet--title subtitle-1" },
+              { staticClass: "f-bottom-sheet__title subtitle-1" },
               this.$slots.title,
             ),
             h(VCardText, this.$slots.subheader),
             h(
               VCardText,
-              { staticClass: "f-bottom-sheet--body" },
+              { staticClass: "f-bottom-sheet__body" },
               this.$slots.default,
             ),
           ],

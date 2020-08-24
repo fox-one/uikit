@@ -1,13 +1,8 @@
 import "./FPhoneInput.scss";
-import { Component, Vue, Prop, PropSync } from "vue-property-decorator";
+import { Component, Vue, PropSync } from "vue-property-decorator";
 import { CreateElement, VNode } from "vue/types/umd";
 import FBottomSheet from "../FBottomSheet";
-import {
-  VTextField,
-  VList,
-  VListItem,
-  VListItemTitle,
-} from "vuetify/lib";
+import { VTextField, VList, VListItem, VListItemTitle } from "vuetify/lib";
 import countryCodes from "../../assets/country-code.json";
 
 const countries = Object.keys(countryCodes).map((k) => ({
@@ -60,7 +55,7 @@ class FPhoneInput extends Vue {
           "div",
           {
             on,
-            staticClass: "px-4 f-phone-input--code",
+            staticClass: "px-4 f-phone-input__code",
             slot: "prepend-inner",
           },
           this.bindCode,
@@ -71,11 +66,12 @@ class FPhoneInput extends Vue {
 
   genSearch() {
     const h = this.$createElement;
+    const $t = (key: string) => this.$vuetify.lang.t("$vuetify.uikit." + key);
 
     return h(VTextField, {
       props: {
         value: this.filter,
-        placeholder: "search",
+        placeholder: $t("search"),
         "hide-details": true,
         "single-line": true,
       },
@@ -108,6 +104,8 @@ class FPhoneInput extends Vue {
   }
 
   render(h: CreateElement): VNode {
+    const $t = (key: string) => this.$vuetify.lang.t("$vuetify.uikit." + key);
+
     return h(
       FBottomSheet,
       {
@@ -115,7 +113,7 @@ class FPhoneInput extends Vue {
           value: this.sheet,
         },
         on: {
-          "change": (val) => (this.sheet = val),
+          change: (val) => (this.sheet = val),
         },
         scopedSlots: {
           activator: ({ on }) => {
@@ -124,7 +122,7 @@ class FPhoneInput extends Vue {
         },
       },
       [
-        h("div", { slot: "title" }, "选择地区号码"),
+        h("div", { slot: "title" }, $t("select_phone_code")),
         this.genSearch(),
         this.genCountryList(),
       ],

@@ -1,12 +1,16 @@
 import Vue from "vue";
 import { mapMutations } from "vuex";
-import { debug } from "console";
 
 export type AppBarMeta = {
   back?: boolean;
   title?: string;
   show?: boolean;
 };
+
+function getLocale() {
+  const locale = navigator.language;
+  return locale.includes("zh") ? "zh" : locale.includes("ja") ? "ja" : "en";
+}
 
 export default Vue.extend({
   name: "PageView",
@@ -34,6 +38,10 @@ export default Vue.extend({
   beforeRouteEnter(to, from, next) {
     next((vm: any) => {
       vm.setAppBar(vm.appbar);
+
+      const locale = getLocale();
+      vm.$vuetify.lang.current = locale;
+      vm.$i18n.locale = locale;
     });
   },
 });
