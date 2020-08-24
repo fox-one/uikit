@@ -1,13 +1,16 @@
 import Vue from "vue";
 import Vuetify from "vuetify/lib";
-import zhHans from "vuetify/es5/locale/zh-Hans";
+import foxoneUI from "@foxone/uikit";
+
+import zh from "vuetify/es5/locale/zh-Hans";
 import en from "vuetify/es5/locale/en";
 import ja from "vuetify/es5/locale/ja";
-import uikit_en from "@foxone/uikit/src/locales/en";
-import uikit_ja from "@foxone/uikit/src/locales/ja";
-import uikit_zhHans from "@foxone/uikit/src/locales/zh-Hans";
+import en_uikit from "@foxone/uikit/src/locales/en";
+import ja_uikit from "@foxone/uikit/src/locales/ja";
+import zh_uikit from "@foxone/uikit/src/locales/zh-Hans";
 
 Vue.use(Vuetify);
+Vue.use(foxoneUI);
 
 export default function(store) {
   const isDark = store.state.app?.dark || false;
@@ -20,16 +23,16 @@ export default function(store) {
     lang: {
       locales: {
         zh: {
-          ...zhHans,
-          ...uikit_zhHans,
+          ...zh,
+          ...zh_uikit,
         },
         en: {
           ...en,
-          ...uikit_en,
+          ...en_uikit,
         },
         ja: {
           ...ja,
-          ...uikit_ja,
+          ...ja_uikit,
         },
       },
     },
