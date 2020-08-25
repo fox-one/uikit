@@ -72,7 +72,7 @@ class FAssetsSheet extends Vue {
   }
 
   render(h: CreateElement): VNode {
-    const activator = this.$scopedSlots.activator!;
+    const activator = this.$scopedSlots.activator;
     const $t = (key: string) => this.$vuetify.lang.t("$vuetify.uikit." + key);
 
     const filter = h(VTextField, {
@@ -98,7 +98,7 @@ class FAssetsSheet extends Vue {
         },
         scopedSlots: {
           activator: ({ on }) => {
-            return activator({ on });
+            return (activator && activator({ on })) || null;
           },
         },
       },

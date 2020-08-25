@@ -8,7 +8,7 @@ class FBottomSheet extends Vue {
   @Model("change") value!: boolean;
 
   render(h: CreateElement): VNode {
-    const activator = this.$scopedSlots.activator!;
+    const activator = this.$scopedSlots.activator;
 
     return h(
       VBottomSheet,
@@ -20,7 +20,7 @@ class FBottomSheet extends Vue {
         on: { input: (val) => this.$emit("change", val) },
         scopedSlots: {
           activator: function ({ on }) {
-            return activator({ on });
+            return (activator && activator({ on })) || null;
           },
         },
       },
