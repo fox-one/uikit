@@ -13,6 +13,7 @@ class FBottomSheet extends Vue {
     return h(
       VBottomSheet,
       {
+        attrs: this.$attrs,
         props: {
           value: this.value,
           "content-class": "f-bottom-sheet",

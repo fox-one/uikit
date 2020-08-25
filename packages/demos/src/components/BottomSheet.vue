@@ -1,7 +1,7 @@
 <template>
   <v-row>
     <v-col>
-      <f-bottom-sheet v-model="show">
+      <f-bottom-sheet v-model="show" :persistent="persistent">
         <template #activator="{ on }">
           <v-btn color="primary" outlined rounded block v-on="on">
             Show Selector
@@ -35,6 +35,9 @@
         </v-list>
       </f-bottom-sheet>
     </v-col>
+    <v-col cols="12">
+      <v-switch v-model="persistent" label="persistent"> </v-switch>
+    </v-col>
   </v-row>
 </template>
 
@@ -46,6 +49,8 @@ class BottomSheet extends Vue {
   show = false;
 
   filter = "";
+
+  persistent = true;
 
   items = [
     {
