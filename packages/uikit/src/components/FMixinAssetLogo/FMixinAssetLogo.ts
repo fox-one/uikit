@@ -1,7 +1,7 @@
 import "./FMixinAssetLogo.scss";
 import { Component, Vue, Prop } from "vue-property-decorator";
 import { CreateElement, VNode } from "vue/types/umd";
-import { VResponsive, VImg, VSheet } from "vuetify/lib";
+import { VImg, VSheet } from "vuetify/lib";
 
 @Component
 class FMixinAssetLogo extends Vue {
@@ -50,7 +50,7 @@ class FMixinAssetLogo extends Vue {
 
   render(h: CreateElement): VNode {
     return h(
-      VResponsive,
+      "div",
       {
         staticClass: "rounded-circle f-asset-logo",
         props: { width: this.size, height: this.size },
