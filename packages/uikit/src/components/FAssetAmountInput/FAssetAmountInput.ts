@@ -50,7 +50,7 @@ class FAssetAmountInput extends Vue {
     const displaySymbol = select_symbol || symbol;
 
     return [
-      h(FMixinAssetLogo, { props: { logo, chainLogo, size: 36 } }),
+      h(FMixinAssetLogo, { props: { logo, chainLogo, size: 32 } }),
       h(
         VLayout,
         {

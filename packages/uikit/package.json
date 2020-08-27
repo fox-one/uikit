@@ -7,7 +7,7 @@
     "src/",
     "types/"
   ],
-  "types": "types",
+  "types": "types/index.d.ts",
   "publishConfig": {
     "access": "public"
   },

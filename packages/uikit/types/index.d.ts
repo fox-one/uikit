@@ -16,3 +16,6 @@ declare namespace Uikit {
     icon: string;
   }
 }
+
+declare const uikit: any;
+export default uikit;

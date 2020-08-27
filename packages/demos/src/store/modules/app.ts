@@ -7,6 +7,11 @@ const state = () => ({
     show: true,
     back: false,
   },
+  toast: {
+    show: false,
+    color: "info",
+    message: "",
+  },
 });
 
 export type AppState = {
@@ -16,6 +21,11 @@ export type AppState = {
     show: boolean;
     back: boolean;
   };
+  toast: {
+    show: boolean;
+    color: string;
+    message: string;
+  };
 };
 
 const mutations: MutationTree<AppState> = {
@@ -24,6 +34,11 @@ const mutations: MutationTree<AppState> = {
   },
   SET_THEME_DARK(state, value) {
     state.dark = value;
+  },
+  SET_TOAST(state, { message = "", color = "info", show = true }) {
+    state.toast.show = show;
+    state.toast.message = message;
+    state.toast.color = color;
   },
 };
 

@@ -55,8 +55,8 @@ class BottomNav extends Vue {
     },
   ];
 
-  handleChange(value) {
-    this.bottomNav = value;
+  handleChange(nav) {
+    this.bottomNav = nav.value;
   }
 }
 export default BottomNav;

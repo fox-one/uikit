@@ -3,6 +3,7 @@
     <v-app>
       <document-appBar />
       <document-view />
+      <f-toast v-bind="toast" @change="(val) => setToast({ show: val })" />
     </v-app>
   </v-fade-transition>
 </template>
@@ -11,6 +12,7 @@
 import { Component, Vue } from "vue-property-decorator";
 import DocumentView from "./View.vue";
 import DocumentAppBar from "./AppBar.vue";
+import { State, Mutation } from "vuex-class";
 
 @Component({
   components: {
@@ -18,6 +20,10 @@ import DocumentAppBar from "./AppBar.vue";
     DocumentAppBar,
   },
 })
-class DocumentLayout extends Vue {}
+class DocumentLayout extends Vue {
+  @State((state) => state.app.toast) toast;
+
+  @Mutation("app/SET_TOAST") setToast;
+}
 export default DocumentLayout;
 </script>
