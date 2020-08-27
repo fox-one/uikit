@@ -19,6 +19,8 @@ class FAssetAmountInput extends Vue {
 
   @Prop({ default: true }) selectable!: boolean;
 
+  @Prop({ default: false }) border!: boolean;
+
   @Prop({ type: Array, default: () => [] }) assets!: Uikit.MixinAsset[];
 
   filter = "";
@@ -88,7 +90,11 @@ class FAssetAmountInput extends Vue {
   render(h: CreateElement): VNode {
     return h(
       FPanel,
-      { staticClass: "f-asset-amount-input", props: { padding: "0" } },
+      {
+        staticClass: "f-asset-amount-input",
+        class: [this.border && "f-asset-amount-input--border"],
+        props: { padding: "0" },
+      },
       [
         h(FNumberInput, {
           attrs: { ...this.$attrs, "hide-details": true },

@@ -14,6 +14,8 @@ class FAssetSelect extends Vue {
 
   @Prop({ type: String, default: "" }) label!: string;
 
+  @Prop({ default: false }) border!: boolean;
+
   handleSelectAsset(asset: Uikit.MixinAsset) {
     this.$emit("input", asset);
   }
@@ -64,11 +66,15 @@ class FAssetSelect extends Vue {
       [h(VIcon, { props: { size: 16 } }, [mdiChevronRight])],
     );
 
-    return h(VSheet, { staticClass: "f-asset-selector", on }, [
-      this.genAssetInfo(),
-      label,
-      arrow,
-    ]);
+    return h(
+      VSheet,
+      {
+        staticClass: "f-asset-selector",
+        class: [this.border && "f-asset-selector--border"],
+        on,
+      },
+      [this.genAssetInfo(), label, arrow],
+    );
   }
 
   render(h: CreateElement): VNode {
