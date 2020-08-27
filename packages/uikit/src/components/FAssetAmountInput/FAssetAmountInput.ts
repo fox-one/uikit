@@ -5,18 +5,8 @@ import FNumberInput from "../FNumberInput";
 import FPanel from "../FPanel";
 import FMixinAssetLogo from "../FMixinAssetLogo";
 import FAssetsSheet from "./FAssetsSheet";
-import { VLayout, VFlex, VBtn, VIcon } from "vuetify/lib";
+import { VLayout, VBtn, VIcon } from "vuetify/lib";
 import { mdiChevronDown } from "@mdi/js";
-
-export type AssetItem = {
-  id: string;
-  symbol: string;
-  name?: string;
-  logo: string;
-  chainLogo?: string;
-  label?: string;
-  select_symbol?: string;
-};
 
 @Component({
   inheritAttrs: false,
@@ -25,19 +15,15 @@ class FAssetAmountInput extends Vue {
   @Model("input") value!: string;
 
   @PropSync("asset")
-  bindAsset!: AssetItem | null;
+  bindAsset!: Uikit.MixinAsset | null;
 
   @Prop({ default: true }) selectable!: boolean;
 
-  @Prop({ type: Array, default: () => [] }) assets!: AssetItem[];
+  @Prop({ type: Array, default: () => [] }) assets!: Uikit.MixinAsset[];
 
   filter = "";
 
-  handleSelectAsset(asset: AssetItem) {
-    if (this.bindAsset && this.bindAsset.id === asset.id) {
-      this.bindAsset = null;
-      return;
-    }
+  handleSelectAsset(asset: Uikit.MixinAsset) {
     this.bindAsset = asset;
   }
 
@@ -65,14 +51,20 @@ class FAssetAmountInput extends Vue {
 
     return [
       h(FMixinAssetLogo, { props: { logo, chainLogo, size: 36 } }),
-      h(VLayout, { staticClass: "mx-2 font-weight-bold d-flex align-center" }, [
-        h("div", { staticClass: "font-weight-bold" }, [displaySymbol]),
-        h(
-          "div",
-          { staticClass: "text--secondary caption", show: Boolean(label) },
-          [label],
-        ),
-      ]),
+      h(
+        VLayout,
+        {
+          staticClass: "mx-2 font-weight-bold d-flex flex-column align-center",
+        },
+        [
+          h("div", { staticClass: "font-weight-bold" }, [displaySymbol]),
+          h(
+            "div",
+            { staticClass: "text--secondary caption", show: Boolean(label) },
+            [label],
+          ),
+        ],
+      ),
       h(
         VBtn,
         {

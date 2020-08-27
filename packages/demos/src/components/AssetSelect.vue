@@ -1,20 +1,5 @@
 <template>
-  <v-row>
-    <v-col cols="12">
-      <f-asset-amount-input
-        v-model="value"
-        label="what kind of asset do you want"
-        :assets="assets"
-        :selectable="selectable"
-        :asset.sync="asset"
-        :precision="precision"
-      ></f-asset-amount-input>
-    </v-col>
-    <v-col cols="12">
-      {{ value }}
-      <br />
-    </v-col>
-  </v-row>
+  <f-asset-select v-model="asset" :assets="assets"></f-asset-select>
 </template>
 
 <script lang="ts">
@@ -22,14 +7,8 @@ import { Component, Vue } from "vue-property-decorator";
 import assets from "@/assets/assets.json";
 
 @Component
-class AssetAmountInput extends Vue {
-  value = "";
-
+class AssetSelect extends Vue {
   asset = null;
-
-  selectable = true;
-
-  precision = 2;
 
   get assets() {
     return assets.map((asset) => {
@@ -45,5 +24,5 @@ class AssetAmountInput extends Vue {
     });
   }
 }
-export default AssetAmountInput;
+export default AssetSelect;
 </script>

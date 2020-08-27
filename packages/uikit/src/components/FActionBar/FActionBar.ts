@@ -4,24 +4,17 @@ import { CreateElement, VNode } from "vue";
 import FPanel from "../FPanel";
 import { VBtn, VIcon } from "vuetify/lib";
 
-export interface ActionButton {
-  size: string;
-  color: string;
-  text: string;
-  icon: string;
-}
-
 @Component
 class FActionBar extends Vue {
-  @Prop() actions!: ActionButton[];
+  @Prop() actions!: Uikit.ActionButton[];
 
   @Prop({ type: Boolean, default: false }) fixed!: boolean;
 
-  handleClick(btn: ActionButton) {
+  handleClick(btn: Uikit.ActionButton) {
     this.$emit("click", btn);
   }
 
-  genAction(action: ActionButton) {
+  genAction(action: Uikit.ActionButton) {
     const h = this.$createElement;
     const btn = h(VBtn, { props: { icon: true } }, [
       h(VIcon, { props: { size: action.size, color: action.color } }, [

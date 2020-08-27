@@ -22,7 +22,7 @@ class FAppBottomNav extends Vue {
   @Prop() items!: NavItem[];
 
   handleNavClick(nav: NavItem) {
-    this.$emit("change", nav.value);
+    this.$emit("change", nav);
   }
 
   genDot(nav: NavItem): VNode | null {
@@ -57,7 +57,9 @@ class FAppBottomNav extends Vue {
       on: { click: () => this.handleNavClick(nav) },
     };
 
-    const icon = h(VIcon, { class: "mb-1", props: { size: "22" } }, [nav.icon]);
+    const icon = h(VIcon, { class: "mb-1", props: { size: "22", active } }, [
+      nav.icon,
+    ]);
 
     return h(VBtn, data, [nav.text, icon, this.genDot(nav)]);
   }

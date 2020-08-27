@@ -5,7 +5,9 @@ import "./FPanel.scss";
 import { VSheet } from "vuetify/lib";
 import { Prop, Component } from "vue-property-decorator";
 
-@Component
+@Component({
+  inheritAttrs: false,
+})
 class FPanel extends Vue {
   name = "FPanel";
 

@@ -87,8 +87,11 @@ class FPhoneInput extends Vue {
       h(
         VListItem,
         {
-          staticClass: "pa-0",
-          props: { value: item.code },
+          props: {
+            value: item.code,
+            "input-value": this.bindCode === item.code,
+            "active-class": "primary--text",
+          },
           on: { click: () => this.handleSelect(item.code) },
         },
         [

@@ -10,13 +10,14 @@ import {
   VListItemSubtitle,
   VVirtualScroll,
 } from "vuetify/lib";
-import { AssetItem } from "./FAssetAmountInput";
 
-@Component
+@Component({
+  inheritAttrs: false,
+})
 class FAssetsSheet extends Vue {
-  @Prop() assets!: AssetItem[];
+  @Prop({ type: Array, default: () => [] }) assets!: Uikit.MixinAsset[];
 
-  @Prop() asset!: AssetItem;
+  @Prop() asset!: Uikit.MixinAsset | null;
 
   filter = "";
 
@@ -24,35 +25,42 @@ class FAssetsSheet extends Vue {
 
   get filterAssets() {
     return this.assets.filter((asset) => {
-      const name = (asset.name || "").toLowerCase();
+      const name = (asset?.name || "").toLowerCase();
       const filter = this.filter.toLowerCase();
       return name.includes(filter);
     });
   }
 
   handleSelect(asset) {
-    this.$emit("select", asset);
+    if (this.asset && this.asset.id === asset.id) {
+      this.$emit("select", null);
+    } else {
+      this.$emit("select", asset);
+    }
     this.sheet = false;
   }
 
-  genAssetItem(asset: AssetItem) {
+  genAssetItem(asset: Uikit.MixinAsset) {
     const h = this.$createElement;
 
-    const { logo, chainLogo, name, select_symbol, symbol } = asset;
-    const displaySymbol = select_symbol || symbol;
+    const { logo, chainLogo, name, select_symbol, symbol, id } = asset;
+    const isActive = this.asset && this.asset.id === id;
 
     return h(
       VListItem,
       {
-        staticClass: "pa-0",
         on: { click: () => this.handleSelect(asset) },
+        props: {
+          "input-value": isActive,
+          "active-class": "primary--text",
+        },
       },
       [
         h("div", { staticClass: "mr-2" }, [
           h(FMixinAssetLogo, { props: { logo, chainLogo, size: 40 } }),
         ]),
         h(VListItemContent, [
-          h(VListItemTitle, [displaySymbol]),
+          h(VListItemTitle, [select_symbol || symbol]),
           h(VListItemSubtitle, [name]),
         ]),
       ],

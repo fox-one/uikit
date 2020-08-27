@@ -3,7 +3,9 @@ import { CreateElement, VNode } from "vue/types/umd";
 import { VTextField } from "vuetify/lib";
 import { toPrecision } from "../../utils/helper";
 
-@Component
+@Component({
+  inheritAttrs: false,
+})
 class FNumberInput extends Vue {
   @Model("input", { default: "" }) value!: string;
 

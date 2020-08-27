@@ -492,6 +492,7 @@
   {
     "asset_id": "4d8c508b-91c5-375b-92b0-ee702ed2dac5",
     "provider": "mixin",
+    "label": "ERC20",
     "chain_id": "43d61dcd-e413-450d-80b8-101d5e903357",
     "symbol": "USDT",
     "name": "Tether USD",

@@ -3,7 +3,9 @@ import { Vue, Component, Model } from "vue-property-decorator";
 import { CreateElement, VNode } from "vue/types/umd";
 import { VBottomSheet, VCard, VCardTitle, VCardText } from "vuetify/lib";
 
-@Component
+@Component({
+  inheritAttrs: false,
+})
 class FBottomSheet extends Vue {
   @Model("change") value!: boolean;
 
@@ -41,7 +43,7 @@ class FBottomSheet extends Vue {
             h(VCardText, this.$slots.subheader),
             h(
               VCardText,
-              { staticClass: "f-bottom-sheet__body" },
+              { staticClass: "f-bottom-sheet__body px-0" },
               this.$slots.default,
             ),
           ],
