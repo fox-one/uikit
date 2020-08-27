@@ -10,3 +10,5 @@ export * from "./FToast";
 export * from "./FPhoneInput";
 export * from "./FMixinAssetLogo";
 export * from "./FAssetAmountInput";
+export * from "./FNumberInput";
+export * from "./FTip";

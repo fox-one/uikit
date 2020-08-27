@@ -3,7 +3,12 @@
     <v-app>
       <document-appBar />
       <document-view />
-      <f-toast v-bind="toast" @change="(val) => setToast({ show: val })" />
+      <f-toast
+        v-bind="toast"
+        :top="60"
+        :timeout="2000"
+        @change="(val) => setToast({ show: val })"
+      />
     </v-app>
   </v-fade-transition>
 </template>

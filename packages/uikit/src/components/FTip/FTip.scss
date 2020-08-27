@@ -1,0 +1,57 @@
+.f-tip {
+  padding: 12px;
+  font-size: 14px;
+  border: 1px solid;
+
+  &--info {
+    border-color: #4ab3ff;
+    color: #0049b6;
+    background: #e6f4ff;
+  }
+
+  &--warning {
+    border-color: #ffc24a;
+    color: #b67800;
+    background: #fff6e6;
+  }
+
+  &--error {
+    border-color: #ff4a4a;
+    color: #b61600;
+    background: #ffe6e6;
+  }
+
+  &--text {
+    border-color: #c7c7c7;
+    color: #848484;
+    background: #f7f7f7;
+  }
+}
+
+.theme--dark {
+  .f-tip {
+    &--info {
+      border-color: #305b79;
+      color: #79a4e4;
+      background: #263037;
+    }
+
+    &--warning {
+      border-color: #73664e;
+      color: #d4be92;
+      background: #3f3626;
+    }
+
+    &--error {
+      border-color: #695858;
+      color: #f46551;
+      background: #351f1f;
+    }
+
+    &--text {
+      border-color: #191c1f;
+      color: #6f767c;
+      background: #121416;
+    }
+  }
+}
