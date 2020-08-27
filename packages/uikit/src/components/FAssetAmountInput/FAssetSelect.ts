@@ -5,18 +5,19 @@ import { CreateElement, VNode } from "vue/types/umd";
 import { VSheet, VFlex, VBtn, VIcon, VLayout } from "vuetify/lib";
 import { mdiChevronRight } from "@mdi/js";
 import FMixinAssetLogo from "../FMixinAssetLogo";
+import { MixinAsset } from "./types";
 
 @Component
 class FAssetSelect extends Vue {
-  @Model("input") value!: Uikit.MixinAsset | null;
+  @Model("input") value!: MixinAsset | null;
 
-  @Prop({ type: Array, default: () => [] }) assets!: Uikit.MixinAsset[];
+  @Prop({ type: Array, default: () => [] }) assets!: MixinAsset[];
 
   @Prop({ type: String, default: "" }) label!: string;
 
   @Prop({ default: false }) border!: boolean;
 
-  handleSelectAsset(asset: Uikit.MixinAsset) {
+  handleSelectAsset(asset: MixinAsset) {
     this.$emit("input", asset);
   }
 

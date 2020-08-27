@@ -10,14 +10,15 @@ import {
   VListItemSubtitle,
   VVirtualScroll,
 } from "vuetify/lib";
+import { MixinAsset } from "./types";
 
 @Component({
   inheritAttrs: false,
 })
 class FAssetsSheet extends Vue {
-  @Prop({ type: Array, default: () => [] }) assets!: Uikit.MixinAsset[];
+  @Prop({ type: Array, default: () => [] }) assets!: MixinAsset[];
 
-  @Prop() asset!: Uikit.MixinAsset | null;
+  @Prop() asset!: MixinAsset | null;
 
   filter = "";
 
@@ -40,7 +41,7 @@ class FAssetsSheet extends Vue {
     this.sheet = false;
   }
 
-  genAssetItem(asset: Uikit.MixinAsset) {
+  genAssetItem(asset: MixinAsset) {
     const h = this.$createElement;
 
     const { logo, chainLogo, name, select_symbol, symbol, id } = asset;

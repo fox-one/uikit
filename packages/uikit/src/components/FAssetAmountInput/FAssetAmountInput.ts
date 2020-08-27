@@ -7,6 +7,7 @@ import FMixinAssetLogo from "../FMixinAssetLogo";
 import FAssetsSheet from "./FAssetsSheet";
 import { VLayout, VBtn, VIcon } from "vuetify/lib";
 import { mdiChevronDown } from "@mdi/js";
+import { MixinAsset } from "./types";
 
 @Component({
   inheritAttrs: false,
@@ -15,17 +16,17 @@ class FAssetAmountInput extends Vue {
   @Model("input") value!: string;
 
   @PropSync("asset")
-  bindAsset!: Uikit.MixinAsset | null;
+  bindAsset!: MixinAsset | null;
 
   @Prop({ default: true }) selectable!: boolean;
 
   @Prop({ default: false }) border!: boolean;
 
-  @Prop({ type: Array, default: () => [] }) assets!: Uikit.MixinAsset[];
+  @Prop({ type: Array, default: () => [] }) assets!: MixinAsset[];
 
   filter = "";
 
-  handleSelectAsset(asset: Uikit.MixinAsset) {
+  handleSelectAsset(asset: MixinAsset) {
     this.bindAsset = asset;
   }
 
