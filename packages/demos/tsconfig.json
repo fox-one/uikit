@@ -24,7 +24,8 @@
     "src/**/*.tsx",
     "src/**/*.vue",
     "tests/**/*.ts",
-    "tests/**/*.tsx"
+    "tests/**/*.tsx",
+    "../uikit/types/**/*.ts"
   ],
   "exclude": ["node_modules"]
 }
