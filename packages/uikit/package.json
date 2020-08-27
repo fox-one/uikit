@@ -4,8 +4,10 @@
   "description": "",
   "main": "src/index.ts",
   "files": [
-    "src/"
+    "src/",
+    "types/"
   ],
+  "types": "types",
   "publishConfig": {
     "access": "public"
   },
