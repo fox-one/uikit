@@ -30,3 +30,9 @@
     align-self: center;
   }
 }
+
+.theme--dark {
+  .f-asset-selector {
+    border: 1px solid #34393e;
+  }
+}

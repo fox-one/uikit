@@ -40,6 +40,13 @@
   }
 }
 
-.theme--dark .f-asset-amount-input__activator {
-  background-color: #6f767c;
+.theme--dark {
+  .f-asset-amount-input {
+    box-shadow: none;
+    border: 1px solid #34393e;
+  }
+
+  .f-asset-amount-input__activator {
+    background-color: #6f767c;
+  }
 }
