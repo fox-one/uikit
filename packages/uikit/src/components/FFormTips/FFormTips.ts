@@ -26,7 +26,7 @@ class FFormTips extends Vue {
     );
     return {
       items: this.showAll ? tips : tips.slice(0, this.max),
-      isMoreBtnVisible: !this.showAll && tips.length > this.max,
+      isActionVisible: tips.length > this.max,
     };
   }
 
@@ -41,7 +41,7 @@ class FFormTips extends Vue {
     return h(
       VLayout,
       {
-        show: this.meta.isMoreBtnVisible,
+        show: this.meta.isActionVisible,
         staticClass: "f-form-tips__item f-form-tips__item--more",
         on: {
           click: () => (this.showAll = !this.showAll),
