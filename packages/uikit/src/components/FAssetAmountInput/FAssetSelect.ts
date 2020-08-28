@@ -15,7 +15,7 @@ class FAssetSelect extends Vue {
 
   @Prop({ type: String, default: "" }) label!: string;
 
-  @Prop({ default: false }) border!: boolean;
+  @Prop({ type: Boolean, default: false }) border!: boolean;
 
   handleSelectAsset(asset: MixinAsset) {
     this.$emit("input", asset);
