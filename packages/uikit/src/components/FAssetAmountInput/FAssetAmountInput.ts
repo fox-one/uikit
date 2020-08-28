@@ -18,9 +18,9 @@ class FAssetAmountInput extends Vue {
   @PropSync("asset")
   bindAsset!: MixinAsset | null;
 
-  @Prop({ default: true }) selectable!: boolean;
+  @Prop({ type: Boolean, default: true }) selectable!: boolean;
 
-  @Prop({ default: false }) border!: boolean;
+  @Prop({ type: Boolean, default: false }) border!: boolean;
 
   @Prop({ type: Array, default: () => [] }) assets!: MixinAsset[];
 
