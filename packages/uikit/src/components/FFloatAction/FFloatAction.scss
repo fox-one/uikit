@@ -1,0 +1,14 @@
+.f-float-action {
+  position: fixed;
+  background-color: #fff;
+  z-index: 100;
+  right: 0;
+  width: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  border-top-left-radius: 100px;
+  border-bottom-left-radius: 100px;
+  box-shadow: 0px 2px 30px rgba(0, 0, 0, 0.15) !important;
+}

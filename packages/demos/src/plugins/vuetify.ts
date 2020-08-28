@@ -19,6 +19,9 @@ export default function(store) {
     icons: {},
     theme: {
       dark: isDark,
+      options: {
+        customProperties: true,
+      },
     },
     lang: {
       locales: {

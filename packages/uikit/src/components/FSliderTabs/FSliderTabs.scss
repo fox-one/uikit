@@ -1,0 +1,16 @@
+.f-slider-tabs {
+  &__slider {
+    position: absolute;
+    transition: left 0.2s ease, width 0.2s ease;
+    width: 20px;
+    height: 4px;
+    border-radius: 2px;
+    bottom: 0;
+  }
+
+  .v-slide-group__next,
+  .v-slide-group__prev {
+    min-width: 32px;
+    flex: 0 1 32px;
+  }
+}

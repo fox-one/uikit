@@ -11,6 +11,7 @@ import {
   VVirtualScroll,
 } from "vuetify/lib";
 import { MixinAsset } from "./types";
+import { $t } from "../../utils/helper";
 
 @Component({
   inheritAttrs: false,
@@ -82,7 +83,6 @@ class FAssetsSheet extends Vue {
 
   render(h: CreateElement): VNode {
     const activator = this.$scopedSlots.activator;
-    const $t = (key: string) => this.$vuetify.lang.t("$vuetify.uikit." + key);
 
     const filter = h(VTextField, {
       props: {
@@ -90,7 +90,7 @@ class FAssetsSheet extends Vue {
         "hide-details": true,
         "single-line": true,
         clearable: true,
-        label: $t("search"),
+        label: $t(this, "search"),
       },
       slot: "subheader",
       on: { input: (val) => (this.filter = val) },
@@ -112,7 +112,7 @@ class FAssetsSheet extends Vue {
         },
       },
       [
-        h("div", { slot: "title" }, [$t("select_asset")]),
+        h("div", { slot: "title" }, [$t(this, "select_asset")]),
         filter,
         this.genList(),
       ],

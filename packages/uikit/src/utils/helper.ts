@@ -9,3 +9,5 @@ export function toPrecision(n: string | number, p: number) {
     return n;
   }
 }
+export const $t = (vm, key: string) =>
+  vm.$vuetify.lang.t("$vuetify.uikit." + key);

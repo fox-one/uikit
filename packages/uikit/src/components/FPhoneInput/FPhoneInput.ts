@@ -4,6 +4,7 @@ import { CreateElement, VNode } from "vue/types/umd";
 import FBottomSheet from "../FBottomSheet";
 import { VTextField, VList, VListItem, VListItemTitle } from "vuetify/lib";
 import countryCodes from "../../assets/country-code.json";
+import { $t } from "../../utils/helper";
 
 const countries = Object.keys(countryCodes).map((k) => ({
   name: countryCodes[k].name,
@@ -66,12 +67,11 @@ class FPhoneInput extends Vue {
 
   genSearch() {
     const h = this.$createElement;
-    const $t = (key: string) => this.$vuetify.lang.t("$vuetify.uikit." + key);
 
     return h(VTextField, {
       props: {
         value: this.filter,
-        placeholder: $t("search"),
+        placeholder: $t(this, "search"),
         "hide-details": true,
         "single-line": true,
       },
@@ -107,8 +107,6 @@ class FPhoneInput extends Vue {
   }
 
   render(h: CreateElement): VNode {
-    const $t = (key: string) => this.$vuetify.lang.t("$vuetify.uikit." + key);
-
     return h(
       FBottomSheet,
       {
@@ -125,7 +123,7 @@ class FPhoneInput extends Vue {
         },
       },
       [
-        h("div", { slot: "title" }, $t("select_phone_code")),
+        h("div", { slot: "title" }, $t(this, "select_phone_code")),
         this.genSearch(),
         this.genCountryList(),
       ],

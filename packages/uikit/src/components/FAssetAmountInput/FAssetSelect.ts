@@ -6,6 +6,7 @@ import { VSheet, VFlex, VBtn, VIcon, VLayout } from "vuetify/lib";
 import { mdiChevronRight } from "@mdi/js";
 import FMixinAssetLogo from "../FMixinAssetLogo";
 import { MixinAsset } from "./types";
+import { $t } from "../../utils/helper";
 
 @Component
 class FAssetSelect extends Vue {
@@ -47,15 +48,13 @@ class FAssetSelect extends Vue {
   genActivator({ on }) {
     const h = this.$createElement;
 
-    const $t = (key: string) => this.$vuetify.lang.t("$vuetify.uikit." + key);
-
     const label = h(
       "div",
       {
         staticClass: "f-asset-selector__label text--secondary",
         class: [this.value && "f-asset-selector__label--active"],
       },
-      [this.label || $t("select_asset")],
+      [this.label || $t(this, "select_asset")],
     );
 
     const arrow = h(

@@ -5,7 +5,7 @@
       <document-view />
       <f-toast
         v-bind="toast"
-        :top="60"
+        top
         :timeout="2000"
         @change="(val) => setToast({ show: val })"
       />

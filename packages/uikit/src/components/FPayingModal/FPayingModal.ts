@@ -3,6 +3,7 @@ import { Component, Vue, Prop } from "vue-property-decorator";
 import { CreateElement } from "vue";
 import { VNode } from "vue";
 import { VOverlay, VBtn } from "vuetify/lib";
+import { $t } from "../../utils/helper";
 
 @Component
 class FPayingModal extends Vue {
@@ -21,6 +22,7 @@ class FPayingModal extends Vue {
 
   genActions() {
     const h = this.$createElement;
+
     const actions = [
       h(
         VBtn,
@@ -34,7 +36,7 @@ class FPayingModal extends Vue {
             click: (e) => this.$emit("cancel", e),
           },
         },
-        ["cancel"],
+        [$t(this, "cancel")],
       ),
     ];
     return h("div", { staticClass: "f-payment--actions" }, [actions]);
@@ -43,7 +45,10 @@ class FPayingModal extends Vue {
   render(h: CreateElement): VNode {
     return h(
       VOverlay,
-      { staticClass: "f-payment-loading", props: { value: this.show } },
+      {
+        staticClass: "f-payment-loading",
+        props: { value: this.show, opacity: 0.8 },
+      },
       [
         this.genSpinner(),
         h("div", { staticClass: "f-payment--hint subtitle-2 my-5" }, [

@@ -12,3 +12,6 @@ export * from "./FMixinAssetLogo";
 export * from "./FAssetAmountInput";
 export * from "./FNumberInput";
 export * from "./FTip";
+export * from "./FFloatAction";
+export * from "./FFormTips";
+export * from "./FSliderTabs";
