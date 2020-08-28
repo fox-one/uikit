@@ -8,6 +8,10 @@
 
 [Here](http://foxone-uikit-demos.s3-website-us-east-1.amazonaws.com/) is components demos.
 
+## Figma files
+
+[Here](https://www.figma.com/file/LyLtRYpUtY5BjlndvCkmNB/UIKit-Components?node-id=0%3A1) is a Figma file.
+
 ## Get start
 
 * You can create project with [vue-cli](https://cli.vuejs.org/zh/guide/)  or [nuxt](https://nuxtjs.org/) .
