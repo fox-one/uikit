@@ -37,11 +37,11 @@ class FFormTips extends Vue {
 
   genActionBtn() {
     const h = this.$createElement;
+    if (!this.meta.isActionVisible) return null;
 
     return h(
       VLayout,
       {
-        show: this.meta.isActionVisible,
         staticClass: "f-form-tips__item f-form-tips__item--more",
         on: {
           click: () => (this.showAll = !this.showAll),
