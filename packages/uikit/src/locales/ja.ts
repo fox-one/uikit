@@ -5,5 +5,6 @@ export default {
     select_phone_code: "市外局番を選択してください",
     cancel: "キャンセル",
     more: "もっと",
+    fold: "片付ける",
   },
 };

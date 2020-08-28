@@ -67,14 +67,6 @@
     }
   }
 
-  &__icon--less {
-    &::after {
-      border-radius: 0px;
-      width: 7px;
-      height: 2px;
-    }
-  }
-
   &__text {
     margin-left: 24px;
     color: var(--text-color);

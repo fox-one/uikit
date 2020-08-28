@@ -5,5 +5,6 @@ export default {
     select_phone_code: "Select phone code",
     cancel: "Cancel",
     more: "More",
+    fold: "Fold",
   },
 };

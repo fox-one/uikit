@@ -5,5 +5,6 @@ export default {
     select_phone_code: "选择地区号码",
     cancel: "取消",
     more: "更多",
+    fold: "收起",
   },
 };
