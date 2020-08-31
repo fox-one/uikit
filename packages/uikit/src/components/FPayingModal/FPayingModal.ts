@@ -51,9 +51,11 @@ class FPayingModal extends Vue {
       },
       [
         this.genSpinner(),
-        h("div", { staticClass: "f-payment--hint subtitle-2 my-5" }, [
-          this.text,
-        ]),
+        h(
+          "div",
+          { staticClass: "f-payment--hint text-center subtitle-2 my-5" },
+          [this.text],
+        ),
         this.genActions(),
       ],
     );

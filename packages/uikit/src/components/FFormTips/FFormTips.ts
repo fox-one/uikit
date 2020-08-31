@@ -62,7 +62,7 @@ class FFormTips extends Vue {
 
   genTips() {
     const h = this.$createElement;
-    const items = this.meta.items.map((tip, index) => {
+    const items = this.meta.items.map((tip) => {
       return h(
         VLayout,
         {
