@@ -8,6 +8,7 @@
         :selectable="selectable"
         :asset.sync="asset"
         :precision="precision"
+        border
       ></f-asset-amount-input>
     </v-col>
     <v-col cols="12">

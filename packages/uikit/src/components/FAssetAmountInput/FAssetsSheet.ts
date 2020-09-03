@@ -28,8 +28,9 @@ class FAssetsSheet extends Vue {
   get filterAssets() {
     return this.assets.filter((asset) => {
       const name = (asset?.name || "").toLowerCase();
+      const symbol = (asset?.symbol || "").toLowerCase();
       const filter = this.filter.toLowerCase();
-      return name.includes(filter);
+      return name.includes(filter) || symbol.includes(filter);
     });
   }
 
