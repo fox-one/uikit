@@ -1,7 +1,6 @@
 #  @foxone/uikit
 
-基于 vue、vuetify、typecript 的 MixinNetwork 内部常用的组件的封装。
-
+An UIkit based on Vue & Vuetify, mainly writing in typecript, includes some useful components widely used in bots for Mixin Network.
 
 
 ## Demos
