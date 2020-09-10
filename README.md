@@ -1,6 +1,7 @@
 # @foxone/uikit
 
-基于 vue、vuetify、typecript 的 MixinNetwork 内部常用的组件的封装。
+An UIkit based on Vue & Vuetify, mainly writing in typecript, includes some useful components widely used in bots for Mixin Network.
+
 
 ## Demos
 
@@ -10,7 +11,13 @@
 
 [Here](https://www.figma.com/file/LyLtRYpUtY5BjlndvCkmNB/UIKit-Components?node-id=0%3A1) is a Figma file.
 
-## Get start
+## Getting started
+
+### 1. Using [nuxt_ts_template](https://github.com/fox-one/nuxt_ts_template/)
+
+Latest [nuxt_ts_template](https://github.com/fox-one/nuxt_ts_template/) includes UIKit by default. Enjoy.
+
+### 2. Add UIkit to existed projects
 
 - You can create project with [vue-cli](https://cli.vuejs.org/zh/guide/) or [nuxt](https://nuxtjs.org/) .
 
