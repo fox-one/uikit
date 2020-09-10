@@ -3,7 +3,6 @@
     :title="appbar.title"
     :show="appbar.show"
     :back="appbar.back"
-    color="transparent"
     @back="handleBack"
   >
     <v-spacer />

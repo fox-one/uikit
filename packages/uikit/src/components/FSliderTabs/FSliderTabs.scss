@@ -13,4 +13,8 @@
     min-width: 32px;
     flex: 0 1 32px;
   }
+
+  .v-tab:before {
+    display: none;
+  }
 }

@@ -3,6 +3,7 @@
   padding-bottom: env(safe-area-inset-bottom) !important;
   height: calc(64px + constant(safe-area-inset-bottom)) !important;
   height: calc(64px + env(safe-area-inset-bottom)) !important;
+  color: red;
 
   &__btn {
     height: 64px !important;
@@ -33,6 +34,10 @@
     height: 12px;
     border-radius: 6px;
     background: linear-gradient(180deg, #0596ff 0%, #1fa0fe 100%);
+  }
+
+  .v-btn {
+    min-width: 60px !important;
   }
 }
 

@@ -11,6 +11,7 @@ import {
   VVirtualScroll,
 } from "vuetify/lib";
 import { MixinAsset } from "./types";
+import { mdiClose } from "@mdi/js";
 import { $t } from "../../utils/helper";
 
 @Component({
@@ -21,7 +22,7 @@ class FAssetsSheet extends Vue {
 
   @Prop() asset!: MixinAsset | null;
 
-  filter = "";
+  filter: string | null = "";
 
   sheet = false;
 
@@ -29,7 +30,7 @@ class FAssetsSheet extends Vue {
     return this.assets.filter((asset) => {
       const name = (asset?.name || "").toLowerCase();
       const symbol = (asset?.symbol || "").toLowerCase();
-      const filter = this.filter.toLowerCase();
+      const filter = this.filter?.toLowerCase() ?? "";
       return name.includes(filter) || symbol.includes(filter);
     });
   }
@@ -88,9 +89,10 @@ class FAssetsSheet extends Vue {
     const filter = h(VTextField, {
       props: {
         value: this.filter,
-        "hide-details": true,
-        "single-line": true,
+        hideDetails: true,
+        singleLine: true,
         clearable: true,
+        clearIcon: mdiClose,
         label: $t(this, "search"),
       },
       slot: "subheader",

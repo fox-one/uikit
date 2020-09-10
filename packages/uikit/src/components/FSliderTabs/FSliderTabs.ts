@@ -1,11 +1,14 @@
 import "./FSliderTabs.scss";
-import { Component, Vue, Watch, Model } from "vue-property-decorator";
+import { Component, Vue, Watch, Model, Prop } from "vue-property-decorator";
 import { CreateElement, VNode } from "vue/types/umd";
 import { VTabs } from "vuetify/lib";
 
 @Component
 class FSliderTabs extends Vue {
   @Model("change") value!: number;
+
+  @Prop({ type: Number, default: undefined })
+  maxSliderWidth!: number | undefined;
 
   mounted() {
     this.setSliderPosition();
@@ -32,7 +35,10 @@ class FSliderTabs extends Vue {
       }
       const left = activeTab.offsetLeft;
       const width = activeTab.clientWidth;
-      const sliderWidth = width * 0.4;
+      let sliderWidth = width * 0.4;
+      if (this.maxSliderWidth) {
+        sliderWidth = Math.min(sliderWidth, this.maxSliderWidth);
+      }
       const sliderLeft = (left + (width - sliderWidth) / 2).toFixed();
       slider.style.left = `${sliderLeft}px`;
       slider.style.width = `${sliderWidth}px`;
