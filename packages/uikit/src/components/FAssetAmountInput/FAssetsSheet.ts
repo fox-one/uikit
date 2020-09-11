@@ -1,7 +1,6 @@
 import { Component, Vue, Prop } from "vue-property-decorator";
 import { CreateElement, VNode } from "vue/types/umd";
 import FMixinAssetLogo from "../FMixinAssetLogo";
-import FBottomSheet from "../FBottomSheet";
 import {
   VTextField,
   VListItem,
@@ -24,14 +23,12 @@ class FAssetsSheet extends Vue {
 
   filter: string | null = "";
 
-  sheet = false;
-
   get filterAssets() {
+    const filter = this.filter?.toLowerCase() ?? "";
     return this.assets.filter((asset) => {
       const name = (asset?.name || "").toLowerCase();
       const symbol = (asset?.symbol || "").toLowerCase();
-      const filter = this.filter?.toLowerCase() ?? "";
-      return name.includes(filter) || symbol.includes(filter);
+      return name.startsWith(filter) || symbol.includes(filter);
     });
   }
 
@@ -41,7 +38,6 @@ class FAssetsSheet extends Vue {
     } else {
       this.$emit("select", asset);
     }
-    this.sheet = false;
   }
 
   genAssetItem(asset: MixinAsset) {
@@ -84,9 +80,8 @@ class FAssetsSheet extends Vue {
   }
 
   render(h: CreateElement): VNode {
-    const activator = this.$scopedSlots.activator;
-
     const filter = h(VTextField, {
+      staticClass: "mb-3 px-3",
       props: {
         value: this.filter,
         hideDetails: true,
@@ -99,27 +94,7 @@ class FAssetsSheet extends Vue {
       on: { input: (val) => (this.filter = val) },
     });
 
-    return h(
-      FBottomSheet,
-      {
-        props: {
-          value: this.sheet,
-        },
-        on: {
-          change: (val) => (this.sheet = val),
-        },
-        scopedSlots: {
-          activator: ({ on }) => {
-            return (activator && activator({ on })) || null;
-          },
-        },
-      },
-      [
-        h("div", { slot: "title" }, [$t(this, "select_asset")]),
-        filter,
-        this.genList(),
-      ],
-    );
+    return h("div", { staticClass: "px-3" }, [filter, this.genList()]);
   }
 }
 

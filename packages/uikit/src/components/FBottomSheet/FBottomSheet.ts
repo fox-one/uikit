@@ -9,6 +9,24 @@ import { VBottomSheet, VCard, VCardTitle, VCardText } from "vuetify/lib";
 class FBottomSheet extends Vue {
   @Model("change") value!: boolean;
 
+  genTitle() {
+    if (!this.$slots.title) return null;
+    return this.$createElement(
+      VCardTitle,
+      { staticClass: "f-bottom-sheet__title subtitle-1" },
+      this.$slots.title,
+    );
+  }
+
+  genSubheader() {
+    if (!this.$slots.subheader) return null;
+    return this.$createElement(
+      VCardText,
+      { staticClass: "px-3" },
+      this.$slots.subheader,
+    );
+  }
+
   render(h: CreateElement): VNode {
     const activator = this.$scopedSlots.activator;
 
@@ -35,12 +53,8 @@ class FBottomSheet extends Vue {
             props: { elevation: 0 },
           },
           [
-            h(
-              VCardTitle,
-              { staticClass: "f-bottom-sheet__title subtitle-1" },
-              this.$slots.title,
-            ),
-            h(VCardText, this.$slots.subheader),
+            this.genTitle(),
+            this.genSubheader(),
             h(
               VCardText,
               { staticClass: "f-bottom-sheet__body px-0" },

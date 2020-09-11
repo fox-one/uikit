@@ -1,3 +1,7 @@
 .f-qrcode__canvas {
   border-radius: 5px;
 }
+
+.theme--light .f-qrcode__canvas {
+  border: 1px #e6e6e6 solid;
+}

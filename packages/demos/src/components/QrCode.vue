@@ -18,7 +18,7 @@ import { Component, Vue } from "vue-property-decorator";
 
 @Component
 class QrCode extends Vue {
-  text = "";
+  text = "test";
 }
 export default QrCode;
 </script>

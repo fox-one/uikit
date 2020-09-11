@@ -5,6 +5,7 @@ import { CreateElement, VNode } from "vue/types/umd";
 import { VSheet, VFlex, VBtn, VIcon, VLayout } from "vuetify/lib";
 import { mdiChevronRight } from "@mdi/js";
 import FMixinAssetLogo from "../FMixinAssetLogo";
+import FBottomSheet from "../FBottomSheet";
 import { MixinAsset } from "./types";
 import { $t } from "../../utils/helper";
 
@@ -18,8 +19,11 @@ class FAssetSelect extends Vue {
 
   @Prop({ type: Boolean, default: false }) border!: boolean;
 
+  sheet = false;
+
   handleSelectAsset(asset: MixinAsset) {
     this.$emit("input", asset);
+    this.sheet = false;
   }
 
   genAssetInfo() {
@@ -78,20 +82,34 @@ class FAssetSelect extends Vue {
   }
 
   render(h: CreateElement): VNode {
-    return h(FAssetsSheet, {
-      props: {
-        asset: this.value,
-        assets: this.assets,
-      },
-      on: {
-        select: (val) => this.handleSelectAsset(val),
-      },
-      scopedSlots: {
-        activator: ({ on }) => {
-          return this.genActivator({ on });
+    return h(
+      FBottomSheet,
+      {
+        props: {
+          value: this.sheet,
+        },
+        on: {
+          change: (val) => (this.sheet = val),
+        },
+        scopedSlots: {
+          activator: ({ on }) => {
+            return this.genActivator({ on });
+          },
         },
       },
-    });
+      [
+        h("div", { slot: "title" }, [$t(this, "select_asset")]),
+        h(FAssetsSheet, {
+          props: {
+            asset: this.value,
+            assets: this.assets,
+          },
+          on: {
+            select: (val) => this.handleSelectAsset(val),
+          },
+        }),
+      ],
+    );
   }
 }
 

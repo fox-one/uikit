@@ -5,9 +5,11 @@ import FNumberInput from "../FNumberInput";
 import FPanel from "../FPanel";
 import FMixinAssetLogo from "../FMixinAssetLogo";
 import FAssetsSheet from "./FAssetsSheet";
+import FBottomSheet from "../FBottomSheet";
 import { VLayout, VBtn, VIcon } from "vuetify/lib";
 import { mdiChevronDown } from "@mdi/js";
 import { MixinAsset } from "./types";
+import { $t } from "../../utils/helper";
 
 @Component({
   inheritAttrs: false,
@@ -24,10 +26,11 @@ class FAssetAmountInput extends Vue {
 
   @Prop({ type: Array, default: () => [] }) assets!: MixinAsset[];
 
-  filter = "";
+  sheet = false;
 
   handleSelectAsset(asset: MixinAsset) {
     this.bindAsset = asset;
+    this.sheet = false;
   }
 
   handleClear() {
@@ -88,6 +91,31 @@ class FAssetAmountInput extends Vue {
     ];
   }
 
+  genAssetSheet() {
+    const h = this.$createElement;
+
+    const assetSheet = this.$scopedSlots.assets;
+    if (assetSheet) {
+      return assetSheet({
+        asset: this.value,
+        assets: this.assets,
+        on: {
+          select: (val) => this.handleSelectAsset(val),
+        },
+      });
+    }
+
+    return h(FAssetsSheet, {
+      props: {
+        asset: this.value,
+        assets: this.assets,
+      },
+      on: {
+        select: (val) => this.handleSelectAsset(val),
+      },
+    });
+  }
+
   render(h: CreateElement): VNode {
     return h(
       FPanel,
@@ -104,20 +132,26 @@ class FAssetAmountInput extends Vue {
             input: (val) => this.$emit("input", val),
           },
         }),
-        h(FAssetsSheet, {
-          props: {
-            assets: this.assets,
-            asset: this.bindAsset,
-          },
-          on: {
-            select: (asset) => this.handleSelectAsset(asset),
-          },
-          scopedSlots: {
-            activator: ({ on }) => {
-              return this.genActivator({ on });
+        h(
+          FBottomSheet,
+          {
+            props: {
+              value: this.sheet,
+            },
+            on: {
+              change: (val) => (this.sheet = val),
+            },
+            scopedSlots: {
+              activator: ({ on }) => {
+                return this.genActivator({ on });
+              },
             },
           },
-        }),
+          [
+            h("div", { slot: "title" }, [$t(this, "select_asset")]),
+            this.genAssetSheet(),
+          ],
+        ),
       ],
     );
   }
