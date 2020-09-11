@@ -29,6 +29,12 @@
   }
 }
 
+.theme--light {
+  .f-asset-selector {
+    border: 1px solid #e6e6e6;
+  }
+}
+
 .theme--dark {
   .f-asset-selector--border {
     border: 1px solid #34393e;

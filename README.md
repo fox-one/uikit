@@ -34,17 +34,17 @@ Latest [nuxt_ts_template](https://github.com/fox-one/nuxt_ts_template/) includes
   ```typescript
   import Vue from "vue";
   import Vuetify from "vuetify/lib";
-  import Uikit from "@foxone/uikit";
+  import UIkit from "@foxone/uikit";
 
   import zh from "vuetify/es5/locale/zh-Hans";
   import en from "vuetify/es5/locale/en";
   import ja from "vuetify/es5/locale/ja";
-  import enUikit from "@foxone/uikit/src/locales/en";
-  import jaUikit from "@foxone/uikit/src/locales/ja";
-  import zhUikit from "@foxone/uikit/src/locales/zh-Hans";
+  import enUIkit from "@foxone/uikit/src/locales/en";
+  import jaUIkit from "@foxone/uikit/src/locales/ja";
+  import zhUIkit from "@foxone/uikit/src/locales/zh-Hans";
 
   Vue.use(Vuetify);
-  Vue.use(foxoneUI);
+  Vue.use(UIkit);
 
   export default function(store) {
     const isDark = store.state.app?.dark || false;
@@ -58,15 +58,15 @@ Latest [nuxt_ts_template](https://github.com/fox-one/nuxt_ts_template/) includes
         locales: {
           zh: {
             ...zh,
-            ...zhUikit,
+            ...zhUIkit,
           },
           en: {
             ...en,
-            ...enUikit,
+            ...enUIkit,
           },
           ja: {
             ...ja,
-            ...jaUikit,
+            ...jaUIkit,
           },
         },
       },
