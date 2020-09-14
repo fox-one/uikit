@@ -1,9 +1,9 @@
 .f-bottom-sheet {
-  box-shadow: none;
+  box-shadow: none !important;
 
   .f-bottom-sheet__content {
-    border-top-left-radius: 16px;
-    border-top-right-radius: 16px;
+    border-top-left-radius: 16px !important;
+    border-top-right-radius: 16px !important;
   }
 
   .f-bottom-sheet__title {

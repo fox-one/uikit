@@ -10,7 +10,12 @@
           :asset.sync="asset"
           :precision="precision"
         ></f-asset-amount-input>
-        <f-form-tips :tips="tips" :max="2" balance="121212">
+        <f-form-tips
+          :tips="tips"
+          :max="2"
+          balance="121212"
+          @click:balance="handleClickBalance"
+        >
           <template #action>
             <v-btn outlined rounded small color="primary">
               Swap
@@ -39,7 +44,18 @@ const Balance = Vue.extend({
   name: "Balance",
   props: { balance: { type: String, default: "12.212" } },
   render(h: CreateElement): VNode {
-    return h("div", { staticClass: "balance-component" }, [this.balance]);
+    return h(
+      "div",
+      {
+        staticClass: "balance-component",
+        on: {
+          click: () => {
+            this.$emit("click:balance", this.balance);
+          },
+        },
+      },
+      [this.balance],
+    );
   },
 });
 
@@ -78,21 +94,25 @@ class FormTips extends Vue {
       {
         component: "balance",
       },
-      // {
-      //   text: "手续费：1 BTC",
-      // },
-      // {
-      //   text: "手续费：1.23 BTC",
-      //   hide: true,
-      // },
-      // {
-      //   text: "最小值：100 BTC",
-      // },
-      // {
-      //   text:
-      //     "这是一条很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长",
-      // },
+      {
+        text: "手续费：1 BTC",
+      },
+      {
+        text: "手续费：1.23 BTC",
+        hide: true,
+      },
+      {
+        text: "最小值：100 BTC",
+      },
+      {
+        text:
+          "这是一条很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长",
+      },
     ];
+  }
+
+  handleClickBalance(balance) {
+    this.value = balance;
   }
 }
 export default FormTips;

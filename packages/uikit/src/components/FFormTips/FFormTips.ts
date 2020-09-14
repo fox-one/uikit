@@ -78,7 +78,10 @@ class FFormTips extends Vue {
             },
             [
               tip.component
-                ? h(tip.component, { props: { ...this.$attrs } })
+                ? h(tip.component, {
+                    props: { ...this.$attrs },
+                    on: { ...this.$listeners },
+                  })
                 : tip.text,
             ],
           ),
