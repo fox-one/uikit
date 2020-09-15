@@ -2,7 +2,6 @@
 
 An UIkit based on Vue & Vuetify, mainly writing in typecript, includes some useful components widely used in bots for Mixin Network.
 
-
 ## Demos
 
 [Here](http://foxone-uikit-demos.s3-website-us-east-1.amazonaws.com/) is components demos.
@@ -28,6 +27,8 @@ Latest [nuxt_ts_template](https://github.com/fox-one/nuxt_ts_template/) includes
   [how to enable typescript in nuxt?](https://nuxtjs.org/guide/typescript)
 
 - Add uikit with `yarn add @foxone/uikit` or `npm install @foxone/uikit`.
+
+- UIKit use @mdi/js as icon libary, Add MDIcons support `yarn add @mdi/js -D` or `npm install @mdi/js -dev`
 
 - Use plugin with `Vue.use()`, add i18n support.
 
@@ -73,3 +74,8 @@ Latest [nuxt_ts_template](https://github.com/fox-one/nuxt_ts_template/) includes
     });
   }
   ```
+
+## Attention
+
+- UIKit require Typescript v3.7.0+, Please upgrade if your Typescript lib is not meet the version.
+- BottomNav does not fit properly in iPhoneX ? Check if `viewport-fit=cover` has been added in your html. [(more about fit iPhonex)](https://aotu.io/notes/2017/11/27/iphonex/index.html)
