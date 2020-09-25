@@ -53,6 +53,9 @@ class FSliderTabs extends Vue {
         on: this.$listeners,
         attrs: this.$attrs,
         ref: "tabs",
+        props: {
+          value: this.value,
+        },
       },
       [
         this.$slots.tabs,

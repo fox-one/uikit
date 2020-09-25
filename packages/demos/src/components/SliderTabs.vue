@@ -49,7 +49,7 @@ import { Component, Vue } from "vue-property-decorator";
 class SliderTabs extends Vue {
   index = 0;
 
-  index2 = 0;
+  index2 = 1;
 
   items = [
     {
