@@ -1,10 +1,10 @@
 # @foxone/uikit
 
-An UIkit based on Vue & Vuetify, mainly writing in typecript, includes some useful components widely used in bots for Mixin Network.
+An UIkit based on Vue & Vuetify, mainly written in TypeScript, includes some useful components widely used in bots for Mixin Messenger.
 
 ## Demos
 
-[Here](http://foxone-uikit-demos.s3-website-us-east-1.amazonaws.com/) is components demos.
+[Here](http://foxone-uikit-demos.s3-website-us-east-1.amazonaws.com/) are components demos.
 
 ## Figma files
 
