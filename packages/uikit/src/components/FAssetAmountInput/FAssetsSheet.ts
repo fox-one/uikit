@@ -81,7 +81,7 @@ class FAssetsSheet extends Vue {
 
   render(h: CreateElement): VNode {
     const filter = h(VTextField, {
-      staticClass: "mb-3 px-3",
+      staticClass: "ma-0 pa-3 pt-0",
       props: {
         value: this.filter,
         hideDetails: true,
