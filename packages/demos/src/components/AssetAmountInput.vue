@@ -9,6 +9,7 @@
           :selectable="selectable"
           :asset.sync="asset1"
           :precision="precision"
+          disabled
           border
         >
         </f-asset-amount-input>

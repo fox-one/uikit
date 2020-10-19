@@ -43,13 +43,14 @@ class FPhoneInput extends Vue {
         domProps: { "aria-autocomplete": false },
         props: {
           autofocus: true,
-          placeholder: "phone number",
+          placeholder: $t(this, "phone_number"),
           type: "number",
           value: this.bindPhone,
         },
         on: {
-          update: (val) => (this.bindPhone = val),
+          input: (val) => (this.bindPhone = val),
         },
+        scopedSlots: this.$scopedSlots,
       },
       [
         h(

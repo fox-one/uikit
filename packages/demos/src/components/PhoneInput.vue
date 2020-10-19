@@ -1,7 +1,11 @@
 <template>
   <v-row>
     <v-col>
-      <f-phone-input :code.sync="code" :phone.sync="phone" />
+      <f-phone-input :code.sync="code" :phone.sync="phone">
+        <template #append>
+          adfa
+        </template>
+      </f-phone-input>
     </v-col>
   </v-row>
 </template>
