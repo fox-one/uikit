@@ -33,6 +33,8 @@ jobs:
       - run: yarn build
         working-directory: packages/demos
 
+      - run: cp packages/demos/dist/index.html cp packages/demos/dist/404.html 
+
       - name: Deploy to GitHub Pages
         uses: Cecilapp/GitHub-Pages-deploy@master
         env:
