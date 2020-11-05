@@ -1,5 +1,8 @@
 name: deploy-demos
 
+env:
+  PUBLIC_PATH: uikit
+
 on:
   push:
     branches:
@@ -23,7 +26,7 @@ jobs:
         uses: actions/setup-node@master
         with:
           node-version: 12.14
-      
+
       - run: yarn --frozen-lockfile --non-interactive
         working-directory: packages/demos
 
