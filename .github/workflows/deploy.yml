@@ -19,6 +19,14 @@ jobs:
             **/node_modules
           key: ${{ runner.os }}-${{ hashFiles('./yarn.lock') }}
 
+      - name: Setup node env
+        uses: actions/setup-node@master
+        with:
+          node-version: 12.14
+      
+      - run: yarn --frozen-lockfile --non-interactive
+        working-directory: packages/demos
+
       - run: yarn build
         working-directory: packages/demos
 
