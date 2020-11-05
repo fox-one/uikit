@@ -4,7 +4,7 @@ An UIkit based on Vue & Vuetify, mainly written in TypeScript, includes some use
 
 ## Demos
 
-[Here](http://foxone-uikit-demos.s3-website-us-east-1.amazonaws.com/) are components demos.
+[Here](https://fox-one.github.io/uikit/) are components demos.
 
 ## Figma files
 
