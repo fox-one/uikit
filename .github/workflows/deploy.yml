@@ -2,6 +2,7 @@ name: deploy-demos
 
 env:
   PUBLIC_PATH: ""
+  BASE_URL: uikit
 
 on:
   push:
