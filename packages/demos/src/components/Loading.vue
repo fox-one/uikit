@@ -1,16 +1,25 @@
 <template>
-  <v-row>
-    <v-col>
-      <v-btn rounded block outlined color="primary" @click="handleLoading">
-        Loading
-      </v-btn>
-      <f-loading :fullscreen="true" :loading="loading">
+  <div>
+    <v-row>
+      <v-col>
+        <v-btn rounded block outlined color="primary" @click="handleLoading">
+          Loading
+        </v-btn>
+        <f-loading :fullscreen="true" :loading="loading">
+          <template #text>
+            加载中
+          </template>
+        </f-loading>
+      </v-col>
+    </v-row>
+    <v-row>
+      <f-loading size="18" width="2" :fullscreen="false" :loading="loading">
         <template #text>
           加载中
         </template>
       </f-loading>
-    </v-col>
-  </v-row>
+    </v-row>
+  </div>
 </template>
 
 <script lang="ts">

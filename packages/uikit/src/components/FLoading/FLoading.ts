@@ -18,7 +18,12 @@ class FLoading extends Vue {
     const circular = [
       h("div", { staticClass: "f-loading--wrapper" }, [
         h(VProgressCircular, {
-          props: { width: 3, indeterminate: true, color: this.color },
+          props: {
+            width: 3,
+            indeterminate: true,
+            color: this.color,
+            ...this.$attrs,
+          },
         }),
         h(
           "span",
@@ -27,6 +32,10 @@ class FLoading extends Vue {
         ),
       ]),
     ];
+
+    if (!this.fullscreen) {
+      return h("div", circular);
+    }
 
     return h(
       VOverlay,
