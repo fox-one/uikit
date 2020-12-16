@@ -2,7 +2,12 @@ import "./FPhoneInput.scss";
 import { Component, Vue, PropSync } from "vue-property-decorator";
 import { CreateElement, VNode } from "vue/types/umd";
 import FBottomSheet from "../FBottomSheet";
-import { VTextField, VList, VListItem, VListItemTitle } from "vuetify/lib";
+import {
+  VTextField,
+  VVirtualScroll,
+  VListItem,
+  VListItemTitle,
+} from "vuetify/lib";
 import countryCodes from "../../assets/country-code.json";
 import { $t } from "../../utils/helper";
 
@@ -84,7 +89,7 @@ class FPhoneInput extends Vue {
   genCountryList() {
     const h = this.$createElement;
 
-    const countryItems = this.filterCounties.map((item) =>
+    const genCountryItem = (item) =>
       h(
         VListItem,
         {
@@ -101,10 +106,16 @@ class FPhoneInput extends Vue {
             item.name,
           ]),
         ],
-      ),
-    );
+      );
 
-    return h(VList, [countryItems]);
+    return h(VVirtualScroll, {
+      props: { height: 420, "item-height": 60, items: this.filterCounties },
+      scopedSlots: {
+        default: ({ item }) => {
+          return genCountryItem(item);
+        },
+      },
+    });
   }
 
   render(h: CreateElement): VNode {

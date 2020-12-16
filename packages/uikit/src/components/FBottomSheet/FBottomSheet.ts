@@ -36,11 +36,12 @@ class FBottomSheet extends Vue {
         attrs: this.$attrs,
         props: {
           value: this.value,
+          scrollable: false,
           "content-class": "f-bottom-sheet",
         },
         on: { input: (val) => this.$emit("change", val) },
         scopedSlots: {
-          activator: function ({ on }) {
+          activator: function({ on }) {
             return (activator && activator({ on })) || null;
           },
         },
