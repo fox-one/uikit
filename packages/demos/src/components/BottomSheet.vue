@@ -18,7 +18,7 @@
             single-line
           ></v-text-field>
         </template>
-        <v-list>
+        <v-list height="400">
           <v-list-item v-for="(item, index) in filtedItems" :key="index">
             <v-list-item-icon>
               <v-icon v-if="item.icon" color="pink">mdi-star</v-icon>
