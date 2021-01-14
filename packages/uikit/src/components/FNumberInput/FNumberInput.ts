@@ -11,6 +11,8 @@ class FNumberInput extends Vue {
 
   @Prop() precision!: number;
 
+  @Prop({ default: false }) reverse!: string;
+
   handleSetValue(value) {
     let temp = value;
     if (this.precision !== undefined) {
@@ -28,6 +30,7 @@ class FNumberInput extends Vue {
       props: {
         value: this.value,
         type: "number",
+        reverse: this.reverse,
       },
       attrs: { ...this.$attrs },
       on: {
