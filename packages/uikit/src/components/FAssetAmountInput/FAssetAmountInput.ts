@@ -118,20 +118,12 @@ class FAssetAmountInput extends Vue {
 
   render(h: CreateElement): VNode {
     return h(
-      FPanel,
+      "div",
       {
         staticClass: "f-asset-amount-input",
         class: [this.border && "f-asset-amount-input--border"],
-        props: { padding: "0" },
       },
       [
-        h(FNumberInput, {
-          attrs: { ...this.$attrs, "hide-details": true },
-          props: { value: this.value },
-          on: {
-            input: (val) => this.$emit("input", val),
-          },
-        }),
         h(
           FBottomSheet,
           {
@@ -152,6 +144,13 @@ class FAssetAmountInput extends Vue {
             this.genAssetSheet(),
           ],
         ),
+        h(FNumberInput, {
+          attrs: { ...this.$attrs, "hide-details": true, solo: true },
+          props: { value: this.value, solo: true, reverse: true },
+          on: {
+            input: (val) => this.$emit("input", val),
+          },
+        }),
       ],
     );
   }
