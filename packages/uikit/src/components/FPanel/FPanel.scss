@@ -1,5 +1,5 @@
 .f-panel {
-  border-radius: 20px;
+  border-radius: 10px;
   overflow: hidden;
 
   &.elevation-high {
@@ -11,6 +11,6 @@
   }
 
   &.elevation-none {
-    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: inset 0px 0px 0.5px rgba(0, 0, 0, 0.15);
   }
 }
