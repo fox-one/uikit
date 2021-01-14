@@ -6,7 +6,7 @@
     @back="handleBack"
   >
     <v-spacer />
-    <v-btn icon @click="handleDarkMode">
+    <v-btn icon small @click="handleDarkMode">
       <v-icon>
         {{ icons.mdiBrightness4 }}
       </v-icon>

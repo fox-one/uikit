@@ -1,0 +1,38 @@
+.f_app_bar {
+  padding-right: 0px !important;
+  .v-toolbar__content {
+    padding-right: 10px !important;
+  }
+}
+.f_mixin_ctrl_placeholder {
+  display: block;
+  content: " ";
+  width: 80px;
+  height: 28px;
+  border-radius: 14px;
+  margin: 0 0 0 10px;
+  background: rgba(255, 255, 255, 0.1);
+}
+.f_app_bar_back_btn {
+  margin-left: -2px !important;
+}
+.f_app_bar_title {
+  display: block;
+  position: absolute;
+  left: 42px;
+  right: 42px;
+  font-size: 1rem !important;
+  &.left {
+    text-align: left;
+  }
+  &.left.no-back {
+    left: 10px;
+  }
+  &.center {
+    text-align: center;
+  }
+  &.center.no-back {
+    left: 10px;
+    right: 10px;
+  }
+}
