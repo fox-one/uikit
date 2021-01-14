@@ -1,4 +1,5 @@
-import { VAppBar, VBtn, VIcon, VToolbarTitle } from "vuetify/lib";
+import "./FAppBar.scss";
+import { VAppBar, VBtn, VIcon, VSpacer, VToolbarTitle } from "vuetify/lib";
 import { Component, Vue, Prop } from "vue-property-decorator";
 import { VNode, CreateElement } from "vue";
 import { mdiArrowLeft } from "@mdi/js";
@@ -11,6 +12,8 @@ class FAppBar extends Vue {
 
   @Prop({ type: String, default: "" }) title!: string;
 
+  @Prop({ type: String, default: "left" }) align!: string;
+
   handleBack() {
     this.$emit("back");
   }
@@ -22,6 +25,7 @@ class FAppBar extends Vue {
 
     const h = this.$createElement;
     const data = {
+      staticClass: "f_app_bar_back_btn",
       props: { small: true, icon: true },
       on: { click: this.handleBack },
     };
@@ -34,22 +38,31 @@ class FAppBar extends Vue {
 
     const data = {
       ...this.$attrs,
+      staticClass: `f_app_bar`,
       props: {
         app: true,
         fixed: true,
         flat: true,
+        align: this.align,
         ...this.$attrs,
       },
     };
 
     return h(VAppBar, data, [
       this.genBackBtn(),
+      h(VSpacer),
       h(
         VToolbarTitle,
-        { staticClass: "pl-2 text-capitalize font-weight-bold" },
+        {
+          staticClass: `f_app_bar_title pl-2 text-capitalize justify-center font-weight-semibold ${
+            this.align
+          } ${this.back ? "" : "no-back"}`,
+        },
         [this.title],
       ),
+      h(VSpacer),
       this.$slots.default,
+      h("div", { staticClass: "f_mixin_ctrl_placeholder" }),
     ]);
   }
 }

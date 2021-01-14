@@ -7,13 +7,33 @@
     </v-row>
     <v-row>
       <v-col>
-        <f-app-bar v-bind="{ ...appbar, back: false }"></f-app-bar>
+        <f-app-bar
+          v-bind="{ ...appbar, back: false, title: 'No back' }"
+        ></f-app-bar>
       </v-col>
     </v-row>
     <v-row>
       <v-col>
         <f-app-bar
-          v-bind="{ ...appbar, back: false, color: 'transparent', flat: true }"
+          v-bind="{
+            ...appbar,
+            back: true,
+            align: 'center',
+            title: 'centerial title',
+          }"
+        ></f-app-bar>
+      </v-col>
+    </v-row>
+    <v-row>
+      <v-col>
+        <f-app-bar
+          v-bind="{
+            ...appbar,
+            back: true,
+            color: 'transparent',
+            flat: true,
+            title: 'transparent bar',
+          }"
         ></f-app-bar>
       </v-col>
     </v-row>
