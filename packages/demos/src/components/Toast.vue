@@ -1,8 +1,35 @@
 <template>
   <v-row>
     <v-col>
-      <v-btn outlined rounded block color="primary" @click="handleToast">
-        Toast
+      <v-btn
+        depressed
+        rounded
+        block
+        color=""
+        @click="handleToast()"
+        class="mb-4 mt-10"
+      >
+        Normal Toast
+      </v-btn>
+      <v-btn
+        depressed
+        rounded
+        block
+        color="chives"
+        @click="handleToast('success')"
+        class="mb-4"
+      >
+        Success Toast
+      </v-btn>
+      <v-btn
+        depressed
+        rounded
+        block
+        color="error"
+        @click="handleToast('error')"
+        class="mb-4"
+      >
+        Error Toast
       </v-btn>
     </v-col>
   </v-row>
@@ -17,8 +44,8 @@ export function toast(vue: Vue, data: { message: string; color?: string }) {
 
 @Component
 class Toast extends Vue {
-  handleToast() {
-    toast(this, { message: "this is a toast", color: "info" });
+  handleToast(color) {
+    toast(this, { message: "this is a toast", color: color });
   }
 }
 export default Toast;

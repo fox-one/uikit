@@ -1,17 +1,17 @@
 .f_app_bar {
   padding-right: 0px !important;
   .v-toolbar__content {
-    padding-right: 10px !important;
+    padding-right: 13px !important;
   }
 }
 .f_mixin_ctrl_placeholder {
   display: block;
   content: " ";
-  width: 80px;
-  height: 28px;
-  border-radius: 14px;
+  width: 82px;
+  height: 29px;
+  border-radius: 15px;
   margin: 0 0 0 10px;
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0);
 }
 .f_app_bar_back_btn {
   margin-left: -2px !important;
@@ -34,5 +34,16 @@
   &.center.no-back {
     left: 10px;
     right: 10px;
+  }
+}
+.theme--dark {
+  .v-app-bar.v-toolbar.v-sheet {
+    background-color: #000000;
+  }
+}
+
+.theme--light {
+  .v-app-bar.v-toolbar.v-sheet {
+    background-color: #ffffff;
   }
 }

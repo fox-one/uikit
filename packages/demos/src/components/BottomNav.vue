@@ -5,7 +5,7 @@
         <f-app-bottom-nav
           :nav="bottomNav"
           :items="bottomNavItems"
-          :animation="true"
+          :animation="false"
           :app="false"
           :fixed="false"
           active-class="primary-color"
@@ -18,7 +18,7 @@
         <f-app-bottom-nav
           :nav="bottomNav"
           :items="bottomNavItems"
-          :animation="false"
+          :animation="true"
           :app="false"
           :fixed="false"
           active-class="primary-color"
@@ -26,6 +26,15 @@
         ></f-app-bottom-nav>
       </v-col>
     </v-row>
+    <f-app-bottom-nav
+      :nav="bottomNav"
+      :items="bottomNavItems"
+      :animation="false"
+      :app="true"
+      :fixed="true"
+      active-class="primary-color"
+      @change="handleChange"
+    ></f-app-bottom-nav>
   </div>
 </template>
 

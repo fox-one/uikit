@@ -1,3 +1,5 @@
+import "./FToast.scss";
+
 import { Component, Vue, Prop } from "vue-property-decorator";
 import { CreateElement, VNode } from "vue/types/umd";
 import { VSnackbar } from "vuetify/lib";

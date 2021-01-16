@@ -51,36 +51,41 @@
     </v-row>
     <v-row>
       <v-col>
-        <div class="overline">Combine two w/ a small button</div>
-        <f-asset-amount-input
-          v-model="value3"
-          label="Pay amount"
-          :assets="assets"
-          :selectable="selectable"
-          :asset.sync="asset3"
-          :precision="precision"
-        >
-        </f-asset-amount-input>
-        <div class="swap-pos-btn-wrapper">
-          <v-btn
-            class="swap-pos-btn"
-            color="greyscale_5"
-            depressed
-            rounded
-            @click="swapPos"
+        <f-panel>
+          <div class="overline">Combine two w/ a small button</div>
+          <f-asset-amount-input
+            v-model="value3"
+            label="Pay amount"
+            :assets="assets"
+            :selectable="selectable"
+            :asset.sync="asset3"
+            :precision="precision"
           >
-            <v-icon color="primary">{{ icons.mdiSwapVertical }}</v-icon>
-          </v-btn>
-        </div>
-        <f-asset-amount-input
-          v-model="value4"
-          label="Obtain amount"
-          :assets="assets"
-          :selectable="selectable"
-          :asset.sync="asset4"
-          :precision="precision"
-        >
-        </f-asset-amount-input>
+          </f-asset-amount-input>
+          <div class="swap-pos-btn-wrapper">
+            <v-btn
+              class="swap-pos-btn"
+              color="greyscale_5"
+              depressed
+              rounded
+              @click="swapPos"
+            >
+              <v-icon color="primary">{{ icons.mdiSwapVertical }}</v-icon>
+            </v-btn>
+          </div>
+          <f-asset-amount-input
+            v-model="value4"
+            label="Obtain amount"
+            :assets="assets"
+            :selectable="selectable"
+            :asset.sync="asset4"
+            :precision="precision"
+          >
+          </f-asset-amount-input>
+          <v-btn color="primary" rounded depressed block class="mt-4"
+            >Button</v-btn
+          >
+        </f-panel>
       </v-col>
       <v-col cols="12">
         From {{ value3 }} {{ asset3.symbol }} to {{ value4 }}

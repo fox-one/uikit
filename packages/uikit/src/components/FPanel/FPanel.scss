@@ -7,10 +7,16 @@
   }
 
   &.elevation-low {
-    box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.08);
+    box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.04);
   }
 
   &.elevation-none {
     box-shadow: inset 0px 0px 0.5px rgba(0, 0, 0, 0.15);
+  }
+}
+
+.theme--dark {
+  .f-panel.v-sheet {
+    background-color: #000000;
   }
 }

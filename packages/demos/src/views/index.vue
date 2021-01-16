@@ -1,18 +1,20 @@
 <template>
-  <v-list>
-    <template v-for="(item, index) in componentsList">
-      <v-list-item :key="index" @click="handleViewComponent(item)">
-        <v-list-item-title>
-          {{ item.displayName }}
-        </v-list-item-title>
-        <v-list-item-action>
-          <v-icon>
-            {{ mdiChevronRight }}
-          </v-icon>
-        </v-list-item-action>
-      </v-list-item>
-    </template>
-  </v-list>
+  <f-panel :padding="0" class="py-2">
+    <v-list>
+      <template v-for="(item, index) in componentsList">
+        <v-list-item :key="index" @click="handleViewComponent(item)">
+          <v-list-item-title>
+            {{ item.displayName }}
+          </v-list-item-title>
+          <v-list-item-action>
+            <v-icon>
+              {{ mdiChevronRight }}
+            </v-icon>
+          </v-list-item-action>
+        </v-list-item>
+      </template>
+    </v-list>
+  </f-panel>
 </template>
 
 <script lang="ts">

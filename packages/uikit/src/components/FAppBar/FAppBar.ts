@@ -10,6 +10,10 @@ class FAppBar extends Vue {
 
   @Prop({ type: Boolean, default: false }) back!: boolean;
 
+  @Prop({ type: Boolean, default: false }) customContent!: boolean;
+
+  @Prop({ type: Boolean, default: false }) mixinImmersive!: boolean;
+
   @Prop({ type: String, default: "" }) title!: string;
 
   @Prop({ type: String, default: "left" }) align!: string;
@@ -48,22 +52,29 @@ class FAppBar extends Vue {
       },
     };
 
-    return h(VAppBar, data, [
-      this.genBackBtn(),
-      h(VSpacer),
-      h(
-        VToolbarTitle,
-        {
-          staticClass: `f_app_bar_title pl-2 text-capitalize justify-center font-weight-semibold ${
-            this.align
-          } ${this.back ? "" : "no-back"}`,
-        },
-        [this.title],
-      ),
-      h(VSpacer),
-      this.$slots.default,
-      h("div", { staticClass: "f_mixin_ctrl_placeholder" }),
-    ]);
+    let barContent: any = [this.genBackBtn()];
+    if (!this.customContent) {
+      barContent = barContent.concat([
+        h(VSpacer),
+        h(
+          VToolbarTitle,
+          {
+            staticClass: `f_app_bar_title pl-2 text-capitalize justify-center font-weight-semibold ${
+              this.align
+            } ${this.back ? "" : "no-back"}`,
+          },
+          [this.title],
+        ),
+        this.$slots.default,
+      ]);
+    } else {
+      barContent = barContent.concat([this.$slots.default]);
+    }
+    if (this.mixinImmersive) {
+      barContent.push(h("div", { staticClass: "f_mixin_ctrl_placeholder" }));
+    }
+
+    return h(VAppBar, data, barContent);
   }
 }
 
