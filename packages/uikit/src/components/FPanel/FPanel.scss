@@ -19,4 +19,11 @@
   .f-panel.v-sheet {
     background-color: #000000;
   }
+  .f-panel {
+    &.elevation-none,
+    &.elevation-low,
+    &.elevation-high {
+      box-shadow: none;
+    }
+  }
 }
