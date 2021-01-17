@@ -1,36 +1,32 @@
 <template>
   <v-row>
     <v-col>
-      <v-btn
-        depressed
-        rounded
+      <f-button
         block
-        color=""
+        type="secondary"
         @click="handleToast()"
         class="mb-4 mt-10"
       >
         Normal Toast
-      </v-btn>
-      <v-btn
-        depressed
-        rounded
+      </f-button>
+      <f-button
         block
+        type="primary"
         color="chives"
         @click="handleToast('success')"
         class="mb-4"
       >
         Success Toast
-      </v-btn>
-      <v-btn
-        depressed
-        rounded
+      </f-button>
+      <f-button
         block
+        type="warning"
         color="error"
         @click="handleToast('error')"
         class="mb-4"
       >
         Error Toast
-      </v-btn>
+      </f-button>
     </v-col>
   </v-row>
 </template>

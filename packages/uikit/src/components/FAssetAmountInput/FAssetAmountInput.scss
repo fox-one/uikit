@@ -1,9 +1,10 @@
+@import "../mixin.scss";
+@import "../color.scss";
 .f-asset-amount-input {
   display: flex;
   align-items: center;
   min-height: 60px;
   padding-left: 6px !important;
-  background-color: #f4f4f4;
   border-radius: 10px;
 
   .v-text-field {
@@ -57,8 +58,11 @@
 
 .theme--dark {
   .f-asset-amount-input {
-    background-color: #27292b;
+    background-color: f-color(dark, grayscale_5);
   }
-  .v-input {
+}
+.theme--light {
+  .f-asset-amount-input {
+    background-color: f-color(light, grayscale_5);
   }
 }

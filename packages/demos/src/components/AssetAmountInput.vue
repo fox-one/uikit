@@ -1,97 +1,86 @@
 <template>
   <div>
-    <v-row>
-      <v-col cols="12">
-        <div class="overline">Disabled</div>
-        <f-asset-amount-input
-          v-model="value1"
-          label="Disabled"
-          :assets="assets"
-          :selectable="selectable"
-          :asset.sync="asset1"
-          :precision="precision"
-          disabled
-          border
-        >
-        </f-asset-amount-input>
-      </v-col>
-    </v-row>
-    <v-row>
-      <v-col cols="12">
-        <div class="overline">Normal</div>
-        <f-asset-amount-input
-          v-model="value2"
-          label="Amount"
-          :assets="assets"
-          :selectable="selectable"
-          :asset.sync="asset2"
-          :precision="precision"
-          border
-        >
-          <template #assets="{ assets, asset, on}">
-            <v-list>
-              <v-list-item
-                v-for="(item, index) in assets"
-                :key="index"
-                @click="() => on.select(item)"
-              >
-                <v-list-item-title
-                  :class="{ 'primary--text': asset.id === item.id }"
-                >
-                  {{ item.symbol }}
-                </v-list-item-title>
-              </v-list-item>
-            </v-list>
-          </template>
-        </f-asset-amount-input>
-      </v-col>
-      <v-col cols="12">
-        You have selected {{ value2 }} {{ asset3.symbol }}
-      </v-col>
-    </v-row>
-    <v-row>
-      <v-col>
-        <f-panel>
-          <div class="overline">Combine two w/ a small button</div>
-          <f-asset-amount-input
-            v-model="value3"
-            label="Pay amount"
-            :assets="assets"
-            :selectable="selectable"
-            :asset.sync="asset3"
-            :precision="precision"
-          >
-          </f-asset-amount-input>
-          <div class="swap-pos-btn-wrapper">
-            <v-btn
-              class="swap-pos-btn"
-              color="greyscale_5"
-              depressed
-              rounded
-              @click="swapPos"
+    <f-panel>
+      <div class="overline">Disabled</div>
+      <f-asset-amount-input
+        v-model="value1"
+        label="Disabled"
+        :assets="assets"
+        :selectable="selectable"
+        :asset.sync="asset1"
+        :precision="precision"
+        disabled
+        border
+      >
+      </f-asset-amount-input>
+      <div class="overline">Normal</div>
+      <f-asset-amount-input
+        v-model="value2"
+        label="Amount"
+        :assets="assets"
+        :selectable="selectable"
+        :asset.sync="asset2"
+        :precision="precision"
+        border
+      >
+        <template #assets="{ assets, asset, on}">
+          <v-list>
+            <v-list-item
+              v-for="(item, index) in assets"
+              :key="index"
+              @click="() => on.select(item)"
             >
-              <v-icon color="primary">{{ icons.mdiSwapVertical }}</v-icon>
-            </v-btn>
-          </div>
-          <f-asset-amount-input
-            v-model="value4"
-            label="Obtain amount"
-            :assets="assets"
-            :selectable="selectable"
-            :asset.sync="asset4"
-            :precision="precision"
-          >
-          </f-asset-amount-input>
-          <v-btn color="primary" rounded depressed block class="mt-4"
-            >Button</v-btn
-          >
-        </f-panel>
-      </v-col>
-      <v-col cols="12">
+              <v-list-item-title
+                :class="{ 'primary--text': asset.id === item.id }"
+              >
+                {{ item.symbol }}
+              </v-list-item-title>
+            </v-list-item>
+          </v-list>
+        </template>
+      </f-asset-amount-input>
+      <p class="mt-4 body-2">
+        You have selected {{ value2 }} {{ asset3.symbol }}
+      </p>
+    </f-panel>
+
+    <f-panel>
+      <div class="overline">Combine two w/ a small button</div>
+      <f-asset-amount-input
+        v-model="value3"
+        label="Pay amount"
+        :assets="assets"
+        :selectable="selectable"
+        :asset.sync="asset3"
+        :precision="precision"
+      >
+      </f-asset-amount-input>
+      <div class="swap-pos-btn-wrapper">
+        <v-btn
+          class="swap-pos-btn"
+          color="greyscale_5"
+          depressed
+          rounded
+          @click="swapPos"
+        >
+          <v-icon color="primary">{{ icons.mdiSwapVertical }}</v-icon>
+        </v-btn>
+      </div>
+      <f-asset-amount-input
+        v-model="value4"
+        label="Obtain amount"
+        :assets="assets"
+        :selectable="selectable"
+        :asset.sync="asset4"
+        :precision="precision"
+      >
+      </f-asset-amount-input>
+      <f-button type="primary" block class="mt-4">Button</f-button>
+      <p class="mt-4 body-2">
         From {{ value3 }} {{ asset3.symbol }} to {{ value4 }}
         {{ asset4.symbol }}
-      </v-col>
-    </v-row>
+      </p>
+    </f-panel>
   </div>
 </template>
 

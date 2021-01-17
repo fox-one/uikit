@@ -1,10 +1,10 @@
-.f_app_bar {
+.f-app-bar {
   padding-right: 0px !important;
   .v-toolbar__content {
     padding-right: 13px !important;
   }
 }
-.f_mixin_ctrl_placeholder {
+.f-mixin-ctrl-placeholder {
   display: block;
   content: " ";
   width: 82px;
@@ -13,10 +13,10 @@
   margin: 0 0 0 10px;
   background: rgba(255, 255, 255, 0);
 }
-.f_app_bar_back_btn {
+.f-app-bar-back-btn {
   margin-left: -2px !important;
 }
-.f_app_bar_title {
+.f-app-bar-title {
   display: block;
   position: absolute;
   left: 42px;

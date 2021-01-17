@@ -22,14 +22,14 @@
       .theme--#{$darkOrLight}.f-bg-grayscale-#{$i} {
         background-color: map-get(
           $colors,
-          unquote("grayscale_#{$darkOrLight}_#{$i}")
+          unquote("grayscale_#{$i}_#{$darkOrLight}")
         ) !important;
       }
     } @else {
       .f-bg-grayscale-#{$i} {
         background-color: map-get(
           $colors,
-          unquote("grayscale_#{$darkOrLight}_#{$i}")
+          unquote("grayscale_#{$i}_#{$darkOrLight}")
         );
       }
     }
@@ -41,12 +41,12 @@
       .theme--#{$darkOrLight}.f-grayscale-#{$i} {
         color: map-get(
           $colors,
-          unquote("grayscale_#{$darkOrLight}_#{$i}")
+          unquote("grayscale_#{$i}_#{$darkOrLight}")
         ) !important;
       }
     } @else {
       .f-grayscale-#{$i} {
-        color: map-get($colors, unquote("grayscale_#{$darkOrLight}_#{$i}"));
+        color: map-get($colors, unquote("grayscale_#{$i}_#{$darkOrLight}"));
       }
     }
   }
@@ -81,4 +81,8 @@
       color: map-get($colors, unquote("#{$subject}_#{$darkOrLight}"));
     }
   }
+}
+
+@function f-color($darkOrLight, $subject) {
+  @return map-get($colors, unquote("#{$subject}_#{$darkOrLight}"));
 }

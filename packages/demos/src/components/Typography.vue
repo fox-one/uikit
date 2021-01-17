@@ -24,16 +24,6 @@
     <v-col cols="12">
       <div class="f-superior">Superior</div>
     </v-col>
-    <v-col cols="12">
-      <v-btn color="primary" depressed rounded class="f-button-label-1"
-        >Button 1</v-btn
-      >
-    </v-col>
-    <v-col cols="12">
-      <v-btn color="primary" depressed rounded small class="f-button-label-2"
-        >Button 2</v-btn
-      >
-    </v-col>
   </v-row>
 </template>
 

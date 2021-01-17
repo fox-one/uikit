@@ -24,43 +24,47 @@ export default function(store) {
       },
       themes: {
         light: {
-          primary: "#1EA0FF",
+          primary: "#1ea0ff",
           // legacy color names
           secondary: "#777777",
           accent: "#169CFE",
           minor: "#EDEDED",
           // greyscale
           greyscale_1: "#000000",
-          greyscale_2: "#494949",
-          greyscale_3: "#777777",
-          greyscale_4: "#D6D6D6",
-          greyscale_5: "#F3F3F3",
+          greyscale_2: "#333333",
+          greyscale_3: "#666666",
+          greyscale_4: "#cccccc",
+          greyscale_5: "#ebebeb",
+          greyscale_6: "#f5f5f5",
           // error & warning
-          error: "#E24444",
+          error: "#f44c4c",
+          success: "#00c7af",
           warning: "#FC8A22",
-          // theme color
-          pink: "EF5EA3",
-          chives: "00CEB7",
-          fox: "F08C40",
+          // subject color
+          ocean: "#1ea0ff",
+          pink: "#ee4596",
+          chives: "#00c7af",
         },
         dark: {
-          primary: "#1EA0FF",
+          primary: "#4bb3ff",
           // legacy color names
           secondary: "#6F767C",
           minor: "#4B4B4B",
           // greyscale
-          greyscale_1: "#FFFFFF",
-          greyscale_2: "#D3D3D3",
-          greyscale_3: "#696C6F",
-          greyscale_4: "#404143",
-          greyscale_5: "#27292B",
+          greyscale_1: "#ffffff",
+          greyscale_2: "#d2d3d3",
+          greyscale_3: "#9b9c9d",
+          greyscale_4: "#636466",
+          greyscale_5: "#36383b",
+          greyscale_6: "#191919",
           // error & warning
-          error: "#E24444",
+          error: "#f67070",
+          success: "#33d2bf",
           warning: "#FC8A22",
-          // theme color
-          pink: "EF5EA3",
-          chives: "00CEB7",
-          fox: "F08C40",
+          // subject color
+          ocean: "#4bb3ff",
+          pink: "#f16aab",
+          chives: "#33d2bf",
         },
       },
     },

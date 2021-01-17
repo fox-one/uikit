@@ -29,7 +29,7 @@ class FAppBar extends Vue {
 
     const h = this.$createElement;
     const data = {
-      staticClass: "f_app_bar_back_btn",
+      staticClass: "f-app-bar-back-btn",
       props: { small: true, icon: true },
       on: { click: this.handleBack },
     };
@@ -42,7 +42,7 @@ class FAppBar extends Vue {
 
     const data = {
       ...this.$attrs,
-      staticClass: `f_app_bar`,
+      staticClass: `f-app-bar`,
       props: {
         app: true,
         fixed: true,
@@ -59,7 +59,7 @@ class FAppBar extends Vue {
         h(
           VToolbarTitle,
           {
-            staticClass: `f_app_bar_title  pl-2 text-capitalize justify-center ${
+            staticClass: `f-app-bar-title  pl-2 text-capitalize justify-center ${
               this.align
             } ${this.back ? "" : "no-back"}`,
           },
@@ -71,7 +71,7 @@ class FAppBar extends Vue {
       barContent = barContent.concat([this.$slots.default]);
     }
     if (this.mixinImmersive) {
-      barContent.push(h("div", { staticClass: "f_mixin_ctrl_placeholder" }));
+      barContent.push(h("div", { staticClass: "f-mixin-ctrl-placeholder" }));
     }
 
     return h(VAppBar, data, barContent);
