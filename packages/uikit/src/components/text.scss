@@ -1,18 +1,4 @@
 // Typography
-@mixin f-text-n($size) {
-  font-size: $size;
-}
-@mixin f-weight-sb() {
-  font-weight: bold;
-  font-weight: 600;
-}
-@mixin f-weight-m() {
-  font-weight: normal;
-  font-weight: 500;
-}
-@mixin f-weight-r() {
-  font-weight: normal;
-}
 
 .f-headline {
   @include f-text-n(24px);
@@ -37,14 +23,14 @@
 .f-button-label-1 {
   &.v-btn.v-size--default {
     @include f-text-n(17px);
-    @include f-weight-r();
+    @include f-weight-b();
   }
 }
 
 .f-button-label-2 {
   &.v-btn.v-size--small {
     @include f-text-n(14px);
-    @include f-weight-r();
+    @include f-weight-m();
   }
 }
 

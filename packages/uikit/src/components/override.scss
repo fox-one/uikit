@@ -1,3 +1,7 @@
+.v-application {
+  font-family: "SF Pro Display", "Helvetica Neue", "Helvetica", "Arial",
+    sans-serif !important;
+}
 .theme--light.v-application {
   background-color: #f8f8f8;
   background: linear-gradient(180deg, #f8f8f8 0%, #f2f2f2 100%) !important;
@@ -6,6 +10,14 @@
   }
   .v-btn {
     text-transform: capitalize;
+    &.v-size--default {
+      @include f-text-n(17px);
+      @include f-weight-b();
+    }
+    &.v-size--small {
+      @include f-text-n(14px);
+      @include f-weight-m();
+    }
   }
 }
 
@@ -16,5 +28,21 @@
   }
   .v-btn {
     text-transform: capitalize;
+    &.v-size--default {
+      @include f-text-n(17px);
+      @include f-weight-b();
+    }
+    &.v-size--small {
+      @include f-text-n(14px);
+      @include f-weight-m();
+    }
   }
+}
+
+.no-border-radius {
+  border-radius: 0;
+}
+
+.border-radius {
+  border-radius: 10px;
 }

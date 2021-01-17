@@ -1,6 +1,4 @@
-import "./override.scss";
-import "./color.scss";
-import "./text.scss";
+import "./index.scss";
 
 export * from "./FAppBottomNav";
 export * from "./FPanel";

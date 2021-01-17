@@ -2,13 +2,13 @@
   <v-flex>
     <f-panel class="mb-4">
       <v-row>
-        <v-col cols="4">
+        <v-col cols="3" class="body-2">
           Light
         </v-col>
-        <v-col cols="4">
+        <v-col cols="3" class="body-2">
           Dark
         </v-col>
-        <v-col cols="4"> </v-col>
+        <v-col cols="6"> </v-col>
       </v-row>
 
       <v-divider />
@@ -16,13 +16,13 @@
       <v-row v-for="item in grayscales" :key="'grayscale-' + item.id">
         <v-col cols="3">
           <div
-            class="box theme--light"
+            class="box border-radius theme--light"
             :class="'f-bg-grayscale-' + item.id"
           ></div>
         </v-col>
         <v-col cols="3">
           <div
-            class="box theme--dark"
+            class="box border-radius theme--dark"
             :class="'f-bg-grayscale-' + item.id"
           ></div>
         </v-col>
@@ -36,10 +36,16 @@
 
       <v-row v-for="name in subjects" :key="'subject-' + name">
         <v-col cols="3">
-          <div class="box theme--light" :class="'f-bg-' + name"></div>
+          <div
+            class="box border-radius theme--light"
+            :class="'f-bg-' + name"
+          ></div>
         </v-col>
         <v-col cols="3">
-          <div class="box theme--dark" :class="'f-bg-' + name"></div>
+          <div
+            class="box border-radius theme--dark"
+            :class="'f-bg-' + name"
+          ></div>
         </v-col>
         <v-col cols="6" class="f-body-2"> Subject {{ name }} </v-col>
       </v-row>
@@ -48,10 +54,16 @@
 
       <v-row v-for="name in status" :key="'subject-' + name">
         <v-col cols="3">
-          <div class="box theme--light" :class="'f-bg-' + name"></div>
+          <div
+            class="box border-radius theme--light"
+            :class="'f-bg-' + name"
+          ></div>
         </v-col>
         <v-col cols="3">
-          <div class="box theme--dark" :class="'f-bg-' + name"></div>
+          <div
+            class="box border-radius theme--dark"
+            :class="'f-bg-' + name"
+          ></div>
         </v-col>
         <v-col cols="6" class="f-body-2"> {{ name }} </v-col>
       </v-row>
