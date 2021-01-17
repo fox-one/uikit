@@ -1,44 +1,42 @@
-.v-application {
-  font-family: "SF Pro Display", "Helvetica Neue", "Helvetica", "Arial",
-    sans-serif !important;
-}
 .theme--light.v-application {
   background-color: #f8f8f8;
   background: linear-gradient(180deg, #f8f8f8 0%, #f2f2f2 100%) !important;
-  .v-list {
-    background: transparent;
-  }
-  .v-btn {
-    text-transform: capitalize;
-    &.v-size--default {
-      @include f-text-n(17px);
-      @include f-weight-b();
-    }
-    &.v-size--small {
-      @include f-text-n(14px);
-      @include f-weight-m();
-    }
-  }
 }
 
 .theme--dark.v-application {
   background-color: #0e0e0e !important;
+}
+
+.v-application {
+  font-family: "SF Pro Text", "Roboto", Arial, Helvetica, sans-serif !important;
   .v-list {
     background: transparent;
   }
   .v-btn {
     text-transform: capitalize;
+    letter-spacing: 0;
     &.v-size--default {
+      height: 48px !important;
       @include f-text-n(17px);
       @include f-weight-b();
     }
     &.v-size--small {
+      height: 28px !important;
       @include f-text-n(14px);
       @include f-weight-m();
     }
   }
+  button.f-bottom-nav__btn {
+    &.v-size--default {
+      @include f-text-n(12px);
+      @include f-weight-m();
+    }
+  }
+  .v-toolbar__title {
+    @include f-text-n(17px);
+    @include f-weight-sb();
+  }
 }
-
 .no-border-radius {
   border-radius: 0;
 }
