@@ -18,6 +18,8 @@ class FAppBar extends Vue {
 
   @Prop({ type: String, default: "left" }) align!: string;
 
+  @Prop({ type: Number, default: 44 }) height!: number;
+
   handleBack() {
     this.$emit("back");
   }
@@ -44,6 +46,8 @@ class FAppBar extends Vue {
       ...this.$attrs,
       staticClass: `f-app-bar`,
       props: {
+        height: this.height || 44,
+        dense: true,
         app: true,
         fixed: true,
         flat: true,
