@@ -3,7 +3,7 @@ import FAssetsSheet from "./FAssetsSheet";
 import { Component, Vue, Prop, Model } from "vue-property-decorator";
 import { CreateElement, VNode } from "vue/types/umd";
 import { VSheet, VFlex, VBtn, VIcon, VLayout } from "vuetify/lib";
-import { mdiChevronRight, mdiHelpCircle } from "@mdi/js";
+import { mdiChevronRight } from "@mdi/js";
 import FMixinAssetLogo from "../FMixinAssetLogo";
 import FBottomSheet from "../FBottomSheet";
 import { MixinAsset } from "./types";

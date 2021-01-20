@@ -30,38 +30,38 @@ $colors: (
 // tool class
 .theme--dark.v-application {
   @include f-bg-grayscale(dark, $solo: false);
-  @include f-bg-subject(dark, ocean, $solo: false);
-  @include f-bg-subject(dark, pink, $solo: false);
-  @include f-bg-subject(dark, chives, $solo: false);
+  @include f-bg-subject(dark, "ocean", $solo: false);
+  @include f-bg-subject(dark, "pink", $solo: false);
+  @include f-bg-subject(dark, "chives", $solo: false);
   @include f-grayscale(dark);
-  @include f-subject(dark, ocean);
-  @include f-subject(dark, pink);
-  @include f-subject(dark, chives);
-  @include f-subject(dark, error);
-  @include f-subject(dark, success);
+  @include f-subject(dark, "ocean");
+  @include f-subject(dark, "pink");
+  @include f-subject(dark, "chives");
+  @include f-subject(dark, "error");
+  @include f-subject(dark, "success");
 }
 @include f-bg-grayscale(dark, $solo: true);
-@include f-bg-subject(dark, ocean, $solo: true);
-@include f-bg-subject(dark, pink, $solo: true);
-@include f-bg-subject(dark, chives, $solo: true);
-@include f-bg-subject(dark, error, $solo: true);
-@include f-bg-subject(dark, success, $solo: true);
+@include f-bg-subject(dark, "ocean", $solo: true);
+@include f-bg-subject(dark, "pink", $solo: true);
+@include f-bg-subject(dark, "chives", $solo: true);
+@include f-bg-subject(dark, "error", $solo: true);
+@include f-bg-subject(dark, "success", $solo: true);
 
 .theme--light.v-application {
   @include f-bg-grayscale(light, $solo: false);
-  @include f-bg-subject(light, ocean, $solo: false);
-  @include f-bg-subject(light, pink, $solo: false);
-  @include f-bg-subject(light, chives, $solo: false);
+  @include f-bg-subject(light, "ocean", $solo: false);
+  @include f-bg-subject(light, "pink", $solo: false);
+  @include f-bg-subject(light, "chives", $solo: false);
   @include f-grayscale(light);
-  @include f-subject(light, ocean);
-  @include f-subject(light, pink);
-  @include f-subject(light, chives);
-  @include f-subject(light, error);
-  @include f-subject(light, success);
+  @include f-subject(light, "ocean");
+  @include f-subject(light, "pink");
+  @include f-subject(light, "chives");
+  @include f-subject(light, "error");
+  @include f-subject(light, "success");
 }
 @include f-bg-grayscale(light, $solo: true);
-@include f-bg-subject(light, ocean, $solo: true);
-@include f-bg-subject(light, pink, $solo: true);
-@include f-bg-subject(light, chives, $solo: true);
-@include f-bg-subject(light, error, $solo: true);
-@include f-bg-subject(light, success, $solo: true);
+@include f-bg-subject(light, "ocean", $solo: true);
+@include f-bg-subject(light, "pink", $solo: true);
+@include f-bg-subject(light, "chives", $solo: true);
+@include f-bg-subject(light, "error", $solo: true);
+@include f-bg-subject(light, "success", $solo: true);

@@ -2,7 +2,6 @@ import "./FAssetAmountInput.scss";
 import { Vue, Component, Model, Prop, PropSync } from "vue-property-decorator";
 import { CreateElement, VNode } from "vue/types/umd";
 import FNumberInput from "../FNumberInput";
-import FPanel from "../FPanel";
 import FMixinAssetLogo from "../FMixinAssetLogo";
 import FAssetsSheet from "./FAssetsSheet";
 import FBottomSheet from "../FBottomSheet";

@@ -40,9 +40,15 @@
     <f-panel padding="0" class="px-4">
       <v-row>
         <v-col cols="12">
-          <f-button color="primary" block
+          <f-button type="primary" block
             >I agree with that announcement</f-button
           >
+        </v-col>
+        <v-col cols="12">
+          <f-button type="primary" dark color="pink" block>Pink</f-button>
+        </v-col>
+        <v-col cols="12">
+          <f-button type="primary" dark color="chives" block>Chives</f-button>
         </v-col>
       </v-row>
     </f-panel>

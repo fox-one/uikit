@@ -11,6 +11,7 @@
       </f-button>
       <f-button
         block
+        dark
         type="primary"
         color="chives"
         @click="handleToast('success')"
