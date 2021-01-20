@@ -1,3 +1,5 @@
+@import "../mixin.scss";
+@import "../color.scss";
 .f-asset-selector {
   height: 54px;
   position: relative;
@@ -27,16 +29,27 @@
   .f-asset-logo {
     align-self: center;
   }
+
+  .f-asset-selector__label {
+    @include f-text-n(20px);
+    @include f-weight-m();
+  }
 }
 
 .theme--light {
   .f-asset-selector {
     border: 1px solid #e6e6e6;
   }
+  .f-asset-selector__label {
+    color: f-color(light, grayscale_4);
+  }
 }
 
 .theme--dark {
   .f-asset-selector--border {
     border: 1px solid #34393e;
+  }
+  .f-asset-selector__label {
+    color: f-color(dark, grayscale_4);
   }
 }

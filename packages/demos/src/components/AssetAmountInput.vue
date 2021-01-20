@@ -1,7 +1,7 @@
 <template>
   <div>
-    <f-panel>
-      <div class="overline">Disabled</div>
+    <f-panel class="mb-4">
+      <div class="f-caption mb-2">Disabled</div>
       <f-asset-amount-input
         v-model="value1"
         label="Disabled"
@@ -13,7 +13,7 @@
         border
       >
       </f-asset-amount-input>
-      <div class="overline">Normal</div>
+      <div class="f-caption mb-2 mt-2">Normal</div>
       <f-asset-amount-input
         v-model="value2"
         label="Amount"
@@ -39,13 +39,13 @@
           </v-list>
         </template>
       </f-asset-amount-input>
-      <p class="mt-4 body-2">
+      <p class="mt-4 f-body-2">
         You have selected {{ value2 }} {{ asset3.symbol }}
       </p>
     </f-panel>
 
     <f-panel>
-      <div class="overline">Combine two w/ a small button</div>
+      <div class="f-caption mb-2">Combine two w/ a small button</div>
       <f-asset-amount-input
         v-model="value3"
         label="Pay amount"
@@ -76,7 +76,7 @@
       >
       </f-asset-amount-input>
       <f-button type="primary" block class="mt-4">Button</f-button>
-      <p class="mt-4 body-2">
+      <p class="mt-4 f-body-2">
         From {{ value3 }} {{ asset3.symbol }} to {{ value4 }}
         {{ asset4.symbol }}
       </p>

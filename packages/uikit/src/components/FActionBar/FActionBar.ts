@@ -2,7 +2,8 @@ import "./FActionBar.scss";
 import { Component, Vue, Prop } from "vue-property-decorator";
 import { CreateElement, VNode } from "vue";
 import FPanel from "../FPanel";
-import { VBtn, VIcon } from "vuetify/lib";
+import { VBtn, VIcon, VFlex } from "vuetify/lib";
+import { FButton } from "../FButton";
 
 export interface ActionButton {
   size: string;
@@ -23,10 +24,23 @@ class FActionBar extends Vue {
 
   genAction(action: ActionButton) {
     const h = this.$createElement;
-    const btn = h(VBtn, { props: { icon: true } }, [
-      h(VIcon, { props: { size: action.size, color: action.color } }, [
-        action.icon,
-      ]),
+    const btn = h(FButton, { props: { type: "text", padding: 0 } }, [
+      h(
+        VFlex,
+        { staticClass: "d-flex flex-column justify-center align-center" },
+        [
+          h(VIcon, { props: { size: action.size, color: action.color } }, [
+            action.icon,
+          ]),
+          h(
+            "span",
+            {
+              staticClass: "f-actionbar-button-label f-caption f-weight-m mt-1",
+            },
+            [action.text],
+          ),
+        ],
+      ),
     ]);
 
     return h(
@@ -35,7 +49,7 @@ class FActionBar extends Vue {
         staticClass: "f-actionbar--action",
         on: { click: () => this.handleClick(action) },
       },
-      [btn, action.text],
+      [btn],
     );
   }
 

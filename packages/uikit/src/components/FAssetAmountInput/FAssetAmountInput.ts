@@ -7,7 +7,7 @@ import FMixinAssetLogo from "../FMixinAssetLogo";
 import FAssetsSheet from "./FAssetsSheet";
 import FBottomSheet from "../FBottomSheet";
 import { VLayout, VBtn, VIcon } from "vuetify/lib";
-import { mdiChevronDown } from "@mdi/js";
+import { mdiChevronDown, mdiHelpCircle } from "@mdi/js";
 import { MixinAsset } from "./types";
 import { $t } from "../../utils/helper";
 
@@ -60,13 +60,13 @@ class FAssetAmountInput extends Vue {
       h(
         VLayout,
         {
-          staticClass: "mx-2 font-weight-bold d-flex flex-column align-center",
+          staticClass: "mx-2 d-flex flex-column align-left",
         },
         [
           h("div", { staticClass: "font-weight-bold" }, [displaySymbol]),
           h(
             "div",
-            { staticClass: "text--secondary caption", show: Boolean(label) },
+            { staticClass: "text--secondary f-caption", show: Boolean(label) },
             [label],
           ),
         ],
@@ -84,11 +84,13 @@ class FAssetAmountInput extends Vue {
 
   genAssetPlaceholder() {
     const h = this.$createElement;
+    const label = h(
+      VIcon,
+      { props: { color: "greyscale_4", size: 24 }, staticClass: "mr-1" },
+      [mdiHelpCircle],
+    );
 
-    return [
-      h("span", { staticClass: "overline" }, ["select"]),
-      h(VIcon, { props: { size: "18" } }, [mdiChevronDown]),
-    ];
+    return [label, h(VIcon, { props: { size: "18" } }, [mdiChevronDown])];
   }
 
   genAssetSheet() {

@@ -63,7 +63,7 @@ class FAppBar extends Vue {
         h(
           VToolbarTitle,
           {
-            staticClass: `f-app-bar-title  pl-2 text-capitalize justify-center ${
+            staticClass: `f-app-bar-title f-title-2 pl-2 text-capitalize justify-center ${
               this.align
             } ${this.back ? "" : "no-back"}`,
           },

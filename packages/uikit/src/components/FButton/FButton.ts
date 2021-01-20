@@ -15,6 +15,8 @@ class FButton extends Vue {
 
   @Prop({ type: String, default: "" }) color!: string;
 
+  @Prop({ type: Number, default: 56 }) padding!: number;
+
   render(h: CreateElement): VNode | null {
     const props: any = {
       block: this.block,
@@ -40,7 +42,8 @@ class FButton extends Vue {
     if (this.color) {
       props.color = this.color;
     }
-    const data = {
+
+    const data: any = {
       ...this.$attrs,
       staticClass: `f-button ${this.block ? "block" : ""} f-button-type-${
         this.type
@@ -50,7 +53,12 @@ class FButton extends Vue {
         click: (e) => this.$emit("click", e),
       },
     };
-
+    if (this.padding !== 56) {
+      data.staticStyle = {
+        paddingLeft: this.padding,
+        paddingRight: this.padding,
+      };
+    }
     let barContent: any = [];
     barContent = barContent.concat([
       h(VSpacer),

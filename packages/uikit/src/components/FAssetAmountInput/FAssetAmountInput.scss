@@ -28,13 +28,16 @@
   }
 
   input {
+    @include f-text-n(20px);
+    @include f-weight-m();
     padding-bottom: 0px;
-    font-size: 20px;
   }
 
   .v-label {
+    @include f-text-n(20px);
+    @include f-weight-m();
     transition-delay: 0.1s;
-    font-size: 20px;
+    height: 24px;
   }
 
   .v-text-field.v-input--is-label-active,
@@ -52,17 +55,23 @@
     align-self: stretch;
     display: flex;
     align-items: center;
-    padding: 0 12px;
+    padding: 0 10px;
   }
 }
 
 .theme--dark {
   .f-asset-amount-input {
     background-color: f-color(dark, grayscale_5);
+    .v-label {
+      color: f-color(dark, grayscale_4);
+    }
   }
 }
 .theme--light {
   .f-asset-amount-input {
     background-color: f-color(light, grayscale_5);
+    .v-label {
+      color: f-color(light, grayscale_4);
+    }
   }
 }

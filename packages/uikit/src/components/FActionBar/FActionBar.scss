@@ -1,3 +1,6 @@
+@import "../mixin.scss";
+@import "../color.scss";
+
 .f-actionbar {
   display: flex;
   justify-content: space-around;
@@ -16,5 +19,15 @@
     justify-content: center;
     align-items: center;
     font-size: 13px;
+  }
+}
+.theme--light.v-application {
+  .f-actionbar-button-label {
+    color: f-color(light, grayscale_3);
+  }
+}
+.theme--dark.v-application {
+  .f-actionbar-button-label {
+    color: f-color(dark, grayscale_3);
   }
 }

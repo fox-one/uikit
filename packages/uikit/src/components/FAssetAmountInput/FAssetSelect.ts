@@ -3,7 +3,7 @@ import FAssetsSheet from "./FAssetsSheet";
 import { Component, Vue, Prop, Model } from "vue-property-decorator";
 import { CreateElement, VNode } from "vue/types/umd";
 import { VSheet, VFlex, VBtn, VIcon, VLayout } from "vuetify/lib";
-import { mdiChevronRight } from "@mdi/js";
+import { mdiChevronRight, mdiHelpCircle } from "@mdi/js";
 import FMixinAssetLogo from "../FMixinAssetLogo";
 import FBottomSheet from "../FBottomSheet";
 import { MixinAsset } from "./types";
@@ -44,7 +44,7 @@ class FAssetSelect extends Vue {
         h("div", { staticClass: "font-weight-bold" }, [
           select_symbol || symbol,
         ]),
-        h("div", { staticClass: "caption text--secondary" }, [name]),
+        h("div", { staticClass: "f-caption text--secondary" }, [name]),
       ]),
     ]);
   }
@@ -55,7 +55,7 @@ class FAssetSelect extends Vue {
     const label = h(
       "div",
       {
-        staticClass: "f-asset-selector__label text--secondary",
+        staticClass: "f-asset-selector__label",
         class: [this.value && "f-asset-selector__label--active"],
       },
       [this.label || $t(this, "select_asset")],

@@ -52,7 +52,7 @@
             <v-avatar size="32">
               <v-img :src="require('@/assets/logo.svg')" :size="32"></v-img>
             </v-avatar>
-            <div class="title ml-1">Immersive</div>
+            <div class="f-title-2 ml-1">Immersive</div>
             <v-spacer />
             <v-btn icon small color="primary">
               <v-icon>{{ icons.mdiFaceProfile }}</v-icon>
@@ -76,7 +76,7 @@
             <v-avatar size="32">
               <v-img :src="require('@/assets/logo.svg')" :size="32"></v-img>
             </v-avatar>
-            <div class="title ml-1">UIKit</div>
+            <div class="f-title-2 ml-1">UIKit</div>
             <v-spacer />
             <v-btn icon small color="primary">
               <v-icon>{{ icons.mdiFaceProfile }}</v-icon>

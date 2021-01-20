@@ -57,7 +57,7 @@ class FAssetsSheet extends Vue {
       },
       [
         h("div", { staticClass: "mr-2 d-flex" }, [
-          h(FMixinAssetLogo, { props: { logo, chainLogo, size: 40 } }),
+          h(FMixinAssetLogo, { props: { logo, chainLogo, size: 32 } }),
         ]),
         h(VListItemContent, [
           h(VListItemTitle, [select_symbol || symbol]),
