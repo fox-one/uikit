@@ -51,6 +51,7 @@ class FButton extends Vue {
       props,
       on: {
         click: (e) => this.$emit("click", e),
+        touchstart: (e) => this.$emit("touchstart", e),
       },
     };
     if (this.padding !== 56) {
