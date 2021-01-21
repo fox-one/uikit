@@ -37,12 +37,12 @@
 }
 .theme--dark {
   .v-app-bar.v-toolbar.v-sheet {
-    background-color: #000000;
+    background-color: #000000 !important;
   }
 }
 
 .theme--light {
   .v-app-bar.v-toolbar.v-sheet {
-    background-color: #ffffff;
+    background-color: #ffffff !important;
   }
 }
