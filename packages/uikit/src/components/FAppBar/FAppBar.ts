@@ -44,7 +44,7 @@ class FAppBar extends Vue {
 
     const data = {
       ...this.$attrs,
-      staticClass: `f-app-bar`,
+      staticClass: `f-app-bar ${this.$attrs.color ? "color" : ""}`,
       props: {
         height: this.height || 44,
         dense: true,
