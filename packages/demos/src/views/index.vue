@@ -1,20 +1,40 @@
 <template>
-  <f-panel :padding="0" class="py-2">
-    <v-list>
-      <template v-for="(item, index) in componentsList">
-        <v-list-item :key="index" @click="handleViewComponent(item)">
-          <v-list-item-title>
-            {{ item.displayName }}
-          </v-list-item-title>
-          <v-list-item-action>
-            <v-icon>
-              {{ mdiChevronRight }}
-            </v-icon>
-          </v-list-item-action>
-        </v-list-item>
-      </template>
-    </v-list>
-  </f-panel>
+  <div>
+    <f-panel :padding="0" class="py-2 mb-4">
+      <div class="f-caption mx-4">F-Components</div>
+      <v-list>
+        <template v-for="(item, index) in foxComponents">
+          <v-list-item :key="index" @click="handleViewComponent(item)">
+            <v-list-item-title>
+              {{ item.displayName }}
+            </v-list-item-title>
+            <v-list-item-action>
+              <v-icon>
+                {{ mdiChevronRight }}
+              </v-icon>
+            </v-list-item-action>
+          </v-list-item>
+        </template>
+      </v-list>
+    </f-panel>
+    <f-panel :padding="0" class="py-2">
+      <div class="f-caption mx-4">Override Vuetify Components</div>
+      <v-list>
+        <template v-for="(item, index) in overrideComponents">
+          <v-list-item :key="index" @click="handleViewComponent(item)">
+            <v-list-item-title>
+              {{ item.displayName }}
+            </v-list-item-title>
+            <v-list-item-action>
+              <v-icon>
+                {{ mdiChevronRight }}
+              </v-icon>
+            </v-list-item-action>
+          </v-list-item>
+        </template>
+      </v-list>
+    </f-panel>
+  </div>
 </template>
 
 <script lang="ts">
@@ -38,11 +58,25 @@ class Page extends Mixins(page) {
   mdiChevronRight = mdiChevronRight;
   componentsList = componentsList;
 
+  overrideComNames = ["chip"];
+
   get appbar() {
     return {
-      title: "组件列表",
+      title: "Components",
       back: false,
     };
+  }
+
+  get foxComponents() {
+    return componentsList.filter((x) => {
+      return !this.overrideComNames.includes(x.displayName.toLowerCase());
+    });
+  }
+
+  get overrideComponents() {
+    return componentsList.filter((x) => {
+      return this.overrideComNames.includes(x.displayName.toLowerCase());
+    });
   }
 
   handleViewComponent(item) {

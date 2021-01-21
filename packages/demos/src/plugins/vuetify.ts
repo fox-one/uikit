@@ -44,6 +44,13 @@ export default function(store) {
           ocean: "#1ea0ff",
           pink: "#ee4596",
           chives: "#00c7af",
+          // general color
+          yellow: "#fadf8b",
+          purple: "#c699e6",
+          blue: "#7cadfa",
+          gray: "#b9b9bc",
+          green: "#9ddc95",
+          red: "#f39086",
         },
         dark: {
           primary: "#4bb3ff",
@@ -65,6 +72,13 @@ export default function(store) {
           ocean: "#4bb3ff",
           pink: "#f16aab",
           chives: "#33d2bf",
+          // general color
+          yellow: "#d8ba44",
+          purple: "#9d5bcb",
+          blue: "#3476d6",
+          gray: "#87868a",
+          green: "#61b756",
+          red: "#ce4d40",
         },
       },
     },

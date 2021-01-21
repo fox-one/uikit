@@ -25,6 +25,19 @@ $colors: (
   error_dark: #f67070,
   success_light: #00c7af,
   success_dark: #33d2bf,
+  // General Colors
+  yellow_light: #fadf8b,
+  yellow_dark: #d8ba44,
+  purple_light: #c699e6,
+  purple_dark: #9d5bcb,
+  blue_light: #7cadfa,
+  blue_dark: #3476d6,
+  gray_light: #b9b9bc,
+  gray_dark: #87868a,
+  green_light: #9ddc95,
+  green_dark: #61b756,
+  red_light: #f39086,
+  red_dark: #ce4d40,
 );
 
 // tool class
@@ -39,6 +52,12 @@ $colors: (
   @include f-subject(dark, "chives");
   @include f-subject(dark, "error");
   @include f-subject(dark, "success");
+  @include f-subject(dark, "yellow");
+  @include f-subject(dark, "purple");
+  @include f-subject(dark, "blue");
+  @include f-subject(dark, "gray");
+  @include f-subject(dark, "green");
+  @include f-subject(dark, "red");
 }
 @include f-bg-grayscale(dark, $solo: true);
 @include f-bg-subject(dark, "ocean", $solo: true);
@@ -46,6 +65,12 @@ $colors: (
 @include f-bg-subject(dark, "chives", $solo: true);
 @include f-bg-subject(dark, "error", $solo: true);
 @include f-bg-subject(dark, "success", $solo: true);
+@include f-bg-subject(dark, "yellow", $solo: true);
+@include f-bg-subject(dark, "purple", $solo: true);
+@include f-bg-subject(dark, "blue", $solo: true);
+@include f-bg-subject(dark, "gray", $solo: true);
+@include f-bg-subject(dark, "green", $solo: true);
+@include f-bg-subject(dark, "red", $solo: true);
 
 .theme--light.v-application {
   @include f-bg-grayscale(light, $solo: false);
@@ -58,6 +83,12 @@ $colors: (
   @include f-subject(light, "chives");
   @include f-subject(light, "error");
   @include f-subject(light, "success");
+  @include f-subject(light, "yellow");
+  @include f-subject(light, "purple");
+  @include f-subject(light, "blue");
+  @include f-subject(light, "gray");
+  @include f-subject(light, "green");
+  @include f-subject(light, "red");
 }
 @include f-bg-grayscale(light, $solo: true);
 @include f-bg-subject(light, "ocean", $solo: true);
@@ -65,3 +96,9 @@ $colors: (
 @include f-bg-subject(light, "chives", $solo: true);
 @include f-bg-subject(light, "error", $solo: true);
 @include f-bg-subject(light, "success", $solo: true);
+@include f-bg-subject(light, "yellow", $solo: true);
+@include f-bg-subject(light, "purple", $solo: true);
+@include f-bg-subject(light, "blue", $solo: true);
+@include f-bg-subject(light, "gray", $solo: true);
+@include f-bg-subject(light, "green", $solo: true);
+@include f-bg-subject(light, "red", $solo: true);
