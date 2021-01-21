@@ -85,6 +85,18 @@
         </f-app-bar>
       </v-col>
     </v-row>
+    <v-row>
+      <v-col>
+        <f-app-bar
+          v-bind="{
+            ...appbar,
+            dark: true,
+            color: 'primary',
+            title: 'Colorful',
+          }"
+        ></f-app-bar>
+      </v-col>
+    </v-row>
   </div>
 </template>
 
