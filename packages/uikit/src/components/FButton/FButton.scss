@@ -30,8 +30,8 @@
   .f-button {
     // style modification
     &.f-button-type-subtitle {
-      color: f-color(light, grayscale_2);
-      border-color: f-color(light, grayscale_4);
+      color: f-color(light, greyscale_2);
+      border-color: f-color(light, greyscale_4);
     }
     // active state
     &.f-button-type-primary,
@@ -54,8 +54,8 @@
   .f-button {
     // style modification
     &.f-button-type-subtitle {
-      color: f-color(dark, grayscale_2);
-      border-color: f-color(dark, grayscale_4);
+      color: f-color(dark, greyscale_2);
+      border-color: f-color(dark, greyscale_4);
     }
     // active state
     &.f-button-type-primary,

@@ -16,37 +16,37 @@
   font-weight: normal;
 }
 
-@mixin f-bg-grayscale($darkOrLight, $solo: false) {
+@mixin f-bg-greyscale($darkOrLight, $solo: false) {
   @for $i from 1 through 6 {
     @if $solo {
-      .theme--#{$darkOrLight}.f-bg-grayscale-#{$i} {
+      .theme--#{$darkOrLight}.f-bg-greyscale-#{$i} {
         background-color: map-get(
           $colors,
-          unquote("grayscale_#{$i}_#{$darkOrLight}")
+          unquote("greyscale_#{$i}_#{$darkOrLight}")
         ) !important;
       }
     } @else {
-      .f-bg-grayscale-#{$i} {
+      .f-bg-greyscale-#{$i} {
         background-color: map-get(
           $colors,
-          unquote("grayscale_#{$i}_#{$darkOrLight}")
+          unquote("greyscale_#{$i}_#{$darkOrLight}")
         );
       }
     }
   }
 }
-@mixin f-grayscale($darkOrLight, $solo: false) {
+@mixin f-greyscale($darkOrLight, $solo: false) {
   @for $i from 1 through 6 {
     @if $solo {
-      .theme--#{$darkOrLight}.f-grayscale-#{$i} {
+      .theme--#{$darkOrLight}.f-greyscale-#{$i} {
         color: map-get(
           $colors,
-          unquote("grayscale_#{$i}_#{$darkOrLight}")
+          unquote("greyscale_#{$i}_#{$darkOrLight}")
         ) !important;
       }
     } @else {
-      .f-grayscale-#{$i} {
-        color: map-get($colors, unquote("grayscale_#{$i}_#{$darkOrLight}"));
+      .f-greyscale-#{$i} {
+        color: map-get($colors, unquote("greyscale_#{$i}_#{$darkOrLight}"));
       }
     }
   }

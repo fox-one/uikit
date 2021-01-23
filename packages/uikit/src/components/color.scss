@@ -1,18 +1,18 @@
 // Color
 // Grayscale
 $colors: (
-  grayscale_1_light: #000000,
-  grayscale_1_dark: #ffffff,
-  grayscale_2_light: #333333,
-  grayscale_2_dark: #d2d3d3,
-  grayscale_3_light: #666666,
-  grayscale_3_dark: #9b9c9d,
-  grayscale_4_light: #cccccc,
-  grayscale_4_dark: #636466,
-  grayscale_5_light: #ebebeb,
-  grayscale_5_dark: #36383b,
-  grayscale_6_light: #f5f5f5,
-  grayscale_6_dark: #191919,
+  greyscale_1_light: #000000,
+  greyscale_1_dark: #ffffff,
+  greyscale_2_light: #333333,
+  greyscale_2_dark: #d2d3d3,
+  greyscale_3_light: #666666,
+  greyscale_3_dark: #9b9c9d,
+  greyscale_4_light: #cccccc,
+  greyscale_4_dark: #636466,
+  greyscale_5_light: #ebebeb,
+  greyscale_5_dark: #36383b,
+  greyscale_6_light: #f5f5f5,
+  greyscale_6_dark: #191919,
   // Subject
   ocean_light: #1ea0ff,
   ocean_dark: #4bb3ff,
@@ -42,11 +42,11 @@ $colors: (
 
 // tool class
 .theme--dark.v-application {
-  @include f-bg-grayscale(dark, $solo: false);
+  @include f-bg-greyscale(dark, $solo: false);
   @include f-bg-subject(dark, "ocean", $solo: false);
   @include f-bg-subject(dark, "pink", $solo: false);
   @include f-bg-subject(dark, "chives", $solo: false);
-  @include f-grayscale(dark);
+  @include f-greyscale(dark);
   @include f-subject(dark, "ocean");
   @include f-subject(dark, "pink");
   @include f-subject(dark, "chives");
@@ -59,7 +59,7 @@ $colors: (
   @include f-subject(dark, "green");
   @include f-subject(dark, "red");
 }
-@include f-bg-grayscale(dark, $solo: true);
+@include f-bg-greyscale(dark, $solo: true);
 @include f-bg-subject(dark, "ocean", $solo: true);
 @include f-bg-subject(dark, "pink", $solo: true);
 @include f-bg-subject(dark, "chives", $solo: true);
@@ -73,11 +73,11 @@ $colors: (
 @include f-bg-subject(dark, "red", $solo: true);
 
 .theme--light.v-application {
-  @include f-bg-grayscale(light, $solo: false);
+  @include f-bg-greyscale(light, $solo: false);
   @include f-bg-subject(light, "ocean", $solo: false);
   @include f-bg-subject(light, "pink", $solo: false);
   @include f-bg-subject(light, "chives", $solo: false);
-  @include f-grayscale(light);
+  @include f-greyscale(light);
   @include f-subject(light, "ocean");
   @include f-subject(light, "pink");
   @include f-subject(light, "chives");
@@ -90,7 +90,7 @@ $colors: (
   @include f-subject(light, "green");
   @include f-subject(light, "red");
 }
-@include f-bg-grayscale(light, $solo: true);
+@include f-bg-greyscale(light, $solo: true);
 @include f-bg-subject(light, "ocean", $solo: true);
 @include f-bg-subject(light, "pink", $solo: true);
 @include f-bg-subject(light, "chives", $solo: true);

@@ -13,22 +13,22 @@
 
       <v-divider />
 
-      <v-row v-for="item in grayscales" :key="'grayscale-' + item.id">
+      <v-row v-for="item in greyscales" :key="'greyscale-' + item.id">
         <v-col cols="3">
           <div
             class="box border-radius theme--light"
-            :class="'f-bg-grayscale-' + item.id"
+            :class="'f-bg-greyscale-' + item.id"
           ></div>
         </v-col>
         <v-col cols="3">
           <div
             class="box border-radius theme--dark"
-            :class="'f-bg-grayscale-' + item.id"
+            :class="'f-bg-greyscale-' + item.id"
           ></div>
         </v-col>
         <v-col cols="6">
           <div class="f-body-2">Grayscale {{ i }}</div>
-          <div class="f-superior f-grayscale-3">{{ item.text }}</div>
+          <div class="f-superior f-greyscale-3">{{ item.text }}</div>
         </v-col>
       </v-row>
 
@@ -76,7 +76,7 @@ import { Component, Vue } from "vue-property-decorator";
 
 @Component
 class FColor extends Vue {
-  grayscales = [
+  greyscales = [
     { id: 1, text: "Used for both body and titles." },
     { id: 2, text: "Used for both body and titles." },
     { id: 3, text: "Used for captions." },

@@ -61,17 +61,17 @@
 
 .theme--dark {
   .f-asset-amount-input {
-    background-color: f-color(dark, grayscale_5);
+    background-color: f-color(dark, greyscale_5);
     .v-label {
-      color: f-color(dark, grayscale_4);
+      color: f-color(dark, greyscale_4);
     }
   }
 }
 .theme--light {
   .f-asset-amount-input {
-    background-color: f-color(light, grayscale_5);
+    background-color: f-color(light, greyscale_5);
     .v-label {
-      color: f-color(light, grayscale_4);
+      color: f-color(light, greyscale_4);
     }
   }
 }

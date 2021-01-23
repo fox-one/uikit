@@ -33,7 +33,7 @@ class FButton extends Vue {
     } else if (this.type === "warning") {
       props.color = "error";
     } else if (this.type === "subtitle") {
-      props.color = "grayscale_2";
+      props.color = "greyscale_2";
       props.outlined = true;
     } else {
       props.color = "primary";
