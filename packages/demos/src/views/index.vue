@@ -1,26 +1,27 @@
 <template>
   <div>
-    <f-panel :padding="0" class="py-2 mb-4">
-      <div class="f-caption mx-4">F-Components</div>
-      <v-list>
-        <template v-for="(item, index) in foxComponents">
-          <v-list-item :key="index" @click="handleViewComponent(item)">
-            <v-list-item-title>
-              {{ item.displayName }}
-            </v-list-item-title>
-            <v-list-item-action>
-              <v-icon>
-                {{ mdiChevronRight }}
-              </v-icon>
-            </v-list-item-action>
-          </v-list-item>
+    <f-panel
+      v-for="group in groups"
+      :key="group.label"
+      :padding="0"
+      class="py-2 mb-4"
+    >
+      <div class="f-caption f-greyscale-3 mx-4">{{ group.label }}</div>
+      <f-list>
+        <template v-for="(item, index) in filterComponents(group.coms)">
+          <f-list-item
+            :key="index"
+            @click="handleViewComponent(item)"
+            :title="item.displayName"
+          >
+          </f-list-item>
         </template>
-      </v-list>
+      </f-list>
     </f-panel>
-    <f-panel :padding="0" class="py-2">
-      <div class="f-caption mx-4">Override Vuetify Components</div>
+    <f-panel v-if="otherComponents.length" :padding="0" class="py-2 mb-4">
+      <div class="f-caption f-greyscale-3 mx-4">Others</div>
       <v-list>
-        <template v-for="(item, index) in overrideComponents">
+        <template v-for="(item, index) in otherComponents">
           <v-list-item :key="index" @click="handleViewComponent(item)">
             <v-list-item-title>
               {{ item.displayName }}
@@ -58,7 +59,52 @@ class Page extends Mixins(page) {
   mdiChevronRight = mdiChevronRight;
   componentsList = componentsList;
 
-  overrideComNames = ["chip"];
+  groups = [
+    {
+      label: "Layout & Container",
+      coms: [
+        "panel",
+        "appbar",
+        "actionbar",
+        "bottomnav",
+        "slidertabs",
+        "floataction",
+        "list",
+      ],
+    },
+    {
+      label: "Form",
+      coms: [
+        "assetamountinput",
+        "assetselect",
+        "button",
+        "buttonswitch",
+        "phoneinput",
+      ],
+    },
+    {
+      label: "Presentation",
+      coms: [
+        "bottomsheet",
+        "payingmodal",
+        "tips",
+        "toast",
+        "buttonswitch",
+        "loading",
+        "qrcode",
+        "formtips",
+        "mixinassetlogo",
+      ],
+    },
+    {
+      label: "Styles",
+      coms: ["color", "typography"],
+    },
+    {
+      label: "Overrided",
+      coms: ["chip"],
+    },
+  ];
 
   get appbar() {
     return {
@@ -67,15 +113,20 @@ class Page extends Mixins(page) {
     };
   }
 
-  get foxComponents() {
+  filterComponents(names: Array<string>) {
     return componentsList.filter((x) => {
-      return !this.overrideComNames.includes(x.displayName.toLowerCase());
+      return names.includes(x.displayName.toLowerCase());
     });
   }
 
-  get overrideComponents() {
+  get otherComponents() {
     return componentsList.filter((x) => {
-      return this.overrideComNames.includes(x.displayName.toLowerCase());
+      for (let ix = 0; ix < this.groups.length; ix++) {
+        if (this.groups[ix].coms.includes(x.displayName.toLowerCase())) {
+          return false;
+        }
+      }
+      return true;
     });
   }
 

@@ -1,0 +1,24 @@
+.f-list {
+  .f-list-item-content {
+    padding-top: 18px;
+    padding-bottom: 18px;
+    height: 72px;
+  }
+  .v-list-item__action,
+  .v-list-item__action .text {
+    max-width: 100px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .f-list-item-arrow {
+    height: 12px;
+    width: 5px;
+    max-width: 5px;
+    display: inline-block;
+  }
+  .f-list-item-icon-wrapper {
+    width: auto;
+    min-width: auto;
+  }
+}
