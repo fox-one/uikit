@@ -35,13 +35,13 @@ class FSliderTabs extends Vue {
       }
       const left = activeTab.offsetLeft;
       const width = activeTab.clientWidth;
-      let sliderWidth = width * 0.4;
+      let sliderWidth = 6;
       if (this.maxSliderWidth) {
         sliderWidth = Math.min(sliderWidth, this.maxSliderWidth);
       }
       const sliderLeft = (left + (width - sliderWidth) / 2).toFixed();
       slider.style.left = `${sliderLeft}px`;
-      slider.style.width = `${sliderWidth}px`;
+      // slider.style.width = `${sliderWidth}px`;
     });
   }
 

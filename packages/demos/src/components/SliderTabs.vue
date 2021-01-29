@@ -18,6 +18,9 @@
           </v-tab>
         </template>
       </f-slider-tabs>
+      <div class="text-left ma-4 f-body-2 f-greyscale-3">
+        You've selected tab {{ index }}
+      </div>
     </v-col>
     <v-col cols="12">
       <f-slider-tabs
@@ -38,6 +41,9 @@
           </v-tab>
         </template>
       </f-slider-tabs>
+      <div class="text-center ma-4 f-body-2 f-greyscale-3">
+        You've selected tab {{ index2 }}
+      </div>
     </v-col>
   </v-row>
 </template>
