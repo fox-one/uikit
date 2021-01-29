@@ -35,22 +35,10 @@
     right: 10px;
   }
 }
-.theme--dark {
-  &.v-app-bar.v-toolbar.v-sheet,
- · .v-app-bar.v-toolbar.v-sheet {
-    background-color: #000000 !important;
-  }
-  .v-app-bar.v-toolbar.v-sheet.color {
-    background-color: inherit !important;
-  }
+.theme--dark .f-app-bar.v-sheet:not(.color) {
+  background-color: #000000 !important;
 }
 
-.theme--light {
-  &.v-app-bar.v-toolbar.v-sheet,
-  .v-app-bar.v-toolbar.v-sheet {
-    background-color: #ffffff !important;
-  }
-  .v-app-bar.v-toolbar.v-sheet.color {
-    background-color: inherit !important;
-  }
+.theme--light .f-app-bar.v-sheet:not(.color) {
+  background-color: #ffffff !important;
 }

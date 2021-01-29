@@ -6,7 +6,7 @@
     :mixin-immersive="mixinImmersive"
     @back="handleBack"
   >
-    <v-btn icon small @click="toggleThemeMode" class="mr-4">
+    <v-btn icon small @click="toggleThemeMode" class="mr-0">
       <v-icon>
         {{ icons.mdiBrightness4 }}
       </v-icon>

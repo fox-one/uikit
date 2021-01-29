@@ -1,0 +1,99 @@
+@import "../mixin.scss";
+@import "../color.scss";
+.f-switch.v-input--switch {
+  margin-top: 0px;
+  padding-top: 0px;
+  height: 28px;
+  .v-input--selection-controls__input {
+    display: flex;
+    align-items: center;
+  }
+
+  .v-input--switch__track {
+    height: 32px;
+    width: 56px;
+    border-radius: 16px;
+    opacity: 1;
+  }
+  .v-input--switch__thumb {
+    height: 16px;
+    width: 16px;
+  }
+}
+.v-application--is-ltr
+  .v-input--switch--inset
+  .v-input--selection-controls__ripple,
+.v-application--is-ltr .v-input--switch--inset .v-input--switch__thumb {
+  transform: translate(4px, 0) !important;
+}
+.v-application--is-ltr
+  .v-input--switch--inset.v-input--is-dirty
+  .v-input--selection-controls__ripple,
+.v-application--is-ltr
+  .v-input--switch--inset.v-input--is-dirty
+  .v-input--switch__thumb {
+  transform: translate(26px, 0) !important;
+}
+.theme--dark {
+  &.f-switch.v-input--switch.v-input--is-label-active .v-input--switch__track,
+  .f-switch.v-input--switch.v-input--is-label-active .v-input--switch__track {
+    background-color: f-color(dark, greyscale_1) !important;
+  }
+  &.f-switch.v-input--switch .v-input--switch__track,
+  .f-switch.v-input--switch .v-input--switch__track {
+    background-color: f-color(dark, greyscale_4) !important;
+  }
+  &.f-switch.v-input--switch.v-input--is-label-active .v-input--switch__thumb,
+  .f-switch.v-input--switch.v-input--is-label-active .v-input--switch__thumb {
+    background-color: f-color(dark, greyscale_6) !important;
+    color: f-color(dark, greyscale_6) !important;
+    caret-color: f-color(dark, greyscale_6) !important;
+  }
+  &.f-switch.v-input--switch .v-input--switch__thumb,
+  .f-switch.v-input--switch .v-input--switch__thumb {
+    background-color: f-color(dark, greyscale_1) !important;
+    color: f-color(dark, greyscale_1) !important;
+    caret-color: f-color(dark, greyscale_1) !important;
+  }
+  &.f-switch.v-input--is-disabled,
+  .f-switch.v-input--is-disabled {
+    &.v-input--switch .v-input--switch__track,
+    .v-input--switch .v-input--switch__track {
+      background-color: f-color(dark, greyscale_5) !important;
+      opacity: 1;
+    }
+    .v-input--switch__thumb {
+      background-color: f-color(dark, greyscale_6) !important;
+      color: f-color(dark, greyscale_6) !important;
+      caret-color: f-color(dark, greyscale_6) !important;
+    }
+  }
+}
+
+.theme--light {
+  &.f-switch.v-input--switch.v-input--is-label-active .v-input--switch__track,
+  .f-switch.v-input--switch.v-input--is-label-active .v-input--switch__track {
+    background-color: f-color(light, greyscale_1) !important;
+  }
+  &.f-switch.v-input--switch .v-input--switch__track,
+  .f-switch.v-input--switch .v-input--switch__track {
+    background-color: f-color(light, greyscale_4) !important;
+  }
+  &.f-switch.v-input--switch .v-input--switch__thumb,
+  .f-switch.v-input--switch .v-input--switch__thumb {
+    background-color: f-color(light, greyscale_6) !important;
+    color: f-color(light, greyscale_6) !important;
+    caret-color: f-color(light, greyscale_6) !important;
+  }
+  .f-switch.v-input--switch .v-input--switch__track.color {
+    background-color: inherit !important;
+  }
+  &.f-switch.v-input--is-disabled,
+  .f-switch.v-input--is-disabled {
+    &.v-input--switch .v-input--switch__track,
+    .v-input--switch .v-input--switch__track {
+      background-color: f-color(light, greyscale_5) !important;
+      opacity: 1;
+    }
+  }
+}

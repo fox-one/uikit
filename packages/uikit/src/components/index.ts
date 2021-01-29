@@ -18,3 +18,4 @@ export * from "./FFloatAction";
 export * from "./FFormTips";
 export * from "./FSliderTabs";
 export * from "./FButton";
+export * from "./FSwitch";
