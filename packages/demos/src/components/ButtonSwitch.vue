@@ -25,6 +25,14 @@
           <span>Disabled</span>
         </v-col>
       </v-row>
+      <v-row>
+        <v-col cols="6">
+          <f-switch v-model="first" :disabled="true" />
+        </v-col>
+        <v-col cols="6" class="d-flex align-center">
+          <span>Disabled</span>
+        </v-col>
+      </v-row>
     </f-panel>
   </div>
 </template>

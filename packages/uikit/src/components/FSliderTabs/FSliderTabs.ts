@@ -8,8 +8,6 @@ class FSliderTabs extends Vue {
   @Model("change") value!: number;
 
   @Prop({ type: Number, default: undefined })
-  maxSliderWidth!: number | undefined;
-
   mounted() {
     this.setSliderPosition();
   }
@@ -35,13 +33,9 @@ class FSliderTabs extends Vue {
       }
       const left = activeTab.offsetLeft;
       const width = activeTab.clientWidth;
-      let sliderWidth = 6;
-      if (this.maxSliderWidth) {
-        sliderWidth = Math.min(sliderWidth, this.maxSliderWidth);
-      }
+      const sliderWidth = 6;
       const sliderLeft = (left + (width - sliderWidth) / 2).toFixed();
       slider.style.left = `${sliderLeft}px`;
-      // slider.style.width = `${sliderWidth}px`;
     });
   }
 
@@ -54,6 +48,8 @@ class FSliderTabs extends Vue {
         attrs: this.$attrs,
         ref: "tabs",
         props: {
+          hideSlider: true,
+          backgroundColor: "transparent",
           value: this.value,
           ...this.$attrs,
         },

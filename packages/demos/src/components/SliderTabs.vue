@@ -1,12 +1,7 @@
 <template>
   <v-row>
     <v-col cols="12">
-      <f-slider-tabs
-        v-model="index"
-        :max-slider-width="42"
-        hide-slider
-        background-color="transparent"
-      >
+      <f-slider-tabs v-model="index">
         <template #tabs>
           <v-tab
             v-for="(item, index) in items"
@@ -23,13 +18,7 @@
       </div>
     </v-col>
     <v-col cols="12">
-      <f-slider-tabs
-        v-model="index2"
-        :max-slider-width="42"
-        grow
-        hide-slider
-        background-color="transparent"
-      >
+      <f-slider-tabs v-model="index2" grow>
         <template #tabs>
           <v-tab
             v-for="(item, index) in items"

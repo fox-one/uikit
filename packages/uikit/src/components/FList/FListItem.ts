@@ -41,7 +41,7 @@ class FListItem extends Vue {
         h(VListItemContent, { staticClass: "f-list-item-content" }, [
           h("div", { staticClass: "f-greyscale-1 f-body-1" }, this.title),
           this.subtitle
-            ? h("div", { staticClass: "f-greyscale-3 f-body-2" }, this.subtitle)
+            ? h("div", { staticClass: "f-greyscale-3 f-caption" }, this.subtitle)
             : null,
         ]),
       );
@@ -60,7 +60,7 @@ class FListItem extends Vue {
           [
             h(
               "span",
-              { staticClass: "text f-greyscale-3 f-body-1 mr-2" },
+              { staticClass: "text f-greyscale-4 f-body-1" },
               this.value,
             ),
             h(
@@ -85,6 +85,7 @@ class FListItem extends Vue {
         staticClass: "f-list",
         attrs: this.$attrs,
         props: {
+          ripple: false,
           ...this.$attrs,
         },
         on: {

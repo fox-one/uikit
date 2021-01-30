@@ -3,28 +3,30 @@
 .f-switch.v-input--switch {
   margin-top: 0px;
   padding-top: 0px;
-  height: 28px;
+  height: 24px;
   .v-input--selection-controls__input {
     display: flex;
     align-items: center;
+    margin-right: 0;
   }
 
   .v-input--switch__track {
-    height: 32px;
-    width: 56px;
-    border-radius: 16px;
+    height: 24px;
+    width: 48px;
+    border-radius: 12px;
     opacity: 1;
   }
   .v-input--switch__thumb {
     height: 16px;
     width: 16px;
+    margin-top: -8px;
   }
 }
 .v-application--is-ltr
   .v-input--switch--inset
   .v-input--selection-controls__ripple,
 .v-application--is-ltr .v-input--switch--inset .v-input--switch__thumb {
-  transform: translate(4px, 0) !important;
+  transform: translate(2px, 0) !important;
 }
 .v-application--is-ltr
   .v-input--switch--inset.v-input--is-dirty
@@ -32,7 +34,7 @@
 .v-application--is-ltr
   .v-input--switch--inset.v-input--is-dirty
   .v-input--switch__thumb {
-  transform: translate(26px, 0) !important;
+  transform: translate(22px, 0) !important;
 }
 .theme--dark {
   &.f-switch.v-input--switch.v-input--is-label-active .v-input--switch__track,
@@ -94,6 +96,11 @@
     .v-input--switch .v-input--switch__track {
       background-color: f-color(light, greyscale_5) !important;
       opacity: 1;
+    }
+    .v-input--switch__thumb {
+      background-color: f-color(light, greyscale_6) !important;
+      color: f-color(light, greyscale_6) !important;
+      caret-color: f-color(light, greyscale_6) !important;
     }
   }
 }

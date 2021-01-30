@@ -13,7 +13,7 @@
 
       <v-divider />
 
-      <v-row v-for="item in greyscales" :key="'greyscale-' + item.id">
+      <v-row v-for="(item, i) in greyscales" :key="'greyscale-' + item.id">
         <v-col cols="3">
           <div
             class="box border-radius theme--light"
@@ -27,7 +27,7 @@
           ></div>
         </v-col>
         <v-col cols="6">
-          <div class="f-body-2">Grayscale {{ i }}</div>
+          <div class="f-body-2">Grayscale {{ i + 1 }}</div>
           <div class="f-superior f-greyscale-3">{{ item.text }}</div>
         </v-col>
       </v-row>
