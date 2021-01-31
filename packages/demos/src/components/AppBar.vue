@@ -8,7 +8,7 @@
     <v-row>
       <v-col>
         <f-app-bar
-          v-bind="{ ...appbar, back: false, title: 'No back' }"
+          v-bind="{ ...appbar, back: false, flat: true, title: 'No back' }"
         ></f-app-bar>
       </v-col>
     </v-row>
@@ -18,6 +18,7 @@
           v-bind="{
             ...appbar,
             back: true,
+            flat: true,
             align: 'center',
             title: 'centerial title',
           }"
@@ -30,6 +31,7 @@
           v-bind="{
             ...appbar,
             back: true,
+            flat: true,
             color: 'transparent',
             flat: true,
             title: 'transparent bar',
@@ -76,7 +78,7 @@
             <v-avatar size="32">
               <v-img :src="require('@/assets/logo.svg')" :size="32"></v-img>
             </v-avatar>
-            <div class="f-title-2 ml-1">UIKit</div>
+            <div class="f-title-2 ml-1">Custom content</div>
             <v-spacer />
             <v-btn icon small color="primary">
               <v-icon>{{ icons.mdiFaceProfile }}</v-icon>
@@ -91,6 +93,7 @@
           v-bind="{
             ...appbar,
             dark: true,
+            flat: true,
             color: 'primary',
             title: 'Colorful',
           }"
