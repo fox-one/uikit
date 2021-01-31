@@ -67,7 +67,7 @@ class Page extends Mixins(page) {
         "appbar",
         "actionbar",
         "bottomnav",
-        "slidertabs",
+        "tabs",
         "floataction",
         "list",
       ],

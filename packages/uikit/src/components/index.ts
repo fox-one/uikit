@@ -17,6 +17,7 @@ export * from "./FTip";
 export * from "./FFloatAction";
 export * from "./FFormTips";
 export * from "./FSliderTabs";
+export * from "./FButtonTabs";
 export * from "./FButton";
 export * from "./FSwitch";
 export * from "./FList";

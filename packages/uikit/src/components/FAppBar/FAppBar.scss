@@ -15,11 +15,23 @@
 }
 .f-app-bar-back-btn {
   margin-left: -2px !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  min-width: 32px !important;
+  width: 32px !important;
+  border-radius: 20px;
+  .f-app-bar-back-btn-icon {
+    height: 16px;
+    width: 16px;
+    max-width: 16px;
+    display: inline-block;
+    transform: rotate(180deg);
+  }
 }
 .f-app-bar-title {
   display: block;
   position: absolute;
-  left: 42px;
+  left: 50px;
   right: 42px;
   &.left {
     text-align: left;
@@ -35,10 +47,20 @@
     right: 10px;
   }
 }
-.theme--dark .f-app-bar.v-sheet:not(.color) {
-  background-color: #000000 !important;
+.theme--dark {
+  .f-app-bar.v-sheet:not(.color) {
+    background-color: #000000 !important;
+  }
+  .f-app-bar-back-btn {
+    background-color: rgba(255, 255, 255, 0.2) !important;
+  }
 }
 
-.theme--light .f-app-bar.v-sheet:not(.color) {
-  background-color: #ffffff !important;
+.theme--light {
+  .f-app-bar.v-sheet:not(.color) {
+    background-color: #ffffff !important;
+  }
+  .f-app-bar-back-btn {
+    background-color: rgba(0, 0, 0, 0.05) !important;
+  }
 }

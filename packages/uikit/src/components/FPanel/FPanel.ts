@@ -13,7 +13,7 @@ class FPanel extends Vue {
 
   @Prop({ type: String, default: "low" }) elevation!: string;
 
-  @Prop({ type: String, default: "12" }) padding!: string;
+  @Prop({ type: String, default: "16" }) padding!: string;
 
   get styles() {
     return {

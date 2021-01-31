@@ -1,8 +1,10 @@
 import "./FAppBar.scss";
-import { VAppBar, VBtn, VIcon, VSpacer, VToolbarTitle } from "vuetify/lib";
+import { VAppBar, VBtn, VImg, VSpacer, VToolbarTitle } from "vuetify/lib";
 import { Component, Vue, Prop } from "vue-property-decorator";
 import { VNode, CreateElement } from "vue";
-import { mdiArrowLeft } from "@mdi/js";
+
+const lightIcon = require("../../assets/images/list-arrow-light.svg");
+const darkIcon = require("../../assets/images/list-arrow-dark.svg");
 
 @Component
 class FAppBar extends Vue {
@@ -32,11 +34,26 @@ class FAppBar extends Vue {
     const h = this.$createElement;
     const data = {
       staticClass: "f-app-bar-back-btn",
-      props: { small: true, icon: true },
+      props: { small: true, icon: false, depressed: true },
       on: { click: this.handleBack },
     };
 
-    return h(VBtn, data, [h(VIcon, [mdiArrowLeft])]);
+    return h(VBtn, data, [
+      h(
+        VImg,
+        {
+          staticClass: "f-app-bar-back-btn-icon",
+          props: {
+            height: 16,
+            width: 16,
+            eager: true,
+            aspectRatio: 0.3,
+            src: this.$vuetify.theme.dark ? darkIcon : lightIcon,
+          },
+        },
+        [],
+      ),
+    ]);
   }
 
   render(h: CreateElement): VNode | null {
