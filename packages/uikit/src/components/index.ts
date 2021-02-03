@@ -15,6 +15,7 @@ export * from "./FAssetAmountInput";
 export * from "./FNumberInput";
 export * from "./FInput";
 export * from "./FTip";
+export * from "./FTooltip";
 export * from "./FFloatAction";
 export * from "./FFormTips";
 export * from "./FSliderTabs";

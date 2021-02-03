@@ -22,16 +22,12 @@
       <div class="f-caption f-greyscale-3 mx-4">Others</div>
       <v-list>
         <template v-for="(item, index) in otherComponents">
-          <v-list-item :key="index" @click="handleViewComponent(item)">
-            <v-list-item-title>
-              {{ item.displayName }}
-            </v-list-item-title>
-            <v-list-item-action>
-              <v-icon>
-                {{ mdiChevronRight }}
-              </v-icon>
-            </v-list-item-action>
-          </v-list-item>
+          <f-list-item
+            :key="index"
+            @click="handleViewComponent(item)"
+            :title="item.displayName"
+          >
+          </f-list-item>
         </template>
       </v-list>
     </f-panel>
@@ -89,6 +85,7 @@ class Page extends Mixins(page) {
         "bottomsheet",
         "payingmodal",
         "tips",
+        "tooltip",
         "toast",
         "buttonswitch",
         "loading",
