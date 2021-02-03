@@ -58,7 +58,7 @@
       <div class="swap-pos-btn-wrapper">
         <v-btn
           class="swap-pos-btn"
-          color="greyscale_5"
+          color="greyscale_6"
           depressed
           rounded
           @click="swapPos"

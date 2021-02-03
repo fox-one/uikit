@@ -3,20 +3,15 @@
     <v-col>
       <f-bottom-sheet v-model="show" :persistent="persistent">
         <template #activator="{ on }">
-          <v-btn color="primary" outlined rounded block v-on="on">
-            Show Selector
-          </v-btn>
+          <f-button type="primary" block v-on="on">
+            Show selector
+          </f-button>
         </template>
         <template #title>
           选择一个人物
         </template>
         <template #subheader>
-          <v-text-field
-            v-model="filter"
-            placeholder="search"
-            hide-details
-            single-line
-          ></v-text-field>
+          <f-input v-model="filter" label="search"></f-input>
         </template>
         <v-list height="400">
           <v-list-item v-for="(item, index) in filtedItems" :key="index">
@@ -50,7 +45,7 @@ class BottomSheet extends Vue {
 
   filter = "";
 
-  persistent = true;
+  persistent = false;
 
   items = [
     {
@@ -107,6 +102,7 @@ class BottomSheet extends Vue {
   ];
 
   get filtedItems() {
+    console.log(this.filter);
     return this.items.filter((item) => item.title.includes(this.filter));
   }
 }

@@ -80,6 +80,7 @@ class Page extends Mixins(page) {
         "button",
         "buttonswitch",
         "phoneinput",
+        "input",
       ],
     },
     {

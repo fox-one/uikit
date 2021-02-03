@@ -1,8 +1,8 @@
 import { Component, Vue, Prop } from "vue-property-decorator";
 import { CreateElement, VNode } from "vue/types/umd";
 import FMixinAssetLogo from "../FMixinAssetLogo";
+import FInput from "../FInput";
 import {
-  VTextField,
   VListItem,
   VListItemContent,
   VListItemTitle,
@@ -10,7 +10,6 @@ import {
   VVirtualScroll,
 } from "vuetify/lib";
 import { MixinAsset } from "./types";
-import { mdiClose } from "@mdi/js";
 import { $t } from "../../utils/helper";
 
 @Component({
@@ -80,21 +79,19 @@ class FAssetsSheet extends Vue {
   }
 
   render(h: CreateElement): VNode {
-    const filter = h(VTextField, {
-      staticClass: "ma-0 pa-3 pt-0",
-      props: {
-        value: this.filter,
-        hideDetails: true,
-        singleLine: true,
-        clearable: true,
-        clearIcon: mdiClose,
-        label: $t(this, "search"),
-      },
+    const props = {
+      value: this.filter,
+      dense: true,
+      label: $t(this, "search"),
+    };
+    const input = h(FInput, {
+      props,
+      staticClass: "ma-0 pa-4 pt-0",
       slot: "subheader",
       on: { input: (val) => (this.filter = val) },
     });
 
-    return h("div", { staticClass: "px-3" }, [filter, this.genList()]);
+    return h("div", { staticClass: "px-0" }, [input, this.genList()]);
   }
 }
 

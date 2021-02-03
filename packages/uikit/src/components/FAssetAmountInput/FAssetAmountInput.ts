@@ -59,7 +59,7 @@ class FAssetAmountInput extends Vue {
       h(
         VLayout,
         {
-          staticClass: "mx-2 d-flex flex-column align-left",
+          staticClass: "ml-2 mr-0 d-flex flex-column align-left",
         },
         [
           h("div", { staticClass: "font-weight-bold" }, [displaySymbol]),

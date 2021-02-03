@@ -13,6 +13,7 @@ export * from "./FPhoneInput";
 export * from "./FMixinAssetLogo";
 export * from "./FAssetAmountInput";
 export * from "./FNumberInput";
+export * from "./FInput";
 export * from "./FTip";
 export * from "./FFloatAction";
 export * from "./FFormTips";

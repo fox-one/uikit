@@ -7,9 +7,11 @@ import {
   VVirtualScroll,
   VListItem,
   VListItemTitle,
+  VIcon,
 } from "vuetify/lib";
 import countryCodes from "../../assets/country-code.json";
 import { $t } from "../../utils/helper";
+import { mdiChevronDown } from "@mdi/js";
 
 const countries = Object.keys(countryCodes).map((k) => ({
   name: countryCodes[k].name,
@@ -45,7 +47,9 @@ class FPhoneInput extends Vue {
     return h(
       VTextField,
       {
+        staticClass: "f-phone-input",
         domProps: { "aria-autocomplete": false },
+        attrs: { "hide-details": true, solo: true },
         props: {
           autofocus: true,
           placeholder: $t(this, "phone_number"),
@@ -62,10 +66,20 @@ class FPhoneInput extends Vue {
           "div",
           {
             on,
-            staticClass: "px-4 f-phone-input__code",
+            staticClass: "pl-1 pr-2 f-phone-input__code",
             slot: "prepend-inner",
           },
-          this.bindCode,
+          [
+            h("span", {}, `+${this.bindCode}`),
+            h(
+              VIcon,
+              {
+                slot: "append-inner",
+                props: { size: "20", color: "greyscale_1" },
+              },
+              [mdiChevronDown],
+            ),
+          ],
         ),
       ],
     );

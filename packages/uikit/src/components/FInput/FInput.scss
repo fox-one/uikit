@@ -1,14 +1,15 @@
 @import "../mixin.scss";
 @import "../color.scss";
 
-.f-phone-input__code {
-  height: 24px;
-  display: flex;
-  align-items: center;
-}
-
-.f-phone-input {
+.f-input {
   border-radius: 8px;
+  height: 51px;
+  .v-input__control,
+  .v-input__slot,
+  .v-text-field__slot {
+    height: 51px !important;
+  }
+
   .v-text-field {
     padding-top: 0;
     margin-top: 0;
@@ -24,22 +25,27 @@
   .v-input__slot {
     box-shadow: none !important;
     background-color: transparent !important;
-    input {
-      padding-top: 0 !important;
+    &::before,
+    &::after {
+      display: none;
     }
-  }
-
-  input {
-    @include f-text-n(16px);
-    @include f-weight-m();
-    padding-bottom: 0px;
+    input {
+      margin-top: 20px;
+      padding-top: 0 !important;
+      @include f-text-n(16px);
+      @include f-weight-m();
+    }
   }
 
   .v-label {
     @include f-text-n(16px);
-    @include f-weight-m();
+    @include f-weight-r();
     transition-delay: 0.1s;
     height: 24px;
+    transform: translateY(-3px) scale(1);
+    &.v-label--active {
+      transform: translateY(-12px) scale(0.75);
+    }
   }
 
   .v-text-field.v-input--is-label-active,
@@ -59,32 +65,27 @@
     align-items: center;
     padding: 0 10px;
   }
-
-  .f-phone-input__code {
-    @include f-text-n(16px);
-    @include f-weight-sb();
-  }
 }
 
 .theme--dark {
-  .f-phone-input {
+  .f-input {
     background-color: f-color(dark, greyscale_6);
     .v-label {
       color: f-color(dark, greyscale_4);
-    }
-    .f-phone-input__code {
-      color: f-color(dark, greyscale_1) !important;
+      &.v-label--active {
+        color: f-color(dark, greyscale_3) !important;
+      }
     }
   }
 }
 .theme--light {
-  .f-phone-input {
+  .f-input {
     background-color: f-color(light, greyscale_6);
     .v-label {
       color: f-color(light, greyscale_4);
-    }
-    .f-phone-input__code {
-      color: f-color(light, greyscale_1) !important;
+      &.v-label--active {
+        color: f-color(light, greyscale_3) !important;
+      }
     }
   }
 }
