@@ -41,7 +41,7 @@ class FBottomSheet extends Vue {
         },
         on: { input: (val) => this.$emit("change", val) },
         scopedSlots: {
-          activator: function({ on }) {
+          activator: function ({ on }) {
             return (activator && activator({ on })) || null;
           },
         },

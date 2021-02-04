@@ -3,11 +3,27 @@
 
 .f-input {
   border-radius: 8px;
-  height: 51px;
-  .v-input__control,
+  .v-input__control {
+    display: block;
+  }
+
   .v-input__slot,
   .v-text-field__slot {
     height: 51px !important;
+    min-height: 51px !important;
+  }
+
+  .v-input__prepend,
+  .v-input__prepend-inner,
+  .v-input__prepend-outer,
+  .v-input__append-inner,
+  .v-input__append-outer,
+  .v-input__append {
+    display: flex;
+    height: 100%;
+    padding: 0 !important;
+    margin: 0 !important;
+    align-items: center;
   }
 
   .v-text-field {
@@ -24,7 +40,6 @@
 
   .v-input__slot {
     box-shadow: none !important;
-    background-color: transparent !important;
     &::before,
     &::after {
       display: none;
@@ -67,9 +82,29 @@
   }
 }
 
+.f-input.f-textarea {
+  min-height: 80px;
+  height: auto;
+  .v-input__control,
+  .v-input__slot,
+  .v-text-field__slot {
+    height: auto !important;
+    min-height: 80px !important;
+  }
+  .v-input {
+    min-height: 80px;
+    height: auto;
+  }
+}
+
 .theme--dark {
   .f-input {
-    background-color: f-color(dark, greyscale_6);
+    .v-input__slot {
+      background-color: f-color(dark, greyscale_6);
+    }
+    .f-input-wrapper {
+      color: f-color(dark, greyscale_3);
+    }
     .v-label {
       color: f-color(dark, greyscale_4);
       &.v-label--active {
@@ -80,7 +115,12 @@
 }
 .theme--light {
   .f-input {
-    background-color: f-color(light, greyscale_6);
+    .v-input__slot {
+      background-color: f-color(light, greyscale_6);
+    }
+    .f-input-wrapper {
+      color: f-color(light, greyscale_3);
+    }
     .v-label {
       color: f-color(light, greyscale_4);
       &.v-label--active {
