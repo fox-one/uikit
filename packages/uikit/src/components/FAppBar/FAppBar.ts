@@ -49,7 +49,7 @@ class FAppBar extends Vue {
             eager: true,
             aspectRatio: 0.3,
             src:
-              this?.$vuetify.theme.dark ||
+              (this as any).$vuetify.theme.dark ||
               (this.$attrs.color !== undefined &&
                 this.$attrs.color !== "transparent")
                 ? darkIcon

@@ -74,7 +74,7 @@ class FListItem extends Vue {
                 props: {
                   eager: true,
                   aspectRatio: 0.3,
-                  src: this?.$vuetify.theme.dark ? darkIcon : lightIcon,
+                  src: (this as any).$vuetify.theme.dark ? darkIcon : lightIcon,
                 },
               },
               [],
