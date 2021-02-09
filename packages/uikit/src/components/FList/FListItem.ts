@@ -41,7 +41,11 @@ class FListItem extends Vue {
         h(VListItemContent, { staticClass: "f-list-item-content" }, [
           h("div", { staticClass: "f-greyscale-1 f-body-1" }, this.title),
           this.subtitle
-            ? h("div", { staticClass: "f-greyscale-3 f-caption" }, this.subtitle)
+            ? h(
+                "div",
+                { staticClass: "f-greyscale-3 f-caption" },
+                this.subtitle,
+              )
             : null,
         ]),
       );
@@ -70,7 +74,7 @@ class FListItem extends Vue {
                 props: {
                   eager: true,
                   aspectRatio: 0.3,
-                  src: this.$vuetify.theme.dark ? darkIcon : lightIcon,
+                  src: this?.$vuetify.theme.dark ? darkIcon : lightIcon,
                 },
               },
               [],
