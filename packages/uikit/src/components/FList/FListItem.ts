@@ -43,7 +43,7 @@ class FListItem extends Vue {
           this.subtitle
             ? h(
                 "div",
-                { staticClass: "f-greyscale-3 f-caption" },
+                { staticClass: "f-list-item-subtitle f-greyscale-3 f-caption" },
                 this.subtitle,
               )
             : null,
@@ -86,7 +86,7 @@ class FListItem extends Vue {
     return h(
       VListItem,
       {
-        staticClass: "f-list",
+        staticClass: "f-list-item",
         attrs: this.$attrs,
         props: {
           ripple: false,

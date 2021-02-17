@@ -1,9 +1,27 @@
 <template>
   <div>
+    <f-panel class="mb-4 text-center">
+      <v-avatar size="64">
+        <v-img :src="require('@/assets/logo.svg')"></v-img>
+      </v-avatar>
+      <div class="f-title-1 mb-1">UIKit Demo</div>
+      <div class="f-caption f-greyscale-3">
+        An UIkit based on Vue & Vuetify, mainly written in TypeScript, includes
+        some useful components widely used in bots for Mixin Messenger.
+      </div>
+      <v-row>
+        <v-col cols="12" class="pb-0">
+          <v-btn icon @click="gotoGithub">
+            <v-icon>{{ mdiGithub }}</v-icon>
+          </v-btn>
+        </v-col>
+      </v-row>
+    </f-panel>
+
     <f-panel
       v-for="group in groups"
       :key="group.label"
-      :padding="0"
+      padding="0"
       class="py-2 mb-4"
     >
       <div class="f-caption f-greyscale-3 mx-4">{{ group.label }}</div>
@@ -38,7 +56,7 @@
 import { Component, Mixins } from "vue-property-decorator";
 import upperFirst from "lodash/upperFirst";
 import camelCase from "lodash/camelCase";
-import { mdiChevronRight } from "@mdi/js";
+import { mdiChevronRight, mdiGithub } from "@mdi/js";
 import page from "@/mixins/page";
 
 const requireComponent = require.context("../components", true, /\.vue$/);
@@ -53,6 +71,8 @@ const componentsList = requireComponent.keys().map((key) => {
 @Component
 class Page extends Mixins(page) {
   mdiChevronRight = mdiChevronRight;
+  mdiGithub = mdiGithub;
+
   componentsList = componentsList;
 
   groups = [
@@ -133,6 +153,10 @@ class Page extends Mixins(page) {
       name: "page-component",
       params: { component: item.componentName },
     });
+  }
+
+  gotoGithub() {
+    window.location.href = "https://github.com/fox-one/uikit";
   }
 }
 export default Page;

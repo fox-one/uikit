@@ -1,6 +1,6 @@
 <template>
   <div class="">
-    <f-panel :padding="0" class="py-2 mb-4">
+    <f-panel padding="0" class="py-2 mb-4">
       <div class="f-caption f-greyscale-3 mx-4">With subtitle</div>
       <f-list>
         <f-list-item
@@ -14,7 +14,7 @@
         </f-list-item>
       </f-list>
     </f-panel>
-    <f-panel :padding="0" class="py-2 mb-4">
+    <f-panel padding="0" class="py-2 mb-4">
       <div class="f-caption f-greyscale-3 mx-4">Without subtitle</div>
       <f-list>
         <f-list-item
@@ -28,7 +28,7 @@
         </f-list-item>
       </f-list>
     </f-panel>
-    <f-panel :padding="0" class="py-2 mb-4">
+    <f-panel padding="0" class="py-2 mb-4">
       <div class="f-caption f-greyscale-3 mx-4">With icon</div>
       <f-list>
         <f-list-item
@@ -45,7 +45,7 @@
         </f-list-item>
       </f-list>
     </f-panel>
-    <f-panel :padding="0" class="py-2 mb-4">
+    <f-panel padding="0" class="py-2 mb-4">
       <div class="f-caption f-greyscale-3 mx-4">Customize slots</div>
       <f-list>
         <f-list-item @click="clickItem(item)">
@@ -84,7 +84,8 @@ class List extends Vue {
     },
     {
       title: "I am a title",
-      subtitle: "Description here",
+      subtitle:
+        "Super long long long long long loooooooooooong loooooooooooong loooooooooooong loooooooooooong description here",
       value: "",
     },
   ];

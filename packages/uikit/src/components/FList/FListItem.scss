@@ -1,8 +1,16 @@
 .f-list {
+  .f-list-item {
+    padding-right: 10px;
+  }
   .f-list-item-content {
     padding-top: 18px;
     padding-bottom: 18px;
     height: 72px;
+  }
+  .f-list-item-subtitle {
+    max-height: 28px;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
   .v-list-item__action,
   .v-list-item__action .text {

@@ -3,8 +3,8 @@ import { VAppBar, VBtn, VImg, VSpacer, VToolbarTitle } from "vuetify/lib";
 import { Component, Vue, Prop } from "vue-property-decorator";
 import { VNode, CreateElement } from "vue";
 
-const lightIcon = require("../../assets/images/list-arrow-light.svg");
-const darkIcon = require("../../assets/images/list-arrow-dark.svg");
+const lightIcon = require("../../assets/images/top-nav-arrow-light.svg");
+const darkIcon = require("../../assets/images/top-nav-arrow-dark.svg");
 
 @Component
 class FAppBar extends Vue {
@@ -34,7 +34,7 @@ class FAppBar extends Vue {
     const h = this.$createElement;
     const data = {
       staticClass: "f-app-bar-back-btn",
-      props: { small: true, icon: false, depressed: true },
+      props: { small: true, icon: true, depressed: true, ripple: false },
       on: { click: this.handleBack },
     };
 

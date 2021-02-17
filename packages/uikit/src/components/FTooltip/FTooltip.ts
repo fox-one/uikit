@@ -12,7 +12,6 @@ class FTooltip extends Vue {
 
   render(h: CreateElement): VNode {
     const activator = this.$scopedSlots.activator;
-    console.log(this.bottom, this.top);
     return h(
       VTooltip,
       {

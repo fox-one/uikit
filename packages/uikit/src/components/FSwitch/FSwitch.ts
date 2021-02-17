@@ -13,7 +13,6 @@ class FSwitch extends Vue {
 
   @Watch("value")
   updateValue() {
-    this.value = this.value === true ? true : false;
     this._realValue = this.value;
   }
 
