@@ -2,18 +2,18 @@
   <v-row>
     <v-col class="mb-10">
       <f-tooltip v-model="show" bottom>
-        <template #activator="{}">
-          <f-button type="primary" block @click="show = !show">
+        <template #activator="{ on, attrs }">
+          <f-button type="primary" block v-on="on" v-bind="attrs">
             Click to toggle
           </f-button>
         </template>
         <div class="tip">Hello from bottm!</div>
       </f-tooltip>
     </v-col>
-    <v-col>
+    <v-col class="mb-10">
       <f-tooltip v-model="show2" top>
-        <template #activator="{}">
-          <f-button type="primary" block @click="show2 = !show2">
+        <template #activator="{ on }">
+          <f-button type="primary" block v-on="on">
             Click to toggle
           </f-button>
         </template>

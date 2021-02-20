@@ -23,3 +23,4 @@ export * from "./FButtonTabs";
 export * from "./FButton";
 export * from "./FSwitch";
 export * from "./FList";
+export * from "./FInfoGrid";

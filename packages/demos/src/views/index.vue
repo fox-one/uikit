@@ -112,6 +112,7 @@ class Page extends Mixins(page) {
         "qrcode",
         "formtips",
         "mixinassetlogo",
+        "infogrid",
       ],
     },
     {
