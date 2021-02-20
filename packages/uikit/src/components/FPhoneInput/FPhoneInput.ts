@@ -12,6 +12,7 @@ import {
 import countryCodes from "../../assets/country-code.json";
 import { $t } from "../../utils/helper";
 import { mdiChevronDown } from "@mdi/js";
+import FInput from "../FInput";
 
 const countries = Object.keys(countryCodes).map((k) => ({
   name: countryCodes[k].name,
@@ -88,12 +89,10 @@ class FPhoneInput extends Vue {
   genSearch() {
     const h = this.$createElement;
 
-    return h(VTextField, {
+    return h(FInput, {
       props: {
         value: this.filter,
-        placeholder: $t(this, "search"),
-        "hide-details": true,
-        "single-line": true,
+        label: $t(this, "search"),
       },
       on: { input: (val) => (this.filter = val) },
       slot: "subheader",
