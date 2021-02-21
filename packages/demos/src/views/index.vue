@@ -38,7 +38,7 @@
     </f-panel>
     <f-panel v-if="otherComponents.length" :padding="0" class="py-2 mb-4">
       <div class="f-caption f-greyscale-3 mx-4">Others</div>
-      <v-list>
+      <f-list>
         <template v-for="(item, index) in otherComponents">
           <f-list-item
             :key="index"
@@ -47,7 +47,7 @@
           >
           </f-list-item>
         </template>
-      </v-list>
+      </f-list>
     </f-panel>
   </div>
 </template>
@@ -108,7 +108,7 @@ class Page extends Mixins(page) {
         "tooltip",
         "toast",
         "buttonswitch",
-        "loading",
+        // "loading",
         "qrcode",
         "formtips",
         "mixinassetlogo",
