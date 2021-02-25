@@ -1,7 +1,8 @@
 import "./FBottomSheet.scss";
 import { Vue, Component, Model } from "vue-property-decorator";
 import { CreateElement, VNode } from "vue/types/umd";
-import { VBottomSheet, VCard, VCardTitle, VCardText } from "vuetify/lib";
+import { VBottomSheet, VCard, VCardTitle, VCardText, VIcon } from "vuetify/lib";
+import { mdiClose } from "@mdi/js";
 
 @Component({
   inheritAttrs: false,
@@ -45,7 +46,7 @@ class FBottomSheet extends Vue {
           },
         },
         scopedSlots: {
-          activator: function ({ on }) {
+          activator: ({ on }) => {
             return (activator && activator({ on })) || null;
           },
         },
@@ -60,6 +61,15 @@ class FBottomSheet extends Vue {
           [
             this.genTitle(),
             this.genSubheader(),
+            h(
+              VIcon,
+              {
+                props: { size: 18 },
+                on: { click: () => this.$emit("change", false) },
+                staticClass: "f-bottom-sheet__close",
+              },
+              [mdiClose],
+            ),
             h(
               VCardText,
               { staticClass: "f-bottom-sheet__body px-0" },

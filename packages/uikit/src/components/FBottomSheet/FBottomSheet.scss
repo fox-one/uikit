@@ -4,6 +4,13 @@
   .f-bottom-sheet__content {
     border-top-left-radius: 16px !important;
     border-top-right-radius: 16px !important;
+    position: relative;
+  }
+
+  .f-bottom-sheet__close {
+    position: absolute;
+    right: 12px;
+    top: 16px;
   }
 
   .f-bottom-sheet__title {
