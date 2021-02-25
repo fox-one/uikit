@@ -10,6 +10,11 @@ An UIkit based on Vue & Vuetify, mainly written in TypeScript, includes some use
 
 [Here](https://www.figma.com/file/LyLtRYpUtY5BjlndvCkmNB/UIKit-Components?node-id=0%3A1) is a Figma file.
 
+## Projects Using UIkit
+
+- [Reborn](https://www.firesbox.com)
+- [4swap](https://4swap.org)
+
 ## Getting started
 
 ### 1. Using [nuxt_ts_template](https://github.com/fox-one/nuxt_ts_template/)
