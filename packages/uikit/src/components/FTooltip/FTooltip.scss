@@ -2,10 +2,10 @@
 @import "../color.scss";
 
 .f-tooltip-content {
-  padding: 16px;
+  padding: 16px !important;
   opacity: 1 !important;
-  border-radius: 8px;
-  text-align: center;
+  border-radius: 8px !important;
+  text-align: center !important;
   .f-tooltip-content-inner {
     position: relative;
     @include f-text-n(12px);
