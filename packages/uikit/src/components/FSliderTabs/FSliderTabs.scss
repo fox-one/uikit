@@ -32,27 +32,21 @@
 
 .theme--light {
   .f-slider-tabs {
-    .v-tab {
+    .v-tab:not(.v-tab--active) {
       color: f-color(light, "greyscale_3");
     }
-    .v-tab--active {
-      color: f-color(light, "greyscale_1");
-    }
-    .f-slider-tabs__slider.primary {
-      background-color: f-color(light, "greyscale_1") !important;
+    .f-slider-tabs__slider {
+      background-color: currentColor;
     }
   }
 }
 .theme--dark {
   .f-slider-tabs {
-    .v-tab {
+    .v-tab:not(.v-tab--active) {
       color: f-color(dark, "greyscale_3");
     }
-    .v-tab--active {
-      color: f-color(dark, "greyscale_1");
-    }
-    .f-slider-tabs__slider.primary {
-      background-color: f-color(dark, "greyscale_1") !important;
+    .f-slider-tabs__slider {
+      background-color: currentColor;
     }
   }
 }

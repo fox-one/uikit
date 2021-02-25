@@ -52,16 +52,10 @@
   .f-app-bar.v-sheet:not(.color) {
     background-color: #000000 !important;
   }
-  .f-app-bar-back-btn {
-    // background-color: rgba(255, 255, 255, 0.2) !important;
-  }
 }
 
 .theme--light {
   .f-app-bar.v-sheet:not(.color) {
     background-color: #ffffff !important;
-  }
-  .f-app-bar-back-btn {
-    // background-color: rgba(0, 0, 0, 0.05) !important;
   }
 }

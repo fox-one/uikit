@@ -2,6 +2,7 @@
 @import "../color.scss";
 .f-button-tabs.v-btn-toggle {
   border-radius: 8px !important;
+
   .v-btn {
     @include f-text-n(14px);
     @include f-weight-m();
@@ -14,35 +15,38 @@
       display: none;
     }
   }
+
   &.grow {
     width: 100%;
   }
 }
+
 .theme--light {
   .f-button-tabs {
     background-color: f-color(light, "greyscale_6") !important;
-    .v-btn {
-      color: f-color(light, "greyscale_1");
-      background-color: f-color(light, "greyscale_6") !important;
-      @include f-weight-m();
-      &.v-item--active {
-        @include f-weight-m();
-        color: f-color(light, "greyscale_6");
-        background-color: f-color(light, "greyscale_1") !important;
-      }
+
+    .v-item--active {
+      color: f-color(light, "greyscale_6");
+      background-color: f-color(light, "greyscale_1") !important;
+    }
+
+    .theme--light.v-btn:not(.v-btn--active) {
+      background-color: transparent;
     }
   }
 }
+
 .theme--dark {
   .f-button-tabs {
     background-color: f-color(dark, "greyscale_6") !important;
-    .v-btn {
-      color: f-color(dark, "greyscale_1");
-      background-color: f-color(dark, "greyscale_6") !important;
-      &.v-item--active {
-        color: f-color(dark, "greyscale_6");
-        background-color: f-color(dark, "greyscale_1") !important;
-      }
+
+    .v-item--active {
+      color: f-color(dark, "greyscale_6");
+      background-color: f-color(dark, "greyscale_1") !important;
+    }
+
+    .theme--dark.v-btn:not(.v-btn--flat):not(.v-btn--text):not(.v-btn--outlined) {
+      background-color: transparent;
     }
   }
 }

@@ -7,7 +7,8 @@ import { VTabs } from "vuetify/lib";
 class FSliderTabs extends Vue {
   @Model("change") value!: number;
 
-  @Prop({ type: Number, default: undefined })
+  @Prop({ default: "", type: String }) color!: string;
+
   mounted() {
     this.setSliderPosition();
   }
@@ -40,6 +41,9 @@ class FSliderTabs extends Vue {
   }
 
   render(h: CreateElement): VNode {
+    const defaultColor = this.$vuetify.theme.dark ? "#fff" : "#000";
+    const color = this.color || defaultColor;
+
     return h(
       VTabs,
       {
@@ -48,6 +52,7 @@ class FSliderTabs extends Vue {
         attrs: this.$attrs,
         ref: "tabs",
         props: {
+          color,
           hideSlider: true,
           backgroundColor: "transparent",
           value: this.value,
@@ -57,7 +62,7 @@ class FSliderTabs extends Vue {
       [
         this.$slots.tabs,
         h("div", {
-          staticClass: "f-slider-tabs__slider primary",
+          staticClass: "f-slider-tabs__slider",
           ref: "slider",
         }),
       ],

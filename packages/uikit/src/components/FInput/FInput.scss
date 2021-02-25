@@ -20,10 +20,11 @@
   .v-input__append-outer,
   .v-input__append {
     display: flex;
-    height: 100%;
+    // height: 100%;
     padding: 0 !important;
     margin: 0 !important;
     align-items: center;
+    align-self: stretch;
   }
 
   .v-text-field {

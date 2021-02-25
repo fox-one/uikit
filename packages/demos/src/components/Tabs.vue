@@ -18,7 +18,7 @@
         You've selected tab {{ index }}
       </div>
 
-      <f-slider-tabs v-model="index" grow>
+      <f-slider-tabs v-model="index" grow color="primary">
         <template #tabs>
           <v-tab
             v-for="(item, index) in items"
@@ -51,12 +51,12 @@
       <div class="text-left ma-4 f-body-2 f-greyscale-3">
         You've selected tab {{ index }}
       </div>
-      <f-button-tabs v-model="index" grow>
+      <f-button-tabs v-model="index" grow active-class="primary white--text">
         <template #tabs>
           <v-btn
             v-for="(item, index) in items"
             :key="index"
-            :data-value="index"
+            :value="index"
             :ripple="false"
           >
             <span>{{ item.text }}</span>

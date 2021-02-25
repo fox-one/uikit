@@ -38,8 +38,12 @@ class FAppBar extends Vue {
       on: { click: this.handleBack },
     };
 
-    return h(VBtn, data, [
-      h(
+    let backIcon;
+    if (this.$slots.backIcon) {
+      backIcon = this.$slots.backIcon;
+    } else {
+      const dark = this.$attrs.dark || this.$vuetify.theme.dark;
+      backIcon = h(
         VImg,
         {
           staticClass: "f-app-bar-back-btn-icon",
@@ -48,17 +52,14 @@ class FAppBar extends Vue {
             width: 16,
             eager: true,
             aspectRatio: 0.3,
-            src:
-              (this as any).$vuetify.theme.dark ||
-              (this.$attrs.color !== undefined &&
-                this.$attrs.color !== "transparent")
-                ? darkIcon
-                : lightIcon,
+            src: dark ? darkIcon : lightIcon,
           },
         },
         [],
-      ),
-    ]);
+      );
+    }
+
+    return h(VBtn, data, [backIcon]);
   }
 
   render(h: CreateElement): VNode | null {
