@@ -25,6 +25,7 @@ class FButtonTabs extends Vue {
       borderless: true,
       ripple: false,
       value: this.value,
+      mandatory: true,
       ...this.$attrs,
     };
 
