@@ -45,6 +45,9 @@
   .f-active-dot-wrapper {
     background: #fff;
   }
+  .v-btn {
+    background-color: transparent !important;
+  }
 }
 
 .theme--dark {
@@ -53,5 +56,8 @@
   }
   .v-bottom-navigation {
     background-color: #000000 !important;
+    .v-btn {
+      background-color: transparent !important;
+    }
   }
 }
