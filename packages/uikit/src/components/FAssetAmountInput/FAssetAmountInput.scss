@@ -16,14 +16,14 @@
 
   .v-input {
     height: 60px;
-    padding: 6px 8px 6px 0;
+    padding: 6px 8px 6px 0 !important;
   }
 
   .v-input__slot {
     box-shadow: none !important;
     background-color: transparent !important;
     input {
-      padding-top: 0 !important;
+      padding: 0 !important;
     }
   }
 
