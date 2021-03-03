@@ -25,8 +25,9 @@
   .f-button-tabs {
     background-color: f-color(light, "greyscale_6") !important;
 
-    .v-item--active {
-      color: f-color(light, "greyscale_6");
+    .v-item--active,
+    .v-btn--active {
+      color: f-color(light, "greyscale_6") !important;
       background-color: f-color(light, "greyscale_1") !important;
     }
 
@@ -40,8 +41,9 @@
   .f-button-tabs {
     background-color: f-color(dark, "greyscale_6") !important;
 
-    .v-item--active {
-      color: f-color(dark, "greyscale_6");
+    .v-item--active,
+    .v-btn--active {
+      color: f-color(dark, "greyscale_6") !important;
       background-color: f-color(dark, "greyscale_1") !important;
     }
 
