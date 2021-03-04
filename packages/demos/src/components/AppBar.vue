@@ -33,8 +33,19 @@
             back: true,
             flat: true,
             color: 'transparent',
-            flat: true,
             title: 'transparent bar',
+          }"
+        ></f-app-bar>
+      </v-col>
+    </v-row>
+    <v-row>
+      <v-col>
+        <f-app-bar
+          v-bind="{
+            ...appbar,
+            back: true,
+            flat: true,
+            title: slotTitle,
           }"
         ></f-app-bar>
       </v-col>
@@ -120,6 +131,14 @@ class Appbar extends Vue {
   icons = {
     mdiFaceProfile,
   };
+  slotTitle = this.$createElement("div", {
+    style: {
+      color: "green",
+    },
+    domProps: {
+      innerHTML: "I'm slot title bar 🦊",
+    },
+  });
 }
 export default Appbar;
 </script>

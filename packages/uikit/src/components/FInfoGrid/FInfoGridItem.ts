@@ -15,6 +15,8 @@ class FListItem extends Vue {
 
   @Prop({ type: String, default: "" }) valueColor!: string;
 
+  @Prop({ type: String, default: "" }) valueCustomColor!: string;
+
   @Prop({ type: String, default: "" }) valueUnit!: string;
 
   @Prop({ type: String, default: "" }) hint!: string;
@@ -45,6 +47,7 @@ class FListItem extends Vue {
                 {
                   staticClass: `f-info-grid-item-value`,
                   class: this.valueColor ? `${this.valueColor}--text` : "",
+                  style: this.valueCustomColor ? { color: `${this.valueCustomColor} !important` } : {},
                 },
                 this.value,
               ),
