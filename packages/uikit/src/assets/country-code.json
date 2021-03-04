@@ -571,7 +571,7 @@
   },
   "hk": {
     "code": "hk",
-    "name": "Hong Kong (香港)",
+    "name": "Hong Kong (中国香港)",
     "dialCode": 852,
     "phoneFormat": "5123 4567"
   },
@@ -746,7 +746,7 @@
   },
   "mo": {
     "code": "mo",
-    "name": "Macau (澳門)",
+    "name": "Macau (中国澳門)",
     "dialCode": 853,
     "phoneFormat": "6612 3456"
   },
@@ -1268,7 +1268,7 @@
   },
   "tw": {
     "code": "tw",
-    "name": "Taiwan (台灣)",
+    "name": "Taiwan (中国台灣)",
     "dialCode": 886,
     "phoneFormat": "0912 345 678"
   },
