@@ -11,6 +11,7 @@
           :value="item.value"
           :value-unit="item.valueUnit"
           :value-color="item.valueColor"
+          :value-custom-color="item.valueCustomColor"
           :hint="item.hint"
         ></f-info-grid-item>
       </f-info-grid>
@@ -26,6 +27,7 @@
           :value="item.value"
           :value-unit="item.valueUnit"
           :value-color="item.valueColor"
+          :value-custom-color="item.valueCustomColor"
           :hint="item.hint"
         ></f-info-grid-item>
       </f-info-grid>
@@ -82,6 +84,7 @@ class List extends Vue {
       value: "-0.121",
       valueUnit: "%",
       valueColor: "red",
+      valueCustomColor: "blue",
     },
     {
       title: "Profit (ETH)",
