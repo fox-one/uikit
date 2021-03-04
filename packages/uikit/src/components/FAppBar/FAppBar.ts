@@ -1,7 +1,7 @@
 import "./FAppBar.scss";
 import { VAppBar, VBtn, VImg, VSpacer, VToolbarTitle } from "vuetify/lib";
 import { Component, Vue, Prop } from "vue-property-decorator";
-import { VNode, CreateElement } from "vue";
+import { VNode, VNodeChildren, CreateElement } from "vue";
 
 const lightIcon = require("../../assets/images/top-nav-arrow-light.svg");
 const darkIcon = require("../../assets/images/top-nav-arrow-dark.svg");
@@ -16,7 +16,10 @@ class FAppBar extends Vue {
 
   @Prop({ type: Boolean, default: false }) mixinImmersive!: boolean;
 
-  @Prop({ type: String, default: "" }) title!: string;
+  @Prop({ type: [String, Array], default: "" }) title!: Exclude<
+    VNodeChildren,
+    boolean | null | undefined
+  >;
 
   @Prop({ type: String, default: "left" }) align!: string;
 
@@ -86,9 +89,8 @@ class FAppBar extends Vue {
         h(
           VToolbarTitle,
           {
-            staticClass: `f-app-bar-title f-title-2 pl-2 text-capitalize justify-center ${
-              this.align
-            } ${this.back ? "" : "no-back"}`,
+            staticClass: `f-app-bar-title f-title-2 pl-2 text-capitalize justify-center ${this.align
+              } ${this.back ? "" : "no-back"}`,
           },
           [this.title],
         ),
