@@ -31,12 +31,13 @@
             :key="index"
             @click="handleViewComponent(item)"
             :title="item.displayName"
+            :subtitle="item.subtitle"
           >
           </f-list-item>
         </template>
       </f-list>
     </f-panel>
-    <f-panel v-if="otherComponents.length" :padding="0" class="py-2 mb-4">
+    <f-panel v-if="otherComponents.length" padding="0" class="py-2 mb-4">
       <div class="f-caption f-greyscale-3 mx-4">Others</div>
       <f-list>
         <template v-for="(item, index) in otherComponents">
@@ -44,6 +45,7 @@
             :key="index"
             @click="handleViewComponent(item)"
             :title="item.displayName"
+            :subtitle="item.subtitle"
           >
           </f-list-item>
         </template>
@@ -78,49 +80,70 @@ class Page extends Mixins(page) {
   groups = [
     {
       label: "Layout & Container",
-      coms: [
-        "panel",
-        "appbar",
-        "actionbar",
-        "bottomnav",
-        "tabs",
-        "floataction",
-        "list",
-      ],
+      coms: new Map([
+        ["panel", "A versatile container that can be used for anything"],
+        ["appbar", "A pivotal to any graphical user interface"],
+        ["actionbar", "A container with multiple page-level useful actions"],
+        [
+          "bottomnav",
+          "A better alternative to the sidebar. In most cases we don't need sidebar",
+        ],
+        [
+          "tabs",
+          "Hiding content behind a selectable item or pseudo-navigation for a page",
+        ],
+        ["floataction", ""],
+        ["list", "To display items in a collection"],
+      ]),
     },
     {
       label: "Form",
-      coms: [
-        "assetamountinput",
-        "assetselect",
-        "button",
-        "buttonswitch",
-        "phoneinput",
-        "input",
-      ],
+      coms: new Map([
+        [
+          "assetamountinput",
+          "Very useful for collecting info about assets and amount",
+        ],
+        [
+          "assetselect",
+          "A component for collecting selected asset from asset list",
+        ],
+        ["button", "Just buttons"],
+        ["buttonswitch", "Like checkbox, but better."],
+        ["phoneinput", "A component for collecting the phone number."],
+        [
+          "input",
+          "The basic component, used for collecting user provided information",
+        ],
+      ]),
     },
     {
       label: "Presentation",
-      coms: [
-        "bottomsheet",
-        "payingmodal",
-        "tips",
-        "tooltip",
-        "toast",
-        "loading",
-        "qrcode",
-        "formtips",
-        "mixinassetlogo",
-        "infogrid",
-      ],
+      coms: new Map([
+        [
+          "bottomsheet",
+          "A modal view that slides from the bottom of the screen",
+        ],
+        ["payingmodal", "A modal view that shows the progress of paying"],
+        ["tips", ""],
+        ["tooltip", "Conveying information when a user taps an element"],
+        ["toast", "To display a quick message to a user"],
+        ["loading", "A modal view that shows the progress of loading"],
+        ["qrcode", "A component that generates QRCode for any string"],
+        ["formtips", ""],
+        ["mixinassetlogo", ""],
+        ["infogrid", "To display several items in a grid-like view."],
+      ]),
     },
     {
       label: "Styles",
-      coms: ["color", "typography"],
+      coms: new Map([
+        ["color", "colors"],
+        ["typography", "text, font, etc"],
+      ]),
     },
     {
       label: "Overrided",
-      coms: ["chip"],
+      coms: new Map([["chip", "chips from vuetify"]]),
     },
   ];
 
@@ -131,16 +154,21 @@ class Page extends Mixins(page) {
     };
   }
 
-  filterComponents(names: Array<string>) {
-    return componentsList.filter((x) => {
-      return names.includes(x.displayName.toLowerCase());
-    });
+  filterComponents(coms: Map<string, string>) {
+    return componentsList
+      .filter((x) => {
+        return coms.has(x.displayName.toLowerCase());
+      })
+      .map((x: any) => {
+        x.subtitle = coms.get(x.displayName.toLowerCase());
+        return x;
+      });
   }
 
   get otherComponents() {
     return componentsList.filter((x) => {
       for (let ix = 0; ix < this.groups.length; ix++) {
-        if (this.groups[ix].coms.includes(x.displayName.toLowerCase())) {
+        if (this.groups[ix].coms.has(x.displayName.toLowerCase())) {
           return false;
         }
       }
