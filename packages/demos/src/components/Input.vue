@@ -37,8 +37,8 @@
         :hint="`Price is ${price} JPY`"
         persistent-hint
       >
-        <template #prepend><div class="mr-2 mt-4">Price</div></template>
-        <template #appendOuter><div class="ml-2 mt-4">JPY</div></template>
+        <template #prepend><div class="mr-2">Price</div></template>
+        <template #appendOuter><div class="ml-2">JPY</div></template>
       </f-input>
       <!-- <div class="mt-2 mb-4 f-body-2">Price is {{ price }} JPY</div> -->
 

@@ -8,9 +8,9 @@
 
   &.f-actionbar--fixed {
     position: fixed;
-    bottom: 40px;
-    left: 20px;
-    right: 20px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
   }
 
   .f-actionbar--action {
@@ -18,7 +18,9 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    font-size: 13px;
+    .f-actionbar-button-label {
+      font-weight: normal;
+    }
   }
 }
 .theme--light.v-application {

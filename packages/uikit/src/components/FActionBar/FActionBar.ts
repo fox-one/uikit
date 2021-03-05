@@ -18,6 +18,8 @@ class FActionBar extends Vue {
 
   @Prop({ type: Boolean, default: false }) fixed!: boolean;
 
+  @Prop({ type: Boolean, default: false }) customContent!: boolean;
+
   handleClick(btn: ActionButton) {
     this.$emit("click", btn);
   }
@@ -35,7 +37,7 @@ class FActionBar extends Vue {
           h(
             "span",
             {
-              staticClass: "f-actionbar-button-label f-caption f-weight-m mt-1",
+              staticClass: "f-actionbar-button-label f-caption mt-1",
             },
             [action.text],
           ),
@@ -54,7 +56,10 @@ class FActionBar extends Vue {
   }
 
   render(h: CreateElement): VNode {
-    const actions = this.actions.map((action) => this.genAction(action));
+    let content = this.$slots.default;
+    if (!this.customContent) {
+      content = this.actions.map((action) => this.genAction(action));
+    }
     return h(
       FPanel,
       {
@@ -62,9 +67,10 @@ class FActionBar extends Vue {
         class: [this.fixed ? "f-actionbar--fixed" : ""],
         props: {
           elevation: "high",
+          padding: "8",
         },
       },
-      actions,
+      content,
     );
   }
 }

@@ -37,7 +37,7 @@
         </v-col>
       </v-row>
     </f-panel>
-    <f-panel padding="0" class="px-4">
+    <f-panel>
       <v-row>
         <v-col cols="12">
           <f-button type="primary" block

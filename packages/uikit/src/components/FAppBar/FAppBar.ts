@@ -16,7 +16,7 @@ class FAppBar extends Vue {
 
   @Prop({ type: Boolean, default: false }) mixinImmersive!: boolean;
 
-  @Prop({ type: [String, Array], default: "" }) title!: Exclude<
+  @Prop({ type: [String, Array, Object], default: "" }) title!: Exclude<
     VNodeChildren,
     boolean | null | undefined
   >;
@@ -89,8 +89,9 @@ class FAppBar extends Vue {
         h(
           VToolbarTitle,
           {
-            staticClass: `f-app-bar-title f-title-2 pl-2 text-capitalize justify-center ${this.align
-              } ${this.back ? "" : "no-back"}`,
+            staticClass: `f-app-bar-title f-title-2 pl-2 text-capitalize justify-center ${
+              this.align
+            } ${this.back ? "" : "no-back"}`,
           },
           [this.title],
         ),

@@ -107,7 +107,6 @@ class Page extends Mixins(page) {
         "tips",
         "tooltip",
         "toast",
-        "buttonswitch",
         "loading",
         "qrcode",
         "formtips",
