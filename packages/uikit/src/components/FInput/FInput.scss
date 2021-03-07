@@ -19,12 +19,13 @@
   .v-input__append-inner,
   .v-input__append-outer,
   .v-input__append {
+    height: 100%;
     display: flex !important;
     // height: 100%;
     padding: 0 !important;
     margin: 0 !important;
     align-items: center;
-    align-self: stretch;
+    align-self: stretch !important;
   }
 
   .v-text-field {
