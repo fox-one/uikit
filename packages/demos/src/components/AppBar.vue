@@ -45,7 +45,7 @@
             ...appbar,
             back: true,
             flat: true,
-            title: slotTitle,
+            title: VNodeTitle,
           }"
         ></f-app-bar>
       </v-col>
@@ -131,12 +131,12 @@ class Appbar extends Vue {
   icons = {
     mdiFaceProfile,
   };
-  slotTitle = this.$createElement("div", {
+  VNodeTitle = this.$createElement("div", {
     style: {
       color: "green",
     },
     domProps: {
-      innerHTML: "I'm slot title bar 🦊",
+      innerHTML: "I'm a VNode title bar 🦊",
     },
   });
 }

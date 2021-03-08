@@ -49,7 +49,7 @@ class FListItem extends Vue {
                   class: this.valueColor ? `${this.valueColor}--text` : "",
                   style: this.valueCustomColor ? { color: `${this.valueCustomColor} !important` } : {},
                 },
-                this.value,
+                [this.value],
               ),
               this.valueUnit
                 ? h(

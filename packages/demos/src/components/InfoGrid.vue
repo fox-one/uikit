@@ -33,6 +33,23 @@
       </f-info-grid>
     </f-panel>
     <f-panel padding="0" class="py-2 mb-4">
+      <div class="f-caption f-greyscale-3 mx-4">VNode Item</div>
+      <f-info-grid :window-size="2">
+        <f-info-grid-item
+          v-for="(item, ix) in VNodeItem"
+          :key="ix"
+          :index="ix"
+          :title="item.title"
+          :value="item.value"
+          :value-unit="item.valueUnit"
+          :value-color="item.valueColor"
+          :value-custom-color="item.valueCustomColor"
+          :hint="item.hint"
+        >
+        </f-info-grid-item>
+      </f-info-grid>
+    </f-panel>
+    <f-panel padding="0" class="py-2 mb-4">
       <div class="f-caption f-greyscale-3 mx-4">Custom Item</div>
       <f-info-grid :window-size="2">
         <f-info-grid-item
@@ -56,8 +73,32 @@
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
 import { mdiFaceProfile } from "@mdi/js";
+import { CreateElement, VNode } from "vue";
+import { VIcon } from "vuetify/lib";
 
-@Component
+const PriceInfo = Vue.extend({
+  props: { price: { type: String, default: "" } },
+  render(h: CreateElement): VNode {
+    if (!this.price) {
+      return h("div", [this.$t("tip.label.price") + "-"]);
+    }
+    return h("div", { staticClass: "swap-form-tips_price" }, [
+      "$5.678",
+      this.price &&
+        h(VIcon, {
+          staticClass: "ml-1",
+          props: { size: 18, color: "primary" },
+          on: { click: () => this.$emit("switch:price") },
+        }),
+    ]);
+  },
+});
+
+@Component({
+  components: {
+    PriceInfo,
+  },
+})
 class List extends Vue {
   value = true;
 
@@ -92,6 +133,32 @@ class List extends Vue {
       valueUnit: "ETH",
       valueColor: "",
       hint: "Some description about profit.",
+    },
+  ];
+
+  VNodeItem = [
+    {
+      title: "VNode value👆",
+      value: this.$createElement("div", {
+        style: {
+          color: "red",
+        },
+        domProps: {
+          innerHTML: "I'm VNode value",
+        },
+      }),
+    },
+    {
+      title: this.$createElement("div", {
+        style: {
+          color: "green",
+        },
+        domProps: {
+          innerHTML: "I'm VNode title",
+        },
+      }),
+      value: "VNode title👇",
+      valueColor: "blue",
     },
   ];
 
