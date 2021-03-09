@@ -14,7 +14,7 @@
           <f-mixin-asset-logo
             :logo="asset0.logo"
             :chain-logo="asset0.chainLogo"
-            size="32"
+            :size="32"
             class="ml-2"
           ></f-mixin-asset-logo>
         </template>
@@ -119,19 +119,19 @@ class AssetAmountInput extends Vue {
 
   value2 = "";
 
-  asset0: any = null;
+  asset0: any = {};
 
-  asset1: any = null;
+  asset1: any = {};
 
-  asset2: any = null;
+  asset2: any = {};
 
   value3 = "";
 
   value4 = "";
 
-  asset3: any = null;
+  asset3: any = {};
 
-  asset4: any = null;
+  asset4: any = {};
 
   selectable = true;
 
@@ -142,7 +142,7 @@ class AssetAmountInput extends Vue {
       const chainAsset = assets.find((a) => a.asset_id === asset.chain_id);
       return {
         id: asset.asset_id,
-        symbol: asset.symbol,
+        symbol: asset.symbol || "",
         name: asset.name,
         logo: asset.icon_url,
         label: asset.label,
@@ -154,6 +154,7 @@ class AssetAmountInput extends Vue {
   mounted() {
     this.asset0 = this.assets[Math.floor(Math.random() * this.assets.length)];
     this.asset1 = this.assets[Math.floor(Math.random() * this.assets.length)];
+    this.asset2 = this.assets[Math.floor(Math.random() * this.assets.length)];
     this.asset3 = this.assets[Math.floor(Math.random() * this.assets.length)];
     this.asset4 = this.assets[Math.floor(Math.random() * this.assets.length)];
   }

@@ -47,7 +47,9 @@ class FAssetAmountInput extends Vue {
     const activator = this.bindAsset
       ? this.genAssetSeleted()
       : this.genAssetPlaceholder();
-    return h("div", { staticClass: "f-asset-amount-input__activator", on: { ...on, click: this.selectable ? on.click : null } }, [
+
+    !this.selectable && delete on.click;
+    return h("div", { staticClass: "f-asset-amount-input__activator", on }, [
       activator,
     ]);
   }
@@ -55,7 +57,7 @@ class FAssetAmountInput extends Vue {
   genAssetSeleted() {
     const h = this.$createElement;
 
-    const { logo, chainLogo, symbol, select_symbol, label } = this.bindAsset!;
+    const { logo, chainLogo, symbol, select_symbol, label } = this.bindAsset! || {};
     const displaySymbol = select_symbol || symbol;
 
     return [
