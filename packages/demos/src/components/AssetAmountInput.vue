@@ -4,8 +4,8 @@
       <div class="f-caption mb-2">Custom Activator</div>
       <f-asset-amount-input
         v-model="value0"
+        :asset.sync="asset0"
         label="activator"
-        :selectable="false"
         :precision="10"
         border
         @blur="handleBlur($event)"
@@ -24,7 +24,7 @@
         v-model="value1"
         label="Disabled"
         :assets="assets"
-        :selectable="selectable"
+        :selectable="false"
         :asset.sync="asset1"
         :precision="precision"
         disabled
@@ -153,6 +153,7 @@ class AssetAmountInput extends Vue {
 
   mounted() {
     this.asset0 = this.assets[Math.floor(Math.random() * this.assets.length)];
+    this.asset1 = this.assets[Math.floor(Math.random() * this.assets.length)];
     this.asset3 = this.assets[Math.floor(Math.random() * this.assets.length)];
     this.asset4 = this.assets[Math.floor(Math.random() * this.assets.length)];
   }
