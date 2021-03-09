@@ -154,6 +154,7 @@ class FAssetAmountInput extends Vue {
           attrs: { ...this.$attrs, "hide-details": true, solo: true },
           props: { value: this.value, solo: true, reverse: true },
           on: {
+            ...this.$listeners,
             input: (val) => this.$emit("input", val),
           },
         }),

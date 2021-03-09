@@ -8,6 +8,7 @@
         :selectable="false"
         :precision="10"
         border
+        @blur="handleBlur($event)"
       >
         <template #activator>
           <f-mixin-asset-logo
@@ -118,7 +119,7 @@ class AssetAmountInput extends Vue {
 
   value2 = "";
 
-  asset0 = null;
+  asset0: any = null;
 
   asset1 = null;
 
@@ -160,6 +161,10 @@ class AssetAmountInput extends Vue {
     const tmp = Object.assign({}, this.asset3);
     this.asset3 = Object.assign({}, this.asset4);
     this.asset4 = Object.assign({}, tmp);
+  }
+
+  handleBlur() {
+    alert("user blur!");
   }
 }
 export default AssetAmountInput;
