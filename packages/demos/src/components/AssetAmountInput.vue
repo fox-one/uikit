@@ -121,9 +121,9 @@ class AssetAmountInput extends Vue {
 
   asset0: any = null;
 
-  asset1 = null;
+  asset1: any = null;
 
-  asset2 = null;
+  asset2: any = null;
 
   value3 = "";
 
