@@ -34,6 +34,7 @@ class FNumberInput extends Vue {
       },
       attrs: { ...this.$attrs },
       on: {
+        ...this.$listeners,
         input: (val) => this.handleSetValue(val),
       },
     });

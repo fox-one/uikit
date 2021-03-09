@@ -37,6 +37,11 @@ class FAssetAmountInput extends Vue {
   }
 
   genActivator({ on }) {
+    const slotActivator = this.$scopedSlots.activator;
+    if (slotActivator) {
+      return slotActivator({ on });
+    }
+
     const h = this.$createElement;
 
     const activator = this.bindAsset
@@ -149,6 +154,7 @@ class FAssetAmountInput extends Vue {
           attrs: { ...this.$attrs, "hide-details": true, solo: true },
           props: { value: this.value, solo: true, reverse: true },
           on: {
+            ...this.$listeners,
             input: (val) => this.$emit("input", val),
           },
         }),

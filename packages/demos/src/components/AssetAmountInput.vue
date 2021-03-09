@@ -1,6 +1,24 @@
 <template>
   <div>
     <f-panel class="mb-4">
+      <div class="f-caption mb-2">Custom Activator</div>
+      <f-asset-amount-input
+        v-model="value0"
+        label="activator"
+        :selectable="false"
+        :precision="10"
+        border
+        @blur="handleBlur($event)"
+      >
+        <template #activator>
+          <f-mixin-asset-logo
+            :logo="asset0.logo"
+            :chain-logo="asset0.chainLogo"
+            size="32"
+            class="ml-2"
+          ></f-mixin-asset-logo>
+        </template>
+      </f-asset-amount-input>
       <div class="f-caption mb-2">Disabled</div>
       <f-asset-amount-input
         v-model="value1"
@@ -95,9 +113,13 @@ class AssetAmountInput extends Vue {
     mdiSwapVertical,
   };
 
+  value0 = "";
+
   value1 = "";
 
   value2 = "";
+
+  asset0: any = null;
 
   asset1 = null;
 
@@ -130,6 +152,7 @@ class AssetAmountInput extends Vue {
   }
 
   mounted() {
+    this.asset0 = this.assets[Math.floor(Math.random() * this.assets.length)];
     this.asset3 = this.assets[Math.floor(Math.random() * this.assets.length)];
     this.asset4 = this.assets[Math.floor(Math.random() * this.assets.length)];
   }
@@ -138,6 +161,10 @@ class AssetAmountInput extends Vue {
     const tmp = Object.assign({}, this.asset3);
     this.asset3 = Object.assign({}, this.asset4);
     this.asset4 = Object.assign({}, tmp);
+  }
+
+  handleBlur() {
+    alert("user blur!");
   }
 }
 export default AssetAmountInput;
