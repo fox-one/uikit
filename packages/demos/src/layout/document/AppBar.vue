@@ -33,9 +33,9 @@ class DocumnetAppBar extends Vue {
   }
 
   toggleThemeMode() {
-    const value = !this.$vuetify.theme.dark;
+    const value = !(this as any).$vuetify.theme.dark;
     this.$store.commit("app/SET_THEME_DARK", value);
-    this.$vuetify.theme.dark = value;
+    (this as any).$vuetify.theme.dark = value;
   }
 
   handleBack() {

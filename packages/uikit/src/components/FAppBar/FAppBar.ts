@@ -45,7 +45,7 @@ class FAppBar extends Vue {
     if (this.$slots.backIcon) {
       backIcon = this.$slots.backIcon;
     } else {
-      const dark = this.$attrs.dark || this.$vuetify.theme.dark;
+      const dark = this.$attrs.dark || (this as any).$vuetify.theme.dark;
       backIcon = h(
         VImg,
         {
