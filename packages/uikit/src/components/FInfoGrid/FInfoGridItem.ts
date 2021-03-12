@@ -1,6 +1,6 @@
 import "./FInfoGridItem.scss";
 import { Component, Vue, Prop } from "vue-property-decorator";
-import { CreateElement, VNode, VNodeChildren } from "vue/types/umd";
+import { CreateElement, VNode } from "vue/types/umd";
 
 import { VFlex, VBtn, VIcon } from "vuetify/lib";
 
@@ -9,15 +9,9 @@ import { mdiHelpCircle } from "@mdi/js";
 
 @Component
 class FListItem extends Vue {
-  @Prop({ type: [String, Array, Object], default: "" }) title!: Exclude<
-    VNodeChildren,
-    boolean | null | undefined
-  >;
+  @Prop({ default: "" }) title;
 
-  @Prop({ type: [String, Array, Object], default: "" }) value!: Exclude<
-    VNodeChildren,
-    boolean | null | undefined
-  >;
+  @Prop({ default: "" }) value!: any;
 
   @Prop({ type: String, default: "" }) valueColor!: string;
 
@@ -53,7 +47,9 @@ class FListItem extends Vue {
                 {
                   staticClass: `f-info-grid-item-value`,
                   class: this.valueColor ? `${this.valueColor}--text` : "",
-                  style: this.valueCustomColor ? { color: `${this.valueCustomColor} !important` } : {},
+                  style: this.valueCustomColor
+                    ? { color: `${this.valueCustomColor} !important` }
+                    : {},
                 },
                 [this.value],
               ),
