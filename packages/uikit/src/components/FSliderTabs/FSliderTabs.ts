@@ -41,7 +41,7 @@ class FSliderTabs extends Vue {
   }
 
   render(h: CreateElement): VNode {
-    const defaultColor = this.$vuetify.theme.dark ? "#fff" : "#000";
+    const defaultColor = (this as any).$vuetify.theme.dark ? "#fff" : "#000";
     const color = this.color || defaultColor;
 
     return h(
