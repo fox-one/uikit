@@ -48,6 +48,7 @@ class FAssetAmountInput extends Vue {
       ? this.genAssetSeleted()
       : this.genAssetPlaceholder();
 
+    !this.selectable && delete on.click;
     return h("div", { staticClass: "f-asset-amount-input__activator", on }, [
       activator,
     ]);
@@ -56,7 +57,7 @@ class FAssetAmountInput extends Vue {
   genAssetSeleted() {
     const h = this.$createElement;
 
-    const { logo, chainLogo, symbol, select_symbol, label } = this.bindAsset!;
+    const { logo, chainLogo, symbol, select_symbol, label } = this.bindAsset! || {};
     const displaySymbol = select_symbol || symbol;
 
     return [
@@ -75,14 +76,14 @@ class FAssetAmountInput extends Vue {
           ),
         ],
       ),
-      h(
+      this.selectable ? h(
         VBtn,
         {
           show: this.selectable,
           props: { "x-small": true, icon: true },
         },
         [h(VIcon, { props: { size: "20" } }, [mdiChevronDown])],
-      ),
+      ) : null,
     ];
   }
 
@@ -94,7 +95,10 @@ class FAssetAmountInput extends Vue {
       [mdiHelpCircle],
     );
 
-    return [label, h(VIcon, { props: { size: "18" } }, [mdiChevronDown])];
+    return [
+      label,
+      h(VIcon, { props: { size: "18" } }, [this.selectable ? mdiChevronDown : null])
+    ];
   }
 
   genAssetSheet() {
