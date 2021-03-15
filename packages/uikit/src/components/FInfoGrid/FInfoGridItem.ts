@@ -27,89 +27,100 @@ class FListItem extends Vue {
 
   @Prop({ type: Number, default: 187 }) minWidth!: number;
 
+  @Prop({ type: Boolean, default: false }) reverse!: boolean;
+
   showTooltip = false;
 
   render(h: CreateElement): VNode {
     const data: any = [];
-
-    if (this.title || this.value) {
-      data.push(
-        h(VFlex, { staticClass: "f-info-grid-item-content" }, [
-          h(
-            VFlex,
-            {
-              staticClass:
-                "f-info-grid-item-value-wrapper f-greyscale-1 f-body-2 d-flex mb-1",
-            },
-            [
-              h(
-                "div",
-                {
-                  staticClass: `f-info-grid-item-value`,
-                  class: this.valueColor ? `${this.valueColor}--text` : "",
-                  style: this.valueCustomColor
-                    ? { color: `${this.valueCustomColor} !important` }
-                    : {},
-                },
-                [this.value],
-              ),
-              this.valueUnit
-                ? h(
-                    "div",
-                    { staticClass: "f-info-grid-item-value-unit" },
-                    this.valueUnit,
-                  )
-                : "",
-            ],
-          ),
+    const contents = [
+      h(
+        VFlex,
+        {
+          staticClass:
+            "f-info-grid-item-value-wrapper f-greyscale-1 f-body-2 d-flex",
+        },
+        [
           h(
             "div",
             {
-              staticClass:
-                "f-info-grid-item-title f-greyscale-3 f-caption d-flex align-center",
+              staticClass: `f-info-grid-item-value`,
+              class: this.valueColor ? `${this.valueColor}--text` : "",
+              style: this.valueCustomColor
+                ? { color: `${this.valueCustomColor} !important` }
+                : {},
             },
-            [
-              this.title,
-              this.hint
-                ? h(
-                    FTooltip,
-                    {
-                      props: { top: true, value: this.showTooltip },
-                      on: {
-                        change: (val) => {
-                          this.showTooltip = val;
-                        },
-                      },
-                      scopedSlots: {
-                        activator: ({ on }) => {
-                          return h(
-                            VBtn,
-                            {
-                              props: {
-                                icon: true,
-                                "x-small": true,
-                                ripple: false,
-                                color: "greyscale-3",
-                              },
-                              on,
-                            },
-                            [
-                              h(
-                                VIcon,
-                                { props: { size: 16, color: "greyscale_4" } },
-                                [mdiHelpCircle],
-                              ),
-                            ],
-                          );
-                        },
-                      },
-                    },
-                    [this.hint],
-                  )
-                : null,
-            ],
+            [this.value],
           ),
-        ]),
+          this.valueUnit
+            ? h(
+                "div",
+                { staticClass: "f-info-grid-item-value-unit" },
+                this.valueUnit,
+              )
+            : "",
+        ],
+      ),
+      h("i", {
+        staticStyle: {
+          display: "block",
+        },
+        staticClass: "mb-1",
+      }),
+      h(
+        "div",
+        {
+          staticClass:
+            "f-info-grid-item-title f-greyscale-3 f-caption d-flex align-center",
+        },
+        [
+          this.title,
+          this.hint
+            ? h(
+                FTooltip,
+                {
+                  props: { top: true, value: this.showTooltip },
+                  on: {
+                    change: (val) => {
+                      this.showTooltip = val;
+                    },
+                  },
+                  scopedSlots: {
+                    activator: ({ on }) => {
+                      return h(
+                        VBtn,
+                        {
+                          props: {
+                            icon: true,
+                            "x-small": true,
+                            ripple: false,
+                            color: "greyscale-3",
+                          },
+                          on,
+                        },
+                        [
+                          h(
+                            VIcon,
+                            { props: { size: 16, color: "greyscale_4" } },
+                            [mdiHelpCircle],
+                          ),
+                        ],
+                      );
+                    },
+                  },
+                },
+                [this.hint],
+              )
+            : null,
+        ],
+      ),
+    ];
+
+    if (this.reverse) contents.reverse();
+
+    if (this.title || this.value) {
+      data.push(
+        h(VFlex, { staticClass: "f-info-grid-item-content" }, contents),
       );
     } else {
       data.push(this.$slots.default);

@@ -33,6 +33,23 @@
       </f-info-grid>
     </f-panel>
     <f-panel padding="0" class="py-2 mb-4">
+      <div class="f-caption f-greyscale-3 mx-4">Reverse title and value</div>
+      <f-info-grid :window-size="3">
+        <f-info-grid-item
+          v-for="(item, ix) in items"
+          :key="ix"
+          :index="ix"
+          :title="item.title"
+          :value="item.value"
+          :value-unit="item.valueUnit"
+          :value-color="item.valueColor"
+          :value-custom-color="item.valueCustomColor"
+          :hint="item.hint"
+          :reverse="true"
+        ></f-info-grid-item>
+      </f-info-grid>
+    </f-panel>
+    <f-panel padding="0" class="py-2 mb-4">
       <div class="f-caption f-greyscale-3 mx-4">VNode Item</div>
       <f-info-grid :window-size="2">
         <f-info-grid-item
