@@ -16,7 +16,14 @@ export default function(store) {
   const isDark = store.state.app?.dark || false;
 
   return new Vuetify({
-    icons: {},
+    icons: {
+      iconfont: "mdiSvg",
+      values: {
+        iconNavMe: {
+          component: "icon-nav-me",
+        },
+      },
+    },
     theme: {
       dark: isDark,
       options: {

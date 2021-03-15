@@ -40,7 +40,7 @@
 
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
-import { mdiWalletOutline, mdiMapSearch, mdiFaceProfile } from "@mdi/js";
+import { mdiMapSearch, mdiFaceProfile } from "@mdi/js";
 
 @Component
 class BottomNav extends Vue {
@@ -48,9 +48,9 @@ class BottomNav extends Vue {
 
   bottomNavItems = [
     {
-      text: "Wallet",
-      icon: mdiWalletOutline,
-      value: "wallet",
+      text: "Me",
+      icon: "$vuetify.icon.iconNavMe",
+      value: "me",
     },
     {
       text: "Search",

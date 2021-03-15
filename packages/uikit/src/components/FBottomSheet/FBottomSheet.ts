@@ -61,15 +61,17 @@ class FBottomSheet extends Vue {
           [
             this.genTitle(),
             this.genSubheader(),
-            h(
-              VIcon,
-              {
-                props: { size: 18 },
-                on: { click: () => this.$emit("change", false) },
-                staticClass: "f-bottom-sheet__close",
-              },
-              [mdiClose],
-            ),
+            !this.$attrs.persistent
+              ? h(
+                  VIcon,
+                  {
+                    props: { size: 18 },
+                    on: { click: () => this.$emit("change", false) },
+                    staticClass: "f-bottom-sheet__close",
+                  },
+                  [mdiClose],
+                )
+              : null,
             h(
               VCardText,
               { staticClass: "f-bottom-sheet__body px-0" },
