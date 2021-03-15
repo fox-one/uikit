@@ -1,6 +1,6 @@
 import "./FAppBottomNav.scss";
 
-import { Component, Prop, Provide } from "vue-property-decorator";
+import { Component, Prop } from "vue-property-decorator";
 import Vue, { CreateElement, VNode, VNodeData } from "vue";
 import { VBottomNavigation, VBtn, VIcon } from "vuetify/lib";
 
@@ -57,9 +57,15 @@ class FAppBottomNav extends Vue {
       on: { click: () => this.handleNavClick(nav) },
     };
 
-    const icon = h(VIcon, { class: "mb-1", props: { size: "22" } }, [
-      nav.icon,
-    ]);
+    const icon = h(
+      VIcon,
+      {
+        class: "mb-1",
+        props: { size: "22" },
+        attrs: { active },
+      },
+      [nav.icon],
+    );
 
     return h(VBtn, data, [nav.text, icon, this.genDot(nav)]);
   }
