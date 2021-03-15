@@ -35,39 +35,6 @@ class FListItem extends Vue {
     const data: any = [];
     const contents = [
       h(
-        VFlex,
-        {
-          staticClass:
-            "f-info-grid-item-value-wrapper f-greyscale-1 f-body-2 d-flex",
-        },
-        [
-          h(
-            "div",
-            {
-              staticClass: `f-info-grid-item-value`,
-              class: this.valueColor ? `${this.valueColor}--text` : "",
-              style: this.valueCustomColor
-                ? { color: `${this.valueCustomColor} !important` }
-                : {},
-            },
-            [this.value],
-          ),
-          this.valueUnit
-            ? h(
-                "div",
-                { staticClass: "f-info-grid-item-value-unit" },
-                this.valueUnit,
-              )
-            : "",
-        ],
-      ),
-      h("i", {
-        staticStyle: {
-          display: "block",
-        },
-        staticClass: "mb-1",
-      }),
-      h(
         "div",
         {
           staticClass:
@@ -112,6 +79,39 @@ class FListItem extends Vue {
                 [this.hint],
               )
             : null,
+        ],
+      ),
+      h("i", {
+        staticStyle: {
+          display: "block",
+        },
+        staticClass: "mb-1",
+      }),
+      h(
+        VFlex,
+        {
+          staticClass:
+            "f-info-grid-item-value-wrapper f-greyscale-1 f-body-2 d-flex",
+        },
+        [
+          h(
+            "div",
+            {
+              staticClass: `f-info-grid-item-value`,
+              class: this.valueColor ? `${this.valueColor}--text` : "",
+              style: this.valueCustomColor
+                ? { color: `${this.valueCustomColor} !important` }
+                : {},
+            },
+            [this.value],
+          ),
+          this.valueUnit
+            ? h(
+                "div",
+                { staticClass: "f-info-grid-item-value-unit" },
+                this.valueUnit,
+              )
+            : "",
         ],
       ),
     ];
