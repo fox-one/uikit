@@ -1,19 +1,19 @@
 @mixin f-text-n($size) {
-  font-size: $size;
+  font-size: $size !important;
 }
 @mixin f-weight-b() {
-  font-weight: bold;
+  font-weight: bold !important;
 }
 @mixin f-weight-sb() {
-  font-weight: bold;
-  font-weight: 600;
+  font-weight: bold !important;
+  font-weight: 600 !important;
 }
 @mixin f-weight-m() {
-  font-weight: normal;
-  font-weight: 500;
+  font-weight: normal !important;
+  font-weight: 500 !important;
 }
 @mixin f-weight-r() {
-  font-weight: normal;
+  font-weight: normal !important;
 }
 
 @mixin f-bg-greyscale($darkOrLight, $solo: false) {
