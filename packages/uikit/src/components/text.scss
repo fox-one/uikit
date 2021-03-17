@@ -36,16 +36,20 @@
 
 .f-body-1 {
   @include f-text-n(16px);
+  @include f-weight-r();
 }
 
 .f-body-2 {
   @include f-text-n(14px);
+  @include f-weight-r();
 }
 
 .f-caption {
   @include f-text-n(12px);
+  @include f-weight-r();
 }
 
 .f-superior {
   @include f-text-n(10px);
+  @include f-weight-r();
 }
