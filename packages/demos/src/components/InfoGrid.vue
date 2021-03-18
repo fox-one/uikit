@@ -62,6 +62,7 @@
           :value-color="item.valueColor"
           :value-custom-color="item.valueCustomColor"
           :hint="item.hint"
+          @click="handleClick(ix)"
         >
         </f-info-grid-item>
       </f-info-grid>
@@ -155,7 +156,7 @@ class List extends Vue {
 
   VNodeItem = [
     {
-      title: "VNode value👆",
+      title: "VNode value👇",
       value: this.$createElement("div", {
         style: {
           color: "red",
@@ -174,8 +175,17 @@ class List extends Vue {
           innerHTML: "I'm VNode title",
         },
       }),
-      value: "VNode title👇",
+      value: "VNode title👆",
       valueColor: "blue",
+    },
+    {
+      title: this.$createElement("div", {
+        domProps: {
+          innerHTML: "Alert message",
+        },
+      }),
+      value: "Click Me!",
+      valueColor: "green",
     },
   ];
 
@@ -189,6 +199,11 @@ class List extends Vue {
       title: "A title",
     },
   ];
+
+  handleClick(ind) {
+    if (ind !== 2) return;
+    alert("OMG!");
+  }
 }
 export default List;
 </script>
