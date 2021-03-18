@@ -4,18 +4,19 @@
 .f-info-grid-item {
   .f-info-grid-item-title {
     @include f-text-n(12px);
+    @include f-weight-r();
   }
   .f-info-grid-item-value-wrapper {
-    @include f-weight-m();
     vertical-align: baseline;
     align-items: baseline;
     .f-info-grid-item-value {
       @include f-text-n(14px);
-      @include f-weight-m();
+      @include f-weight-sb();
     }
     .f-info-grid-item-value-unit {
       margin-left: 2px;
       @include f-text-n(12px);
+      @include f-weight-m();
     }
   }
 }
