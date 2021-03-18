@@ -36,9 +36,9 @@
   }
 }
 .no-border-radius {
-  border-radius: 0;
+  border-radius: 0 !important;
 }
 
 .border-radius {
-  border-radius: 10px;
+  border-radius: 10px !important;
 }
