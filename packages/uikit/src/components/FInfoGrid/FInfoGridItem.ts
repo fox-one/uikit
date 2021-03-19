@@ -134,6 +134,7 @@ class FListItem extends Vue {
         props: {
           ...this.$attrs,
         },
+        on: this.$listeners,
       },
       data,
     );
