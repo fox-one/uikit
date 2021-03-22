@@ -13,9 +13,6 @@ import { $t } from "../../utils/helper";
 class FAssetSelect extends Vue {
   @Model("input") value!: MixinAsset | null;
 
-  @PropSync("asset")
-  bindAsset!: MixinAsset | null;
-
   @Prop({ type: Array, default: () => [] }) assets!: MixinAsset[];
 
   @Prop({ type: String, default: "" }) label!: string;
@@ -28,17 +25,16 @@ class FAssetSelect extends Vue {
 
   handleSelectAsset(asset: MixinAsset) {
     this.$emit("input", asset);
-    this.bindAsset = asset;
     this.sheet = false;
   }
 
   genAssetInfo() {
-    if (!this.bindAsset) {
+    if (!this.value) {
       return null;
     }
 
     const h = this.$createElement;
-    const asset = this.bindAsset;
+    const asset = this.value;
     const { select_symbol, symbol, name, logo, chainLogo } = asset;
 
     return h(VLayout, [
@@ -56,13 +52,18 @@ class FAssetSelect extends Vue {
   }
 
   genActivator({ on }) {
+    const slotActivator = this.$scopedSlots.activator;
+    if (slotActivator) {
+      return slotActivator({ on });
+    }
+
     const h = this.$createElement;
 
     const label = h(
       "div",
       {
         staticClass: "f-asset-selector__label",
-        class: [this.bindAsset && "f-asset-selector__label--active"],
+        class: [this.value && "f-asset-selector__label--active"],
       },
       [this.label || $t(this, "select_asset")],
     );
