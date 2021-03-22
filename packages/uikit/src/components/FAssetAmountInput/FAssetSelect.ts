@@ -19,6 +19,8 @@ class FAssetSelect extends Vue {
 
   @Prop({ type: Boolean, default: false }) border!: boolean;
 
+  @Prop({ type: String, default: "" }) activatorClass!: string;
+
   sheet = false;
 
   handleSelectAsset(asset: MixinAsset) {
@@ -74,7 +76,7 @@ class FAssetSelect extends Vue {
       VSheet,
       {
         staticClass: "f-asset-selector",
-        class: [this.border && "f-asset-selector--border"],
+        class: [this.border && "f-asset-selector--border", this.activatorClass],
         on,
       },
       [this.genAssetInfo(), label, arrow],
