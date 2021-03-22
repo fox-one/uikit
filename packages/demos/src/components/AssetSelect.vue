@@ -1,5 +1,13 @@
 <template>
-  <f-asset-select v-model="asset" :assets="assets"></f-asset-select>
+  <div>
+    <f-asset-select v-model="asset" :assets="assets" />
+    <f-asset-select
+      v-model="asset"
+      :assets="assets"
+      label="自定义 activator 的样式"
+      activatorClass="custom-class"
+    />
+  </div>
 </template>
 
 <script lang="ts">
@@ -26,3 +34,11 @@ class AssetSelect extends Vue {
 }
 export default AssetSelect;
 </script>
+<style lang="scss" scoped>
+::v-deep {
+  .custom-class {
+    border-radius: 8px !important;
+    background-color: #f5f5f5 !important;
+  }
+}
+</style>
