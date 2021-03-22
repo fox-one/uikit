@@ -1,6 +1,6 @@
 import "./FAssetSelect.scss";
 import FAssetsSheet from "./FAssetsSheet";
-import { Component, Vue, Prop, Model } from "vue-property-decorator";
+import { Component, Vue, Prop, Model, PropSync } from "vue-property-decorator";
 import { CreateElement, VNode } from "vue/types/umd";
 import { VSheet, VFlex, VBtn, VIcon, VLayout } from "vuetify/lib";
 import { mdiChevronRight } from "@mdi/js";
@@ -12,6 +12,9 @@ import { $t } from "../../utils/helper";
 @Component
 class FAssetSelect extends Vue {
   @Model("input") value!: MixinAsset | null;
+
+  @PropSync("asset")
+  bindAsset!: MixinAsset | null;
 
   @Prop({ type: Array, default: () => [] }) assets!: MixinAsset[];
 
@@ -25,16 +28,17 @@ class FAssetSelect extends Vue {
 
   handleSelectAsset(asset: MixinAsset) {
     this.$emit("input", asset);
+    this.bindAsset = asset;
     this.sheet = false;
   }
 
   genAssetInfo() {
-    if (!this.value) {
+    if (!this.bindAsset) {
       return null;
     }
 
     const h = this.$createElement;
-    const asset = this.value || {};
+    const asset = this.bindAsset;
     const { select_symbol, symbol, name, logo, chainLogo } = asset;
 
     return h(VLayout, [
@@ -58,7 +62,7 @@ class FAssetSelect extends Vue {
       "div",
       {
         staticClass: "f-asset-selector__label",
-        class: [this.value && "f-asset-selector__label--active"],
+        class: [this.bindAsset && "f-asset-selector__label--active"],
       },
       [this.label || $t(this, "select_asset")],
     );
