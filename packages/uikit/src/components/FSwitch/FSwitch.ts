@@ -23,8 +23,8 @@ class FSwitch extends Vue {
       ripple: false,
       hideDetails: true,
       size: 32,
-      value: this.value,
-      inputValue: this.value,
+      value: this.value ?? false,
+      inputValue: this.value ?? false,
       ...this.$attrs,
     };
 
