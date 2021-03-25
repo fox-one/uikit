@@ -38,7 +38,7 @@ class FSwitch extends Vue {
       props,
       on: {
         change: (val) => {
-          this.$emit("change", val);
+          this.$emit("change", val ?? false);
         },
       },
     };
