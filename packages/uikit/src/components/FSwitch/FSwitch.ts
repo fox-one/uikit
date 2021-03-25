@@ -23,8 +23,8 @@ class FSwitch extends Vue {
       ripple: false,
       hideDetails: true,
       size: 32,
-      value: this.value ?? false,
-      inputValue: this.value ?? false,
+      value: this.value,
+      inputValue: this.value,
       ...this.$attrs,
     };
 
@@ -38,7 +38,7 @@ class FSwitch extends Vue {
       props,
       on: {
         change: (val) => {
-          this.$emit("change", val);
+          this.$emit("change", val ?? false);
         },
       },
     };
