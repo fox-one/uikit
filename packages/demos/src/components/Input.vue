@@ -15,6 +15,15 @@
         persistent-hint
       >
       </f-input>
+
+      <div class="mb-2 f-caption f-greyscale-3">with blur event</div>
+      <f-input
+        v-model="valueBlur"
+        hint="when input blur will toast alert window"
+        :label="label"
+        @blur="handleBlur"
+      >
+      </f-input>
     </f-panel>
 
     <f-panel class="mb-4">
@@ -76,6 +85,7 @@ import { mdiClose, mdiHeartPulse } from "@mdi/js";
 class Input extends Vue {
   label = "Type something here";
   value = "Are you ok";
+  valueBlur = "ready to blur";
   price = "0.1";
   value2 = "";
   longvalue = "";
@@ -89,6 +99,10 @@ class Input extends Vue {
   mdiHeartPulse = mdiHeartPulse;
 
   mdiClose = mdiClose;
+
+  handleBlur() {
+    window.alert(this.valueBlur);
+  }
 }
 export default Input;
 </script>
