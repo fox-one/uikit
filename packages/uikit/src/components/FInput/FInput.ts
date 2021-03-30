@@ -43,6 +43,7 @@ class FInput extends Vue {
               ...this.$props,
             },
             on: {
+              ...this.$listeners,
               input: (val) => this.$emit("input", val),
             },
             attrs,
