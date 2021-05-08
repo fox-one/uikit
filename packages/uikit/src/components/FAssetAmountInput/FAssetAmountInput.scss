@@ -6,6 +6,15 @@
   min-height: 60px;
   padding-left: 6px !important;
   border-radius: 10px;
+  position: relative;
+  overflow: hidden;
+
+  &__processing {
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+  }
 
   .v-text-field {
     padding-top: 0;
@@ -42,7 +51,6 @@
 
   .v-text-field.v-input--is-label-active,
   .v-text-field.v-input--is-focused {
-    // padding-top: 12px;
     transition-delay: 0s;
   }
 

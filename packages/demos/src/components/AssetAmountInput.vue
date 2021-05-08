@@ -57,9 +57,17 @@
           </v-list>
         </template>
       </f-asset-amount-input>
-      <p class="mt-4 f-body-2">
-        You have selected {{ value2 }} {{ asset3.symbol }}
-      </p>
+
+      <div class="f-caption mb-2 mt-2">Loading</div>
+      <f-asset-amount-input
+        v-model="value5"
+        label="Loading"
+        :assets="assets"
+        :selectable="false"
+        :asset.sync="asset1"
+        :precision="precision"
+        loading
+      />
     </f-panel>
 
     <f-panel>
@@ -128,6 +136,8 @@ class AssetAmountInput extends Vue {
   value3 = "";
 
   value4 = "";
+
+  value5 = "";
 
   asset3: any = {};
 

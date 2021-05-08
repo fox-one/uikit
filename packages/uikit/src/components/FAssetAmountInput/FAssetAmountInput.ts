@@ -5,7 +5,7 @@ import FNumberInput from "../FNumberInput";
 import FMixinAssetLogo from "../FMixinAssetLogo";
 import FAssetsSheet from "./FAssetsSheet";
 import FBottomSheet from "../FBottomSheet";
-import { VLayout, VBtn, VIcon } from "vuetify/lib";
+import { VLayout, VBtn, VIcon, VProgressLinear } from "vuetify/lib";
 import { mdiChevronDown, mdiHelpCircle } from "@mdi/js";
 import { MixinAsset } from "./types";
 import { $t } from "../../utils/helper";
@@ -22,6 +22,8 @@ class FAssetAmountInput extends Vue {
   @Prop({ type: Boolean, default: true }) selectable!: boolean;
 
   @Prop({ type: Boolean, default: false }) border!: boolean;
+
+  @Prop({ type: Boolean, default: false }) loading!: boolean;
 
   @Prop({ type: Array, default: () => [] }) assets!: MixinAsset[];
 
@@ -57,7 +59,8 @@ class FAssetAmountInput extends Vue {
   genAssetSeleted() {
     const h = this.$createElement;
 
-    const { logo, chainLogo, symbol, select_symbol, label } = this.bindAsset! || {};
+    const { logo, chainLogo, symbol, select_symbol, label } =
+      this.bindAsset || {};
     const displaySymbol = select_symbol || symbol;
 
     return [
@@ -76,14 +79,16 @@ class FAssetAmountInput extends Vue {
           ),
         ],
       ),
-      this.selectable ? h(
-        VBtn,
-        {
-          show: this.selectable,
-          props: { "x-small": true, icon: true },
-        },
-        [h(VIcon, { props: { size: "20" } }, [mdiChevronDown])],
-      ) : null,
+      this.selectable
+        ? h(
+            VBtn,
+            {
+              show: this.selectable,
+              props: { "x-small": true, icon: true },
+            },
+            [h(VIcon, { props: { size: "20" } }, [mdiChevronDown])],
+          )
+        : null,
     ];
   }
 
@@ -97,7 +102,9 @@ class FAssetAmountInput extends Vue {
 
     return [
       label,
-      h(VIcon, { props: { size: "18" } }, [this.selectable ? mdiChevronDown : null])
+      h(VIcon, { props: { size: "18" } }, [
+        this.selectable ? mdiChevronDown : null,
+      ]),
     ];
   }
 
@@ -123,6 +130,18 @@ class FAssetAmountInput extends Vue {
       on: {
         select: (val) => this.handleSelectAsset(val),
       },
+    });
+  }
+
+  genProcessing() {
+    if (!this.loading) return null;
+
+    if (this.$slots.processing) {
+      return this.$slots.processing;
+    }
+
+    return this.$createElement(VProgressLinear, {
+      props: { indeterminate: true, height: 3 },
     });
   }
 
@@ -162,6 +181,9 @@ class FAssetAmountInput extends Vue {
             input: (val) => this.$emit("input", val),
           },
         }),
+        h("div", { class: "f-asset-amount-input__processing" }, [
+          this.genProcessing(),
+        ]),
       ],
     );
   }
