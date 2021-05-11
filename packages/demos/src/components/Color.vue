@@ -11,7 +11,7 @@
         <v-col cols="6"> </v-col>
       </v-row>
 
-      <v-divider />
+      <v-divider class="my-5" />
 
       <v-row v-for="(item, i) in greyscales" :key="'greyscale-' + item.id">
         <v-col cols="3">
@@ -32,7 +32,7 @@
         </v-col>
       </v-row>
 
-      <v-divider />
+      <v-divider class="my-5" />
 
       <v-row v-for="name in subjects" :key="'subject-' + name">
         <v-col cols="3">
@@ -50,7 +50,7 @@
         <v-col cols="6" class="f-body-2"> Subject {{ name }} </v-col>
       </v-row>
 
-      <v-divider />
+      <v-divider class="my-5" />
 
       <v-row v-for="name in status" :key="'subject-' + name">
         <v-col cols="3">

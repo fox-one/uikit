@@ -3,7 +3,6 @@
   padding-bottom: env(safe-area-inset-bottom) !important;
   height: calc(64px + constant(safe-area-inset-bottom)) !important;
   height: calc(64px + env(safe-area-inset-bottom)) !important;
-  color: red;
 
   &__btn {
     height: 64px !important;

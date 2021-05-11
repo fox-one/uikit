@@ -1,4 +1,4 @@
-import "./index.scss";
+import "../styles/index.scss";
 
 export * from "./FAppBottomNav";
 export * from "./FPanel";
