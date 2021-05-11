@@ -1,64 +1,60 @@
+@import "./variables.scss";
+
 .f-app-bar {
-  padding-left: 8px !important;
-  padding-right: 0px !important;
   .v-toolbar__content {
-    padding-left: 0px !important;
-    padding-right: 13px !important;
-  }
-}
-.f-mixin-ctrl-placeholder {
-  display: block;
-  content: " ";
-  width: 82px;
-  height: 29px;
-  border-radius: 15px;
-  margin: 0 0 0 10px;
-  background: rgba(255, 255, 255, 0);
-}
-.f-app-bar-back-btn {
-  margin-left: -2px !important;
-  padding-left: 0 !important;
-  padding-right: 0 !important;
-  min-width: 32px !important;
-  width: 32px !important;
-  border-radius: 20px;
-  background-color: transparent !important;
-  .f-app-bar-back-btn-icon {
-    height: 16px;
-    width: 16px;
-    max-width: 16px;
-    display: inline-block;
-  }
-}
-.f-app-bar-title {
-  display: block;
-  position: absolute;
-  left: 20px;
-  right: 42px;
-  &.left {
-    text-align: left;
-    padding-left: 4px !important;
-  }
-  &.left.no-back {
-    left: 0px;
-  }
-  &.center {
-    text-align: center;
-    padding-left: 0px !important;
-  }
-  &.center.no-back {
-    left: 0px;
-    right: 0px;
-  }
-}
-.theme--dark {
-  .f-app-bar.v-sheet:not(.color) {
-    background-color: #000000 !important;
+    .v-btn.v-btn--icon.v-size--default {
+      height: $f-app-bar-nav-icon-size;
+      width: $f-app-bar-nav-icon-size;
+    }
+
+    > .v-btn.v-btn--icon {
+      &:first-child {
+        @include ltr() {
+          margin-left: -$f-app-bar-nav-icon-padding;
+        }
+
+        @include rtl() {
+          margin-right: -$f-app-bar-nav-icon-padding;
+        }
+
+        + .v-toolbar__title {
+          @include ltr() {
+            padding-left: $f-app-bar-title-padding;
+          }
+
+          @include rtl() {
+            padding-right: $f-app-bar-title-padding;
+          }
+        }
+      }
+
+      &:last-child {
+        @include ltr() {
+          margin-right: -$f-app-bar-nav-icon-padding;
+        }
+
+        @include rtl() {
+          margin-left: -$f-app-bar-nav-icon-padding;
+        }
+      }
+    }
   }
 }
 
-.theme--light {
-  .f-app-bar.v-sheet:not(.color) {
-    background-color: #ffffff !important;
+.f-app-bar--center {
+  .f-app-bar__title {
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.f-app-bar--mixin-immersive {
+  .v-toolbar__content {
+    padding-right: $f-app-bar-immersive-padding;
   }
 }

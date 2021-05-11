@@ -1,193 +1,66 @@
 import "./FAssetAmountInput.scss";
-import { Vue, Component, Model, Prop, PropSync } from "vue-property-decorator";
-import { CreateElement, VNode } from "vue/types/umd";
+
+import mixins from "vuetify/src/util/mixins";
+
 import FNumberInput from "../FNumberInput";
-import FMixinAssetLogo from "../FMixinAssetLogo";
-import FAssetsSheet from "./FAssetsSheet";
-import FBottomSheet from "../FBottomSheet";
-import { VLayout, VBtn, VIcon, VProgressLinear } from "vuetify/lib";
-import { mdiChevronDown, mdiHelpCircle } from "@mdi/js";
-import { MixinAsset } from "./types";
-import { $t } from "../../utils/helper";
+import { FAssetSelect, FAssetSelectField } from "../FAssetSelect";
 
-@Component({
-  inheritAttrs: false,
-})
-class FAssetAmountInput extends Vue {
-  @Model("input") value!: string;
+import type { Asset } from "../FAssetSelect/types";
+import type { PropType } from "vue";
 
-  @PropSync("asset")
-  bindAsset!: MixinAsset | null;
+export default mixins(FNumberInput).extend({
+  name: "FAssetAmountInput",
 
-  @Prop({ type: Boolean, default: true }) selectable!: boolean;
+  props: {
+    assets: { type: Array as PropType<Asset[]>, default: () => [] },
+    asset: { type: Object as PropType<Asset | null>, default: null },
+    reverse: { type: Boolean, default: true },
+    singleLine: { type: Boolean, default: true },
+    selectable: { type: Boolean, default: true }
+  },
 
-  @Prop({ type: Boolean, default: false }) border!: boolean;
-
-  @Prop({ type: Boolean, default: false }) loading!: boolean;
-
-  @Prop({ type: Array, default: () => [] }) assets!: MixinAsset[];
-
-  sheet = false;
-
-  handleSelectAsset(asset: MixinAsset) {
-    this.bindAsset = asset;
-    this.sheet = false;
-  }
-
-  handleClear() {
-    this.bindAsset = null;
-  }
-
-  genActivator({ on }) {
-    const slotActivator = this.$scopedSlots.activator;
-    if (slotActivator) {
-      return slotActivator({ on });
+  computed: {
+    classes(): object {
+      return {
+        ...FNumberInput.options.computed.classes.call(this),
+        "f-asset-amount-input": true
+      };
     }
+  },
 
-    const h = this.$createElement;
+  methods: {
+    genAssetSelect() {
+      const h = this.$createElement;
 
-    const activator = this.bindAsset
-      ? this.genAssetSeleted()
-      : this.genAssetPlaceholder();
-
-    !this.selectable && delete on.click;
-    return h("div", { staticClass: "f-asset-amount-input__activator", on }, [
-      activator,
-    ]);
-  }
-
-  genAssetSeleted() {
-    const h = this.$createElement;
-
-    const { logo, chainLogo, symbol, select_symbol, label } =
-      this.bindAsset || {};
-    const displaySymbol = select_symbol || symbol;
-
-    return [
-      h(FMixinAssetLogo, { props: { logo, chainLogo, size: 32 } }),
-      h(
-        VLayout,
-        {
-          staticClass: "ml-2 mr-0 d-flex flex-column align-left",
+      return h(FAssetSelect, {
+        props: {
+          assets: this.assets,
+          asset: this.asset
         },
-        [
-          h("div", { staticClass: "font-weight-bold" }, [displaySymbol]),
-          h(
-            "div",
-            { staticClass: "text--secondary f-caption", show: Boolean(label) },
-            [label],
-          ),
-        ],
-      ),
-      this.selectable
-        ? h(
-            VBtn,
-            {
-              show: this.selectable,
-              props: { "x-small": true, icon: true },
-            },
-            [h(VIcon, { props: { size: "20" } }, [mdiChevronDown])],
-          )
-        : null,
-    ];
-  }
-
-  genAssetPlaceholder() {
-    const h = this.$createElement;
-    const label = h(
-      VIcon,
-      { props: { color: "greyscale_4", size: 24 }, staticClass: "mr-1" },
-      [mdiHelpCircle],
-    );
-
-    return [
-      label,
-      h(VIcon, { props: { size: "18" } }, [
-        this.selectable ? mdiChevronDown : null,
-      ]),
-    ];
-  }
-
-  genAssetSheet() {
-    const h = this.$createElement;
-
-    const assetSheet = this.$scopedSlots.assets;
-    if (assetSheet) {
-      return assetSheet({
-        asset: this.value,
-        assets: this.assets,
-        on: {
-          select: (val) => this.handleSelectAsset(val),
+        attrs: {
+          menuProps: { minWidth: 400 }
         },
-      });
-    }
-
-    return h(FAssetsSheet, {
-      props: {
-        asset: this.value,
-        assets: this.assets,
-      },
-      on: {
-        select: (val) => this.handleSelectAsset(val),
-      },
-    });
-  }
-
-  genProcessing() {
-    if (!this.loading) return null;
-
-    if (this.$slots.processing) {
-      return this.$slots.processing;
-    }
-
-    return this.$createElement(VProgressLinear, {
-      props: { indeterminate: true, height: 3 },
-    });
-  }
-
-  render(h: CreateElement): VNode {
-    return h(
-      "div",
-      {
-        staticClass: "f-asset-amount-input",
-        class: [this.border && "f-asset-amount-input--border"],
-      },
-      [
-        h(
-          FBottomSheet,
-          {
-            props: {
-              value: this.sheet,
-            },
-            on: {
-              change: (val) => (this.sheet = val),
-            },
-            scopedSlots: {
-              activator: ({ on }) => {
-                return this.genActivator({ on });
+        on: { input: (e) => this.$emit("update:asset", e) },
+        scopedSlots: {
+          activator: ({ on }) =>
+            h(FAssetSelectField, {
+              props: {
+                asset: this.asset,
+                inline: true,
+                showName: false,
+                disabled: this.disabled,
+                selectable: this.selectable
               },
-            },
-          },
-          [
-            h("div", { slot: "title" }, [$t(this, "select_asset")]),
-            this.genAssetSheet(),
-          ],
-        ),
-        h(FNumberInput, {
-          attrs: { ...this.$attrs, "hide-details": true, solo: true },
-          props: { value: this.value, solo: true, reverse: true },
-          on: {
-            ...this.$listeners,
-            input: (val) => this.$emit("input", val),
-          },
-        }),
-        h("div", { class: "f-asset-amount-input__processing" }, [
-          this.genProcessing(),
-        ]),
-      ],
-    );
-  }
-}
+              nativeOn: on
+            }),
+          assets: this.$scopedSlots.assets
+        }
+      });
+    },
+    genIconSlot() {
+      const slot: any[] = [this.genAssetSelect()];
 
-export default FAssetAmountInput;
-export { FAssetAmountInput };
+      return this.genSlot("append", "inner", slot);
+    }
+  }
+});

@@ -1,23 +1,16 @@
-.f-bottom-sheet {
-  box-shadow: 0px 8px 32px rgba(0, 0, 0, 0.16) !important;
+@import "./variables.scss";
 
-  &:not(.v-bottom-sheet) {
-    border-radius: 10px;
-  }
+// Theme
+@include theme("f-bottom-sheet") using ($material) {
+  background-color: map-get($material, "bottom-sheet");
+}
 
-  &.v-bottom-sheet {
-    .f-bottom-sheet__content {
-      border-top-left-radius: 16px !important;
-      border-top-right-radius: 16px !important;
-    }
-  }
-
-  .f-bottom-sheet__content {
-    position: relative;
-  }
+.f-bottom-sheet.v-dialog,
+.f-bottom-sheet.v-menu__content {
+  padding-bottom: $spacer * 6;
 
   .f-bottom-sheet__close {
-    position: absolute !important;
+    position: absolute;
     right: 12px;
     top: 20px;
   }
@@ -25,9 +18,22 @@
   .f-bottom-sheet__title {
     display: flex;
     justify-content: center;
+    padding: $spacer * 6 $spacer * 4;
+    font-weight: $bottom-sheet-title-font-weight;
+    font-size: $bottom-sheet-title-font-size;
   }
 
-  .f-bottom-sheet__body {
-    overflow: auto;
+  .f-bottom-sheet__subtitle {
+    padding: $spacer * 6 $spacer * 4;
+    padding-top: 0;
   }
+}
+
+.f-bottom-sheet.v-dialog {
+  position: relative;
+}
+
+.f-bottom-sheet.v-bottom-sheet.v-dialog {
+  border-top-left-radius: $bottom-sheet-border-radius;
+  border-top-right-radius: $bottom-sheet-border-radius;
 }

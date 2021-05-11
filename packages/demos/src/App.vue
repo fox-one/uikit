@@ -10,13 +10,13 @@ export default Vue.extend({
   name: "App",
 
   components: {
-    DocumentLayout,
+    DocumentLayout
   },
 
   methods: {
     handleBack() {
       this.$router.back();
-    },
-  },
+    }
+  }
 });
 </script>

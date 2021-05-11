@@ -1,0 +1,22 @@
+@import "./variable";
+
+@include theme(f-input__slider) using ($material) {
+  .v-slider__thumb {
+    border-color: map-get($material, "greyscale_1") !important;
+  }
+}
+
+.f-input__slider {
+  .v-slider__track-background,
+  .v-slider__track-fill {
+    border-radius: $slider-track-border-radius;
+  }
+
+  .v-slider__thumb {
+    border: 4px solid;
+
+    &::before {
+      content: none;
+    }
+  }
+}

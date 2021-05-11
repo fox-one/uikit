@@ -1,145 +1,95 @@
 import "./FInfoGridItem.scss";
-import { Component, Vue, Prop } from "vue-property-decorator";
-import { CreateElement, VNode } from "vue/types/umd";
 
-import { VFlex, VBtn, VIcon } from "vuetify/lib";
+import mixins from "vuetify/src/util/mixins";
 
+import { VIcon } from "vuetify/lib";
 import FTooltip from "../FTooltip";
-import { mdiHelpCircle } from "@mdi/js";
+import Colorable from "vuetify/src/mixins/colorable";
+import Themeable from "vuetify/src/mixins/themeable";
 
-@Component
-class FListItem extends Vue {
-  @Prop({ default: "" }) title;
+import type { VNodeData, VNode } from "vue/types/umd";
 
-  @Prop({ default: "" }) value!: any;
+export default mixins(Themeable, Colorable).extend({
+  name: "FInfoGridItem",
 
-  @Prop({ type: String, default: "" }) valueColor!: string;
+  props: {
+    title: { type: [String, Object] },
+    value: { type: [String, Object] },
+    valueUnit: { type: [String, Object] },
+    hint: { type: [String] },
+    reverse: { type: Boolean, default: false }
+  },
 
-  @Prop({ type: String, default: "" }) valueCustomColor!: string;
+  computed: {
+    classes(): object {
+      return {
+        ...this.themeClasses,
+        "f-info-grid-item": true
+      };
+    }
+  },
 
-  @Prop({ type: String, default: "" }) valueUnit!: string;
+  methods: {
+    genTitle() {
+      const title = this.title;
+      const hint = this.hint && this.genHint();
 
-  @Prop({ type: String, default: "" }) hint!: string;
-
-  @Prop({ type: Number, default: 0 }) index!: number;
-
-  @Prop({ type: Number, default: 0 }) width!: number;
-
-  @Prop({ type: Number, default: 187 }) minWidth!: number;
-
-  @Prop({ type: Boolean, default: false }) reverse!: boolean;
-
-  showTooltip = false;
-
-  render(h: CreateElement): VNode {
-    const data: any = [];
-    const contents = [
-      h(
+      return this.$createElement(
         "div",
-        {
-          staticClass:
-            "f-info-grid-item-title f-greyscale-3 f-caption d-flex align-center",
-        },
-        [
-          this.title,
-          this.hint
-            ? h(
-                FTooltip,
-                {
-                  props: { top: true, value: this.showTooltip },
-                  on: {
-                    change: (val) => {
-                      this.showTooltip = val;
-                    },
-                  },
-                  scopedSlots: {
-                    activator: ({ on }) => {
-                      return h(
-                        VBtn,
-                        {
-                          props: {
-                            icon: true,
-                            "x-small": true,
-                            ripple: false,
-                            color: "greyscale-3",
-                          },
-                          on,
-                        },
-                        [
-                          h(
-                            VIcon,
-                            { props: { size: 16, color: "greyscale_4" } },
-                            [mdiHelpCircle],
-                          ),
-                        ],
-                      );
-                    },
-                  },
-                },
-                [this.hint],
-              )
-            : null,
-        ],
-      ),
-      h("i", {
-        staticStyle: {
-          display: "block",
-        },
-        staticClass: "mb-1",
-      }),
-      h(
-        VFlex,
-        {
-          staticClass:
-            "f-info-grid-item-value-wrapper f-greyscale-1 f-body-2 d-flex",
-        },
-        [
-          h(
-            "div",
-            {
-              staticClass: `f-info-grid-item-value`,
-              class: this.valueColor ? `${this.valueColor}--text` : "",
-              style: this.valueCustomColor
-                ? { color: `${this.valueCustomColor} !important` }
-                : {},
-            },
-            [this.value],
-          ),
-          this.valueUnit
-            ? h(
-                "div",
-                { staticClass: "f-info-grid-item-value-unit" },
-                this.valueUnit,
-              )
-            : "",
-        ],
-      ),
-    ];
-
-    if (this.reverse) contents.reverse();
-
-    if (this.title || this.value) {
-      data.push(
-        h(VFlex, { staticClass: "f-info-grid-item-content" }, contents),
+        { staticClass: "f-info-grid-item__title" },
+        [title, hint]
       );
-    } else {
-      data.push(this.$slots.default);
+    },
+    genHint() {
+      return this.$createElement(
+        FTooltip,
+        { scopedSlots: { activator: this.genHelpIcon } },
+        this.hint
+      );
+    },
+    genHelpIcon({ on }) {
+      return this.$createElement(
+        VIcon,
+        { props: { size: 12 }, staticClass: "f-info-grid-item__hint", on },
+        "$help"
+      );
+    },
+    genValue() {
+      const data: VNodeData = this.setTextColor(this.color, {
+        staticClass: "f-info-grid-item__value"
+      });
+
+      return this.$createElement("div", data, [this.value]);
+    },
+    genUnit() {
+      return this.$createElement(
+        "div",
+        { staticClass: "f-info-grid-item__unit" },
+        this.valueUnit
+      );
+    },
+    genContent() {
+      return this.$createElement(
+        "div",
+        { staticClass: "f-info-grid-item__content" },
+        [this.genValue(), this.genUnit()]
+      );
+    }
+  },
+
+  render(h): VNode {
+    const data: VNodeData = { class: this.classes };
+
+    if (this.$slots.default) {
+      return h("div", data, this.$slots.default);
     }
 
-    return h(
-      "div",
-      {
-        staticClass: "f-info-grid-item pt-0 pl-4 pb-4",
-        attrs: this.$attrs,
-        props: {
-          ...this.$attrs,
-        },
-        on: this.$listeners,
-      },
-      data,
-    );
-  }
-}
+    let children = [this.genTitle(), this.genContent()];
 
-export default FListItem;
-export { FListItem };
+    if (this.reverse) {
+      children = children.reverse();
+    }
+
+    return h("div", data, children);
+  }
+});

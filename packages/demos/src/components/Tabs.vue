@@ -80,16 +80,16 @@ class Tabs extends Vue {
   items = [
     {
       text: "group1",
-      value: "value1",
+      value: "value1"
     },
     {
       text: "group2",
-      value: "group2",
+      value: "group2"
     },
     {
       text: "group3",
-      value: "group3",
-    },
+      value: "group3"
+    }
   ];
 }
 export default Tabs;

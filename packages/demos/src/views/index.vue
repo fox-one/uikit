@@ -29,9 +29,9 @@
         <template v-for="(item, index) in filterComponents(group.coms)">
           <f-list-item
             :key="index"
-            @click="handleViewComponent(item)"
             :title="item.displayName"
             :subtitle="item.subtitle"
+            @click="handleViewComponent(item)"
           >
           </f-list-item>
         </template>
@@ -43,9 +43,9 @@
         <template v-for="(item, index) in otherComponents">
           <f-list-item
             :key="index"
-            @click="handleViewComponent(item)"
             :title="item.displayName"
             :subtitle="item.subtitle"
+            @click="handleViewComponent(item)"
           >
           </f-list-item>
         </template>
@@ -59,14 +59,15 @@ import { Component, Mixins } from "vue-property-decorator";
 import upperFirst from "lodash/upperFirst";
 import camelCase from "lodash/camelCase";
 import { mdiChevronRight, mdiGithub } from "@mdi/js";
-import page from "@/mixins/page";
+import page from "../mixins/page";
 
 const requireComponent = require.context("../components", true, /\.vue$/);
 const componentsList = requireComponent.keys().map((key) => {
   const componentName = upperFirst(
-    camelCase(key.replace(/\.\//, "").replace(/\.\w+$/, "")),
+    camelCase(key.replace(/\.\//, "").replace(/\.\w+$/, ""))
   );
   const displayName = key.replace(/^[.]+\//, "").replace(/.vue$/, "");
+
   return { componentName, displayName };
 });
 
@@ -74,9 +75,7 @@ const componentsList = requireComponent.keys().map((key) => {
 class Page extends Mixins(page) {
   mdiChevronRight = mdiChevronRight;
   mdiGithub = mdiGithub;
-
   componentsList = componentsList;
-
   groups = [
     {
       label: "Layout & Container",
@@ -86,42 +85,42 @@ class Page extends Mixins(page) {
         ["actionbar", "A container with multiple page-level useful actions"],
         [
           "bottomnav",
-          "A better alternative to the sidebar. In most cases we don't need sidebar",
+          "A better alternative to the sidebar. In most cases we don't need sidebar"
         ],
         [
           "tabs",
-          "Hiding content behind a selectable item or pseudo-navigation for a page",
+          "Hiding content behind a selectable item or pseudo-navigation for a page"
         ],
         ["floataction", ""],
-        ["list", "To display items in a collection"],
-      ]),
+        ["list", "To display items in a collection"]
+      ])
     },
     {
       label: "Form",
       coms: new Map([
         [
           "assetamountinput",
-          "Very useful for collecting info about assets and amount",
+          "Very useful for collecting info about assets and amount"
         ],
         [
           "assetselect",
-          "A component for collecting selected asset from asset list",
+          "A component for collecting selected asset from asset list"
         ],
         ["button", "Just buttons"],
         ["buttonswitch", "Like checkbox, but better."],
         ["phoneinput", "A component for collecting the phone number."],
         [
           "input",
-          "The basic component, used for collecting user provided information",
-        ],
-      ]),
+          "The basic component, used for collecting user provided information"
+        ]
+      ])
     },
     {
       label: "Presentation",
       coms: new Map([
         [
           "bottomsheet",
-          "A modal view that slides from the bottom of the screen",
+          "A modal view that slides from the bottom of the screen"
         ],
         ["payingmodal", "A modal view that shows the progress of paying"],
         ["authmethodmodal", "A modal view that handle auth method"],
@@ -132,29 +131,27 @@ class Page extends Mixins(page) {
         ["qrcode", "A component that generates QRCode for any string"],
         ["formtips", ""],
         ["mixinassetlogo", ""],
-        ["infogrid", "To display several items in a grid-like view."],
-      ]),
+        ["infogrid", "To display several items in a grid-like view."]
+      ])
     },
     {
       label: "Styles",
       coms: new Map([
         ["color", "colors"],
-        ["typography", "text, font, etc"],
-      ]),
+        ["typography", "text, font, etc"]
+      ])
     },
     {
       label: "Overrided",
-      coms: new Map([["chip", "chips from vuetify"]]),
-    },
+      coms: new Map([["chip", "chips from vuetify"]])
+    }
   ];
-
   get appbar() {
     return {
       title: "Components",
-      back: false,
+      back: false
     };
   }
-
   filterComponents(coms: Map<string, string>) {
     return componentsList
       .filter((x) => {
@@ -162,10 +159,10 @@ class Page extends Mixins(page) {
       })
       .map((x: any) => {
         x.subtitle = coms.get(x.displayName.toLowerCase());
+
         return x;
       });
   }
-
   get otherComponents() {
     return componentsList.filter((x) => {
       for (let ix = 0; ix < this.groups.length; ix++) {
@@ -173,17 +170,16 @@ class Page extends Mixins(page) {
           return false;
         }
       }
+
       return true;
     });
   }
-
   handleViewComponent(item) {
     this.$router.push({
       name: "page-component",
-      params: { component: item.componentName },
+      params: { component: item.componentName }
     });
   }
-
   gotoGithub() {
     window.location.href = "https://github.com/fox-one/uikit";
   }

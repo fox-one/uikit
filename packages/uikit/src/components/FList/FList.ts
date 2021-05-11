@@ -1,24 +1,17 @@
 import "./FList.scss";
-import { Component, Vue } from "vue-property-decorator";
-import { CreateElement, VNode } from "vue/types/umd";
+
+import mixins from "vuetify/src/util/mixins";
 import { VList } from "vuetify/lib";
 
-@Component
-class FList extends Vue {
-  render(h: CreateElement): VNode {
-    return h(
-      VList,
-      {
-        staticClass: "f-list",
-        attrs: this.$attrs,
-        props: {
-          ...this.$attrs,
-        },
-      },
-      [this.$slots.default],
-    );
-  }
-}
+export default mixins(VList).extend({
+  name: "FList",
 
-export default FList;
-export { FList };
+  computed: {
+    classes(): object {
+      return {
+        ...VList.options.computed.classes.call(this),
+        "f-list": true
+      };
+    }
+  }
+});

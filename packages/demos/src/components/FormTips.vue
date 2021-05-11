@@ -17,9 +17,7 @@
           @click:balance="handleClickBalance"
         >
           <template #action>
-            <v-btn outlined rounded small color="primary">
-              Swap
-            </v-btn>
+            <v-btn outlined rounded small color="primary"> Swap </v-btn>
           </template>
         </f-form-tips>
         <f-asset-amount-input
@@ -51,12 +49,12 @@ const Balance = Vue.extend({
         on: {
           click: () => {
             this.$emit("click:balance", this.balance);
-          },
-        },
+          }
+        }
       },
-      [this.balance],
+      [this.balance]
     );
-  },
+  }
 });
 
 Vue.component("balance", Balance);
@@ -74,13 +72,14 @@ class FormTips extends Vue {
   get assets() {
     return assets.map((asset) => {
       const chainAsset = assets.find((a) => a.asset_id === asset.chain_id);
+
       return {
         id: asset.asset_id,
         symbol: asset.symbol,
         name: asset.name,
         logo: asset.icon_url,
         label: asset.label,
-        chainLogo: chainAsset && chainAsset.icon_url,
+        chainLogo: chainAsset && chainAsset.icon_url
       };
     });
   }
@@ -89,25 +88,24 @@ class FormTips extends Vue {
     return [
       {
         text: "这是一条错误消息",
-        error: true,
+        error: true
       },
       {
-        component: "balance",
+        component: "balance"
       },
       {
-        text: "手续费：1 BTC",
+        text: "手续费：1 BTC"
       },
       {
         text: "手续费：1.23 BTC",
-        hide: true,
+        hide: true
       },
       {
-        text: "最小值：100 BTC",
+        text: "最小值：100 BTC"
       },
       {
-        text:
-          "这是一条很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长",
-      },
+        text: "这是一条很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长"
+      }
     ];
   }
 

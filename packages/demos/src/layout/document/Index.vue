@@ -22,8 +22,8 @@ import { State, Mutation } from "vuex-class";
 @Component({
   components: {
     DocumentView,
-    DocumentAppBar,
-  },
+    DocumentAppBar
+  }
 })
 class DocumentLayout extends Vue {
   @State((state) => state.app.toast) toast;

@@ -1,30 +1,38 @@
+@import "./variable";
+
+@include theme("v-list-item.f-list-item") using ($material) {
+  .f-list-item__subtitle {
+    color: map-get($material, "greyscale_3");
+  }
+}
+
 .f-list-item {
-  padding-right: 10px;
-  .f-list-item-content {
-    padding-top: 18px;
-    padding-bottom: 18px;
-    height: 72px;
+  padding-right: $spacer * 2;
+  height: 72px;
+
+  &__body {
+    margin-left: $spacer * 2;
   }
-  .f-list-item-subtitle {
-    max-height: 28px;
-    overflow: hidden;
-    text-overflow: ellipsis;
+
+  &__title {
+    font-weight: 500;
   }
-  .v-list-item__action,
-  .v-list-item__action .text {
+
+  &__subtitle {
+    font-size: 13px;
+  }
+
+  &__tail,
+  &__value {
     max-width: 100px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
   }
-  .f-list-item-arrow {
-    height: 16px;
-    width: 16px;
-    max-width: 16px;
-    display: inline-block;
-  }
-  .f-list-item-icon-wrapper {
-    width: auto;
-    min-width: auto;
+
+  &__tail {
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
   }
 }

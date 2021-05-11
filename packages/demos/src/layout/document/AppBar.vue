@@ -4,9 +4,11 @@
     :show="appbar.show"
     :back="appbar.back"
     :mixin-immersive="mixinImmersive"
+    app
     @back="handleBack"
   >
-    <v-btn icon small @click="toggleThemeMode" class="mr-0">
+    <v-spacer />
+    <v-btn icon small class="mr-0" @click="toggleThemeMode">
       <v-icon>
         {{ icons.mdiBrightness4 }}
       </v-icon>
@@ -25,7 +27,7 @@ class DocumnetAppBar extends Vue {
   @State((state) => state.app.appbar) appbar;
 
   icons = {
-    mdiBrightness4,
+    mdiBrightness4
   };
 
   get mixinImmersive() {
@@ -34,6 +36,7 @@ class DocumnetAppBar extends Vue {
 
   toggleThemeMode() {
     const value = !(this as any).$vuetify.theme.dark;
+
     this.$store.commit("app/SET_THEME_DARK", value);
     (this as any).$vuetify.theme.dark = value;
   }

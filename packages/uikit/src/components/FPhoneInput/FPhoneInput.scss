@@ -1,90 +1,17 @@
-@import "../mixin.scss";
-@import "../color.scss";
+@import "./variable";
 
-.f-phone-input__code {
-  height: 24px;
+@include theme(f-phone-input) using ($material) {
+  .f-country-code-select__field {
+    color: map-deep-get($material, "text", "primary");
+  }
+}
+
+.f-country-code-select__countries {
+  max-height: 60vh;
+  overflow-y: auto;
+}
+
+.f-country-code-select__field {
   display: flex;
   align-items: center;
-}
-
-.f-phone-input {
-  border-radius: 8px;
-  .v-text-field {
-    padding-top: 0;
-    margin-top: 0;
-    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.5, 1);
-    transition-delay: 0.1s;
-  }
-
-  .v-input {
-    height: 60px;
-    padding: 6px 8px 6px 0;
-  }
-
-  .v-input__slot {
-    box-shadow: none !important;
-    background-color: transparent !important;
-    input {
-      padding-top: 0 !important;
-    }
-  }
-
-  input {
-    @include f-text-n(16px);
-    @include f-weight-m();
-    padding-bottom: 0px;
-  }
-
-  .v-label {
-    @include f-text-n(16px);
-    @include f-weight-m();
-    transition-delay: 0.1s;
-    height: 24px;
-  }
-
-  .v-text-field.v-input--is-label-active,
-  .v-text-field.v-input--is-focused {
-    // padding-top: 12px;
-    transition-delay: 0s;
-  }
-
-  .v-text-field > .v-input__control > .v-input__slot:before,
-  .v-text-field > .v-input__control > .v-input__slot:after {
-    display: none;
-  }
-
-  .f-asset-amount-input__activator {
-    align-self: stretch;
-    display: flex;
-    align-items: center;
-    padding: 0 10px;
-  }
-
-  .f-phone-input__code {
-    @include f-text-n(16px);
-    @include f-weight-sb();
-  }
-}
-
-.theme--dark {
-  .f-phone-input {
-    background-color: f-color(dark, greyscale_6);
-    .v-label {
-      color: f-color(dark, greyscale_4);
-    }
-    .f-phone-input__code {
-      color: f-color(dark, greyscale_1) !important;
-    }
-  }
-}
-.theme--light {
-  .f-phone-input {
-    background-color: f-color(light, greyscale_6);
-    .v-label {
-      color: f-color(light, greyscale_4);
-    }
-    .f-phone-input__code {
-      color: f-color(light, greyscale_1) !important;
-    }
-  }
 }

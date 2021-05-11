@@ -1,84 +1,19 @@
-@import "../mixin.scss";
-@import "../color.scss";
-@import "~vuetify/src/styles/styles.sass";
+@import "./_variable.scss";
 
-.v-application {
-  .f-button {
+.f-btn.v-btn {
+  font-weight: 600;
+
+  &:not(.v-btn--round) {
+    @each $name, $padding in $btn-paddings {
+      &.v-size--#{$name} {
+        padding: 0 #{$padding}px;
+        min-width: auto;
+      }
+    }
+  }
+
+  .v-btn__loader {
     position: relative;
-    transition-property: opacity;
-    transition-timing-function: linear;
-    &::before {
-      content: " ";
-      position: absolute;
-      left: 0;
-      right: 0;
-      top: 0;
-      bottom: 0;
-      opacity: 0;
-      background-color: transparent;
-    }
-    &.v-size--default {
-      padding-left: 56px;
-      padding-right: 56px;
-      height: 48px;
-    }
-    &.block {
-      width: 100%;
-    }
-  }
-}
-.theme--light.v-application {
-  .f-button {
-    // style modification
-    &.f-button-type-subtitle {
-      color: f-color(light, greyscale_2);
-      border-color: f-color(light, greyscale_4);
-    }
-    // active state
-    &.f-button-type-primary,
-    &.f-button-type-subtitle,
-    &.f-button-type-warning {
-      &:active::before {
-        opacity: 1;
-        background-color: rgba($color: #000000, $alpha: 0.05);
-      }
-    }
-    &.f-button-type-secondary {
-      &:active::before {
-        opacity: 1;
-        background-color: rgba($color: #1ea0ff, $alpha: 0.2);
-      }
-    }
-  }
-}
-.theme--dark.v-application {
-  .f-button {
-    // style modification
-    &.f-button-type-subtitle {
-      color: f-color(dark, greyscale_2);
-      border-color: f-color(dark, greyscale_4);
-    }
-    // active state
-    &.f-button-type-primary,
-    &.f-button-type-warning {
-      &:active::before {
-        opacity: 1;
-        background-color: rgba($color: #000000, $alpha: 0.4);
-      }
-    }
-    &.f-button-type-subtitle {
-      &:active::before {
-        opacity: 1;
-        background-color: rgba($color: #ffffff, $alpha: 0.1);
-        border-color: rgba($color: #404143, $alpha: 0.4);
-      }
-    }
-    &.f-button-type-secondary {
-      &:active::before {
-        opacity: 1;
-        background-color: rgba($color: #1ea0ff, $alpha: 0.2);
-      }
-    }
   }
 }
 

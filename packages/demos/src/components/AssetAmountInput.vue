@@ -41,7 +41,7 @@
         :precision="precision"
         border
       >
-        <template #assets="{ assets, asset, on}">
+        <template #assets="{ assets, asset, on }">
           <v-list>
             <v-list-item
               v-for="(item, index) in assets"
@@ -118,7 +118,7 @@ import { mdiSwapVertical } from "@mdi/js";
 @Component
 class AssetAmountInput extends Vue {
   icons = {
-    mdiSwapVertical,
+    mdiSwapVertical
   };
 
   value0 = "";
@@ -150,13 +150,14 @@ class AssetAmountInput extends Vue {
   get assets() {
     return assets.map((asset) => {
       const chainAsset = assets.find((a) => a.asset_id === asset.chain_id);
+
       return {
         id: asset.asset_id,
         symbol: asset.symbol || "",
         name: asset.name,
         logo: asset.icon_url,
         label: asset.label,
-        chainLogo: chainAsset && chainAsset.icon_url,
+        chainLogo: chainAsset && chainAsset.icon_url
       };
     });
   }
@@ -171,6 +172,7 @@ class AssetAmountInput extends Vue {
 
   swapPos() {
     const tmp = Object.assign({}, this.asset3);
+
     this.asset3 = Object.assign({}, this.asset4);
     this.asset4 = Object.assign({}, tmp);
   }

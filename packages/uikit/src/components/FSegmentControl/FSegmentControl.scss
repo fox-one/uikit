@@ -1,0 +1,39 @@
+@import "./variables";
+
+@include theme("v-btn-toggle.f-segment-control") using ($material) {
+  &:not(.v-btn-toggle--group) {
+    background: map-deep-get($material, "segment-controls", "background");
+    color: map-deep-get($material, "text", "primary");
+  }
+
+  > .v-btn.v-btn {
+    &--active {
+      background: map-deep-get($material, "segment-controls", "active");
+      color: map-deep-get($material, "segment-controls", "active_text");
+    }
+  }
+}
+
+.v-btn-toggle.f-segment-control {
+  border-radius: $border-radius-root;
+
+  > .v-btn.v-btn {
+    background: transparent;
+    padding: 0 20px;
+    font-size: 13px;
+
+    &:after,
+    &:before {
+      content: none;
+    }
+
+    &--active {
+      opacity: 1;
+      border-radius: $border-radius-root !important;
+    }
+  }
+
+  &:not(.v-btn-toggle--dense) .v-btn.v-btn.v-size--default {
+    height: 36px;
+  }
+}

@@ -1,9 +1,9 @@
 .f-payment-loading {
-  .f-spinner--wrapper {
+  .f-spinner__wrapper {
     display: flex;
     justify-content: center;
 
-    .f-spinner--rect {
+    .f-spinner__rect {
       display: inline-block;
       background-color: #fff;
       margin: 0 2px;
@@ -26,7 +26,7 @@
     }
   }
 
-  .f-payment--actions {
+  .f-payment__actions {
     margin-top: 30px;
   }
 }

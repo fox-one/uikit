@@ -1,27 +1,21 @@
 <template>
-  <div>
+  <v-container>
     <v-row>
       <v-col cols="12">
         <f-bottom-sheet
           v-model="show"
           :persistent="persistent"
           :adaptive="adaptive"
-          :desktop-wapper="desktopWapper"
+          :wapper-in-desktop="desktopWapper"
+          title="选择一个人物"
           content-class="pepole"
-          nudge-top="-10"
-          max-width="600"
         >
           <template #activator="{ on }">
-            <f-button type="primary" block v-on="on">
-              Show selector
-            </f-button>
+            <f-button color="primary" block v-on="on"> Show selector </f-button>
           </template>
-          <template #title>
-            选择一个人物
-          </template>
-          <template #subheader>
+          <f-bottom-sheet-sub-title>
             <f-input v-model="filter" label="search"></f-input>
-          </template>
+          </f-bottom-sheet-sub-title>
           <v-list height="400" style="overflow: scroll">
             <v-list-item v-for="(item, index) in filtedItems" :key="index">
               <v-list-item-icon>
@@ -64,8 +58,7 @@
     </v-row>
     <br />
     <br />
-    <scoped-bottom-sheet :filter="filter" search="search" />
-  </div>
+  </v-container>
 </template>
 
 <script lang="ts">
@@ -134,65 +127,64 @@ class BottomSheet extends Vue {
 
   desktopWappres = [
     { text: "Menu", value: "menu" },
-    { text: "Dialog", value: "dialog" },
+    { text: "Dialog", value: "dialog" }
   ];
 
   items = [
     {
       icon: true,
       title: "Jason Oner",
-      avatar: "https://cdn.vuetifyjs.com/images/lists/1.jpg",
+      avatar: "https://cdn.vuetifyjs.com/images/lists/1.jpg"
     },
     {
       title: "Travis Howard",
-      avatar: "https://cdn.vuetifyjs.com/images/lists/2.jpg",
+      avatar: "https://cdn.vuetifyjs.com/images/lists/2.jpg"
     },
     {
       title: "Ali Connors",
-      avatar: "https://cdn.vuetifyjs.com/images/lists/3.jpg",
+      avatar: "https://cdn.vuetifyjs.com/images/lists/3.jpg"
     },
     {
       title: "Cindy Baker",
-      avatar: "https://cdn.vuetifyjs.com/images/lists/4.jpg",
+      avatar: "https://cdn.vuetifyjs.com/images/lists/4.jpg"
     },
     {
       icon: true,
       title: "Jason Oner",
-      avatar: "https://cdn.vuetifyjs.com/images/lists/1.jpg",
+      avatar: "https://cdn.vuetifyjs.com/images/lists/1.jpg"
     },
     {
       title: "Travis Howard",
-      avatar: "https://cdn.vuetifyjs.com/images/lists/2.jpg",
+      avatar: "https://cdn.vuetifyjs.com/images/lists/2.jpg"
     },
     {
       title: "Ali Connors",
-      avatar: "https://cdn.vuetifyjs.com/images/lists/3.jpg",
+      avatar: "https://cdn.vuetifyjs.com/images/lists/3.jpg"
     },
     {
       title: "Cindy Baker",
-      avatar: "https://cdn.vuetifyjs.com/images/lists/4.jpg",
+      avatar: "https://cdn.vuetifyjs.com/images/lists/4.jpg"
     },
     {
       icon: true,
       title: "Jason Oner",
-      avatar: "https://cdn.vuetifyjs.com/images/lists/1.jpg",
+      avatar: "https://cdn.vuetifyjs.com/images/lists/1.jpg"
     },
     {
       title: "Travis Howard",
-      avatar: "https://cdn.vuetifyjs.com/images/lists/2.jpg",
+      avatar: "https://cdn.vuetifyjs.com/images/lists/2.jpg"
     },
     {
       title: "Ali Connors",
-      avatar: "https://cdn.vuetifyjs.com/images/lists/3.jpg",
+      avatar: "https://cdn.vuetifyjs.com/images/lists/3.jpg"
     },
     {
       title: "Cindy Baker",
-      avatar: "https://cdn.vuetifyjs.com/images/lists/4.jpg",
-    },
+      avatar: "https://cdn.vuetifyjs.com/images/lists/4.jpg"
+    }
   ];
 
   get filtedItems() {
-    console.log(this.filter);
     return this.items.filter((item) => item.title.includes(this.filter));
   }
 
@@ -203,10 +195,4 @@ class BottomSheet extends Vue {
 export default BottomSheet;
 </script>
 
-<style lang="scss">
-.pepole {
-  .f-bottom-sheet__body {
-    padding-bottom: 20px !important;
-  }
-}
-</style>
+<style lang="scss"></style>

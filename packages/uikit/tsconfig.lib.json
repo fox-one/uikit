@@ -1,0 +1,22 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "lib": ["es2015", "es2016", "es2017", "es2018", "dom", "dom.iterable"],
+    "outDir": "build",
+    "downlevelIteration": true,
+    "declaration": false,
+    "strict": false,
+    "noImplicitAny": false,
+    "strictNullChecks": false,
+    "strictFunctionTypes": false,
+    "strictPropertyInitialization": false,
+    "noImplicitThis": false,
+    "alwaysStrict": false,
+    "noUnusedLocals": false,
+
+    "noImplicitReturns": false,
+    "noFallthroughCasesInSwitch": false
+  },
+  "files": ["src/index.ts", "src/preset/index.ts", "src/utils/toast.ts"],
+  "include": ["src/globals.d.ts", "src/shims.d.ts"]
+}

@@ -1,40 +1,60 @@
-@import "../mixin.scss";
-@import "../color.scss";
+@import "./variables.scss";
 
-.f-actionbar {
+@include theme(f-actionbar) using ($material) {
+  background-color: map-get($material, "actionbar");
+}
+
+.v-item-group.f-actionbar {
   display: flex;
-  justify-content: space-around;
-  align-items: center;
+  justify-content: space-between;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  overflow-y: auto;
+  visibility: visible;
+  opacity: 1;
+  transform: translateY(0, 0);
 
-  &.f-actionbar--fixed {
-    padding-bottom: constant(safe-area-inset-bottom) !important;
-    padding-bottom: env(safe-area-inset-bottom) !important;
-    height: calc(64px + constant(safe-area-inset-bottom)) !important;
-    height: calc(64px + env(safe-area-inset-bottom)) !important;
+  &:not(.f-actionbar--custom-content) {
+    .v-btn {
+      background-color: transparent;
+      box-shadow: none;
+      flex: 0 1 auto;
+      height: inherit;
+      font-size: $f-actionbar-btn-font-size;
+      min-width: $f-actionbar-btn-min-width;
+      padding: $f-actionbar-btn-padding;
+      position: relative;
+      text-transform: none;
 
-    position: fixed;
-    bottom: 0px;
-    left: 0px;
-    right: 0px;
-  }
+      // &:after,
+      // &:before {
+      //   content: none;
+      // }
 
-  .f-actionbar--action {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    .f-actionbar-button-label {
-      font-weight: normal;
+      .v-btn__content {
+        flex-direction: column-reverse;
+        height: inherit;
+
+        > *:not(.v-icon) {
+          line-height: 1.2;
+        }
+      }
+
+      &.v-btn--active {
+        color: inherit;
+      }
     }
   }
-}
-.theme--light.v-application {
-  .f-actionbar-button-label {
-    color: f-color(light, greyscale_3);
+
+  &:not(.f-actionbar--active) {
+    visibility: hidden;
+    opacity: 0;
+    transform: translateY(100%);
   }
 }
-.theme--dark.v-application {
-  .f-actionbar-button-label {
-    color: f-color(dark, greyscale_3);
-  }
+
+.v-item-group.f-actionbar--fixed {
+  position: fixed;
+  z-index: 4;
 }

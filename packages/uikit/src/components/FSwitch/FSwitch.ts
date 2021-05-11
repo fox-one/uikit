@@ -1,51 +1,29 @@
 import "./FSwitch.scss";
-import { VSwitch } from "vuetify/lib";
-import { Component, Vue, Prop, Model, Watch } from "vue-property-decorator";
-import { VNode, CreateElement } from "vue";
 
-@Component
-class FSwitch extends Vue {
-  @Prop({ type: String, default: "" }) color!: string;
+import mixins from "vuetify/src/util/mixins";
 
-  @Model("change", { type: Boolean, default: false }) value!: boolean;
+import { VSwitch } from "vuetify/src/components";
 
-  _realValue = false;
+export default mixins(VSwitch).extend({
+  name: "FSwitch",
 
-  @Watch("value")
-  updateValue() {
-    this._realValue = this.value;
-  }
+  props: {
+    inset: { type: Boolean, default: true },
+    color: { type: String, default: "greyscale_1" }
+  },
 
-  render(h: CreateElement): VNode | null {
-    this._realValue = this.value;
-    const props: any = {
-      inset: true,
-      ripple: false,
-      hideDetails: true,
-      size: 32,
-      value: this.value,
-      inputValue: this.value,
-      ...this.$attrs,
-    };
+  computed: {
+    computedColor(): string | undefined {
+      if (this.color) return this.color;
+      if (this.isDark && !this.appIsDark) return "white";
 
-    if (this.color !== "") {
-      props.color = this.color;
+      return "primary";
+    },
+    classes(): object {
+      return {
+        ...VSwitch.options.computed.classes.call(this),
+        "f-input--switch": true
+      };
     }
-
-    const data: any = {
-      ...this.$attrs,
-      staticClass: `f-switch`,
-      props,
-      on: {
-        change: (val) => {
-          this.$emit("change", val ?? false);
-        },
-      },
-    };
-
-    return h(VSwitch, data, []);
   }
-}
-
-export default FSwitch;
-export { FSwitch };
+});

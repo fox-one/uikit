@@ -2,12 +2,8 @@
   <v-flex>
     <f-panel class="mb-4">
       <v-row>
-        <v-col cols="3" class="body-2">
-          Light
-        </v-col>
-        <v-col cols="3" class="body-2">
-          Dark
-        </v-col>
+        <v-col cols="3" class="body-2"> Light </v-col>
+        <v-col cols="3" class="body-2"> Dark </v-col>
         <v-col cols="6"> </v-col>
       </v-row>
 
@@ -82,7 +78,7 @@ class FColor extends Vue {
     { id: 3, text: "Used for captions." },
     { id: 4, text: "Used for captions." },
     { id: 5, text: "Used for background." },
-    { id: 6, text: "Used for background." },
+    { id: 6, text: "Used for background." }
   ];
 
   subjects = ["ocean", "pink", "chives"];

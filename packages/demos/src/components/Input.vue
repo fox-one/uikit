@@ -11,7 +11,7 @@
         hint="click the clear button to clear content"
         :label="label"
         :clearable="true"
-        :clearIcon="mdiClose"
+        :clear-icon="mdiClose"
         persistent-hint
       >
       </f-input>
@@ -56,7 +56,7 @@
           ><v-icon class="mr-2">{{ mdiHeartPulse }}</v-icon></template
         >
         <template #append
-          ><div class="ml-2 f-caption" style="white-space: nowrap;">
+          ><div class="ml-2 f-caption" style="white-space: nowrap">
             per min
           </div></template
         >
@@ -93,7 +93,7 @@ class Input extends Vue {
 
   rules = {
     moreThan5Letters: (val) =>
-      val.length > 5 || "username should more than 5 letters",
+      val.length > 5 || "username should more than 5 letters"
   };
 
   mdiHeartPulse = mdiHeartPulse;

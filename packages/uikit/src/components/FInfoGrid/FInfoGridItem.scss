@@ -1,36 +1,31 @@
-@import "../mixin.scss";
-@import "../color.scss";
+@import "./variable";
+
+@include theme("f-info-grid-item") using ($material) {
+  .f-info-grid-item__title {
+    color: map-get($material, "greyscale_3");
+  }
+}
 
 .f-info-grid-item {
-  width: var(--v-f-info-grid-item-width);
-
-  .f-info-grid-item-title {
-    @include f-text-n(12px);
-    @include f-weight-r();
+  &__title {
+    font-size: 12px;
+    display: flex;
+    align-items: center;
   }
-  .f-info-grid-item-value-wrapper {
-    vertical-align: baseline;
-    align-items: baseline;
-    .f-info-grid-item-value {
-      @include f-text-n(14px);
-      @include f-weight-sb();
-    }
-    .f-info-grid-item-value-unit {
-      margin-left: 2px;
-      @include f-text-n(12px);
-      @include f-weight-m();
-    }
-  }
-}
 
-.theme--light.v-application {
-  .f-info-grid-item {
-    border-left: 1px solid f-color("light", greyscale_6);
+  &__hint {
+    margin-left: $spacer / 2;
   }
-}
 
-.theme--dark.v-application {
-  .f-info-grid-item {
-    border-left: 1px solid f-color("dark", greyscale_6);
+  &__content {
+    display: flex;
+    align-items: center;
+    font-weight: 600;
+    font-size: 14px;
+    margin-bottom: $spacer;
+  }
+
+  &__unit {
+    margin-left: $spacer / 2;
   }
 }

@@ -1,63 +1,14 @@
-.f-bottom-nav {
-  padding-bottom: constant(safe-area-inset-bottom) !important;
-  padding-bottom: env(safe-area-inset-bottom) !important;
-  height: calc(64px + constant(safe-area-inset-bottom)) !important;
-  height: calc(64px + env(safe-area-inset-bottom)) !important;
-  color: red;
+@import "./variables.scss";
 
-  &__btn {
-    height: 64px !important;
-    flex: 1 !important;
-    max-width: none !important;
-    font-size: 11px;
+// Theme
+@include theme("v-bottom-navigation.f-bottom-navigation") using ($material) {
+  background-color: map-get($material, "bottom-navigation");
 
-    &::before {
-      opacity: 0 !important;
-    }
-  }
-
-  &__dot-wrapper {
-    position: absolute;
-    z-index: 11;
-    top: -9px;
-    width: 18px;
-    height: 18px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 9px;
-    opacity: 0;
-  }
-
-  &__dot {
-    width: 12px;
-    height: 12px;
-    border-radius: 6px;
-    background: linear-gradient(180deg, #0596ff 0%, #1fa0fe 100%);
-  }
-
-  .v-btn {
-    min-width: 60px !important;
+  .v-btn:not(.v-btn--active) {
+    color: map-get($material, "bottom-navigation-inactive") !important;
   }
 }
 
-.theme--light {
-  .f-active-dot-wrapper {
-    background: #fff;
-  }
-  .v-btn {
-    background-color: transparent !important;
-  }
-}
-
-.theme--dark {
-  .f-active-dot-wrapper {
-    background: #2e2e2e;
-  }
-  .v-bottom-navigation {
-    background-color: #000000 !important;
-    .v-btn {
-      background-color: transparent !important;
-    }
-  }
+.v-item-group.v-bottom-navigation.f-bottom-navigation {
+  justify-content: space-around;
 }

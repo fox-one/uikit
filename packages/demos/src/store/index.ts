@@ -10,5 +10,5 @@ export default new Vuex.Store({
   mutations: {},
   actions: {},
   plugins: [createPersistedState({ key: "app", paths: ["app.dark"] })],
-  modules,
+  modules
 });

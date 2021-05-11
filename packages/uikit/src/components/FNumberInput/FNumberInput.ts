@@ -1,45 +1,38 @@
-import { Vue, Model, Prop, Component } from "vue-property-decorator";
-import { CreateElement, VNode } from "vue/types/umd";
-import { VTextField } from "vuetify/lib";
-import { toPrecision } from "../../utils/helper";
+import { toPrecision } from "@foxone/utils/number";
 
-@Component({
-  inheritAttrs: false,
-})
-class FNumberInput extends Vue {
-  @Model("input", { default: "" }) value!: string;
+import mixins from "vuetify/src/util/mixins";
 
-  @Prop() precision!: number;
+import FInput from "../FInput";
 
-  @Prop({ default: false }) reverse!: string;
+export default mixins(FInput).extend({
+  name: "FNumberInput",
 
-  handleSetValue(value) {
-    let temp = value;
-    if (this.precision !== undefined) {
-      temp = toPrecision(value, this.precision) + "";
+  props: {
+    type: { type: String, default: "number" },
+    precision: { type: Number, default: 8 }
+  },
+
+  computed: {
+    classes(): object {
+      return {
+        ...FInput.options.computed.classes.call(this),
+        "f-number-input": true
+      };
+    },
+    internalValue: {
+      get(): any {
+        return this.lazyValue;
+      },
+      set(val: any) {
+        let text = val;
+
+        if (val !== "" && val !== "-0") {
+          text = toPrecision({ n: val, dp: this.precision });
+        }
+
+        this.lazyValue = text;
+        this.$emit("input", this.lazyValue);
+      }
     }
-    this.$emit("input", temp);
-    const input: any = this.$refs.input;
-    input.lazyValue = temp;
   }
-
-  render(h: CreateElement): VNode {
-    return h(VTextField, {
-      ref: "input",
-      domProps: { "aria-autocomplete": "off" },
-      props: {
-        value: this.value,
-        type: "number",
-        reverse: this.reverse,
-      },
-      attrs: { ...this.$attrs },
-      on: {
-        ...this.$listeners,
-        input: (val) => this.handleSetValue(val),
-      },
-    });
-  }
-}
-
-export default FNumberInput;
-export { FNumberInput };
+});

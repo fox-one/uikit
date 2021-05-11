@@ -1,0 +1,10 @@
+{
+  "compilerOptions": {
+    "declaration": true,
+    "outDir": "build",
+    "target": "esnext",
+    "module": "esnext"
+  },
+  "extends": "../../tsconfig.json",
+  "include": ["src/index.ts", "src/shims-vue.d.ts", "src/icons/*.vue"]
+}

@@ -1,136 +1,130 @@
 import "./FBottomSheet.scss";
-import { Vue, Component, Model, Prop } from "vue-property-decorator";
-import { CreateElement, VNode } from "vue/types/umd";
-import {
-  VBottomSheet,
-  VMenu,
-  VDialog,
-  VCard,
-  VCardTitle,
-  VCardText,
-  VIcon,
-} from "vuetify/lib";
-import { mdiClose } from "@mdi/js";
 
-@Component({
-  inheritAttrs: false,
-})
-class FBottomSheet extends Vue {
-  @Model("change") value!: boolean;
+import mixins from "vuetify/src/util/mixins";
 
-  @Prop({ default: "menu" })
-  desktopWapper!: "menu" | "dialog";
+import Themeable from "vuetify/src/mixins/themeable";
+import { factory as ToggleableFactory } from "vuetify/src/mixins/toggleable";
+import { VBottomSheet, VMenu, VDialog, VIcon } from "vuetify/src/components";
+import FBottomSheetTitle from "./FBottomSheetTitle";
+import FBottomSheetSubTitle from "./FBottomSheetSubtitle";
 
-  @Prop({ default: false })
-  adaptive!: boolean;
+// types
+import type { Component, VNode, PropType } from "vue";
 
-  @Prop({ default: "" }) contentClass!: string;
+export type WapperInDesktop = "menu" | "dialog";
 
-  get isDesktop() {
-    return this.$vuetify.breakpoint.mdAndUp;
-  }
+const baseMixins = mixins(Themeable, ToggleableFactory("value", "change"));
 
-  get wapper() {
-    let Wapper = VBottomSheet;
-    if (this.adaptive && this.isDesktop) {
-      Wapper = this.desktopWapper === "menu" ? VMenu : VDialog;
+export default baseMixins.extend({
+  name: "FBottomSheet",
+
+  props: {
+    wapperInDesktop: {
+      type: String as PropType<WapperInDesktop>,
+      default: "menu"
+    },
+    adaptive: { type: Boolean, default: true },
+    title: { type: String, default: "" },
+    subtitle: { type: String, default: "" },
+    dialogProps: { type: Object, default: () => ({}) },
+    menuProps: {
+      type: Object,
+      default: () => ({})
     }
-    return Wapper;
-  }
+  },
 
-  genTitle() {
-    const title = this.$slots.title;
-    const scopedTitle = this.$scopedSlots.title;
-    if (!title && !scopedTitle) return null;
-    return this.$createElement(
-      VCardTitle,
-      { staticClass: "f-bottom-sheet__title subtitle-1" },
-      title ?? scopedTitle?.({}),
-    );
-  }
+  computed: {
+    isDesktop(): boolean {
+      return this.$vuetify.breakpoint.mdAndUp;
+    },
+    contentClass(): string {
+      const classes = [
+        "f-bottom-sheet",
+        this.$attrs.contentClass || "",
+        ...Object.keys(this.themeClasses).filter((k) => this.themeClasses[k])
+      ];
 
-  genSubheader() {
-    const subheader = this.$slots.subheader;
-    const scopedSubheader = this.$scopedSlots.subheader;
-    if (!subheader && !scopedSubheader) return null;
-    return this.$createElement(
-      VCardText,
-      { staticClass: "px-3" },
-      subheader ?? scopedSubheader?.({}),
-    );
-  }
+      return classes.join(" ");
+    }
+  },
 
-  genContent() {
-    const h = this.$createElement;
+  methods: {
+    close() {
+      this.isActive = false;
+    },
+    getWapper() {
+      let wapper: Component = VBottomSheet;
+      let props = {
+        ...this.$attrs,
+        value: this.value,
+        "content-class": this.contentClass
+      };
 
-    let iconClose: VNode | null = null;
-    if (this.$attrs.persistent) {
-      iconClose = h(
+      if (this.adaptive && this.isDesktop) {
+        if (this.wapperInDesktop === "menu") {
+          const defaultMenuProps = {
+            offsetY: true,
+            nudgeTop: -10,
+            closeOnContentClick: false
+          };
+
+          wapper = VMenu;
+          props = {
+            ...defaultMenuProps,
+            ...this.menuProps,
+            ...props
+          };
+        } else {
+          const defaultDialogProps = {
+            maxWidth: 600
+          };
+
+          wapper = VDialog;
+          props = { ...defaultDialogProps, ...this.dialogProps, ...props };
+        }
+      }
+
+      return { wapper, props };
+    },
+    genCloseIcon() {
+      return this.$createElement(
         VIcon,
         {
-          props: { size: 18 },
-          on: { click: () => this.$emit("change", false) },
-          staticClass: "f-bottom-sheet__close",
+          props: { size: 24 },
+          on: { click: () => this.close() },
+          staticClass: "f-bottom-sheet__close"
         },
-        [mdiClose],
+        "$close"
       );
-    }
+    },
+    genContent() {
+      const h = this.$createElement;
+      const children = [this.genCloseIcon(), this.$slots.default];
 
-    return h(
-      VCard,
-      {
-        staticClass: `f-bottom-sheet__content`,
-        props: { elevation: 0 },
+      if (this.title) {
+        children.unshift(h(FBottomSheetTitle, this.title));
+      }
+
+      if (this.subtitle) {
+        children.unshift(h(FBottomSheetSubTitle, this.subtitle));
+      }
+
+      return children;
+    }
+  },
+
+  render(h): VNode {
+    const { props, wapper } = this.getWapper();
+    const data = {
+      props,
+      on: {
+        input: (val: boolean) => {
+          this.$emit("change", val);
+        }
       },
-      [
-        this.genTitle(),
-        this.genSubheader(),
-        iconClose,
-        h(
-          VCardText,
-          { staticClass: "f-bottom-sheet__body px-0" },
-          this.$slots.default ?? this.$scopedSlots.default?.({}),
-        ),
-      ],
-    );
+      scopedSlots: { activator: this.$scopedSlots.activator }
+    };
+
+    return h(wapper, data, [this.genContent()]);
   }
-
-  render(h: CreateElement): VNode {
-    const activator = this.$scopedSlots.activator;
-
-    let attrs: any = {};
-    if (this.wapper === VBottomSheet) {
-      attrs = { maxWidth: "100%" };
-    }
-
-    if (this.wapper === VMenu) {
-      attrs = { "offset-y": true };
-    }
-
-    return h(
-      this.wapper,
-      {
-        attrs: { ...this.$attrs, ...attrs },
-        props: {
-          value: this.value,
-          scrollable: false,
-          "content-class": `f-bottom-sheet ${this.contentClass}`,
-        },
-        on: {
-          input: (val) => {
-            this.$emit("change", val);
-          },
-        },
-        scopedSlots: {
-          activator: ({ on }) => {
-            return (activator && activator({ on })) || null;
-          },
-        },
-      },
-      [this.genContent()],
-    );
-  }
-}
-
-export default FBottomSheet;
-export { FBottomSheet };
+});

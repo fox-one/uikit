@@ -1,144 +1,142 @@
 <template>
-  <div>
-    <v-row>
-      <v-col>
-        <f-app-bar v-bind="appbar"></f-app-bar>
-      </v-col>
-    </v-row>
-    <v-row>
-      <v-col>
-        <f-app-bar
-          v-bind="{ ...appbar, back: false, flat: true, title: 'No back' }"
-        ></f-app-bar>
-      </v-col>
-    </v-row>
-    <v-row>
-      <v-col>
-        <f-app-bar
-          v-bind="{
-            ...appbar,
-            back: true,
-            flat: true,
-            align: 'center',
-            title: 'centerial title',
-          }"
-        ></f-app-bar>
-      </v-col>
-    </v-row>
-    <v-row>
-      <v-col>
-        <f-app-bar
-          v-bind="{
-            ...appbar,
-            back: true,
-            flat: true,
-            color: 'transparent',
-            title: 'transparent bar',
-          }"
-        ></f-app-bar>
-      </v-col>
-    </v-row>
-    <v-row>
-      <v-col>
-        <f-app-bar
-          v-bind="{
-            ...appbar,
-            back: true,
-            flat: true,
-            title: VNodeTitle,
-          }"
-        ></f-app-bar>
-      </v-col>
-    </v-row>
-    <v-row>
-      <v-col>
-        <f-app-bar
-          v-bind="{
-            ...appbar,
-            back: false,
-            flat: true,
-            customContent: true,
-            mixinImmersive: true,
-          }"
-        >
-          <v-flex class="d-flex align-center">
-            <v-avatar size="32">
-              <v-img :src="require('@/assets/logo.svg')" :size="32"></v-img>
-            </v-avatar>
-            <div class="f-title-2 ml-1">Immersive</div>
-            <v-spacer />
-            <v-btn icon small color="primary">
-              <v-icon>{{ icons.mdiFaceProfile }}</v-icon>
+  <v-container>
+    <v-col>
+      <f-app-bar back title="Test" class="mb-10" @back="handleBack" />
+
+      <f-app-bar :nav-icon="navIcon" title="Test" class="mb-10" />
+
+      <f-app-bar :title="title" center class="mb-10" />
+
+      <f-app-bar title="Test" class="mb-10"> </f-app-bar>
+
+      <f-app-bar
+        dark
+        back
+        title="Test"
+        class="mb-10"
+        color="primary"
+        @back="handleBack"
+      />
+
+      <f-app-bar back center title="Test" class="mb-10">
+        <v-spacer></v-spacer>
+
+        <v-btn icon>
+          <v-icon>mdi-heart</v-icon>
+        </v-btn>
+
+        <v-btn icon>
+          <v-icon>mdi-magnify</v-icon>
+        </v-btn>
+      </f-app-bar>
+
+      <f-app-bar
+        back
+        center
+        mixin-immersive
+        title="Mixin Immersive"
+        class="mb-10"
+      >
+        <v-spacer></v-spacer>
+
+        <v-btn icon>
+          <v-icon>mdi-heart</v-icon>
+        </v-btn>
+
+        <v-btn icon>
+          <v-icon>mdi-magnify</v-icon>
+        </v-btn>
+      </f-app-bar>
+
+      <f-app-bar class="mb-10">
+        <v-app-bar-nav-icon></v-app-bar-nav-icon>
+
+        <v-toolbar-title>Page title</v-toolbar-title>
+
+        <v-spacer></v-spacer>
+
+        <v-btn icon>
+          <v-icon>mdi-heart</v-icon>
+        </v-btn>
+
+        <v-btn icon>
+          <v-icon>mdi-magnify</v-icon>
+        </v-btn>
+
+        <v-menu left bottom>
+          <template v-slot:activator="{ on, attrs }">
+            <v-btn icon v-bind="attrs" v-on="on">
+              <v-icon>mdi-dots-vertical</v-icon>
             </v-btn>
-          </v-flex>
-        </f-app-bar>
-      </v-col>
-    </v-row>
-    <v-row>
-      <v-col>
-        <f-app-bar
-          v-bind="{
-            ...appbar,
-            back: false,
-            flat: true,
-            customContent: true,
-            mixinImmersive: false,
-          }"
-        >
-          <v-flex class="d-flex align-center">
-            <v-avatar size="32">
-              <v-img :src="require('@/assets/logo.svg')" :size="32"></v-img>
-            </v-avatar>
-            <div class="f-title-2 ml-1">Custom content</div>
-            <v-spacer />
-            <v-btn icon small color="primary">
-              <v-icon>{{ icons.mdiFaceProfile }}</v-icon>
+          </template>
+
+          <v-list>
+            <v-list-item v-for="n in 5" :key="n" @click="() => {}">
+              <v-list-item-title>Option {{ n }}</v-list-item-title>
+            </v-list-item>
+          </v-list>
+        </v-menu>
+      </f-app-bar>
+
+      <v-app-bar class="mb-10">
+        <v-app-bar-nav-icon></v-app-bar-nav-icon>
+
+        <v-toolbar-title>Page title</v-toolbar-title>
+
+        <v-spacer></v-spacer>
+
+        <v-btn icon>
+          <v-icon>mdi-heart</v-icon>
+        </v-btn>
+
+        <v-btn icon>
+          <v-icon>mdi-magnify</v-icon>
+        </v-btn>
+
+        <v-menu left bottom>
+          <template v-slot:activator="{ on, attrs }">
+            <v-btn icon v-bind="attrs" v-on="on">
+              <v-icon>mdi-dots-vertical</v-icon>
             </v-btn>
-          </v-flex>
-        </f-app-bar>
-      </v-col>
-    </v-row>
-    <v-row>
-      <v-col>
-        <f-app-bar
-          v-bind="{
-            ...appbar,
-            dark: true,
-            flat: true,
-            color: 'primary',
-            title: 'Colorful',
-          }"
-        ></f-app-bar>
-      </v-col>
-    </v-row>
-  </div>
+          </template>
+
+          <v-list>
+            <v-list-item v-for="n in 5" :key="n" @click="() => {}">
+              <v-list-item-title>Option {{ n }}</v-list-item-title>
+            </v-list-item>
+          </v-list>
+        </v-menu>
+      </v-app-bar>
+
+      <v-app-bar>
+        <v-app-bar-nav-icon></v-app-bar-nav-icon>
+        <v-app-bar-title> Test </v-app-bar-title>
+      </v-app-bar>
+    </v-col>
+  </v-container>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
-import { mdiFaceProfile } from "@mdi/js";
+import { VIcon, VBtn, VChip } from "vuetify/lib";
 
 @Component
 class Appbar extends Vue {
-  appbar = {
-    show: true,
-    back: true,
-    fixed: false,
-    flat: false,
-    app: false,
-    title: "title",
-  };
-  icons = {
-    mdiFaceProfile,
-  };
-  VNodeTitle = this.$createElement("div", {
-    style: {
-      color: "green",
-    },
-    domProps: {
-      innerHTML: "I'm a VNode title bar 🦊",
-    },
-  });
+  get navIcon() {
+    const h = this.$createElement;
+
+    return h(VBtn, { props: { icon: true } }, [h(VIcon, "mdi-account")]);
+  }
+
+  get title() {
+    const h = this.$createElement;
+
+    return h(VChip, "Test");
+  }
+
+  handleBack() {
+    console.log("back");
+  }
 }
 export default Appbar;
 </script>

@@ -1,84 +1,152 @@
 <template>
-  <div>
-    <v-row>
-      <v-col>
-        <f-action-bar :actions="btns.slice(0, 3)"></f-action-bar>
-      </v-col>
-    </v-row>
-    <v-row>
-      <v-col>
-        <f-action-bar
-          fixed
-          :actions="btns.slice(0, 3)"
-          :custom-content="useCustomContent"
-        >
-          <v-flex class="d-flex align-center">
-            <v-avatar size="32">
-              <v-img :src="require('@/assets/logo.svg')" :size="32"></v-img>
-            </v-avatar>
-            <div class="ml-4">
-              <div class="f-body-1">$100,000.99</div>
-              <div class="f-caption greyscale_3--text">Bal.</div>
-            </div>
-            <v-spacer />
-            <f-button type="primary">
-              BUY
-            </f-button>
-          </v-flex>
-        </f-action-bar>
-      </v-col>
-    </v-row>
-    <v-row>
-      <v-col>
-        <f-action-bar :actions="btns.slice(0, 4)"></f-action-bar>
-      </v-col>
-    </v-row>
-    <v-row>
-      <v-col>
-        <div class="f-caption greyscale_3--text mb-2">Custom Content</div>
-        <f-switch v-model="useCustomContent"></f-switch>
-      </v-col>
-    </v-row>
-  </div>
+  <v-container>
+    <p class="text-h5 mt-5">Base</p>
+    <v-col>
+      <f-action-bar color="primary" :fixed="fixed">
+        <v-btn>
+          <span>Recents</span>
+
+          <v-icon>mdi-history</v-icon>
+        </v-btn>
+
+        <v-btn>
+          <span>Favorites</span>
+
+          <v-icon>mdi-heart</v-icon>
+        </v-btn>
+
+        <v-btn>
+          <span>Nearby</span>
+
+          <v-icon>mdi-map-marker</v-icon>
+        </v-btn>
+
+        <v-btn>
+          <span>Recents</span>
+
+          <v-icon>mdi-history</v-icon>
+        </v-btn>
+      </f-action-bar>
+
+      <v-checkbox v-model="fixed" label="Fixed"></v-checkbox>
+    </v-col>
+
+    <p class="text-h5 mt-5">Overflow</p>
+    <v-col>
+      <f-action-bar color="primary">
+        <v-btn>
+          <span>Recents</span>
+
+          <v-icon>mdi-history</v-icon>
+        </v-btn>
+
+        <v-btn>
+          <span>Favorites</span>
+
+          <v-icon>mdi-heart</v-icon>
+        </v-btn>
+
+        <v-btn>
+          <span>Nearby</span>
+
+          <v-icon>mdi-map-marker</v-icon>
+        </v-btn>
+
+        <v-btn>
+          <span>Recents</span>
+
+          <v-icon>mdi-history</v-icon>
+        </v-btn>
+
+        <v-btn>
+          <span>Favorites</span>
+
+          <v-icon>mdi-heart</v-icon>
+        </v-btn>
+
+        <v-btn>
+          <span>Nearby</span>
+
+          <v-icon>mdi-map-marker</v-icon>
+        </v-btn>
+
+        <v-btn>
+          <span>Recents</span>
+
+          <v-icon>mdi-history</v-icon>
+        </v-btn>
+      </f-action-bar>
+    </v-col>
+
+    <p class="text-h5 mt-5">HideOnScroll</p>
+    <p class="caption">With scroll taget or document</p>
+    <v-col>
+      <f-action-bar
+        v-model="value"
+        :fixed="fixed2"
+        hide-on-scroll
+        color="primary"
+        scroll-target="#target"
+      >
+        <v-btn>
+          <span>Recents</span>
+
+          <v-icon>mdi-history</v-icon>
+        </v-btn>
+
+        <v-btn>
+          <span>Favorites</span>
+
+          <v-icon>mdi-heart</v-icon>
+        </v-btn>
+
+        <v-btn>
+          <span>Nearby</span>
+
+          <v-icon>mdi-map-marker</v-icon>
+        </v-btn>
+
+        <v-btn>
+          <span>Recents</span>
+
+          <v-icon>mdi-history</v-icon>
+        </v-btn>
+      </f-action-bar>
+
+      <v-checkbox v-model="fixed2" label="Fixed"></v-checkbox>
+
+      <div id="target" class="ma-5" style="height: 200px; overflow: auto">
+        <div style="height: 800px">I am scroll target</div>
+      </div>
+    </v-col>
+
+    <p class="text-h5 mt-5">Custom Content</p>
+    <f-action-bar custom-content>
+      <v-flex class="d-flex align-center">
+        <v-avatar size="32">
+          <v-icon>mdi-heart</v-icon>
+        </v-avatar>
+        <div class="ml-4">
+          <div class="f-body-1">$100,000.99</div>
+          <div class="f-caption greyscale_3--text">Bal.</div>
+        </div>
+        <v-spacer />
+        <f-button color="primary" small> BUY </f-button>
+      </v-flex>
+    </f-action-bar>
+  </v-container>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
-import { mdiArrowDown } from "@mdi/js";
 
 @Component
 class Appbar extends Vue {
-  useCustomContent = true;
+  value = false;
 
-  btns = [
-    {
-      text: "SEND",
-      icon: mdiArrowDown,
-      size: "26",
-      color: "#F50000",
-    },
-    {
-      text: "RECEIVE",
-      icon: mdiArrowDown,
-      size: "26",
-      color: "#009621",
-    },
-    {
-      text: "Exchange",
-      icon: mdiArrowDown,
-      size: "26",
-    },
-    {
-      text: "SELL",
-      icon: mdiArrowDown,
-      size: "26",
-    },
-    {
-      text: "SELL",
-      icon: mdiArrowDown,
-      size: "26",
-    },
-  ];
+  fixed = false;
+
+  fixed2 = false;
 }
 export default Appbar;
 </script>

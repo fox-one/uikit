@@ -1,19 +1,100 @@
 import "./FTip.scss";
-import { Component, Vue, Prop } from "vue-property-decorator";
-import { CreateElement, VNode } from "vue/types/umd";
 
-@Component
-class FTip extends Vue {
-  @Prop({ type: String, default: "info" }) type!: string;
+import mixins from "vuetify/src/util/mixins";
 
-  get class() {
-    return `f-tip f-tip--${this.type}`;
+import Themeable from "vuetify/src/mixins/themeable";
+import Toggleable from "vuetify/src/mixins/toggleable";
+import { VIcon, VBtn } from "vuetify/lib";
+
+import type { VNode } from "vue/types/umd";
+
+export default mixins(Themeable, Toggleable).extend({
+  name: "FTip",
+
+  props: {
+    type: { type: String, default: "info" },
+    value: { type: Boolean, default: true },
+    closeable: { type: Boolean, default: true },
+    transition: {
+      type: [String, Boolean],
+      default: "dialog-transition"
+    },
+    origin: {
+      type: String,
+      default: "center center"
+    }
+  },
+
+  data() {
+    return {
+      isActive: !!this.value
+    };
+  },
+
+  computed: {
+    classes(): object {
+      return {
+        ...this.themeClasses,
+        "f-tip": true,
+        [`f-tip--${this.type}`]: true
+      };
+    }
+  },
+
+  methods: {
+    genIcon(): any {
+      const h = this.$createElement;
+
+      if (!this.closeable) return null;
+
+      return h(
+        VBtn,
+        {
+          staticClass: "f-tip__close",
+          props: {
+            width: 14,
+            height: 14,
+            color: "red",
+            fab: true,
+            dark: true
+          },
+          on: {
+            click: () => (this.isActive = false)
+          }
+        },
+        [h(VIcon, { props: { size: 12 } }, "$close")]
+      );
+    },
+    genContent() {
+      return this.$createElement(
+        "div",
+        {
+          class: [this.classes],
+          directives: [{ name: "show", value: this.isActive }]
+        },
+        [this.genIcon(), this.$slots.default]
+      );
+    },
+    genTransition() {
+      const content = this.genContent();
+
+      if (!this.transition) return content;
+
+      return this.$createElement(
+        "transition",
+        {
+          props: {
+            name: this.transition,
+            origin: this.origin,
+            appear: true
+          }
+        },
+        [content]
+      );
+    }
+  },
+
+  render(): VNode {
+    return this.genTransition();
   }
-
-  render(h: CreateElement): VNode {
-    return h("div", { class: [this.class] }, [this.$slots.default]);
-  }
-}
-
-export default FTip;
-export { FTip };
+});

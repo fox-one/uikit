@@ -13,10 +13,11 @@ class FPayingModal extends Vue {
 
   genSpinner() {
     const h = this.$createElement;
-    return h("div", { staticClass: "f-spinner--wrapper" }, [
+
+    return h("div", { staticClass: "f-spinner__wrapper" }, [
       Array.from({ length: 4 }).map(() =>
-        h("span", { staticClass: "f-spinner--rect" }),
-      ),
+        h("span", { staticClass: "f-spinner__rect" })
+      )
     ]);
   }
 
@@ -30,16 +31,17 @@ class FPayingModal extends Vue {
           props: {
             outlined: true,
             block: true,
-            rounded: true,
+            rounded: true
           },
           on: {
-            click: (e) => this.$emit("cancel", e),
-          },
+            click: (e) => this.$emit("cancel", e)
+          }
         },
-        [$t(this, "cancel")],
-      ),
+        [$t(this, "cancel")]
+      )
     ];
-    return h("div", { staticClass: "f-payment--actions" }, [actions]);
+
+    return h("div", { staticClass: "f-payment__actions" }, [actions]);
   }
 
   render(h: CreateElement): VNode {
@@ -47,17 +49,17 @@ class FPayingModal extends Vue {
       VOverlay,
       {
         staticClass: "f-payment-loading",
-        props: { value: this.show, opacity: 0.8, ...this.$attrs },
+        props: { value: this.show, opacity: 0.8, ...this.$attrs }
       },
       [
         this.genSpinner(),
         h(
           "div",
-          { staticClass: "f-payment--hint text-center subtitle-2 my-5" },
-          [this.text],
+          { staticClass: "f-payment__hint text-center subtitle-2 my-5" },
+          [this.text]
         ),
-        this.genActions(),
-      ],
+        this.genActions()
+      ]
     );
   }
 }

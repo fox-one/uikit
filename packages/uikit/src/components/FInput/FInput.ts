@@ -1,92 +1,39 @@
 import "./FInput.scss";
-import { Component, Vue, Model, Prop } from "vue-property-decorator";
-import { CreateElement, VNode } from "vue/types/umd";
-import { VTextarea, VTextField } from "vuetify/lib";
 
-@Component
-class FInput extends Vue {
-  @Model("input", { default: "" }) value!: string;
+import mixins from "vuetify/src/util/mixins";
 
-  @Prop({ default: "" }) label!: string;
-  @Prop({ default: "" }) hint!: string;
-  @Prop({ default: () => [] }) rules!: any;
-  @Prop({ default: false }) textarea!: boolean;
-  @Prop({ default: false }) persistentHint!: boolean;
+import { VTextField } from "vuetify/src/components";
 
-  render(h: CreateElement): VNode {
-    const attrs: any = {
-      "hide-details": !(this.hint && this.persistentHint !== false),
-      filled: true,
-      ...this.$attrs,
-    };
-    const base = this.textarea !== false ? VTextarea : VTextField;
-    return h(
-      "div",
-      {
-        staticClass: "f-input-wrapper",
-      },
-      [
-        h(
-          base,
-          {
-            staticClass: `f-input ${
-              this.textarea !== false ? "f-textarea" : ""
-            }`,
-            domProps: { "aria-autocomplete": false },
-            props: {
-              value: this.value,
-              label: this.label,
-              hint: this.hint,
-              rules: this.rules,
-              persistentHint: this.persistentHint,
-              ...this.$attrs,
-              ...this.$props,
-            },
-            on: {
-              ...this.$listeners,
-              input: (val) => this.$emit("input", val),
-            },
-            attrs,
-          },
-          [
-            h(
-              "div",
-              {
-                staticClass: "f-input-append-wrapper f-input-wrapper",
-                slot: "append",
-              },
-              this.$slots.append,
-            ),
-            h(
-              "div",
-              {
-                staticClass: "f-input-append-outer-wrapper f-input-wrapper",
-                slot: "append-outer",
-              },
-              this.$slots.appendOuter,
-            ),
-            h(
-              "div",
-              {
-                staticClass: "f-input-prepend-wrapper f-input-wrapper",
-                slot: "prepend",
-              },
-              this.$slots.prepend,
-            ),
-            h(
-              "div",
-              {
-                staticClass: "f-input-prepend-inner-wrapper f-input-wrapper",
-                slot: "prepend-inner",
-              },
-              this.$slots.prependInner,
-            ),
-          ],
-        ),
-      ],
-    );
+export default mixins(VTextField).extend({
+  name: "FInput",
+
+  props: {
+    filled: { type: Boolean, default: true }
+  },
+
+  computed: {
+    classes(): object {
+      return {
+        ...VTextField.options.computed.classes.call(this),
+        "f-input": true
+      };
+    }
+  },
+
+  methods: {
+    genMessages() {
+      const h = this.$createElement;
+      const messagesNode = VTextField.options.methods.genMessages.call(this);
+
+      return h("div", { staticClass: "f-input-messages" }, [
+        this.$scopedSlots.tools &&
+          h(
+            "div",
+            { staticClass: "f-input__tools" },
+            this.$scopedSlots.tools?.({})
+          ),
+        messagesNode
+      ]);
+    }
   }
-}
-
-export default FInput;
-export { FInput };
+});

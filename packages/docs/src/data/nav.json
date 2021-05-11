@@ -1,0 +1,26 @@
+[
+  {
+    "title": "styles",
+    "items": ["color", "grid", "icon", "typography"]
+  },
+  {
+    "title": "components",
+    "items": [
+      "banner",
+      "bottom-nav",
+      "button",
+      "chart",
+      "dialog",
+      "dropdown",
+      "input",
+      "list",
+      "segment-control",
+      "sheet",
+      "slider",
+      "toast",
+      "toggle",
+      "tooltip",
+      "top-nav"
+    ]
+  }
+]

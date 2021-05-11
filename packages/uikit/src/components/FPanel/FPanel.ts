@@ -1,32 +1,41 @@
-import { CreateElement, VNode, VNodeData } from "vue";
-import Vue from "vue";
 import "./FPanel.scss";
 
 import { VSheet } from "vuetify/lib";
-import { Prop, Component } from "vue-property-decorator";
+import Roundedable from "vuetify/lib/mixins/roundable";
+import Spacedable from "../../mixins/spacedable";
+
+import { PropType } from "vue";
+import { Component, Prop, Mixins } from "vue-property-decorator";
+
+export type NumberOrNumberString = PropType<string | number | undefined>;
 
 @Component({
-  inheritAttrs: false,
+  inheritAttrs: false
 })
-class FPanel extends Vue {
+class FPanel extends Mixins(VSheet, Spacedable, Roundedable) {
   name = "FPanel";
 
-  @Prop({ type: String, default: "low" }) elevation!: string;
+  @Prop({ type: [String, Number], default: 2 })
+  elevation!: string | number;
 
-  @Prop({ type: String, default: "16" }) padding!: string;
+  @Prop({ type: [String, Boolean], default: true })
+  declare rounded: string | boolean;
 
-  get styles() {
+  @Prop({ type: [String, Number], default: 16 })
+  declare padding: string | number;
+
+  get classes() {
     return {
-      padding: `${this.padding}px`,
+      ...VSheet.options.computed.classes.call(this),
+      ...Roundedable.options.computed.roundedClasses.call(this)
     };
   }
 
-  render(h: CreateElement): VNode {
-    const data: VNodeData = {
-      style: { padding: `${this.padding}px` },
-      class: ["f-panel", `elevation-${this.elevation}`],
+  get styles() {
+    return {
+      ...VSheet.options.computed.styles.call(this),
+      ...Spacedable.options.computed.spaceableStyles.call(this)
     };
-    return h(VSheet, data, [this.$slots.default]);
   }
 }
 

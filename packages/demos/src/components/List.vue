@@ -80,35 +80,35 @@ class List extends Vue {
     {
       title: "I am a title",
       subtitle: "Description here",
-      value: "value",
+      value: "value"
     },
     {
       title: "I am a title",
       subtitle:
         "Super long long long long long loooooooooooong loooooooooooong loooooooooooong loooooooooooong description here",
-      value: "",
-    },
+      value: ""
+    }
   ];
   items2 = [
     {
       title: "I have no description",
-      value: "a super long long value",
+      value: "a super long long value"
     },
     {
       title: "I have no description",
-      value: "value",
-    },
+      value: "value"
+    }
   ];
   items3 = [
     {
       title: "I have a icon",
       subtitle: "Description here",
-      value: "a super long long value",
+      value: "a super long long value"
     },
     {
       title: "I have a icon",
-      value: "value",
-    },
+      value: "value"
+    }
   ];
 
   clickItem(item) {

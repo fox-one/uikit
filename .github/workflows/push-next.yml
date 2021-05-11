@@ -1,0 +1,44 @@
+name: Push Next
+on:
+  push:
+    branches:
+      - next
+
+jobs:
+  build-deploy:
+    if: "! startsWith(github.event.head_commit.message, '[CI Skip]') && github.repository == 'fox-one/uikit'"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          token: ${{ secrets.GH_PAT }}
+
+      - name: Build Release
+        env:
+          GH_PAT: ${{  secrets.GH_PAT }}
+          GH_RELEASE_GITHUB_API_TOKEN: ${{ secrets.GH_PAT }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          GH_RELEASE_FILES: ${{ secrets.GH_RELEASE_FILES }}
+        run: |
+          yarn install --immutable | grep -v 'YN0013'
+          yarn build:release
+
+      - name: Build docs
+        working-directory: packages/docs
+        run: |
+          yarn build
+          cp packages/docs/dist/index.html packages/docs/dist/404.html
+
+      - name: Deploy with gh-pages
+        run: |
+          git remote set-url origin https://git:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
+          npx gh-pages --dist packages/docs/dist --dest next -u "github-actions-bot <support+actions@github.com>"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  dummy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: dummy
+        run: |
+          echo "Dummy skip step"

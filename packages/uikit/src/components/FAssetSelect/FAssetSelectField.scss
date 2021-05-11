@@ -1,0 +1,44 @@
+@import "./variables";
+
+@include theme(f-asset-select-field) using ($material) {
+  background-color: map-deep-get($material, "text-fields", "filled");
+  color: map-deep-get($material, "text", "primary");
+
+  &:hover {
+    background: map-deep-get($material, "text-fields", "filled-hover");
+  }
+
+  &__name {
+    color: map-deep-get($material, "text", "secondary");
+  }
+}
+
+.f-asset-select-field {
+  padding: 8px;
+  cursor: pointer;
+
+  &--rounded {
+    border-radius: 60px;
+  }
+
+  &--no-select {
+    pointer-events: none;
+  }
+
+  &--disabled {
+    pointer-events: none;
+    opacity: 0.6;
+  }
+
+  &__labels {
+    padding-left: 4px;
+  }
+
+  &__symbol {
+    font-weight: 600;
+  }
+
+  &__name {
+    font-size: 12px;
+  }
+}

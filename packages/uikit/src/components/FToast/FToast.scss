@@ -1,5 +1,43 @@
-.v-application.theme--dark {
-  .v-snack__wrapper.v-sheet.info {
-    background-color: #262727;
+.f-toast {
+  &--auto-width {
+    .v-snack__wrapper {
+      min-width: auto;
+    }
+  }
+
+  .v-snack__wrapper {
+    align-items: stretch;
+  }
+
+  .v-snack__content {
+    display: flex;
+    align-items: stretch;
+    font-weight: 500;
+    font-size: 14px;
+    padding: 0;
+    padding-right: 8px;
+  }
+
+  .v-divider {
+    height: 48px;
+  }
+
+  &__message {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    padding: 0 24px;
+  }
+
+  &__action-text {
+    margin-right: 8px;
+    padding-left: 12px;
+  }
+
+  &__action {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    line-height: 1;
   }
 }

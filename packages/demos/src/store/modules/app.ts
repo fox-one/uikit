@@ -1,17 +1,18 @@
 import { MutationTree } from "vuex";
 
 const state = () => ({
-  dark: false,
   appbar: {
-    title: "",
-    show: true,
     back: false,
+    show: true,
+    title: ""
   },
+  dark: false,
+
   toast: {
-    show: false,
     color: "info",
     message: "",
-  },
+    show: false
+  }
 });
 
 export type AppState = {
@@ -35,15 +36,15 @@ const mutations: MutationTree<AppState> = {
   SET_THEME_DARK(state, value) {
     state.dark = value;
   },
-  SET_TOAST(state, { message = "", color = "info", show = true }) {
+  SET_TOAST(state, { color = "info", message = "", show = true }) {
     state.toast.show = show;
     state.toast.message = message;
     state.toast.color = color;
-  },
+  }
 };
 
 export default {
   namespaced: true,
   state,
-  mutations,
+  mutations
 };

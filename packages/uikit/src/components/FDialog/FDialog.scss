@@ -1,0 +1,19 @@
+.v-dialog > .f-dialog__content.v-card {
+  > .v-card__title {
+    justify-content: center;
+    padding-top: 32px;
+    padding-bottom: 24px;
+    font-weight: 600;
+  }
+
+  > .v-card__text {
+    padding: 0 32px 20px;
+    font-size: 16px;
+  }
+}
+
+.f-dialog__actions {
+  display: flex;
+  justify-content: space-around;
+  padding-bottom: 10px;
+}

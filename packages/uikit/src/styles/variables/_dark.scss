@@ -1,0 +1,71 @@
+@import "~vuetify/src/styles/tools/_functions.sass";
+
+$dark-colors: () !default;
+$dark-colors: map-deep-merge(
+  (
+    greyscale_1: #ffffff,
+    greyscale_2: #d8d8d8,
+    greyscale_3: #9f9f9f,
+    greyscale_4: #656565,
+    greyscale_5: #3c3c3c,
+    greyscale_6: #191919,
+    greyscale_7: #000000,
+    error: #f67070,
+    success: #56d471,
+    warning: #f79f4d,
+    info: #79a4e4
+  ),
+  $dark-colors
+);
+
+$material-dark: (
+  // greyscales
+  "greyscale_1": map-get($dark-colors, "greyscale_1"),
+  "greyscale_2": map-get($dark-colors, "greyscale_2"),
+  "greyscale_3": map-get($dark-colors, "greyscale_3"),
+  "greyscale_4": map-get($dark-colors, "greyscale_4"),
+  "greyscale_5": map-get($dark-colors, "greyscale_5"),
+  "greyscale_6": map-get($dark-colors, "greyscale_6"),
+  "greyscale_7": map-get($dark-colors, "greyscale_7"),
+  "error": map-get($dark-colors, "error"),
+  "success": map-get($dark-colors, "success"),
+  "warning": map-get($dark-colors, "warning"),
+  "info": map-get($dark-colors, "info"),
+  // components
+  "actionbar": map-get($dark-colors, "greyscale_6"),
+  "app-bar": map-get($dark-colors, "greyscale_7"),
+  "background": map-get($dark-colors, "greyscale_7"),
+  "bottom-navigation": map-get($dark-colors, "greyscale_7"),
+  "bottom-navigation-inactive": map-get($dark-colors, "greyscale_3"),
+  "bottom-sheet": map-get($dark-colors, "greyscale_7"),
+  "buttons": (
+    "disabled": map-get($dark-colors, "greyscale_7"),
+    "focused": map-get($dark-colors, "greyscale_5")
+  ),
+  "cards": map-get($dark-colors, "greyscale_7"),
+  "f-dividers": map-get($dark-colors, "greyscale_1"),
+  "icons": (
+    "active": map-get($dark-colors, "greyscale_1")
+  ),
+  "segment-controls": (
+    "active": map-get($dark-colors, "greyscale_1"),
+    "active_text": map-get($dark-colors, "greyscale_7"),
+    "background": map-get($dark-colors, "greyscale_6")
+  ),
+  "selection-controls": (
+    "thumb": (
+      "active": map-get($dark-colors, "greyscale_7"),
+      "inactive": map-get($dark-colors, "greyscale_7"),
+      "disabled": map-get($dark-colors, "greyscale_5")
+    ),
+    "track": (
+      "active": map-get($dark-colors, "greyscale_1"),
+      "inactive": map-get($dark-colors, "greyscale_4"),
+      "disabled": map-get($dark-colors, "greyscale_5")
+    )
+  ),
+  "text-fields": (
+    "filled": map-get($dark-colors, "greyscale_6"),
+    "filled-hover": map-get($dark-colors, "greyscale_5")
+  )
+);

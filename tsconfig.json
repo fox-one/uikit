@@ -1,19 +1,13 @@
 {
+  "extends": "@foxone/dev/config/tsconfig.base.json",
   "compilerOptions": {
-    "target": "esnext",
-    "module": "esnext",
-    "strict": true,
-    "jsx": "preserve",
-    "importHelpers": true,
-    "moduleResolution": "node",
-    "experimentalDecorators": true,
-    "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
-    "sourceMap": true,
-    "noImplicitAny": false,
-    "resolveJsonModule": true,
+    "declaration": false,
     "baseUrl": ".",
-    "types": [],
-    "paths": {}
-  }
+    "paths": {
+      "@docs/*": ["./packages/docs/src/*"]
+    },
+    "types": ["vuetify", "node", "webpack-env", "vue-i18n"],
+    "skipLibCheck": true
+  },
+  "exclude": ["node_modules"]
 }

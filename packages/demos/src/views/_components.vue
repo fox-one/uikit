@@ -4,17 +4,16 @@
 
 <script lang="ts">
 import { Component, Mixins } from "vue-property-decorator";
-import page from "@/mixins/page";
+import page from "../mixins/page";
 
 @Component
 class Page extends Mixins(page) {
   get appbar() {
     return {
       title: `${this.component}`,
-      back: true,
+      back: true
     };
   }
-
   get component() {
     return this.$route.params.component;
   }

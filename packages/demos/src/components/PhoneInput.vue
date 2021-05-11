@@ -1,10 +1,6 @@
 <template>
   <f-panel>
-    <f-phone-input :code.sync="code" :phone.sync="phone">
-      <template #append>
-        adfa
-      </template>
-    </f-phone-input>
+    <f-phone-input :code.sync="code" :phone.sync="phone"> </f-phone-input>
     <div class="mt-4 f-body-2">Your number is {{ phone }}</div>
   </f-panel>
 </template>

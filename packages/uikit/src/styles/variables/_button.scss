@@ -1,0 +1,20 @@
+@import "./base";
+
+// v-btn
+$btn-text-transform: capitalize;
+$btn-border-radius: $border-radius-root;
+$btn-letter-spacing: 0.01em;
+$btn-rounded-border-radius: 56px;
+$btn-font-sizes: (
+  "small": 0.875rem,
+  "default": 1.06rem,
+  "large": 1.1rem,
+  "x-large": 1.1rem
+);
+$btn-sizes: (
+  "x-small": 20,
+  "small": 28,
+  "default": 56,
+  "large": 64,
+  "x-large": 72
+);

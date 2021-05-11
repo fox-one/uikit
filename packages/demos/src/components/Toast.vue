@@ -1,48 +1,63 @@
 <template>
-  <v-row>
-    <v-col>
-      <f-button
-        block
-        type="secondary"
-        @click="handleToast()"
-        class="mb-4 mt-10"
-      >
-        Normal Toast
-      </f-button>
-      <f-button
-        block
-        dark
-        type="primary"
-        color="chives"
-        @click="handleToast('success')"
-        class="mb-4"
-      >
-        Success Toast
-      </f-button>
-      <f-button
-        block
-        type="warning"
-        color="error"
-        @click="handleToast('error')"
-        class="mb-4"
-      >
-        Error Toast
-      </f-button>
-    </v-col>
-  </v-row>
+  <v-container>
+    <v-row>
+      <v-col>
+        <f-button block color="primary" class="mb-4 mt-10" @click="func1">
+          Base
+        </f-button>
+
+        <f-button block color="primary" class="mb-4 mt-10" @click="func2">
+          Base
+        </f-button>
+
+        <f-button block color="success" class="mb-4 mt-10" @click="success">
+          Success
+        </f-button>
+
+        <f-button block color="warning" class="mb-4 mt-10" @click="warning">
+          Warning
+        </f-button>
+
+        <f-button block color="error" class="mb-4 mt-10" @click="error">
+          error
+        </f-button>
+      </v-col>
+    </v-row>
+  </v-container>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
 
-export function toast(vue: Vue, data: { message: string; color?: string }) {
-  vue.$store.commit("app/SET_TOAST", { show: true, ...data });
-}
-
 @Component
 class Toast extends Vue {
-  handleToast(color) {
-    toast(this, { message: "this is a toast", color: color });
+  func1() {
+    this.$uikit.toast.show({ message: "Hello World", color: "primary" });
+  }
+
+  func2() {
+    this.$uikit.toast.show({ message: "Hello World", autoWidth: false });
+  }
+
+  success() {
+    this.$uikit.toast.success({
+      message: "Hello World",
+      action: { text: "Borrow", callback: () => console.log("borrow") }
+    });
+  }
+
+  warning() {
+    this.$uikit.toast.warning({
+      message: "Hello World",
+      action: { text: "Borrow", callback: () => console.log("borrow") }
+    });
+  }
+
+  error() {
+    this.$uikit.toast.error({
+      message: "Hello World",
+      action: { text: "Borrow", callback: () => console.log("borrow") }
+    });
   }
 }
 export default Toast;

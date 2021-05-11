@@ -1,78 +1,22 @@
-@import "../mixin.scss";
-@import "../color.scss";
+@import "./variable.scss";
 
-.f-tooltip-content {
-  padding: 16px !important;
+@include theme("f-tooltip__content") using ($material) {
+  color: map-deep-get($material, "text", "primary");
+  background-color: map-get($material, "greyscale_6");
+
+  .f-tooltip__arrow {
+    color: map-get($material, "greyscale_6");
+  }
+}
+
+.f-tooltip__content.v-tooltip__content {
+  padding: $spacer * 3;
   opacity: 1 !important;
-  border-radius: 8px !important;
-  text-align: center !important;
-  .f-tooltip-content-inner {
-    position: relative;
-    @include f-text-n(12px);
-    &::before {
-      content: " ";
-      position: absolute;
-      border-width: 9px 8px 9px 8px;
-      border-style: solid;
-      left: 50%;
-    }
-  }
 }
 
-.f-tooltip-content {
-  .f-tooltip-content-inner.bottom {
-    &::before {
-      top: 0;
-      margin-left: -8px;
-      margin-top: -34px;
-    }
-  }
-  .f-tooltip-content-inner.top {
-    &::before {
-      top: auto;
-      left: 50%;
-      bottom: 0;
-      margin-left: -8px;
-      margin-top: auto;
-      margin-bottom: -34px;
-    }
-  }
-}
-
-.theme--dark {
-  .f-tooltip-content {
-    background-color: f-color(dark, "greyscale_1");
-    color: f-color(dark, "greyscale_6");
-    .f-tooltip-content-inner.bottom {
-      &::before {
-        border-color: transparent transparent f-color(dark, "greyscale_1")
-          transparent;
-      }
-    }
-    .f-tooltip-content-inner.top {
-      &::before {
-        border-color: f-color(dark, "greyscale_1") transparent transparent
-          transparent;
-      }
-    }
-  }
-}
-
-.theme--light {
-  .f-tooltip-content {
-    background-color: f-color(light, "greyscale_1");
-    color: f-color(light, "greyscale_6");
-    .f-tooltip-content-inner.bottom {
-      &::before {
-        border-color: transparent transparent f-color(light, "greyscale_1")
-          transparent;
-      }
-    }
-    .f-tooltip-content-inner.top {
-      &::before {
-        border-color: f-color(light, "greyscale_1") transparent transparent
-          transparent;
-      }
-    }
-  }
+.f-tooltip__arrow {
+  position: absolute;
+  height: 12px;
+  width: 23px;
+  display: flex;
 }

@@ -1,11 +1,28 @@
 {
-  "name": "root",
+  "name": "uikit",
   "private": true,
-  "license": "MIT",
+  "version": "3.0.1-0",
+  "author": "Fox.ONE",
+  "repository": "https://github.com/fox-one/uikit",
+  "license": "GPL 3.0",
+  "resolutions": {
+    "typescript": "4.2.4"
+  },
   "workspaces": [
     "packages/*"
   ],
+  "scripts": {
+    "build:extra": "cd packages/icons && yarn build:dist",
+    "build": "foxone-dev-build-ts",
+    "build:release": "foxone-ci-ghact-build",
+    "docs": "gh-pages --dist build --dest next",
+    "lint": "foxone-dev-run-lint",
+    "test": "foxone-dev-run-test --coverage"
+  },
   "devDependencies": {
-    "lerna": "^3.20.2"
+    "@foxone/dev": "^0.2.7"
+  },
+  "dependencies": {
+    "schema-utils": "^3.1.1"
   }
 }

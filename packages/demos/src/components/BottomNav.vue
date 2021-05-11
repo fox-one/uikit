@@ -1,71 +1,76 @@
 <template>
-  <div>
-    <v-row>
-      <v-col>
-        <f-app-bottom-nav
-          :nav="bottomNav"
-          :items="bottomNavItems"
-          :animation="false"
-          :app="false"
-          :fixed="false"
-          active-class="primary-color"
-          @change="handleChange"
-        ></f-app-bottom-nav>
-      </v-col>
-    </v-row>
-    <v-row>
-      <v-col>
-        <f-app-bottom-nav
-          :nav="bottomNav"
-          :items="bottomNavItems"
-          :animation="true"
-          :app="false"
-          :fixed="false"
-          active-class="primary-color"
-          @change="handleChange"
-        ></f-app-bottom-nav>
-      </v-col>
-    </v-row>
+  <v-container>
+    <v-bottom-navigation :value="value" color="primary" class="mb-10">
+      <v-btn>
+        <span>Recents</span>
+
+        <v-icon>mdi-history</v-icon>
+      </v-btn>
+
+      <v-btn>
+        <span>Favorites</span>
+
+        <v-icon>mdi-heart</v-icon>
+      </v-btn>
+
+      <v-btn>
+        <span>Nearby</span>
+
+        <v-icon>mdi-map-marker</v-icon>
+      </v-btn>
+    </v-bottom-navigation>
+
     <f-app-bottom-nav
-      :nav="bottomNav"
-      :items="bottomNavItems"
-      :animation="false"
-      :app="true"
-      :fixed="true"
-      active-class="primary-color"
+      :value="value"
+      custom-content
+      color="primary"
+      class="mb-10"
+    >
+      <v-btn>
+        <span>Recents</span>
+
+        <v-icon>mdi-history</v-icon>
+      </v-btn>
+
+      <v-btn>
+        <span>Favorites</span>
+
+        <v-icon>mdi-heart</v-icon>
+      </v-btn>
+
+      <v-btn>
+        <span>Nearby</span>
+
+        <v-icon>mdi-map-marker</v-icon>
+      </v-btn>
+    </f-app-bottom-nav>
+
+    <f-app-bottom-nav
+      :value="value"
+      :items="items"
+      color="primary"
+      class="mb-10"
       @change="handleChange"
-    ></f-app-bottom-nav>
-  </div>
+    >
+    </f-app-bottom-nav>
+  </v-container>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
-import { mdiMapSearch, mdiFaceProfile } from "@mdi/js";
 
 @Component
 class BottomNav extends Vue {
-  bottomNav = "wallet";
+  value = "near";
 
-  bottomNavItems = [
-    {
-      text: "Me",
-      icon: "$vuetify.icon.iconNavMe",
-      value: "me",
-    },
-    {
-      text: "Search",
-      icon: mdiMapSearch,
-      value: "search",
-    },
-    {
-      text: "Profile",
-      icon: mdiFaceProfile,
-      value: "profile",
-    },
+  items = [
+    { text: "Recents", icon: "mdi-history", value: "recent" },
+    { text: "Favorites", icon: "mdi-heart", value: "favor" },
+    { text: "Nearby", icon: "mdi-map-marker", value: "near" }
   ];
 
-  handleChange(nav) {
-    this.bottomNav = nav.value;
+  handleChange() {
+    console.log("change");
   }
 }
 export default BottomNav;

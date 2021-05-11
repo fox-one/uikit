@@ -1,58 +1,42 @@
-.f-tip {
-  padding: 12px;
-  font-size: 14px;
-  border: 1px solid;
-  word-break: break-all;
+@import "./variable";
 
+@include theme("f-tip") using ($material) {
   &--info {
-    border-color: #4ab3ff;
-    color: #0f65c7;
-    background: #e6f4ff;
+    color: map-get($material, "info");
+    background: rgba(map-get($material, "info"), 0.1);
   }
 
   &--warning {
-    border-color: #ffc24a;
-    color: #b67800;
-    background: #fff6e6;
+    color: map-get($material, "warning");
+    background: rgba(map-get($material, "warning"), 0.1);
   }
 
   &--error {
-    border-color: #ff4a4a;
-    color: #b61600;
-    background: #ffe6e6;
+    color: map-get($material, "error");
+    background: rgba(map-get($material, "error"), 0.1);
+  }
+
+  &--success {
+    color: map-get($material, "success");
+    background: rgba(map-get($material, "success"), 0.1);
   }
 
   &--text {
-    border-color: #c7c7c7;
-    color: #848484;
-    background: #f7f7f7;
+    color: map-get($material, "greyscale_3");
+    background: rgba(map-get($material, "greyscale_3"), 0.1);
   }
 }
 
-.theme--dark {
-  .f-tip {
-    &--info {
-      border-color: #305b79;
-      color: #79a4e4;
-      background: #263037;
-    }
+.f-tip {
+  padding: 12px;
+  font-size: 14px;
+  word-break: break-all;
+  position: relative;
+  border-radius: $border-radius-root;
 
-    &--warning {
-      border-color: #73664e;
-      color: #d4be92;
-      background: #3f3626;
-    }
-
-    &--error {
-      border-color: #7e4141;
-      color: #f46551;
-      background: #351f1f;
-    }
-
-    &--text {
-      border-color: #191c1f;
-      color: #d3d3d3;
-      background: #121416;
-    }
+  &__close {
+    position: absolute;
+    top: 6px;
+    right: 6px;
   }
 }

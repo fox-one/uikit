@@ -13,9 +13,10 @@ class FQrCode extends Vue {
   draw() {
     this.$nextTick(() => {
       const canvas = this.$refs["qrcode-canvas"] as HTMLCanvasElement;
+
       QRCode.toCanvas(canvas, this.text, {
         width: this.size,
-        margin: 1,
+        margin: 1
       });
     });
   }
@@ -23,7 +24,7 @@ class FQrCode extends Vue {
   render(h: CreateElement): VNode {
     return h("canvas", {
       ref: "qrcode-canvas",
-      staticClass: "f-qrcode__canvas",
+      staticClass: "f-qrcode__canvas"
     });
   }
 }

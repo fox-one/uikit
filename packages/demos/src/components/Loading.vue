@@ -6,17 +6,13 @@
           Loading
         </v-btn>
         <f-loading :fullscreen="true" :loading="loading">
-          <template #text>
-            加载中
-          </template>
+          <template #text> 加载中 </template>
         </f-loading>
       </v-col>
     </v-row>
     <v-row>
       <f-loading size="18" width="2" :fullscreen="false" :loading="loading">
-        <template #text>
-          加载中
-        </template>
+        <template #text> 加载中 </template>
       </f-loading>
     </v-row>
   </div>

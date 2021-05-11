@@ -36,7 +36,7 @@ import { mdiFile } from "@mdi/js";
 @Component
 class FloatAction extends Vue {
   icons = {
-    mdiFile,
+    mdiFile
   };
 
   show = true;

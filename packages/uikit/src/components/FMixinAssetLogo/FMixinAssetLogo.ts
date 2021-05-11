@@ -24,15 +24,15 @@ class FMixinAssetLogo extends Vue {
       VSheet,
       {
         staticClass: "rounded-circle f-asset-logo__chain",
-        class: [this.size <= 48 ? "f-asset-logo__chain--small" : ""],
+        class: [this.size <= 48 ? "f-asset-logo__chain--small" : ""]
       },
       [
         h("div", [
           h(VImg, {
-            props: { src: this.chainLogo, width: size, height: size },
-          }),
-        ]),
-      ],
+            props: { src: this.chainLogo, width: size, height: size }
+          })
+        ])
+      ]
     );
   }
 
@@ -44,7 +44,7 @@ class FMixinAssetLogo extends Vue {
     }
 
     return h(VImg, {
-      props: { width: this.size, height: this.size, src: this.logo },
+      props: { width: this.size, height: this.size, src: this.logo }
     });
   }
 
@@ -53,9 +53,10 @@ class FMixinAssetLogo extends Vue {
       "div",
       {
         staticClass: "rounded-circle f-asset-logo",
-        props: { width: this.size, height: this.size },
+        style: { height: `${this.size}px`, width: `${this.size}px` },
+        props: { width: this.size, height: this.size }
       },
-      [this.genLogo(), this.genChain()],
+      [this.genLogo(), this.genChain()]
     );
   }
 }

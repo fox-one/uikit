@@ -1,9 +1,22 @@
-import { VueConstructor } from "vue";
-import * as components from "./components";
+import "./styles/index.scss";
 
-export default function (Vue: VueConstructor) {
-  for (const key in components) {
-    const component = components[key];
-    Vue.component(key, component as typeof Vue);
-  }
-}
+import * as components from "./components";
+import preset from "./preset";
+import Toast from "./utils/toast";
+import Dialog from "./utils/dialog";
+
+import type { VueConstructor } from "vue/types/umd";
+
+export default {
+  install: function (Vue: VueConstructor) {
+    for (const key in components) {
+      const component = components[key];
+
+      Vue.component(key, component as typeof Vue);
+    }
+  },
+
+  preset,
+  Toast,
+  Dialog
+};
