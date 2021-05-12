@@ -3,6 +3,8 @@ import { VBtn, VSpacer } from "vuetify/lib";
 import { Component, Vue, Prop, Watch } from "vue-property-decorator";
 import { VNode, CreateElement } from "vue";
 
+const isSafari = (navigator.userAgent.toUpperCase().includes('SAFARI') || navigator.userAgent.toUpperCase().includes('IPHONE'))
+
 @Component
 class FButton extends Vue {
   @Prop({ type: Boolean, default: false }) customContent!: boolean;
@@ -17,13 +19,10 @@ class FButton extends Vue {
 
   @Prop({ type: Number, default: 56 }) padding!: number;
 
-  oldDisabledValue = false
-
-  isSafari = (navigator.userAgent.toUpperCase().includes('SAFARI'))
-
+  oldDisabledValue = false;
   render(h: CreateElement): VNode | null {
-    if (this.isSafari) {
-      const newDisabledVaule = Boolean(this.$attrs.disabled)
+    if (isSafari) {
+      const newDisabledVaule = Boolean(this.$attrs.disabled);
       if (this.oldDisabledValue === true && newDisabledVaule === false) {
         // workaround for safari
         // console.log('got you, safari, you idiot')
@@ -33,9 +32,9 @@ class FButton extends Vue {
           const tmp = contentEl.style.display;
           contentEl.style.display = "none";
           contentEl.style.display = tmp || "inline";
-        }, 10)
+        }, 50);
       }
-      this.oldDisabledValue = newDisabledVaule
+      this.oldDisabledValue = newDisabledVaule;
     }
 
     const props: any = {

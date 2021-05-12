@@ -9,6 +9,7 @@
   "dependencies": {
     "@foxone/uikit": "^2.0.56",
     "core-js": "^3.6.5",
+    "vconsole": "^3.5.1",
     "vue": "^2.6.11",
     "vue-class-component": "^7.2.3",
     "vue-i18n": "^8.21.0",

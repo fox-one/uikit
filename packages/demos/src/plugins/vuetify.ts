@@ -9,6 +9,9 @@ import enUikit from "@foxone/uikit/src/locales/en";
 import jaUikit from "@foxone/uikit/src/locales/ja";
 import zhUikit from "@foxone/uikit/src/locales/zh-Hans";
 
+import VConsole from "vconsole";
+const vconsole = new VConsole();
+
 Vue.use(Vuetify);
 Vue.use(Uikit);
 
