@@ -1,6 +1,6 @@
 import "./FButton.scss";
 import { VBtn, VSpacer } from "vuetify/lib";
-import { Component, Vue, Prop } from "vue-property-decorator";
+import { Component, Vue, Prop, Watch } from "vue-property-decorator";
 import { VNode, CreateElement } from "vue";
 
 @Component
@@ -17,7 +17,26 @@ class FButton extends Vue {
 
   @Prop({ type: Number, default: 56 }) padding!: number;
 
+  oldDisabledValue = false
+
+  isSafari = (navigator.userAgent.toUpperCase().includes('SAFARI'))
+
   render(h: CreateElement): VNode | null {
+    if (this.isSafari) {
+      const newDisabledVaule = Boolean(this.$attrs.disabled)
+      if (this.oldDisabledValue === true && newDisabledVaule === false) {
+        // workaround for safari
+        // console.log('got you, safari, you idiot')
+        setTimeout(() => {
+          const el = (this.$refs.btn as any).$el;
+          const tmp = el.querySelector('.v-btn__content ').style.display;
+          el.querySelector('.v-btn__content ').style.display = "none";
+          el.querySelector('.v-btn__content ').style.display = tmp;
+        })
+      }
+      this.oldDisabledValue = newDisabledVaule
+    }
+
     const props: any = {
       block: this.block,
       depressed: true,
@@ -45,6 +64,7 @@ class FButton extends Vue {
 
     const data: any = {
       ...this.$attrs,
+      ref: "btn",
       staticClass: `f-button ${this.block ? "block" : ""} f-button-type-${
         this.type
       }`,
