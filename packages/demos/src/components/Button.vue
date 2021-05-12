@@ -60,7 +60,7 @@ import { Component, Vue } from "vue-property-decorator";
 
 @Component
 class FTypography extends Vue {
-  disabledAll = false;
+  disabledAll = true;
   activeAll = false;
 }
 export default FTypography;

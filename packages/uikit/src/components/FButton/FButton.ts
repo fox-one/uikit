@@ -26,13 +26,14 @@ class FButton extends Vue {
       const newDisabledVaule = Boolean(this.$attrs.disabled)
       if (this.oldDisabledValue === true && newDisabledVaule === false) {
         // workaround for safari
-        console.log('got you, safari, you idiot')
+        // console.log('got you, safari, you idiot')
         setTimeout(() => {
           const el = (this.$refs.btn as any).$el;
-          const tmp = el.querySelector('.v-btn__content ').style.display;
-          el.querySelector('.v-btn__content ').style.display = "none";
-          el.querySelector('.v-btn__content ').style.display = tmp;
-        })
+          const contentEl = el.querySelector('.v-btn__content ')
+          const tmp = contentEl.style.display;
+          contentEl.style.display = "none";
+          contentEl.style.display = tmp || "inline";
+        }, 10)
       }
       this.oldDisabledValue = newDisabledVaule
     }
