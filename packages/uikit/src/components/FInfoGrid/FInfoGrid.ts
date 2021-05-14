@@ -81,7 +81,7 @@ class FInfoGrid extends Vue {
     window.addEventListener("resize", this.resizeObserver);
   }
 
-  beforeDestroyed() {
+  beforeDestroy() {
     window.removeEventListener("resize", this.resizeObserver);
   }
 
