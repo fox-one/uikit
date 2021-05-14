@@ -2,6 +2,7 @@ import "./FInfoGrid.scss";
 import { Component, Vue, Prop } from "vue-property-decorator";
 import { CreateElement, VNode } from "vue/types/umd";
 import { VBtn, VImg } from "vuetify/lib";
+import { debounce } from "../../utils/helper";
 
 const lightIcon = require("../../assets/images/list-arrow-light.svg");
 const darkIcon = require("../../assets/images/list-arrow-dark.svg");
@@ -59,10 +60,36 @@ class FInfoGrid extends Vue {
     );
   }
 
+  sliceWidth = 0;
+
+  updateSizes() {
+    const fInfoGridWidth = (this.$refs["f-info-grid"] as Element)?.clientWidth;
+    this.sliceWidth = fInfoGridWidth / 2;
+    let itemWidth = fInfoGridWidth / 2;
+    if (fInfoGridWidth >= 768) itemWidth = fInfoGridWidth * 0.3;
+    if (fInfoGridWidth >= 1200) itemWidth = fInfoGridWidth * 0.25;
+    document.body.style.setProperty(
+      "--v-f-info-grid-item-width",
+      `${itemWidth}px`,
+    );
+  }
+
+  resizeObserver = debounce(this.updateSizes, 200);
+
+  mounted() {
+    this.updateSizes();
+    window.addEventListener("resize", this.resizeObserver);
+  }
+
+  beforeDestroyed() {
+    window.removeEventListener("resize", this.resizeObserver);
+  }
+
   render(h: CreateElement): VNode {
     return h(
       "div",
       {
+        ref: "f-info-grid",
         staticClass: "f-info-grid",
         attrs: this.$attrs,
         props: {
@@ -76,9 +103,10 @@ class FInfoGrid extends Vue {
           {
             staticClass: "f-info-grid-inner pt-2",
             style: {
-              transform: `translateX(${this.offset * 50}vw)`,
-              width: `${this.windowSize * 50}vw`,
+              transform: `translateX(${this.offset * this.sliceWidth}px)`,
+              width: `${this.sliceWidth * this.windowSize}px`,
             },
+            hook: {},
           },
           [this.$slots.default],
         ),
