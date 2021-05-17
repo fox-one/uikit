@@ -2,7 +2,7 @@ import "./FActionBar.scss";
 import { Component, Vue, Prop } from "vue-property-decorator";
 import { CreateElement, VNode } from "vue";
 import FPanel from "../FPanel";
-import { VBtn, VIcon, VFlex } from "vuetify/lib";
+import { VIcon, VFlex } from "vuetify/lib";
 import { FButton } from "../FButton";
 
 export interface ActionButton {

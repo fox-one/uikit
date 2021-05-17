@@ -19,6 +19,6 @@
     },
     "lib": ["esnext", "dom", "dom.iterable", "scripthost"]
   },
-  "include": ["./**/*.ts", "./**/*.tsx", "./**/*.vue", "types/**/*.ts"],
+  "include": ["./**/*.ts", "./**/*.tsx", "./**/*.vue", "types/**/*.ts", "src/components/FAuthModal"],
   "exclude": ["node_modules"]
 }

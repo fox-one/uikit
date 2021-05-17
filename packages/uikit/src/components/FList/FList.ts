@@ -1,5 +1,5 @@
 import "./FList.scss";
-import { Component, Vue, Prop } from "vue-property-decorator";
+import { Component, Vue } from "vue-property-decorator";
 import { CreateElement, VNode } from "vue/types/umd";
 import { VList } from "vuetify/lib";
 

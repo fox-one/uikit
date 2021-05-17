@@ -2,7 +2,6 @@ import "./FQrCode.scss";
 import { Component, Vue, Prop, Watch } from "vue-property-decorator";
 import { CreateElement, VNode } from "vue/types/umd";
 import QRCode from "qrcode";
-import { VSheet } from "vuetify/lib";
 
 @Component
 class FQrCode extends Vue {

@@ -7,5 +7,8 @@ export default {
     cancel: "Cancel",
     more: "More",
     fold: "Fold",
+    fennec_wallet_subtitle: "Mixin Network Browser Wallet",
+    mixin_wallet_subtitle: "iOS & Android Wallet",
+    links_wallet_subtitle: "iOS & Android Wallet",
   },
 };

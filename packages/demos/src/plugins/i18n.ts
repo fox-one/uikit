@@ -9,11 +9,11 @@ Vue.use(VueI18n);
 const messages = {
   en,
   zh,
-  ja
+  ja,
 };
 
 export default new VueI18n({
   fallbackLocale: "en",
   locale: "en",
-  messages
+  messages,
 });

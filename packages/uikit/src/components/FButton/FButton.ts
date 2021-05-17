@@ -1,9 +1,11 @@
 import "./FButton.scss";
 import { VBtn, VSpacer } from "vuetify/lib";
-import { Component, Vue, Prop, Watch } from "vue-property-decorator";
+import { Component, Vue, Prop } from "vue-property-decorator";
 import { VNode, CreateElement } from "vue";
 
-const isSafari = (navigator.userAgent.toUpperCase().includes('SAFARI') || navigator.userAgent.toUpperCase().includes('IPHONE'))
+const isSafari =
+  navigator.userAgent.toUpperCase().includes("SAFARI") ||
+  navigator.userAgent.toUpperCase().includes("IPHONE");
 
 @Component
 class FButton extends Vue {
@@ -28,7 +30,7 @@ class FButton extends Vue {
         // console.log('got you, safari, you idiot')
         setTimeout(() => {
           const el = (this.$refs.btn as any).$el;
-          const contentEl = el.querySelector('.v-btn__content ')
+          const contentEl = el.querySelector(".v-btn__content ");
           const tmp = contentEl.style.display;
           contentEl.style.display = "none";
           contentEl.style.display = tmp || "inline";

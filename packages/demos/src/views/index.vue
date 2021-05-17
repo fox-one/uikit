@@ -124,6 +124,7 @@ class Page extends Mixins(page) {
           "A modal view that slides from the bottom of the screen",
         ],
         ["payingmodal", "A modal view that shows the progress of paying"],
+        ["authmethodmodal", "A modal view that handle auth method"],
         ["tips", ""],
         ["tooltip", "Conveying information when a user taps an element"],
         ["toast", "To display a quick message to a user"],

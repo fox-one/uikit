@@ -1,4 +1,4 @@
 import FBottomSheet from "./FBottomSheet";
 
 export { FBottomSheet };
-export default FBottomSheet
+export default FBottomSheet;

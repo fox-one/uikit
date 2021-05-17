@@ -7,5 +7,8 @@ export default {
     cancel: "キャンセル",
     more: "もっと",
     fold: "片付ける",
+    fennec_wallet_subtitle: "Mixin Network ブラウザウォレット",
+    mixin_wallet_subtitle: "iOS & Android 財布",
+    links_wallet_subtitle: "iOS & Android 財布",
   },
 };

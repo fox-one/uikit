@@ -24,3 +24,4 @@ export * from "./FButton";
 export * from "./FSwitch";
 export * from "./FList";
 export * from "./FInfoGrid";
+export * from "./FAuthMethodModal";
