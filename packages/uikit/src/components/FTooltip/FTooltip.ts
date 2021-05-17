@@ -2,7 +2,6 @@ import "./FTooltip.scss";
 import { Vue, Component, Prop, Model } from "vue-property-decorator";
 import { CreateElement, VNode } from "vue/types/umd";
 import { VTooltip } from "vuetify/lib";
-import FBottomSheet from "../FBottomSheet";
 
 @Component({
   inheritAttrs: false,

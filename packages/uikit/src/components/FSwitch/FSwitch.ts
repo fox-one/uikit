@@ -5,9 +5,11 @@ import { VNode, CreateElement } from "vue";
 
 @Component
 class FSwitch extends Vue {
-  @Prop({ type: String, default: "" }) color!: string;
+  @Prop({ type: String, default: "" })
+  color!: string;
 
-  @Model("change", { type: Boolean, default: false }) value!: boolean;
+  @Model("change", { type: Boolean, default: false })
+  value!: boolean;
 
   _realValue = false;
 
@@ -18,23 +20,20 @@ class FSwitch extends Vue {
 
   render(h: CreateElement): VNode | null {
     this._realValue = this.value;
-    const props: any = {
+    const props = {
       inset: true,
       ripple: false,
       hideDetails: true,
       size: 32,
       value: this.value,
       inputValue: this.value,
+      color: this.color,
       ...this.$attrs,
     };
 
-    if (this.color !== "") {
-      props.color = this.color;
-    }
-
-    const data: any = {
+    const data = {
       ...this.$attrs,
-      staticClass: `f-switch`,
+      staticClass: `f-switch ${!this.color && "f-switch--pure"}`,
       props,
       on: {
         change: (val) => {

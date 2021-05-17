@@ -1,0 +1,72 @@
+@import "~vuetify/src/styles/styles.sass";
+
+$font-size-root: 16px;
+
+$material-dark: (
+  "background": #0e0e0e,
+  "greyscale": (
+    "greyscale-1": #ffffff,
+    "greyscale-2": #d2d3d3,
+    "greyscale-3": #9b9c9d,
+    "greyscale-4": #636466,
+    "greyscale-5": #36383b,
+    "greyscale-6": #191919,
+  ),
+  // v-switch
+  "selection-controls":
+    (
+      "thumb": (
+        "active": #000000,
+        "inactive": #000000,
+        "disabled": #010101,
+      ),
+      "track": (
+        "active": #ffffff,
+        "inactive": #636466,
+        "disabled": #36383b,
+      ),
+    ),
+);
+
+$material-light: (
+  "background": #f8f8f8,
+  "greyscale": (
+    "greyscale-1": #000000,
+    "greyscale-2": #333333,
+    "greyscale-3": #666666,
+    "greyscale-4": #cccccc,
+    "greyscale-5": #ebebeb,
+    "greyscale-6": #f5f5f5,
+  ),
+  // v-switch
+  "selection-controls":
+    (
+      "thumb": (
+        "active": #ffffff,
+        "inactive": #ffffff,
+        "disabled": #ffffff,
+      ),
+      "track": (
+        "active": #000000,
+        "inactive": #cccccc,
+        "disabled": #ebebeb,
+      ),
+    ),
+);
+
+// v-btn
+$btn-text-transform: capitalize;
+$btn-font-sizes: (
+  "small": 0.875rem,
+  "default": 1.06rem,
+  "large": 1.1rem,
+  "x-large": 1.1rem,
+);
+
+// v-switch
+$switch-track-inset-height: 24px;
+$switch-track-inset-opacity: 1;
+$switch-thumb-height: 16px;
+$switch-thumb-width: 16px;
+$switch-dirty-offset-x: 24px;
+$switch-thumb-top: calc(50% - 8px);

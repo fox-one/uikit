@@ -1,16 +1,12 @@
 import "./FListItem.scss";
 import { Component, Vue, Prop } from "vue-property-decorator";
 import { CreateElement, VNode } from "vue/types/umd";
-import { mdiArrowRight } from "@mdi/js";
 
 import {
-  VIcon,
   VImg,
   VListItem,
   VListItemAction,
-  VListItemActionText,
   VListItemContent,
-  VListItemTitle,
 } from "vuetify/lib";
 
 const lightIcon = require("../../assets/images/list-arrow-light.svg");

@@ -22,7 +22,7 @@
             </div>
             <v-spacer />
             <f-button type="primary">
-              BUY
+              buy
             </f-button>
           </v-flex>
         </f-action-bar>
@@ -37,6 +37,8 @@
       <v-col>
         <div class="f-caption greyscale_3--text mb-2">Custom Content</div>
         <f-switch v-model="useCustomContent"></f-switch>
+
+        <v-switch />
       </v-col>
     </v-row>
   </div>
@@ -52,29 +54,29 @@ class Appbar extends Vue {
 
   btns = [
     {
-      text: "SEND",
+      text: "send",
       icon: mdiArrowDown,
       size: "26",
       color: "#F50000",
     },
     {
-      text: "RECEIVE",
+      text: "receive",
       icon: mdiArrowDown,
       size: "26",
       color: "#009621",
     },
     {
-      text: "Exchange",
+      text: "exchange",
       icon: mdiArrowDown,
       size: "26",
     },
     {
-      text: "SELL",
+      text: "sell",
       icon: mdiArrowDown,
       size: "26",
     },
     {
-      text: "SELL",
+      text: "sell",
       icon: mdiArrowDown,
       size: "26",
     },

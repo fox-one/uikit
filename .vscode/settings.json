@@ -1,6 +1,6 @@
 {
   "eslint.validate": ["javascript", "javascriptreact", "vue"],
-  "files.autoSave": "afterDelay",
+  "files.autoSave": "off",
   "editor.formatOnSave": true,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "vetur.format.defaultFormatter.js": "prettier-eslint",

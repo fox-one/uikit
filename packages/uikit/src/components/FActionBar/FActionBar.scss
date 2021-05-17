@@ -1,3 +1,5 @@
+@import "~vuetify/src/styles/styles.sass";
+
 .f-actionbar {
   display: flex;
   justify-content: space-around;
@@ -15,16 +17,24 @@
     right: 0px;
   }
 
-  .f-actionbar--action {
+  &__action {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    .f-actionbar-button-label {
-      font-weight: normal;
-    }
+  }
+
+  &__label {
+    font-weight: normal;
   }
 }
+
+@include theme(f-actionbar) using ($material) {
+  .f-actionbar__label {
+    color: map-deep-get($material, "greyscale", "greyscale-3");
+  }
+}
+
 .theme--light.v-application {
   .f-actionbar-button-label {
     color: f-color(light, greyscale_3);
