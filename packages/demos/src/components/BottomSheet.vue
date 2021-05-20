@@ -7,6 +7,7 @@
           :persistent="persistent"
           :adaptive="adaptive"
           :desktop-wapper="desktopWapper"
+          nudge-top="-10"
           max-width="600"
         >
           <template #activator="{ on }">
