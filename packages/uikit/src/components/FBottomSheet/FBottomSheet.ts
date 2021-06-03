@@ -37,20 +37,24 @@ class FBottomSheet extends Vue {
   }
 
   genTitle() {
-    if (!this.$slots.title) return null;
+    const title = this.$slots.title;
+    const scopedTitle = this.$scopedSlots.title;
+    if (!title && !scopedTitle) return null;
     return this.$createElement(
       VCardTitle,
       { staticClass: "f-bottom-sheet__title subtitle-1" },
-      this.$slots.title,
+      title ?? scopedTitle?.({}),
     );
   }
 
   genSubheader() {
-    if (!this.$slots.subheader) return null;
+    const subheader = this.$slots.subheader;
+    const scopedSubheader = this.$scopedSlots.subheader;
+    if (!subheader && !scopedSubheader) return null;
     return this.$createElement(
       VCardText,
       { staticClass: "px-3" },
-      this.$slots.subheader,
+      subheader ?? scopedSubheader?.({}),
     );
   }
 
@@ -83,7 +87,7 @@ class FBottomSheet extends Vue {
         h(
           VCardText,
           { staticClass: "f-bottom-sheet__body px-0" },
-          this.$slots.default,
+          this.$slots.default ?? this.$scopedSlots.default?.({}),
         ),
       ],
     );
