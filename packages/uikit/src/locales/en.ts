@@ -6,6 +6,6 @@ export default {
     phone_number: "Phone Number",
     cancel: "Cancel",
     more: "More",
-    fold: "Fold",
-  },
+    fold: "Fold"
+  }
 };

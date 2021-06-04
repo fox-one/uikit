@@ -1,19 +1,8 @@
 {
+  "extends": "@foxone/dev/config/tsconfig.base.json",
   "compilerOptions": {
-    "target": "esnext",
-    "module": "esnext",
-    "strict": true,
-    "jsx": "preserve",
-    "importHelpers": true,
-    "moduleResolution": "node",
-    "experimentalDecorators": true,
-    "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
-    "sourceMap": true,
-    "noImplicitAny": false,
-    "resolveJsonModule": true,
     "baseUrl": ".",
-    "types": [],
-    "paths": {}
+    "skipLibCheck": true,
+    "typeRoots": ["./node_modules/@types"]
   }
 }

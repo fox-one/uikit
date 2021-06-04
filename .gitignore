@@ -1,29 +1,19 @@
-node_modules
+build/
+coverage/
+node_modules/
+tmp/
 .DS_Store
-node_modules
-/dist
-/lib
-
-/packages/*/lib
-/packages/*/dist
-/projects/*/lib
-/projects/*/dist
-
-# local env files
 .env.local
-.env.*.local
-
-# Log files
+.env.development.local
+.env.test.local
+.env.production.local
+.npmrc
+.pnp.*
+.yarn/*
+!.yarn/releases
+!.yarn/plugins
+!.yarn/sdks
+cc-test-reporter
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-lerna-debug.log*
-
-# Editor directories and files
-.idea
-*.suo
-*.ntvs*
-*.njsproj
-*.sln
-*.sw?
-/scripts

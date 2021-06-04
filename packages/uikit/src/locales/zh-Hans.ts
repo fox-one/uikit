@@ -6,6 +6,6 @@ export default {
     phone_number: "手机号",
     cancel: "取消",
     more: "更多",
-    fold: "收起",
-  },
+    fold: "收起"
+  }
 };

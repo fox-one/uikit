@@ -6,6 +6,6 @@ export default {
     phone_number: "電話番号",
     cancel: "キャンセル",
     more: "もっと",
-    fold: "片付ける",
-  },
+    fold: "片付ける"
+  }
 };

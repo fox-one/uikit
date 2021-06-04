@@ -1,24 +1,11 @@
 {
+  "extends": "../../tsconfig.json",
   "compilerOptions": {
-    "target": "esnext",
-    "module": "esnext",
-    "strict": true,
-    "jsx": "preserve",
-    "importHelpers": true,
-    "moduleResolution": "node",
-    "experimentalDecorators": true,
-    "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
-    "sourceMap": true,
-    "noImplicitAny": false,
-    "resolveJsonModule": true,
     "baseUrl": ".",
-    "types": ["webpack-env", "vuetify"],
     "paths": {
-      "@/*": ["./*"]
+      "@foxone/uikit": ["./src/index.ts"],
+      "@foxone/uikit/*": ["./src/*"]
     },
-    "lib": ["esnext", "dom", "dom.iterable", "scripthost"]
-  },
-  "include": ["./**/*.ts", "./**/*.tsx", "./**/*.vue", "types/**/*.ts", "../preset/src/index.ts"],
-  "exclude": ["node_modules"]
+    "declaration": false
+  }
 }
