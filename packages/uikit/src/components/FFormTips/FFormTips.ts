@@ -22,21 +22,24 @@ class FFormTips extends Vue {
 
   get meta() {
     const tips = this.tips.filter(
-      (tip) => !tip.hide && (tip.component || tip.text),
+      (tip) => !tip.hide && (tip.component || tip.text)
     );
+
     return {
       items: this.showAll ? tips : tips.slice(0, this.max),
-      isActionVisible: tips.length > this.max,
+      isActionVisible: tips.length > this.max
     };
   }
 
   isLastTip(index) {
     const n = index + 1;
+
     return n > this.max && n === this.meta.items.length;
   }
 
   genActionBtn() {
     const h = this.$createElement;
+
     if (!this.meta.isActionVisible) return null;
 
     return h(
@@ -44,19 +47,19 @@ class FFormTips extends Vue {
       {
         staticClass: "f-form-tips__item f-form-tips__item--more",
         on: {
-          click: () => (this.showAll = !this.showAll),
-        },
+          click: () => (this.showAll = !this.showAll)
+        }
       },
       [
         h("div", { staticClass: "f-form-tips__icon" }, [
           h(VIcon, { props: { size: "14", color: "primary" } }, [
-            this.showAll ? mdiUnfoldLessHorizontal : mdiUnfoldMoreHorizontal,
-          ]),
+            this.showAll ? mdiUnfoldLessHorizontal : mdiUnfoldMoreHorizontal
+          ])
         ]),
         h(VFlex, { staticClass: "f-form-tips__text caption py-1" }, [
-          this.showAll ? $t(this, "fold") : $t(this, "more"),
-        ]),
-      ],
+          this.showAll ? $t(this, "fold") : $t(this, "more")
+        ])
+      ]
     );
   }
 
@@ -67,25 +70,25 @@ class FFormTips extends Vue {
         VLayout,
         {
           staticClass: "f-form-tips__item",
-          class: [tip.error && "f-form-tips__item--error"],
+          class: [tip.error && "f-form-tips__item--error"]
         },
         [
           h("div", { staticClass: "f-form-tips__icon" }),
           h(
             VFlex,
             {
-              staticClass: "f-form-tips__text caption py-1",
+              staticClass: "f-form-tips__text caption py-1"
             },
             [
               tip.component
                 ? h(tip.component, {
                     props: { ...this.$attrs },
-                    on: { ...this.$listeners },
+                    on: { ...this.$listeners }
                   })
-                : tip.text,
-            ],
-          ),
-        ],
+                : tip.text
+            ]
+          )
+        ]
       );
     });
 
@@ -97,9 +100,9 @@ class FFormTips extends Vue {
       h(VFlex, { staticClass: "f-form-tips__wrapper" }, [
         h("div", { staticClass: "f-form-tips__line" }),
         this.genTips(),
-        this.genActionBtn(),
+        this.genActionBtn()
       ]),
-      this.$slots.action,
+      this.$slots.action
     ]);
   }
 }

@@ -37,9 +37,9 @@ class FAppBottomNav extends Vue {
       "div",
       {
         staticClass: "f-bottom-nav__dot-wrapper",
-        class: [active ? "animate__bounceIn animate__animated" : ""],
+        class: [active ? "animate__bounceIn animate__animated" : ""]
       },
-      [h("span", { staticClass: "f-bottom-nav__dot" })],
+      [h("span", { staticClass: "f-bottom-nav__dot" })]
     );
   }
 
@@ -52,9 +52,9 @@ class FAppBottomNav extends Vue {
       props: {
         ripple: false,
         value: nav.value,
-        color: active ? "primary--text" : "",
+        color: active ? "primary--text" : ""
       },
-      on: { click: () => this.handleNavClick(nav) },
+      on: { click: () => this.handleNavClick(nav) }
     };
 
     const icon = h(
@@ -62,9 +62,9 @@ class FAppBottomNav extends Vue {
       {
         class: "mb-1",
         props: { size: "22" },
-        attrs: { active },
+        attrs: { active }
       },
-      [nav.icon],
+      [nav.icon]
     );
 
     return h(VBtn, data, [nav.text, icon, this.genDot(nav)]);
@@ -85,14 +85,14 @@ class FAppBottomNav extends Vue {
         mandatory: false,
         value: this.nav,
         "input-value": Boolean(this.nav),
-        ...this.$attrs,
-      },
+        ...this.$attrs
+      }
     };
 
     return h(
       VBottomNavigation,
       data,
-      this.items.map((btn) => this.genBtn(btn)),
+      this.items.map((btn) => this.genBtn(btn))
     );
   }
 }

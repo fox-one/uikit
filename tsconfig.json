@@ -2,7 +2,12 @@
   "extends": "@foxone/dev/config/tsconfig.base.json",
   "compilerOptions": {
     "baseUrl": ".",
-    "skipLibCheck": true,
-    "typeRoots": ["./node_modules/@types"]
-  }
+    "paths": {
+      "@foxone/uikit": ["./packages/uikit/src/index.ts"],
+      "@foxone/uikit/*": ["./packages/uikit/src/*"]
+    },
+    "types": ["vuetify"],
+    "skipLibCheck": true
+  },
+  "exclude": ["node_modules"]
 }

@@ -17,13 +17,14 @@ class FInput extends Vue {
     const attrs: any = {
       "hide-details": !(this.hint && this.persistentHint !== false),
       filled: true,
-      ...this.$attrs,
+      ...this.$attrs
     };
     const base = this.textarea !== false ? VTextarea : VTextField;
+
     return h(
       "div",
       {
-        staticClass: "f-input-wrapper",
+        staticClass: "f-input-wrapper"
       },
       [
         h(
@@ -40,50 +41,50 @@ class FInput extends Vue {
               rules: this.rules,
               persistentHint: this.persistentHint,
               ...this.$attrs,
-              ...this.$props,
+              ...this.$props
             },
             on: {
               ...this.$listeners,
-              input: (val) => this.$emit("input", val),
+              input: (val) => this.$emit("input", val)
             },
-            attrs,
+            attrs
           },
           [
             h(
               "div",
               {
                 staticClass: "f-input-append-wrapper f-input-wrapper",
-                slot: "append",
+                slot: "append"
               },
-              this.$slots.append,
+              this.$slots.append
             ),
             h(
               "div",
               {
                 staticClass: "f-input-append-outer-wrapper f-input-wrapper",
-                slot: "append-outer",
+                slot: "append-outer"
               },
-              this.$slots.appendOuter,
+              this.$slots.appendOuter
             ),
             h(
               "div",
               {
                 staticClass: "f-input-prepend-wrapper f-input-wrapper",
-                slot: "prepend",
+                slot: "prepend"
               },
-              this.$slots.prepend,
+              this.$slots.prepend
             ),
             h(
               "div",
               {
                 staticClass: "f-input-prepend-inner-wrapper f-input-wrapper",
-                slot: "prepend-inner",
+                slot: "prepend-inner"
               },
-              this.$slots.prependInner,
-            ),
-          ],
-        ),
-      ],
+              this.$slots.prependInner
+            )
+          ]
+        )
+      ]
     );
   }
 }

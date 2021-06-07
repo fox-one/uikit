@@ -1,10 +1,11 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
 import "./FAppBar.scss";
 import { VAppBar, VBtn, VImg, VSpacer, VToolbarTitle } from "vuetify/lib";
 import { Component, Vue, Prop } from "vue-property-decorator";
 import { VNode, CreateElement } from "vue";
 
-const lightIcon = require("../../assets/images/top-nav-arrow-light.svg");
-const darkIcon = require("../../assets/images/top-nav-arrow-dark.svg");
+import lightIcon from "../../assets/images/top-nav-arrow-light.svg";
+import darkIcon from "../../assets/images/top-nav-arrow-dark.svg";
 
 @Component
 class FAppBar extends Vue {
@@ -35,14 +36,16 @@ class FAppBar extends Vue {
     const data = {
       staticClass: "f-app-bar-back-btn",
       props: { small: true, icon: true, depressed: true, ripple: false },
-      on: { click: this.handleBack },
+      on: { click: () => this.handleBack() }
     };
 
     let backIcon;
+
     if (this.$slots.backIcon) {
       backIcon = this.$slots.backIcon;
     } else {
       const dark = this.$attrs.dark || (this as any).$vuetify.theme.dark;
+
       backIcon = h(
         VImg,
         {
@@ -52,10 +55,10 @@ class FAppBar extends Vue {
             width: 16,
             eager: true,
             aspectRatio: 0.3,
-            src: dark ? darkIcon : lightIcon,
-          },
+            src: dark ? darkIcon : lightIcon
+          }
         },
-        [],
+        []
       );
     }
 
@@ -75,11 +78,12 @@ class FAppBar extends Vue {
         fixed: true,
         flat: true,
         align: this.align,
-        ...this.$attrs,
-      },
+        ...this.$attrs
+      }
     };
 
     let barContent: any = [this.genBackBtn()];
+
     if (!this.customContent) {
       barContent = barContent.concat([
         h(VSpacer),
@@ -88,15 +92,16 @@ class FAppBar extends Vue {
           {
             staticClass: `f-app-bar-title f-title-2 pl-2 text-capitalize justify-center ${
               this.align
-            } ${this.back ? "" : "no-back"}`,
+            } ${this.back ? "" : "no-back"}`
           },
-          [this.title],
+          [this.title]
         ),
-        this.$slots.default,
+        this.$slots.default
       ]);
     } else {
       barContent = barContent.concat([this.$slots.default]);
     }
+
     if (this.mixinImmersive) {
       barContent.push(h("div", { staticClass: "f-mixin-ctrl-placeholder" }));
     }

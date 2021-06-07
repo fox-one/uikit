@@ -12,10 +12,10 @@ class FList extends Vue {
         staticClass: "f-list",
         attrs: this.$attrs,
         props: {
-          ...this.$attrs,
-        },
+          ...this.$attrs
+        }
       },
-      [this.$slots.default],
+      [this.$slots.default]
     );
   }
 }

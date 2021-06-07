@@ -22,15 +22,15 @@ class FLoading extends Vue {
             width: 3,
             indeterminate: true,
             color: this.color,
-            ...this.$attrs,
-          },
+            ...this.$attrs
+          }
         }),
         h(
           "span",
           { staticClass: "f-loading--text mt-2 text--secondary caption" },
-          this.$slots.text,
-        ),
-      ]),
+          this.$slots.text
+        )
+      ])
     ];
 
     if (!this.fullscreen) {
@@ -42,10 +42,10 @@ class FLoading extends Vue {
       {
         props: {
           opacity: this.opacity,
-          value: this.loading,
-        },
+          value: this.loading
+        }
       },
-      [circular],
+      [circular]
     );
   }
 }

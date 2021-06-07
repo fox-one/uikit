@@ -8,12 +8,12 @@ import {
   VCard,
   VCardTitle,
   VCardText,
-  VIcon,
+  VIcon
 } from "vuetify/lib";
 import { mdiClose } from "@mdi/js";
 
 @Component({
-  inheritAttrs: false,
+  inheritAttrs: false
 })
 class FBottomSheet extends Vue {
   @Model("change") value!: boolean;
@@ -30,19 +30,21 @@ class FBottomSheet extends Vue {
 
   genTitle() {
     if (!this.$slots.title) return null;
+
     return this.$createElement(
       VCardTitle,
       { staticClass: "f-bottom-sheet__title subtitle-1" },
-      this.$slots.title,
+      this.$slots.title
     );
   }
 
   genSubheader() {
     if (!this.$slots.subheader) return null;
+
     return this.$createElement(
       VCardText,
       { staticClass: "px-3" },
-      this.$slots.subheader,
+      this.$slots.subheader
     );
   }
 
@@ -50,15 +52,16 @@ class FBottomSheet extends Vue {
     const h = this.$createElement;
 
     let iconClose: VNode | null = null;
+
     if (this.$attrs.persistent) {
       iconClose = h(
         VIcon,
         {
           props: { size: 18 },
           on: { click: () => this.$emit("change", false) },
-          staticClass: "f-bottom-sheet__close",
+          staticClass: "f-bottom-sheet__close"
         },
-        [mdiClose],
+        [mdiClose]
       );
     }
 
@@ -66,7 +69,7 @@ class FBottomSheet extends Vue {
       VCard,
       {
         staticClass: "f-bottom-sheet__content",
-        props: { elevation: 0 },
+        props: { elevation: 0 }
       },
       [
         this.genTitle(),
@@ -75,21 +78,22 @@ class FBottomSheet extends Vue {
         h(
           VCardText,
           { staticClass: "f-bottom-sheet__body px-0" },
-          this.$slots.default,
-        ),
-      ],
+          this.$slots.default
+        )
+      ]
     );
   }
 
   render(h: CreateElement): VNode {
     let Wapper = VBottomSheet;
+
     if (this.adaptive && this.isDesktop) {
       Wapper = this.wapperInDesktop === "menu" ? VMenu : VDialog;
     }
 
     const activator = this.$scopedSlots.activator;
-
     let attrs = this.$attrs;
+
     if (Wapper === VBottomSheet) {
       attrs = { ...attrs, "max-width": "100%" };
     }
@@ -101,20 +105,20 @@ class FBottomSheet extends Vue {
         props: {
           value: this.value,
           scrollable: false,
-          "content-class": "f-bottom-sheet",
+          "content-class": "f-bottom-sheet"
         },
         on: {
           input: (val) => {
             this.$emit("change", val);
-          },
+          }
         },
         scopedSlots: {
           activator: ({ on }) => {
             return (activator && activator({ on })) || null;
-          },
-        },
+          }
+        }
       },
-      [this.genContent()],
+      [this.genContent()]
     );
   }
 }

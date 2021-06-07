@@ -32,34 +32,36 @@ class FActionBar extends Vue {
         { staticClass: "d-flex flex-column justify-center align-center" },
         [
           h(VIcon, { props: { size: action.size, color: action.color } }, [
-            action.icon,
+            action.icon
           ]),
           h(
             "span",
             {
-              staticClass: "f-actionbar__label f-caption mt-1",
+              staticClass: "f-actionbar__label f-caption mt-1"
             },
-            [action.text],
-          ),
-        ],
-      ),
+            [action.text]
+          )
+        ]
+      )
     ]);
 
     return h(
       "div",
       {
         staticClass: "f-actionbar__action",
-        on: { click: () => this.handleClick(action) },
+        on: { click: () => this.handleClick(action) }
       },
-      [btn],
+      [btn]
     );
   }
 
   render(h: CreateElement): VNode {
     let content = this.$slots.default;
+
     if (!this.customContent) {
       content = this.actions.map((action) => this.genAction(action));
     }
+
     return h(
       FPanel,
       {
@@ -67,10 +69,10 @@ class FActionBar extends Vue {
         class: [this.fixed ? "f-actionbar--fixed" : ""],
         props: {
           elevation: "high",
-          padding: "8",
-        },
+          padding: "8"
+        }
       },
-      content,
+      content
     );
   }
 }

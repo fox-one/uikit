@@ -9,14 +9,14 @@ class FFloatAction extends Vue {
 
   get style() {
     return {
-      bottom: this.bottom + "px",
+      bottom: this.bottom + "px"
     };
   }
 
   render(h: CreateElement): VNode {
     return h(VSheet, { staticClass: "f-float-action", style: this.style }, [
       h("div", { staticClass: "mr-2" }, [this.$slots.icon]),
-      h("div", { staticClass: "caption" }, [this.$slots.default]),
+      h("div", { staticClass: "caption" }, [this.$slots.default])
     ]);
   }
 }

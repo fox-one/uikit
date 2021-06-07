@@ -11,7 +11,7 @@ import { MixinAsset } from "./types";
 import { $t } from "../../utils/helper";
 
 @Component({
-  inheritAttrs: false,
+  inheritAttrs: false
 })
 class FAssetAmountInput extends Vue {
   @Model("input") value!: string;
@@ -40,6 +40,7 @@ class FAssetAmountInput extends Vue {
 
   genActivator({ on }) {
     const slotActivator = this.$scopedSlots.activator;
+
     if (slotActivator) {
       return slotActivator({ on });
     }
@@ -51,44 +52,50 @@ class FAssetAmountInput extends Vue {
       : this.genAssetPlaceholder();
 
     !this.selectable && delete on.click;
+
     return h("div", { staticClass: "f-asset-amount-input__activator", on }, [
-      activator,
+      activator
     ]);
   }
 
   genAssetSeleted() {
     const h = this.$createElement;
 
-    const { logo, chainLogo, symbol, select_symbol, label } =
-      this.bindAsset || {};
-    const displaySymbol = select_symbol || symbol;
+    const {
+      chainLogo,
+      label,
+      logo,
+      select_symbol: selectSymbol,
+      symbol
+    } = this.bindAsset || {};
+    const displaySymbol = selectSymbol || symbol;
 
     return [
       h(FMixinAssetLogo, { props: { logo, chainLogo, size: 32 } }),
       h(
         VLayout,
         {
-          staticClass: "ml-2 mr-0 d-flex flex-column align-left",
+          staticClass: "ml-2 mr-0 d-flex flex-column align-left"
         },
         [
           h("div", { staticClass: "font-weight-bold" }, [displaySymbol]),
           h(
             "div",
             { staticClass: "text--secondary f-caption", show: Boolean(label) },
-            [label],
-          ),
-        ],
+            [label]
+          )
+        ]
       ),
       this.selectable
         ? h(
             VBtn,
             {
               show: this.selectable,
-              props: { "x-small": true, icon: true },
+              props: { "x-small": true, icon: true }
             },
-            [h(VIcon, { props: { size: "20" } }, [mdiChevronDown])],
+            [h(VIcon, { props: { size: "20" } }, [mdiChevronDown])]
           )
-        : null,
+        : null
     ];
   }
 
@@ -97,39 +104,39 @@ class FAssetAmountInput extends Vue {
     const label = h(
       VIcon,
       { props: { color: "greyscale_4", size: 24 }, staticClass: "mr-1" },
-      [mdiHelpCircle],
+      [mdiHelpCircle]
     );
 
     return [
       label,
       h(VIcon, { props: { size: "18" } }, [
-        this.selectable ? mdiChevronDown : null,
-      ]),
+        this.selectable ? mdiChevronDown : null
+      ])
     ];
   }
 
   genAssetSheet() {
     const h = this.$createElement;
-
     const assetSheet = this.$scopedSlots.assets;
+
     if (assetSheet) {
       return assetSheet({
         asset: this.value,
         assets: this.assets,
         on: {
-          select: (val) => this.handleSelectAsset(val),
-        },
+          select: (val) => this.handleSelectAsset(val)
+        }
       });
     }
 
     return h(FAssetsSheet, {
       props: {
         asset: this.value,
-        assets: this.assets,
+        assets: this.assets
       },
       on: {
-        select: (val) => this.handleSelectAsset(val),
-      },
+        select: (val) => this.handleSelectAsset(val)
+      }
     });
   }
 
@@ -141,7 +148,7 @@ class FAssetAmountInput extends Vue {
     }
 
     return this.$createElement(VProgressLinear, {
-      props: { indeterminate: true, height: 3 },
+      props: { indeterminate: true, height: 3 }
     });
   }
 
@@ -150,41 +157,41 @@ class FAssetAmountInput extends Vue {
       "div",
       {
         staticClass: "f-asset-amount-input",
-        class: [this.border && "f-asset-amount-input--border"],
+        class: [this.border && "f-asset-amount-input--border"]
       },
       [
         h(
           FBottomSheet,
           {
             props: {
-              value: this.sheet,
+              value: this.sheet
             },
             on: {
-              change: (val) => (this.sheet = val),
+              change: (val) => (this.sheet = val)
             },
             scopedSlots: {
               activator: ({ on }) => {
                 return this.genActivator({ on });
-              },
-            },
+              }
+            }
           },
           [
             h("div", { slot: "title" }, [$t(this, "select_asset")]),
-            this.genAssetSheet(),
-          ],
+            this.genAssetSheet()
+          ]
         ),
         h(FNumberInput, {
           attrs: { ...this.$attrs, "hide-details": true, solo: true },
           props: { value: this.value, solo: true, reverse: true },
           on: {
             ...this.$listeners,
-            input: (val) => this.$emit("input", val),
-          },
+            input: (val) => this.$emit("input", val)
+          }
         }),
         h("div", { class: "f-asset-amount-input__processing" }, [
-          this.genProcessing(),
-        ]),
-      ],
+          this.genProcessing()
+        ])
+      ]
     );
   }
 }

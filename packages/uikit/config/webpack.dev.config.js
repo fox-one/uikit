@@ -2,6 +2,7 @@ const path = require("path");
 const { merge } = require("webpack-merge");
 const ForkTsCheckerWebpackPlugin = require("fork-ts-checker-webpack-plugin");
 const VueLoaderPlugin = require("vue-loader/lib/plugin");
+const { VuetifyLoaderPlugin } = require("vuetify-loader");
 const { config: baseWebpackConfig } = require("./webpack.base.config");
 
 const resolve = (file) => path.resolve(__dirname, file);
@@ -71,9 +72,10 @@ module.exports = merge(baseWebpackConfig, {
   },
   plugins: [
     new VueLoaderPlugin(),
+    new VuetifyLoaderPlugin(),
     new ForkTsCheckerWebpackPlugin({
       typescript: {
-        tsconfig: resolve("../tsconfig.json")
+        configFile: resolve("../../../tsconfig.json")
       }
     })
   ]

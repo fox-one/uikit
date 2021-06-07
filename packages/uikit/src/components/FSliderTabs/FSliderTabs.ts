@@ -22,20 +22,26 @@ class FSliderTabs extends Vue {
     this.$nextTick(() => {
       const tabs: any = this.$refs.tabs;
       const slider: any = this.$refs.slider;
+
       if (!tabs || !slider) {
         return;
       }
+
       const activeTab = tabs.$el.querySelector(
-        `.v-tab[data-value="${this.value}"]`,
+        `.v-tab[data-value="${this.value}"]`
       );
+
       if (!activeTab) {
         slider.style.display = "none";
+
         return;
       }
-      const left = activeTab.offsetLeft;
-      const width = activeTab.clientWidth;
+
+      const left: number = activeTab.offsetLeft;
+      const width: number = activeTab.clientWidth;
       const sliderWidth = 6;
       const sliderLeft = (left + (width - sliderWidth) / 2).toFixed();
+
       slider.style.left = `${sliderLeft}px`;
     });
   }
@@ -56,16 +62,16 @@ class FSliderTabs extends Vue {
           hideSlider: true,
           backgroundColor: "transparent",
           value: this.value,
-          ...this.$attrs,
-        },
+          ...this.$attrs
+        }
       },
       [
         this.$slots.tabs,
         h("div", {
           staticClass: "f-slider-tabs__slider",
-          ref: "slider",
-        }),
-      ],
+          ref: "slider"
+        })
+      ]
     );
   }
 }

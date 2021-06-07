@@ -23,8 +23,9 @@ class FButton extends Vue {
       depressed: true,
       rounded: true,
       ripple: false,
-      ...this.$attrs,
+      ...this.$attrs
     };
+
     if (this.type === "primary") {
       props.color = "primary";
     } else if (this.type === "secondary") {
@@ -39,6 +40,7 @@ class FButton extends Vue {
       props.color = "primary";
       props.text = true;
     }
+
     if (this.color) {
       props.color = this.color;
     }
@@ -51,20 +53,23 @@ class FButton extends Vue {
       props,
       on: {
         click: (e) => this.$emit("click", e),
-        touchstart: (e) => this.$emit("touchstart", e),
-      },
+        touchstart: (e) => this.$emit("touchstart", e)
+      }
     };
+
     if (this.padding !== 56) {
       data.staticStyle = {
         paddingLeft: this.padding,
-        paddingRight: this.padding,
+        paddingRight: this.padding
       };
     }
+
     let barContent: any = [];
+
     barContent = barContent.concat([
       h(VSpacer),
       this.$slots.default,
-      h(VSpacer),
+      h(VSpacer)
     ]);
 
     return h(VBtn, data, barContent);

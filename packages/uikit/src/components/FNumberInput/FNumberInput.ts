@@ -4,7 +4,7 @@ import { VTextField } from "vuetify/lib";
 import { toPrecision } from "../../utils/helper";
 
 @Component({
-  inheritAttrs: false,
+  inheritAttrs: false
 })
 class FNumberInput extends Vue {
   @Model("input", { default: "" }) value!: string;
@@ -15,11 +15,14 @@ class FNumberInput extends Vue {
 
   handleSetValue(value) {
     let temp = value;
+
     if (this.precision !== undefined) {
       temp = toPrecision(value, this.precision) + "";
     }
+
     this.$emit("input", temp);
     const input: any = this.$refs.input;
+
     input.lazyValue = temp;
   }
 
@@ -30,13 +33,13 @@ class FNumberInput extends Vue {
       props: {
         value: this.value,
         type: "number",
-        reverse: this.reverse,
+        reverse: this.reverse
       },
       attrs: { ...this.$attrs },
       on: {
         ...this.$listeners,
-        input: (val) => this.handleSetValue(val),
-      },
+        input: (val) => this.handleSetValue(val)
+      }
     });
   }
 }

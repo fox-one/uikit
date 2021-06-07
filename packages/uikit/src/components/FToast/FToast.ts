@@ -5,7 +5,7 @@ import { CreateElement, VNode } from "vue/types/umd";
 import { VSnackbar } from "vuetify/lib";
 
 @Component({
-  inheritAttrs: false,
+  inheritAttrs: false
 })
 class FToast extends Vue {
   @Prop({ type: Boolean, default: false }) show!: boolean;
@@ -18,9 +18,9 @@ class FToast extends Vue {
       {
         attrs: this.$attrs,
         props: { value: this.show },
-        on: { input: (e) => this.$emit("change", e) },
+        on: { input: (e) => this.$emit("change", e) }
       },
-      [this.message],
+      [this.message]
     );
   }
 }

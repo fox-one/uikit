@@ -1,8 +1,8 @@
 import Vue from "vue";
-import Vuetify from "vuetify";
-import UIKit, { createVuetify } from "@foxone/uikit";
+import Vuetify from "vuetify/lib";
+import UIKit, { preset } from "@foxone/uikit";
 
 Vue.use(UIKit);
 Vue.use(Vuetify);
 
-export default createVuetify({});
+export default new Vuetify({ ...preset });

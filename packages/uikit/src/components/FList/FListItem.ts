@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
 import "./FListItem.scss";
 import { Component, Vue, Prop } from "vue-property-decorator";
 import { CreateElement, VNode } from "vue/types/umd";
@@ -6,11 +7,11 @@ import {
   VImg,
   VListItem,
   VListItemAction,
-  VListItemContent,
+  VListItemContent
 } from "vuetify/lib";
 
-const lightIcon = require("../../assets/images/list-arrow-light.svg");
-const darkIcon = require("../../assets/images/list-arrow-dark.svg");
+import lightIcon from "../../assets/images/list-arrow-light.svg";
+import darkIcon from "../../assets/images/list-arrow-dark.svg";
 
 @Component
 class FListItem extends Vue {
@@ -22,12 +23,13 @@ class FListItem extends Vue {
 
   render(h: CreateElement): VNode {
     const data: any = [];
+
     // head?
     if (this.$slots.head) {
       data.push(
         h("div", { staticClass: "f-list-item-icon-wrapper mr-4" }, [
-          this.$slots.head,
-        ]),
+          this.$slots.head
+        ])
       );
     }
 
@@ -40,10 +42,10 @@ class FListItem extends Vue {
             ? h(
                 "div",
                 { staticClass: "f-list-item-subtitle f-greyscale-3 f-caption" },
-                this.subtitle,
+                this.subtitle
               )
-            : null,
-        ]),
+            : null
+        ])
       );
     } else {
       data.push(this.$slots.body);
@@ -61,7 +63,7 @@ class FListItem extends Vue {
             h(
               "span",
               { staticClass: "text f-greyscale-4 f-body-1" },
-              this.value,
+              this.value
             ),
             h(
               VImg,
@@ -70,15 +72,16 @@ class FListItem extends Vue {
                 props: {
                   eager: true,
                   aspectRatio: 0.3,
-                  src: (this as any).$vuetify.theme.dark ? darkIcon : lightIcon,
-                },
+                  src: (this as any).$vuetify.theme.dark ? darkIcon : lightIcon
+                }
               },
-              [],
-            ),
-          ],
-        ),
+              []
+            )
+          ]
+        )
       );
     }
+
     return h(
       VListItem,
       {
@@ -86,14 +89,14 @@ class FListItem extends Vue {
         attrs: this.$attrs,
         props: {
           ripple: false,
-          ...this.$attrs,
+          ...this.$attrs
         },
         on: {
           click: (e) => this.$emit("click", e),
-          touchstart: (e) => this.$emit("touchstart", e),
-        },
+          touchstart: (e) => this.$emit("touchstart", e)
+        }
       },
-      data,
+      data
     );
   }
 }

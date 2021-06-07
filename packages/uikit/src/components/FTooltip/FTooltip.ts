@@ -4,7 +4,7 @@ import { CreateElement, VNode } from "vue/types/umd";
 import { VTooltip } from "vuetify/lib";
 
 @Component({
-  inheritAttrs: false,
+  inheritAttrs: false
 })
 class FTooltip extends Vue {
   @Prop({ type: Boolean, default: false }) bottom!: boolean;
@@ -13,6 +13,7 @@ class FTooltip extends Vue {
 
   render(h: CreateElement): VNode {
     const activator = this.$scopedSlots.activator;
+
     return h(
       VTooltip,
       {
@@ -24,18 +25,18 @@ class FTooltip extends Vue {
           top: this.top,
           value: this.value,
           "open-on-click": true,
-          "open-on-hover": false,
+          "open-on-hover": false
         },
         on: {
           input: (val) => {
             this.$emit("change", val);
-          },
+          }
         },
         scopedSlots: {
           activator: function ({ on }) {
             return (activator && activator({ on })) || null;
-          },
-        },
+          }
+        }
       },
       [
         h(
@@ -43,11 +44,11 @@ class FTooltip extends Vue {
           {
             staticClass: `f-tooltip-content-inner ${
               this.bottom ? "bottom" : ""
-            } ${this.top ? "top" : ""}`,
+            } ${this.top ? "top" : ""}`
           },
-          this.$slots.default,
-        ),
-      ],
+          this.$slots.default
+        )
+      ]
     );
   }
 }

@@ -15,7 +15,7 @@ class FButtonTabs extends Vue {
       ripple: false,
       value: this.value,
       mandatory: true,
-      ...this.$attrs,
+      ...this.$attrs
     };
 
     const data: any = {
@@ -25,8 +25,8 @@ class FButtonTabs extends Vue {
       on: {
         change: (val) => {
           this.$emit("change", val);
-        },
-      },
+        }
+      }
     };
 
     return h(VBtnToggle, data, [this.$slots.tabs]);

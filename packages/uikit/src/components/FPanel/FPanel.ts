@@ -6,7 +6,7 @@ import { VSheet } from "vuetify/lib";
 import { Prop, Component } from "vue-property-decorator";
 
 @Component({
-  inheritAttrs: false,
+  inheritAttrs: false
 })
 class FPanel extends Vue {
   name = "FPanel";
@@ -17,15 +17,16 @@ class FPanel extends Vue {
 
   get styles() {
     return {
-      padding: `${this.padding}px`,
+      padding: `${this.padding}px`
     };
   }
 
   render(h: CreateElement): VNode {
     const data: VNodeData = {
       style: { padding: `${this.padding}px` },
-      class: ["f-panel", `elevation-${this.elevation}`],
+      class: ["f-panel", `elevation-${this.elevation}`]
     };
+
     return h(VSheet, data, [this.$slots.default]);
   }
 }

@@ -1,10 +1,11 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
 import "./FInfoGrid.scss";
 import { Component, Vue, Prop } from "vue-property-decorator";
 import { CreateElement, VNode } from "vue/types/umd";
 import { VBtn, VImg } from "vuetify/lib";
 
-const lightIcon = require("../../assets/images/list-arrow-light.svg");
-const darkIcon = require("../../assets/images/list-arrow-dark.svg");
+import lightIcon from "../../assets/images/list-arrow-light.svg";
+import darkIcon from "../../assets/images/list-arrow-dark.svg";
 
 @Component
 class FInfoGrid extends Vue {
@@ -24,9 +25,9 @@ class FInfoGrid extends Vue {
     return h(
       "div",
       {
-        staticClass: `f-info-grid-scroll-mask f-info-grid-scroll-mask-${direction}`,
+        staticClass: `f-info-grid-scroll-mask f-info-grid-scroll-mask-${direction}`
       },
-      [],
+      []
     );
   }
 
@@ -39,8 +40,8 @@ class FInfoGrid extends Vue {
         on: {
           click: () => {
             this.offset += direction === "left" ? 1 : -1;
-          },
-        },
+          }
+        }
       },
       [
         h(
@@ -50,12 +51,12 @@ class FInfoGrid extends Vue {
             props: {
               eager: true,
               aspectRatio: 0.3,
-              src: (this as any).$vuetify.theme.dark ? darkIcon : lightIcon,
-            },
+              src: (this as any).$vuetify.theme.dark ? darkIcon : lightIcon
+            }
           },
-          [],
-        ),
-      ],
+          []
+        )
+      ]
     );
   }
 
@@ -66,9 +67,9 @@ class FInfoGrid extends Vue {
         staticClass: "f-info-grid",
         attrs: this.$attrs,
         props: {
-          ...this.$attrs,
+          ...this.$attrs
         },
-        on: this.$listeners,
+        on: this.$listeners
       },
       [
         h(
@@ -77,16 +78,16 @@ class FInfoGrid extends Vue {
             staticClass: "f-info-grid-inner pt-2",
             style: {
               transform: `translateX(${this.offset * 50}vw)`,
-              width: `${this.windowSize * 50}vw`,
-            },
+              width: `${this.windowSize * 50}vw`
+            }
           },
-          [this.$slots.default],
+          [this.$slots.default]
         ),
         this.reachHead ? null : this.genMask(h, "left"),
         this.reachHead ? null : this.genBtn(h, "left"),
         this.reachTail ? null : this.genMask(h, "right"),
-        this.reachTail ? null : this.genBtn(h, "right"),
-      ],
+        this.reachTail ? null : this.genBtn(h, "right")
+      ]
     );
   }
 }

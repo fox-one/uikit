@@ -7,7 +7,7 @@ import {
   VVirtualScroll,
   VListItem,
   VListItemTitle,
-  VIcon,
+  VIcon
 } from "vuetify/lib";
 import countryCodes from "../../assets/country-code.json";
 import { $t } from "../../utils/helper";
@@ -16,7 +16,7 @@ import FInput from "../FInput";
 
 const countries = Object.keys(countryCodes).map((k) => ({
   name: countryCodes[k].name,
-  code: countryCodes[k].dialCode + "",
+  code: String(countryCodes[k].dialCode) + ""
 }));
 
 @Component
@@ -33,6 +33,7 @@ class FPhoneInput extends Vue {
     return countries.filter((country) => {
       const name = String(country.name).toLowerCase();
       const code = String(country.code).toLowerCase();
+
       return name.startsWith(this.filter) || code.startsWith(this.filter);
     });
   }
@@ -55,12 +56,12 @@ class FPhoneInput extends Vue {
           autofocus: true,
           placeholder: $t(this, "phone_number"),
           type: "number",
-          value: this.bindPhone,
+          value: this.bindPhone
         },
         on: {
-          input: (val) => (this.bindPhone = val),
+          input: (val) => (this.bindPhone = val)
         },
-        scopedSlots: this.$scopedSlots,
+        scopedSlots: this.$scopedSlots
       },
       [
         h(
@@ -68,7 +69,7 @@ class FPhoneInput extends Vue {
           {
             on,
             staticClass: "pl-1 pr-2 f-phone-input__code",
-            slot: "prepend-inner",
+            slot: "prepend-inner"
           },
           [
             h("span", {}, `+${this.bindCode}`),
@@ -76,13 +77,13 @@ class FPhoneInput extends Vue {
               VIcon,
               {
                 slot: "append-inner",
-                props: { size: "20", color: "greyscale_1" },
+                props: { size: "20", color: "greyscale_1" }
               },
-              [mdiChevronDown],
-            ),
-          ],
-        ),
-      ],
+              [mdiChevronDown]
+            )
+          ]
+        )
+      ]
     );
   }
 
@@ -92,10 +93,10 @@ class FPhoneInput extends Vue {
     return h(FInput, {
       props: {
         value: this.filter,
-        label: $t(this, "search"),
+        label: $t(this, "search")
       },
       on: { input: (val) => (this.filter = val) },
-      slot: "subheader",
+      slot: "subheader"
     });
   }
 
@@ -109,16 +110,16 @@ class FPhoneInput extends Vue {
           props: {
             value: item.code,
             "input-value": this.bindCode === item.code,
-            "active-class": "primary--text",
+            "active-class": "primary--text"
           },
-          on: { click: () => this.handleSelect(item.code) },
+          on: { click: () => this.handleSelect(item.code) }
         },
         [
           h(VListItemTitle, [
             h("span", { staticClass: "font-weight-bold mr-2" }, [item.code]),
-            item.name,
-          ]),
-        ],
+            item.name
+          ])
+        ]
       );
 
     return h(VVirtualScroll, {
@@ -126,8 +127,8 @@ class FPhoneInput extends Vue {
       scopedSlots: {
         default: ({ item }) => {
           return genCountryItem(item);
-        },
-      },
+        }
+      }
     });
   }
 
@@ -136,22 +137,22 @@ class FPhoneInput extends Vue {
       FBottomSheet,
       {
         props: {
-          value: this.sheet,
+          value: this.sheet
         },
         on: {
-          change: (val) => (this.sheet = val),
+          change: (val) => (this.sheet = val)
         },
         scopedSlots: {
           activator: ({ on }) => {
             return this.genInput({ on });
-          },
-        },
+          }
+        }
       },
       [
         h("div", { slot: "title" }, $t(this, "select_phone_code")),
         this.genSearch(),
-        this.genCountryList(),
-      ],
+        this.genCountryList()
+      ]
     );
   }
 }

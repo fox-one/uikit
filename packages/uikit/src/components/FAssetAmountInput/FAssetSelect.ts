@@ -35,46 +35,46 @@ class FAssetSelect extends Vue {
 
     const h = this.$createElement;
     const asset = this.value;
-    const { select_symbol, symbol, name, logo, chainLogo } = asset;
+    const { chainLogo, logo, name, select_symbol, symbol } = asset;
 
     return h(VLayout, [
       h(FMixinAssetLogo, {
         staticClass: "mr-2 align-self-center",
-        props: { size: 32, logo, chainLogo },
+        props: { size: 32, logo, chainLogo }
       }),
       h(VFlex, [
         h("div", { staticClass: "font-weight-bold" }, [
-          select_symbol || symbol,
+          select_symbol || symbol
         ]),
-        h("div", { staticClass: "f-caption text--secondary" }, [name]),
-      ]),
+        h("div", { staticClass: "f-caption text--secondary" }, [name])
+      ])
     ]);
   }
 
   genActivator({ on }) {
+    const h = this.$createElement;
     const slotActivator = this.$scopedSlots.activator;
+
     if (slotActivator) {
       return slotActivator({ on });
     }
-
-    const h = this.$createElement;
 
     const label = h(
       "div",
       {
         staticClass: "f-asset-selector__label",
-        class: [this.value && "f-asset-selector__label--active"],
+        class: [this.value && "f-asset-selector__label--active"]
       },
-      [this.label || $t(this, "select_asset")],
+      [this.label || $t(this, "select_asset")]
     );
 
     const arrow = h(
       VBtn,
       {
         staticClass: "f-asset-selector__arrow",
-        props: { small: true, icon: true },
+        props: { small: true, icon: true }
       },
-      [h(VIcon, { props: { size: 16 } }, [mdiChevronRight])],
+      [h(VIcon, { props: { size: 16 } }, [mdiChevronRight])]
     );
 
     return h(
@@ -82,9 +82,9 @@ class FAssetSelect extends Vue {
       {
         staticClass: "f-asset-selector",
         class: [this.border && "f-asset-selector--border", this.activatorClass],
-        on,
+        on
       },
-      [this.genAssetInfo(), label, arrow],
+      [this.genAssetInfo(), label, arrow]
     );
   }
 
@@ -93,29 +93,29 @@ class FAssetSelect extends Vue {
       FBottomSheet,
       {
         props: {
-          value: this.sheet,
+          value: this.sheet
         },
         on: {
-          change: (val) => (this.sheet = val),
+          change: (val) => (this.sheet = val)
         },
         scopedSlots: {
           activator: ({ on }) => {
             return this.genActivator({ on });
-          },
-        },
+          }
+        }
       },
       [
         h("div", { slot: "title" }, [$t(this, "select_asset")]),
         h(FAssetsSheet, {
           props: {
             asset: this.value,
-            assets: this.assets,
+            assets: this.assets
           },
           on: {
-            select: (val) => this.handleSelectAsset(val),
-          },
-        }),
-      ],
+            select: (val) => this.handleSelectAsset(val)
+          }
+        })
+      ]
     );
   }
 }

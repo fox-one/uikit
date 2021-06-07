@@ -28,7 +28,7 @@ class FSwitch extends Vue {
       value: this.value,
       inputValue: this.value,
       color: this.color,
-      ...this.$attrs,
+      ...this.$attrs
     };
 
     const data = {
@@ -38,8 +38,8 @@ class FSwitch extends Vue {
       on: {
         change: (val) => {
           this.$emit("change", val ?? false);
-        },
-      },
+        }
+      }
     };
 
     return h(VSwitch, data, []);
