@@ -1,5 +1,3 @@
-import "./styles/index.scss";
-
 import type { VueConstructor } from "vue/types/umd";
 
 import * as components from "./components";

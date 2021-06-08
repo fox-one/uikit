@@ -13,14 +13,7 @@ const cssLoaders = [
     options: {
       sourceMap: !isProd,
       postcssOptions: {
-        plugins: [
-          [
-            "postcss-preset-env",
-            {
-              // 其他选项
-            }
-          ]
-        ]
+        plugins: [["postcss-preset-env"]]
       }
     }
   }
@@ -77,6 +70,18 @@ exports.config = {
       {
         test: /\.scss$/,
         use: scssLoaders
+      },
+      {
+        loader: "ts-loader",
+        test: /\.tsx?$/
+      },
+      {
+        test: /\.(png|jpe?g|gif|svg|eot|ttf|woff|woff2)$/,
+        loader: "url-loader",
+        options: {
+          limit: 10000,
+          name: "img/[name].[hash:7].[ext]"
+        }
       }
     ]
   },

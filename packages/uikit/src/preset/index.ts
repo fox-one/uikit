@@ -1,5 +1,5 @@
 import { GlobalVuetifyPreset } from "vuetify/types/services/presets";
-import { en, ja, zhHans } from "vuetify/src/locale";
+import { en, ja, zhHans } from "vuetify/lib/locale";
 import {
   en as uikitEn,
   ja as uikitJa,

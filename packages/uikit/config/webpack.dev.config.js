@@ -52,14 +52,6 @@ module.exports = merge(baseWebpackConfig, {
       {
         test: /\.css$/,
         use: ["style-loader", "css-loader"]
-      },
-      {
-        test: /\.(png|jpe?g|gif|svg|eot|ttf|woff|woff2)$/,
-        loader: "url-loader",
-        options: {
-          limit: 10000,
-          name: "img/[name].[hash:7].[ext]"
-        }
       }
     ]
   },
@@ -75,7 +67,7 @@ module.exports = merge(baseWebpackConfig, {
     new VuetifyLoaderPlugin(),
     new ForkTsCheckerWebpackPlugin({
       typescript: {
-        configFile: resolve("../../../tsconfig.json")
+        configFile: resolve("../tsconfig.json")
       }
     })
   ]

@@ -1562,6 +1562,7 @@ __metadata:
     bignumber.js: ^9.0.0
     cross-env: ^7.0.3
     css-loader: ^5.2.6
+    css-minimizer-webpack-plugin: ^3.0.1
     dotenv: ^10.0.0
     file-loader: ^6.2.0
     fork-ts-checker-webpack-plugin: ^6.2.10
@@ -1575,9 +1576,11 @@ __metadata:
     postcss-loader: ^5.3.0
     postcss-preset-env: ^6.7.0
     qrcode: ^1.4.4
+    rimraf: ^3.0.2
     sass: 1.26.11
     sass-loader: ^12.0.0
     style-loader: ^2.0.0
+    terser-webpack-plugin: ^5.1.3
     ts-loader: ^9.2.2
     url-loader: ^4.1.1
     vue: ^2.6.13
@@ -4563,6 +4566,28 @@ __metadata:
   languageName: node
   linkType: hard
 
+"css-minimizer-webpack-plugin@npm:^3.0.1":
+  version: 3.0.1
+  resolution: "css-minimizer-webpack-plugin@npm:3.0.1"
+  dependencies:
+    cssnano: ^5.0.0
+    jest-worker: ^27.0.2
+    p-limit: ^3.0.2
+    postcss: ^8.2.9
+    schema-utils: ^3.0.0
+    serialize-javascript: ^5.0.1
+    source-map: ^0.6.1
+  peerDependencies:
+    webpack: ^5.0.0
+  peerDependenciesMeta:
+    clean-css:
+      optional: true
+    csso:
+      optional: true
+  checksum: f41255e4a1196f99ffe37784acbc0323e63c3009fc12cc22d7287c97d809eab999428f4d7282c8268c8bcda2eb40dda1f696a8b7cd044ea0180ec6080c52c302
+  languageName: node
+  linkType: hard
+
 "css-prefers-color-scheme@npm:^3.1.1":
   version: 3.1.1
   resolution: "css-prefers-color-scheme@npm:3.1.1"
@@ -4677,7 +4702,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"cssnano@npm:^5.0.2":
+"cssnano@npm:^5.0.0, cssnano@npm:^5.0.2":
   version: 5.0.5
   resolution: "cssnano@npm:5.0.5"
   dependencies:
@@ -10431,7 +10456,7 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"p-limit@npm:^3.1.0":
+"p-limit@npm:^3.0.2, p-limit@npm:^3.1.0":
   version: 3.1.0
   resolution: "p-limit@npm:3.1.0"
   dependencies:
@@ -11572,7 +11597,7 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"postcss@npm:^8.1.7, postcss@npm:^8.2.1, postcss@npm:^8.2.15, postcss@npm:^8.3.0":
+"postcss@npm:^8.1.7, postcss@npm:^8.2.1, postcss@npm:^8.2.15, postcss@npm:^8.2.9, postcss@npm:^8.3.0":
   version: 8.3.0
   resolution: "postcss@npm:8.3.0"
   dependencies:
@@ -13750,7 +13775,7 @@ resolve@^2.0.0-next.3:
   languageName: node
   linkType: hard
 
-"terser-webpack-plugin@npm:^5.1.1":
+"terser-webpack-plugin@npm:^5.1.1, terser-webpack-plugin@npm:^5.1.3":
   version: 5.1.3
   resolution: "terser-webpack-plugin@npm:5.1.3"
   dependencies:
