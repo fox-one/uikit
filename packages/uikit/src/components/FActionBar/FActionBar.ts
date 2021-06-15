@@ -6,10 +6,16 @@ import { VIcon, VFlex } from "vuetify/lib";
 import { FButton } from "../FButton";
 
 export interface ActionButton {
-  size: string;
-  color: string;
+  size?: string;
+  color?: string;
   text: string;
   icon: string;
+}
+
+export interface PropsTypes {
+  actions: ActionButton[];
+  fixed?: boolean;
+  customContent?: boolean;
 }
 
 @Component

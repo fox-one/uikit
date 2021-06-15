@@ -2,10 +2,21 @@
 import "./FAppBar.scss";
 import { VAppBar, VBtn, VImg, VSpacer, VToolbarTitle } from "vuetify/lib";
 import { Component, Vue, Prop } from "vue-property-decorator";
-import { VNode, CreateElement } from "vue";
 
 import lightIcon from "../../assets/images/top-nav-arrow-light.svg";
 import darkIcon from "../../assets/images/top-nav-arrow-dark.svg";
+
+import type { VNode, CreateElement } from "vue";
+
+export interface PropsTypes {
+  show?: boolean;
+  back?: boolean;
+  customContent?: boolean;
+  mixinImmersive?: boolean;
+  title?: string | VNode;
+  align?: "left" | "center";
+  height?: number;
+}
 
 @Component
 class FAppBar extends Vue {
@@ -17,7 +28,7 @@ class FAppBar extends Vue {
 
   @Prop({ type: Boolean, default: false }) mixinImmersive!: boolean;
 
-  @Prop({ default: "" }) title;
+  @Prop({ default: "" }) title!: string;
 
   @Prop({ type: String, default: "left" }) align!: string;
 

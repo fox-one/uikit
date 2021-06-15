@@ -6,6 +6,7 @@
       "@foxone/uikit": ["./src/index.ts"],
       "@foxone/uikit/*": ["./src/*"]
     },
+    "types": ["vuetify"],
     "declaration": false
   },
   "include": ["src"]

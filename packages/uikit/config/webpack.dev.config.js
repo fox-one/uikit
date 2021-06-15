@@ -18,7 +18,8 @@ module.exports = merge(baseWebpackConfig, {
   },
   resolve: {
     alias: {
-      vue$: "vue/dist/vue.esm.js"
+      vue$: "vue/dist/vue.esm.js",
+      "@foxone/uikit": "../src/index.ts"
     }
   },
   module: {
