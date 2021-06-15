@@ -1,7 +1,7 @@
-/* eslint-disable @typescript-eslint/no-var-requires */
 import "./FAppBar.scss";
-import { VAppBar, VBtn, VImg, VSpacer, VToolbarTitle } from "vuetify/lib";
-import { Component, Vue, Prop } from "vue-property-decorator";
+import { VAppBar, VBtn, VImg, VToolbarTitle } from "vuetify/lib";
+import { Component, Vue, Prop, Mixins } from "vue-property-decorator";
+import Themeable from "vuetify/src/mixins/themeable";
 
 import lightIcon from "../../assets/images/top-nav-arrow-light.svg";
 import darkIcon from "../../assets/images/top-nav-arrow-dark.svg";
@@ -16,10 +16,13 @@ export interface PropsTypes {
   title?: string | VNode;
   align?: "left" | "center";
   height?: number;
+  color?: string;
 }
 
-@Component
-class FAppBar extends Vue {
+@Component({
+  inheritAttrs: false
+})
+class FAppBar extends Mixins(Vue, Themeable) {
   @Prop({ type: Boolean, default: true }) show!: boolean;
 
   @Prop({ type: Boolean, default: false }) back!: boolean;
@@ -30,94 +33,85 @@ class FAppBar extends Vue {
 
   @Prop({ default: "" }) title!: string;
 
-  @Prop({ type: String, default: "left" }) align!: string;
+  @Prop({ type: String, default: "left" }) align!: "center" | "left";
 
   @Prop({ type: Number, default: 44 }) height!: number;
 
-  handleBack() {
-    this.$emit("back");
+  get classes() {
+    return {
+      "f-app-bar--center": this.align === "center",
+      "f-app-bar--left": this.align === "left",
+      "f-app-bar--back": this.back,
+      "f-app-bar--mixin-immersive": this.mixinImmersive
+    };
+  }
+
+  genBackIcon() {
+    const h = this.$createElement;
+
+    return (
+      this.$slots.backIcon ||
+      h(VImg, {
+        staticClass: "f-app-bar__back-icon",
+        props: {
+          height: 16,
+          width: 16,
+          eager: true,
+          aspectRatio: 0.3,
+          src: this.isDark ? darkIcon : lightIcon
+        }
+      })
+    );
   }
 
   genBackBtn() {
-    if (!this.back) {
-      return null;
+    if (!this.back) return null;
+    const h = this.$createElement;
+
+    return h(
+      VBtn,
+      {
+        staticClass: "f-app-bar__back",
+        props: { small: true, icon: true, depressed: true, ripple: false },
+        on: { click: () => this.$emit("back") }
+      },
+      [this.genBackIcon()]
+    );
+  }
+
+  genContent() {
+    if (this.customContent) {
+      return [this.$slots.default];
     }
 
     const h = this.$createElement;
-    const data = {
-      staticClass: "f-app-bar-back-btn",
-      props: { small: true, icon: true, depressed: true, ripple: false },
-      on: { click: () => this.handleBack() }
-    };
 
-    let backIcon;
-
-    if (this.$slots.backIcon) {
-      backIcon = this.$slots.backIcon;
-    } else {
-      const dark = this.$attrs.dark || (this as any).$vuetify.theme.dark;
-
-      backIcon = h(
-        VImg,
-        {
-          staticClass: "f-app-bar-back-btn-icon",
-          props: {
-            height: 16,
-            width: 16,
-            eager: true,
-            aspectRatio: 0.3,
-            src: dark ? darkIcon : lightIcon
-          }
-        },
-        []
-      );
-    }
-
-    return h(VBtn, data, [backIcon]);
+    return [
+      h(VToolbarTitle, { staticClass: "f-app-bar__title" }, [this.title])
+    ];
   }
 
   render(h: CreateElement): VNode | null {
     if (!this.show) return null;
 
-    const data = {
-      ...this.$attrs,
-      staticClass: `f-app-bar ${this.$attrs.color ? "color" : ""}`,
-      props: {
-        height: this.height || 44,
-        dense: true,
-        app: true,
-        fixed: true,
-        flat: true,
-        align: this.align,
+    return h(
+      VAppBar,
+      {
+        staticClass: "f-app-bar",
+        class: this.classes,
+        props: {
+          height: this.height || 44,
+          dense: true,
+          app: true,
+          fixed: true,
+          flat: true,
+          align: this.align,
+          ...this.$attrs
+        },
         ...this.$attrs
-      }
-    };
-
-    let barContent: any = [this.genBackBtn()];
-
-    if (!this.customContent) {
-      barContent = barContent.concat([
-        h(VSpacer),
-        h(
-          VToolbarTitle,
-          {
-            staticClass: `f-app-bar-title f-title-2 pl-2 text-capitalize justify-center ${
-              this.align
-            } ${this.back ? "" : "no-back"}`
-          },
-          [this.title]
-        ),
-        this.$slots.default
-      ]);
-    } else {
-      barContent = barContent.concat([this.$slots.default]);
-    }
-
-    if (this.mixinImmersive) {
-      barContent.push(h("div", { staticClass: "f-mixin-ctrl-placeholder" }));
-    }
-
-    return h(VAppBar, data, barContent);
+      },
+      this.genContent()
+    );
   }
 }
 

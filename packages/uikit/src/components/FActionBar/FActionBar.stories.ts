@@ -1,9 +1,9 @@
-import FActionBar from "./FActionBar";
-import { mdiArrowDown } from "@mdi/js";
-
 import type { Story, Meta } from "@storybook/vue/types-6-0";
 import type { CreateElement } from "vue/types/umd";
 import type { PropsTypes } from "./FActionBar";
+
+import FActionBar from "./FActionBar";
+import { mdiArrowDown } from "@mdi/js";
 import { VAvatar, VFlex, VImg, VSpacer } from "vuetify/lib";
 import FButton from "../FButton";
 
@@ -42,7 +42,7 @@ export default {
   component: FActionBar
 } as Meta<PropsTypes>;
 
-const genContent = (h: CreateElement) => {
+const genCustomContent = (h: CreateElement) => {
   return [
     h(VFlex, { staticClass: "d-flex align-center" }, [
       h(VAvatar, { props: { size: "32" } }, [
@@ -62,7 +62,7 @@ const Template: Story<PropsTypes> = (args) => {
   return {
     components: { FActionBar },
     render(h: CreateElement) {
-      return h(FActionBar, { props: args }, genContent(h));
+      return h(FActionBar, { props: args }, genCustomContent(h));
     }
   };
 };
