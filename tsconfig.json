@@ -6,7 +6,7 @@
       "@foxone/uikit": ["./packages/uikit/src/index.ts"],
       "@foxone/uikit/*": ["./packages/uikit/src/*"]
     },
-    "types": ["vuetify"],
+    "types": ["vuetify", "node"],
     "skipLibCheck": true
   },
   "exclude": ["node_modules"]

@@ -1,7 +1,7 @@
 import "./FAppBar.scss";
 import { VAppBar, VBtn, VImg, VToolbarTitle } from "vuetify/lib";
 import { Component, Vue, Prop, Mixins } from "vue-property-decorator";
-import Themeable from "vuetify/src/mixins/themeable";
+import Themeable from "vuetify/lib/mixins/themeable";
 
 import lightIcon from "../../assets/images/top-nav-arrow-light.svg";
 import darkIcon from "../../assets/images/top-nav-arrow-dark.svg";
@@ -58,7 +58,7 @@ class FAppBar extends Mixins(Vue, Themeable) {
           width: 16,
           eager: true,
           aspectRatio: 0.3,
-          src: this.isDark ? darkIcon : lightIcon
+          src: (this as any).isDark ? darkIcon : lightIcon
         }
       })
     );

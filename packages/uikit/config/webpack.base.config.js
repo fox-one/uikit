@@ -77,6 +77,38 @@ exports.config = {
       {
         test: /\.scss$/,
         use: scssLoaders
+      },
+      {
+        exclude: [/node_modules/],
+        test: /\.(js|ts|tsx)$/,
+        use: [
+          {
+            loader: "babel-loader?retainLines=true",
+            options: {
+              plugins: [
+                ["@babel/plugin-proposal-class-properties", { loose: true }],
+                ["@babel/plugin-proposal-private-methods", { loose: true }]
+              ]
+            }
+          }
+        ]
+      },
+      {
+        loader: "ts-loader",
+        options: {
+          transpileOnly: true,
+          allowTsInNodeModules: true,
+          appendTsSuffixTo: [/.vue$/]
+        },
+        test: /\.tsx?$/
+      },
+      {
+        test: /\.(png|jpe?g|gif|svg|eot|ttf|woff|woff2)$/,
+        loader: "url-loader",
+        options: {
+          limit: 10000,
+          name: "img/[name].[hash:7].[ext]"
+        }
       }
     ]
   },
