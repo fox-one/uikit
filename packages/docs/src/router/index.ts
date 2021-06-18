@@ -8,7 +8,7 @@ const routes: Array<RouteConfig> = [
   layout({
     name: "Default",
     children: [route({ name: "Documentation" })],
-    path: ":category/:page/"
+    path: "/:category/:page/"
   })
 ];
 

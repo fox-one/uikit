@@ -35,3 +35,10 @@ export function route(opts: {
     pathToRegexpOptions: { strict }
   };
 }
+
+export function error(code = 404) {
+  return import(
+    /* webpackChunkName: "error-[request]" */
+    `@/views/errors/${code}.vue`
+  );
+}

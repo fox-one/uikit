@@ -5,7 +5,7 @@ __metadata:
   version: 4
   cacheKey: 7
 
-"@babel/cli@npm:^7.13.16":
+"@babel/cli@npm:^7.13.16, @babel/cli@npm:^7.14.5":
   version: 7.14.5
   resolution: "@babel/cli@npm:7.14.5"
   dependencies:
@@ -57,7 +57,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/core@npm:7.14.6, @babel/core@npm:^7.1.0, @babel/core@npm:^7.13.16, @babel/core@npm:^7.7.5":
+"@babel/core@npm:7.14.6, @babel/core@npm:^7.1.0, @babel/core@npm:^7.13.16, @babel/core@npm:^7.14.6, @babel/core@npm:^7.7.5":
   version: 7.14.6
   resolution: "@babel/core@npm:7.14.6"
   dependencies:
@@ -1554,6 +1554,9 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@foxone/uikit@workspace:packages/uikit"
   dependencies:
+    "@babel/cli": ^7.14.5
+    "@babel/core": ^7.14.6
+    "@foxone/dev": ^0.2.2
     "@mdi/js": ^5.4.55
     "@types/node": ^14.0.27
     autoprefixer: ^10.2.6
@@ -1578,6 +1581,7 @@ __metadata:
     qrcode: ^1.4.4
     sass: 1.26.11
     sass-loader: ^12.0.0
+    shelljs: ^0.8.4
     style-loader: ^2.0.0
     terser-webpack-plugin: ^5.1.3
     ts-loader: ^9.2.2
@@ -2505,7 +2509,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/webpack-env@npm:^1.15.2":
+"@types/webpack-env@npm:^1.15.2, @types/webpack-env@npm:^1.16.0":
   version: 1.16.0
   resolution: "@types/webpack-env@npm:1.16.0"
   checksum: eaf62fb65ba18737174a520a444bb7407e5a6f32581690c5a7a687e6f86e9d4ce336fd9e79989aafa19e5f390046ad54b9100cd3d70a43dcf0ab0161d30cd5bd
@@ -4892,7 +4896,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"chokidar@npm:>=2.0.0 <4.0.0, chokidar@npm:>=3.0.0 <4.0.0, chokidar@npm:^3.3.0, chokidar@npm:^3.4.0, chokidar@npm:^3.4.1, chokidar@npm:^3.4.2":
+"chokidar@npm:>=2.0.0 <4.0.0, chokidar@npm:^3.3.0, chokidar@npm:^3.4.0, chokidar@npm:^3.4.1, chokidar@npm:^3.4.2":
   version: 3.5.2
   resolution: "chokidar@npm:3.5.2"
   dependencies:
@@ -6625,12 +6629,13 @@ __metadata:
   dependencies:
     "@foxone/uikit": "workspace:packages/uikit"
     "@types/lodash": ^4.14.170
+    "@types/webpack-env": ^1.16.0
     "@vue/cli-plugin-router": ~4.5.0
     "@vue/cli-plugin-typescript": ~4.5.0
     "@vue/cli-plugin-vuex": ~4.5.0
     "@vue/cli-service": ~4.5.0
     lodash: ^4.17.21
-    sass: ^1.26.5
+    sass: 1.26.11
     sass-loader: ^8.0.2
     typescript: ~4.1.5
     vue: ^2.6.11
@@ -6639,6 +6644,7 @@ __metadata:
     vue-router: ^3.2.0
     vue-template-compiler: ^2.6.11
     vuetify: ^2.5.4
+    vuetify-loader: ^1.7.2
     vuex: ^3.4.0
   languageName: unknown
   linkType: soft
@@ -15669,17 +15675,6 @@ resolve@^2.0.0-next.3:
   bin:
     sass: sass.js
   checksum: edcc6127cdf8cc3640dc25f10e641daf5edf0ae853edaf87f948fbdf450743b500521cac77d7952cab87e0cba7b09c71912febde6974f821a1bc0f4905332a4a
-  languageName: node
-  linkType: hard
-
-"sass@npm:^1.26.5":
-  version: 1.35.1
-  resolution: "sass@npm:1.35.1"
-  dependencies:
-    chokidar: ">=3.0.0 <4.0.0"
-  bin:
-    sass: sass.js
-  checksum: ceeb2ebd09f8c058e71ce9b35b7dc0af8800ff2a87d52d9efe8d0f10e6649200065b7526f07326b52d6946c0d57997e13d96985fa826926edf8b1e31a839c000
   languageName: node
   linkType: hard
 

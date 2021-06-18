@@ -1,14 +1,25 @@
+const { VuetifyLoaderPlugin } = require("vuetify-loader");
+
 module.exports = {
   css: {
     loaderOptions: {
       sass: {
-        additionalData: "@import '@foxone/uikit/styles/variables.sass'"
+        prependData: "@import '@foxone/uikit/src/styles/variables.scss'"
       },
       scss: {
-        additionalData: "@import '@foxone/uikit/styles/variables.sass'"
+        prependData: "@import '@foxone/uikit/src/styles/variables.scss'"
       }
     }
   },
+  chainWebpack: (config) => {
+    config
+      .plugin("VuetifyLoaderPlugin")
+      .use(new VuetifyLoaderPlugin())
+      .tap(() => [
+        {
+          progressiveImages: true
+        }
+      ]);
+  },
   transpileDependencies: ["vuetify", "@foxone/uikit", "markdown-it-prism"]
-  // chainWebpack: (config) => {}
 };

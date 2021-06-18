@@ -3,9 +3,9 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": ["src/*"]
     },
-    "types": ["vuetify", "node"],
+    "types": ["vuetify", "node", "webpack-env"],
     "skipLibCheck": true
   },
   "include": ["src/**/*"],

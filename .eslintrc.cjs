@@ -2,10 +2,6 @@ const base = require("@foxone/dev/config/eslint.cjs");
 
 module.exports = {
   ...base,
-  globals: {
-    __VUETIFY_VERSION__: true,
-    __REQUIRED_VUE__: true
-  },
   ignorePatterns: [
     "**/*.html",
     ".eslintrc.cjs",

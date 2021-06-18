@@ -1,8 +1,11 @@
 import Vue from "vue";
-import UIkit, { useVuetify } from "@foxone/uikit";
+import Vuetify from "vuetify/lib";
+import UIKit from "@foxone/uikit";
+import "@foxone/uikit/build/index.css";
 
 export default function () {
-  Vue.use(UIkit);
+  Vue.use(Vuetify, { components: UIKit.preset.components });
+  Vue.use(UIKit);
 
-  return useVuetify();
+  return new Vuetify(UIKit.preset.options);
 }

@@ -1,3 +1,6 @@
 # Ignore everything in dev, use git add -f to add new files
 /dev/Playground.vue
-
+build
+lib
+es5
+lib-temp

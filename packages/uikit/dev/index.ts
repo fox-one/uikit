@@ -1,9 +1,11 @@
 import Vue from "vue";
 import App from "./App.vue";
 import router from "./router";
-import vuetify from "./uikit";
+import useUIKit from "./uikit";
 
 Vue.config.performance = true;
+
+const vuetify = useUIKit();
 
 const vm = new Vue({
   data: () => ({ isLoaded: document.readyState === "complete" }),

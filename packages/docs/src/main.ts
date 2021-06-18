@@ -1,5 +1,6 @@
 import Vue from "vue";
 import App from "./App.vue";
+
 import router from "./router";
 import store from "./store";
 import useUIKit from "./plugins/uikit";
@@ -11,6 +12,6 @@ const vuetify = useUIKit();
 new Vue({
   router,
   store,
-  vuetify: vuetify,
+  vuetify,
   render: (h) => h(App)
 }).$mount("#app");
