@@ -1,4 +1,9 @@
 const { VuetifyLoaderPlugin } = require("vuetify-loader");
+const path = require("path");
+
+function resolve(dir) {
+  return path.join(__dirname, dir);
+}
 
 module.exports = {
   css: {
@@ -12,6 +17,8 @@ module.exports = {
     }
   },
   chainWebpack: (config) => {
+    config.resolve.alias.set("@docs", resolve("src"));
+
     config
       .plugin("VuetifyLoaderPlugin")
       .use(new VuetifyLoaderPlugin())
@@ -20,6 +27,12 @@ module.exports = {
           progressiveImages: true
         }
       ]);
+
+    config.plugin("fork-ts-checker").tap((args) => {
+      args[0].tsconfig = "../../tsconfig.json";
+
+      return args;
+    });
   },
   transpileDependencies: ["vuetify", "@foxone/uikit", "markdown-it-prism"]
 };

@@ -19,6 +19,7 @@ module.exports = {
   rules: {
     ...base.rules,
     "sort-keys": "off",
-    "@typescript-eslint/restrict-plus-operands": "off"
+    "@typescript-eslint/restrict-plus-operands": "off",
+    "@typescript-eslint/ban-ts-comment": "off"
   }
 };

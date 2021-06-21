@@ -12,7 +12,7 @@ export function layout(opts: {
 
   return {
     children,
-    component: () => import(`@/layouts/${dir}/index.vue`),
+    component: () => import(`@docs/layouts/${dir}/index.vue`),
     path
   };
 }
@@ -29,7 +29,7 @@ export function route(opts: {
     component: () =>
       import(
         /* webpackChunkName: "views-[request]" */
-        `@/views/${name}`
+        `@docs/views/${name}`
       ),
     path,
     pathToRegexpOptions: { strict }
@@ -39,6 +39,6 @@ export function route(opts: {
 export function error(code = 404) {
   return import(
     /* webpackChunkName: "error-[request]" */
-    `@/views/errors/${code}.vue`
+    `@docs/views/errors/${code}.vue`
   );
 }

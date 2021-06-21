@@ -10,24 +10,25 @@
 
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
-import { error } from "@/utils/route";
+import { error } from "@docs/utils/route";
 
 import type { Route } from "vue-router";
 import type { Store } from "vuex";
 
-async function load(opts: { route: Route; store: Store<any> }) {
-  const { route, store } = opts;
-  const { category, page } = route;
+async function load(route: Route) {
+  const { category, page } = route.params;
   const context = await import(
     /* webpackChunkName: "documentation-[request]" */
     // @ts-ignore
-    "@/pages/index.ts"
+    "@docs/pages/index.ts"
   );
-  const path = `./${category}/${page}.vue`;
+  const path = `./${category}/${page}.md`;
 
   try {
     return context.default(path);
-  } catch (error) {
+  } catch (err) {
+    console.log(err);
+
     return {
       vue: {
         component: error()
@@ -38,8 +39,26 @@ async function load(opts: { route: Route; store: Store<any> }) {
 
 @Component
 class DocumentView extends Vue {
+  component = null;
+
+  static async asyncData(opts: { route: Route; store: Store<any> }) {
+    console.log("in async data", opts);
+
+    const { route } = opts;
+    const md = await load(route);
+
+    console.log("async data loaded", md);
+  }
+
   mounted() {
-    return this.$store;
+    console.log("mounted");
+  }
+
+  async created() {
+    console.log("created");
+    await DocumentView.asyncData({ route: this.$route, store: this.$store });
+
+    // this.init(this.md);
   }
 }
 export default DocumentView;

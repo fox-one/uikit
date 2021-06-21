@@ -8,6 +8,10 @@
 import { Component, Vue } from "vue-property-decorator";
 
 @Component
-class App extends Vue {}
+class App extends Vue {
+  mounted() {
+    console.log(this.$router, this.$route);
+  }
+}
 export default App;
 </script>

@@ -4,7 +4,8 @@
     "baseUrl": ".",
     "paths": {
       "@foxone/uikit": ["./packages/uikit/src/index.ts"],
-      "@foxone/uikit/*": ["./packages/uikit/src/*"]
+      "@foxone/uikit/*": ["./packages/uikit/src/*"],
+      "@docs/*": ["./packages/docs/src/*"]
     },
     "types": ["vuetify", "node", "webpack-env"],
     "skipLibCheck": true
