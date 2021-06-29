@@ -22,9 +22,9 @@
           <f-button type="primary" :disabled="disabledAll">Primary</f-button>
         </v-col>
         <v-col cols="12">
-          <f-button type="secondary" :disabled="disabledAll"
-            >Secondary</f-button
-          >
+          <f-button type="secondary" :disabled="disabledAll">
+            Secondary
+          </f-button>
         </v-col>
         <v-col cols="12">
           <f-button type="warning" :disabled="disabledAll">Warning</f-button>
@@ -40,9 +40,9 @@
     <f-panel>
       <v-row>
         <v-col cols="12">
-          <f-button type="primary" block
-            >I agree with that announcement</f-button
-          >
+          <f-button type="primary" block light color="primary">
+            I agree with that announcement
+          </f-button>
         </v-col>
         <v-col cols="12">
           <f-button type="primary" dark color="pink" block>Pink</f-button>

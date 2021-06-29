@@ -2,6 +2,7 @@ import "./FButton.scss";
 import { VBtn, VSpacer } from "vuetify/lib";
 import { Component, Vue, Prop } from "vue-property-decorator";
 import { VNode, CreateElement } from "vue";
+import tinycolor from "tinycolor2";
 
 const isSafari =
   navigator.userAgent.toUpperCase().includes("SAFARI") ||
@@ -22,23 +23,8 @@ class FButton extends Vue {
   @Prop({ type: Number, default: 56 }) padding!: number;
 
   oldDisabledValue = false;
-  render(h: CreateElement): VNode | null {
-    if (isSafari) {
-      const newDisabledVaule = Boolean(this.$attrs.disabled);
-      if (this.oldDisabledValue === true && newDisabledVaule === false) {
-        // workaround for safari
-        // console.log('got you, safari, you idiot')
-        setTimeout(() => {
-          const el = (this.$refs.btn as any).$el;
-          const contentEl = el.querySelector(".v-btn__content ");
-          const tmp = contentEl.style.display;
-          contentEl.style.display = "none";
-          contentEl.style.display = tmp || "inline";
-        }, 50);
-      }
-      this.oldDisabledValue = newDisabledVaule;
-    }
 
+  get props() {
     const props: any = {
       block: this.block,
       depressed: true,
@@ -64,13 +50,52 @@ class FButton extends Vue {
       props.color = this.color;
     }
 
+    return props;
+  }
+
+  get isLight() {
+    const color = (this.$vuetify as any).theme.currentTheme[this.props.color];
+    let isLight = false;
+
+    if (color) {
+      const luminance = tinycolor(color).getLuminance();
+      isLight = luminance > 0.6;
+    }
+
+    return isLight;
+  }
+
+  get classes() {
+    return [
+      "f-button",
+      `f-button-type-${this.type}`,
+      { block: this.block },
+      { "f-button--light": this.isLight },
+    ];
+  }
+
+  render(h: CreateElement): VNode | null {
+    if (isSafari) {
+      const newDisabledVaule = Boolean(this.$attrs.disabled);
+      if (this.oldDisabledValue === true && newDisabledVaule === false) {
+        // workaround for safari
+        // console.log('got you, safari, you idiot')
+        setTimeout(() => {
+          const el = (this.$refs.btn as any).$el;
+          const contentEl = el.querySelector(".v-btn__content ");
+          const tmp = contentEl.style.display;
+          contentEl.style.display = "none";
+          contentEl.style.display = tmp || "inline";
+        }, 50);
+      }
+      this.oldDisabledValue = newDisabledVaule;
+    }
+
     const data: any = {
       ...this.$attrs,
       ref: "btn",
-      staticClass: `f-button ${this.block ? "block" : ""} f-button-type-${
-        this.type
-      }`,
-      props,
+      class: this.classes,
+      props: this.props,
       on: {
         click: (e) => this.$emit("click", e),
         touchstart: (e) => this.$emit("touchstart", e),

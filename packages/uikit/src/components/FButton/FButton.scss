@@ -1,5 +1,6 @@
 @import "../mixin.scss";
 @import "../color.scss";
+@import "~vuetify/src/styles/styles.sass";
 
 .v-application {
   .f-button {
@@ -78,5 +79,17 @@
         background-color: rgba($color: #1ea0ff, $alpha: 0.2);
       }
     }
+  }
+}
+
+.v-btn:not(.v-btn--outlined).f-button--light {
+  &.primary,
+  &.secondary,
+  &.accent,
+  &.success,
+  &.error,
+  &.warning,
+  &.info {
+    color: map-deep-get($material-light, 'text', 'primary');
   }
 }

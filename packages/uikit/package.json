@@ -25,6 +25,7 @@
     "bignumber.js": "^9.0.0",
     "lodash": "^4.17.19",
     "qrcode": "^1.4.4",
+    "tinycolor2": "^1.4.2",
     "vue": "^2.6.11",
     "vue-class-component": "^7.2.5",
     "vue-property-decorator": "^9.0.0",

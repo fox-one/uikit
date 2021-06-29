@@ -31,6 +31,7 @@ export default function(store) {
       },
       themes: {
         light: {
+          // primary: "#000000",
           primary: "#1ea0ff",
           // legacy color names
           secondary: "#777777",
@@ -60,6 +61,7 @@ export default function(store) {
           red: "#F44C4C",
         },
         dark: {
+          // primary: "#ffffff",
           primary: "#4bb3ff",
           // legacy color names
           secondary: "#6F767C",
