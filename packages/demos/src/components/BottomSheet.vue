@@ -7,6 +7,7 @@
           :persistent="persistent"
           :adaptive="adaptive"
           :desktop-wapper="desktopWapper"
+          content-class="pepole"
           nudge-top="-10"
           max-width="600"
         >
@@ -201,3 +202,11 @@ class BottomSheet extends Vue {
 }
 export default BottomSheet;
 </script>
+
+<style lang="scss">
+.pepole {
+  .f-bottom-sheet__body {
+    padding-bottom: 20px !important;
+  }
+}
+</style>

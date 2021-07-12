@@ -24,6 +24,8 @@ class FBottomSheet extends Vue {
   @Prop({ default: false })
   adaptive!: boolean;
 
+  @Prop({ default: "" }) contentClass!: string;
+
   get isDesktop() {
     return this.$vuetify.breakpoint.mdAndUp;
   }
@@ -96,7 +98,7 @@ class FBottomSheet extends Vue {
   render(h: CreateElement): VNode {
     const activator = this.$scopedSlots.activator;
 
-    let attrs = {};
+    let attrs: any = {};
     if (this.wapper === VBottomSheet) {
       attrs = { maxWidth: "100%" };
     }
@@ -112,7 +114,7 @@ class FBottomSheet extends Vue {
         props: {
           value: this.value,
           scrollable: false,
-          "content-class": "f-bottom-sheet",
+          "content-class": `f-bottom-sheet ${this.contentClass}`,
         },
         on: {
           input: (val) => {
