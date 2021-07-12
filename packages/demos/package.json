@@ -1,13 +1,13 @@
 {
   "name": "@foxone/uikit-demos",
-  "version": "2.0.60",
+  "version": "2.0.61",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
-    "@foxone/uikit": "^2.0.60",
+    "@foxone/uikit": "^2.0.61",
     "core-js": "^3.6.5",
     "vconsole": "^3.5.1",
     "vue": "^2.6.11",
