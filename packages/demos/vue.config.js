@@ -1,11 +1,8 @@
 const { VuetifyLoaderPlugin } = require("vuetify-loader");
-const path = require("path");
-
-function resolve(dir) {
-  return path.join(__dirname, dir);
-}
 
 module.exports = {
+  publicPath: process.env.PUBLIC_PATH || "",
+
   css: {
     loaderOptions: {
       sass: {
@@ -18,8 +15,6 @@ module.exports = {
   },
 
   chainWebpack: (config) => {
-    config.resolve.alias.set("@docs", resolve("src"));
-
     config
       .plugin("VuetifyLoaderPlugin")
       .use(new VuetifyLoaderPlugin())
@@ -30,5 +25,5 @@ module.exports = {
       ]);
   },
 
-  transpileDependencies: ["vuetify", "@foxone/uikit", "markdown-it-prism"]
+  transpileDependencies: ["vuetify"]
 };
