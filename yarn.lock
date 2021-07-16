@@ -1931,7 +1931,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@mdi/js@npm:^5.4.55, @mdi/js@npm:^5.5.55":
+"@mdi/js@npm:^5.4.55, @mdi/js@npm:^5.5.55, @mdi/js@npm:^5.9.55":
   version: 5.9.55
   resolution: "@mdi/js@npm:5.9.55"
   checksum: e026acf4304675bd0892ee8306c1801144fb3ba7ba975ba786a48dfffa380122173d89b0893be0638d511a5e802e709507ab47030ff0fdb6902c275224433489
@@ -17934,6 +17934,7 @@ resolve@^2.0.0-next.3:
   resolution: "uikit@workspace:."
   dependencies:
     "@foxone/dev": ^0.2.2
+    "@mdi/js": ^5.9.55
   languageName: unknown
   linkType: soft
 

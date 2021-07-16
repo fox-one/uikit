@@ -12,7 +12,7 @@ module.exports = {
         prependData: "@import '@foxone/uikit/src/styles/variables.scss'"
       },
       scss: {
-        prependData: "@import '@foxone/uikit/src/styles/variables.scss'"
+        prependData: "@import '@foxone/uikit/src/styles/variables.scss';"
       }
     }
   },

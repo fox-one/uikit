@@ -1,15 +1,6 @@
 $font-size-root: 16px;
 
 $material-dark: (
-  "background": #0e0e0e,
-  "greyscale": (
-    "greyscale-1": #ffffff,
-    "greyscale-2": #d2d3d3,
-    "greyscale-3": #9b9c9d,
-    "greyscale-4": #636466,
-    "greyscale-5": #36383b,
-    "greyscale-6": #191919
-  ),
   // v-switch
   "selection-controls":
     (
@@ -27,15 +18,6 @@ $material-dark: (
 );
 
 $material-light: (
-  "background": #f8f8f8,
-  "greyscale": (
-    "greyscale-1": #000000,
-    "greyscale-2": #333333,
-    "greyscale-3": #666666,
-    "greyscale-4": #cccccc,
-    "greyscale-5": #ebebeb,
-    "greyscale-6": #f5f5f5
-  ),
   // v-switch
   "selection-controls":
     (

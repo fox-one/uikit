@@ -1,68 +1,68 @@
-@import "../../styles/tools/index";
+// @import "../../styles/tools/index";
 
-.f-info-grid-item {
-  .f-info-grid-item-title {
-    @include f-text-n(12px);
-    @include f-weight-r();
-  }
-  .f-info-grid-item-value-wrapper {
-    vertical-align: baseline;
-    align-items: baseline;
-    .f-info-grid-item-value {
-      @include f-text-n(14px);
-      @include f-weight-sb();
-    }
-    .f-info-grid-item-value-unit {
-      margin-left: 2px;
-      @include f-text-n(12px);
-      @include f-weight-m();
-    }
-  }
-}
+// .f-info-grid-item {
+//   .f-info-grid-item-title {
+//     @include f-text-n(12px);
+//     @include f-weight-r();
+//   }
+//   .f-info-grid-item-value-wrapper {
+//     vertical-align: baseline;
+//     align-items: baseline;
+//     .f-info-grid-item-value {
+//       @include f-text-n(14px);
+//       @include f-weight-sb();
+//     }
+//     .f-info-grid-item-value-unit {
+//       margin-left: 2px;
+//       @include f-text-n(12px);
+//       @include f-weight-m();
+//     }
+//   }
+// }
 
-.theme--light.v-application {
-  .f-info-grid-item {
-    border-left: 1px solid f-color("light", greyscale_6);
-  }
-}
+// .theme--light.v-application {
+//   .f-info-grid-item {
+//     border-left: 1px solid f-color("light", greyscale_6);
+//   }
+// }
 
-.theme--dark.v-application {
-  .f-info-grid-item {
-    border-left: 1px solid f-color("dark", greyscale_6);
-  }
-}
+// .theme--dark.v-application {
+//   .f-info-grid-item {
+//     border-left: 1px solid f-color("dark", greyscale_6);
+//   }
+// }
 
-/* Extra small devices (phones, 600px and down) */
-@media only screen and (max-width: 600px) {
-  .f-info-grid-item {
-    width: 50vw;
-  }
-}
+// /* Extra small devices (phones, 600px and down) */
+// @media only screen and (max-width: 600px) {
+//   .f-info-grid-item {
+//     width: 50vw;
+//   }
+// }
 
-/* Small devices (portrait tablets and large phones, 600px and up) */
-@media only screen and (min-width: 600px) {
-  .f-info-grid-item {
-    width: 50vw;
-  }
-}
+// /* Small devices (portrait tablets and large phones, 600px and up) */
+// @media only screen and (min-width: 600px) {
+//   .f-info-grid-item {
+//     width: 50vw;
+//   }
+// }
 
-/* Medium devices (landscape tablets, 768px and up) */
-@media only screen and (min-width: 768px) {
-  .f-info-grid-item {
-    width: 30vw;
-  }
-}
+// /* Medium devices (landscape tablets, 768px and up) */
+// @media only screen and (min-width: 768px) {
+//   .f-info-grid-item {
+//     width: 30vw;
+//   }
+// }
 
-/* Large devices (laptops/desktops, 992px and up) */
-@media only screen and (min-width: 992px) {
-  .f-info-grid-item {
-    width: 30vw;
-  }
-}
+// /* Large devices (laptops/desktops, 992px and up) */
+// @media only screen and (min-width: 992px) {
+//   .f-info-grid-item {
+//     width: 30vw;
+//   }
+// }
 
-/* Extra large devices (large laptops and desktops, 1200px and up) */
-@media only screen and (min-width: 1200px) {
-  .f-info-grid-item {
-    width: 25vw;
-  }
-}
+// /* Extra large devices (large laptops and desktops, 1200px and up) */
+// @media only screen and (min-width: 1200px) {
+//   .f-info-grid-item {
+//     width: 25vw;
+//   }
+// }

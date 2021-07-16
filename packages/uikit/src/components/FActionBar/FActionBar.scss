@@ -1,47 +1,47 @@
-@import "~vuetify/src/styles/styles.sass";
+// @import "~vuetify/src/styles/styles.sass";
 
-.f-actionbar {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
+// .f-actionbar {
+//   display: flex;
+//   justify-content: space-around;
+//   align-items: center;
 
-  &.f-actionbar--fixed {
-    padding-bottom: constant(safe-area-inset-bottom) !important;
-    padding-bottom: env(safe-area-inset-bottom) !important;
-    height: calc(64px + constant(safe-area-inset-bottom)) !important;
-    height: calc(64px + env(safe-area-inset-bottom)) !important;
+//   &.f-actionbar--fixed {
+//     padding-bottom: constant(safe-area-inset-bottom) !important;
+//     padding-bottom: env(safe-area-inset-bottom) !important;
+//     height: calc(64px + constant(safe-area-inset-bottom)) !important;
+//     height: calc(64px + env(safe-area-inset-bottom)) !important;
 
-    position: fixed;
-    bottom: 0px;
-    left: 0px;
-    right: 0px;
-  }
+//     position: fixed;
+//     bottom: 0px;
+//     left: 0px;
+//     right: 0px;
+//   }
 
-  &__action {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
+//   &__action {
+//     display: flex;
+//     flex-direction: column;
+//     justify-content: center;
+//     align-items: center;
+//   }
 
-  &__label {
-    font-weight: normal;
-  }
-}
+//   &__label {
+//     font-weight: normal;
+//   }
+// }
 
-@include theme(f-actionbar) using ($material) {
-  .f-actionbar__label {
-    color: map-deep-get($material, "greyscale", "greyscale-3");
-  }
-}
+// @include theme(f-actionbar) using ($material) {
+//   .f-actionbar__label {
+//     color: map-deep-get($material, "greyscale", "greyscale-3");
+//   }
+// }
 
-.theme--light.v-application {
-  .f-actionbar-button-label {
-    color: f-color(light, greyscale_3);
-  }
-}
-.theme--dark.v-application {
-  .f-actionbar-button-label {
-    color: f-color(dark, greyscale_3);
-  }
-}
+// .theme--light.v-application {
+//   .f-actionbar-button-label {
+//     color: f-color(light, greyscale_3);
+//   }
+// }
+// .theme--dark.v-application {
+//   .f-actionbar-button-label {
+//     color: f-color(dark, greyscale_3);
+//   }
+// }
