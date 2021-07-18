@@ -1,0 +1,28 @@
+$light-colors: (
+  greyscale_1: #000000,
+  greyscale_2: #494949,
+  greyscale_3: #808080,
+  greyscale_4: #CCCCCC,
+  greyscale_5: #EBEBEB,
+  greyscale_6: #F5F5F5,
+  greyscale_7: #FFFFFF
+);
+
+$material-light: (
+  "buttons": (
+    "disabled": map-get($light-colors, "greyscale_7"),
+    "focused": map-get($light-colors, "greyscale_5")
+  ),
+  "selection-controls": (
+    "thumb": (
+      "active": #ffffff,
+      "inactive": #ffffff,
+      "disabled": #ffffff
+    ),
+    "track": (
+      "active": #000000,
+      "inactive": #cccccc,
+      "disabled": #ebebeb
+    )
+  )
+);

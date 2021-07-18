@@ -1,80 +1,50 @@
 import "./FButton.scss";
-import { VBtn, VSpacer } from "vuetify/lib";
-import { Component, Vue, Prop } from "vue-property-decorator";
-import { VNode, CreateElement } from "vue";
+
+import { VBtn, VProgressCircular } from "vuetify/lib";
+import { Component, Prop, Mixins } from "vue-property-decorator";
+
+import type { VNode } from "vue";
 
 @Component
-class FButton extends Vue {
-  @Prop({ type: Boolean, default: false }) customContent!: boolean;
+class FButton extends Mixins(VBtn) {
+  @Prop({ type: Boolean, default: true })
+  rounded!: boolean;
 
-  @Prop({ type: Boolean, default: false }) block!: boolean;
+  @Prop({ type: Boolean, default: false })
+  ripple!: boolean;
 
-  @Prop({ type: String, default: "Action" }) label!: string;
+  declare fab: boolean;
 
-  @Prop({ type: String, default: "primary" }) type!: string;
+  declare elevation: string | number;
 
-  @Prop({ type: String, default: "" }) color!: string;
-
-  @Prop({ type: Number, default: 56 }) padding!: number;
-
-  render(h: CreateElement): VNode | null {
-    const props: any = {
-      block: this.block,
-      depressed: true,
-      rounded: true,
-      ripple: false,
-      ...this.$attrs
+  get classes() {
+    return {
+      "f-btn": true,
+      ...VBtn.options.computed.classes.call(this)
     };
+  }
 
-    if (this.type === "primary") {
-      props.color = "primary";
-    } else if (this.type === "secondary") {
-      props.color = "primary";
-      props.outlined = true;
-    } else if (this.type === "warning") {
-      props.color = "error";
-    } else if (this.type === "subtitle") {
-      props.color = "greyscale_2";
-      props.outlined = true;
-    } else {
-      props.color = "primary";
-      props.text = true;
-    }
+  get isElevated() {
+    return this.fab || this.elevation;
+  }
 
-    if (this.color) {
-      props.color = this.color;
-    }
-
-    const data: any = {
-      ...this.$attrs,
-      staticClass: `f-button ${this.block ? "block" : ""} f-button-type-${
-        this.type
-      }`,
-      props,
-      on: {
-        click: (e) => this.$emit("click", e),
-        touchstart: (e) => this.$emit("touchstart", e)
-      }
-    };
-
-    if (this.padding !== 56) {
-      data.staticStyle = {
-        paddingLeft: this.padding,
-        paddingRight: this.padding
-      };
-    }
-
-    let barContent: any = [];
-
-    barContent = barContent.concat([
-      h(VSpacer),
-      this.$slots.default,
-      h(VSpacer)
-    ]);
-
-    return h(VBtn, data, barContent);
+  genLoader(): VNode {
+    return this.$createElement(
+      "span",
+      {
+        class: "v-btn__loader"
+      },
+      this.$slots.loader || [
+        this.$createElement(VProgressCircular, {
+          props: {
+            indeterminate: true,
+            size: 16,
+            width: 2
+          }
+        })
+      ]
+    );
   }
 }
 
 export default FButton;
-export { FButton };

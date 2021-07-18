@@ -3,13 +3,17 @@ const { VuetifyLoaderPlugin } = require("vuetify-loader");
 module.exports = {
   publicPath: process.env.PUBLIC_PATH || "",
 
+  devServer: {
+    port: 8083
+  },
+
   css: {
     loaderOptions: {
       sass: {
-        prependData: "@import '@foxone/uikit/src/styles/variables.scss'"
+        prependData: "@import '@/styles/variables.scss'"
       },
       scss: {
-        prependData: "@import '@foxone/uikit/src/styles/variables.scss';"
+        prependData: "@import '@/styles/variables.scss';"
       }
     }
   },

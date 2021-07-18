@@ -1,5 +1,17 @@
 <template>
   <v-app>
+    <div>
+      <v-app-bar>
+        Playground
+        <v-spacer />
+        <v-btn icon small class="mr-0" @click="toggleThemeMode">
+          <v-icon>
+            {{ icons.mdiBrightness4 }}
+          </v-icon>
+        </v-btn>
+      </v-app-bar>
+    </div>
+
     <v-main>
       <playground></playground>
     </v-main>
@@ -9,12 +21,23 @@
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
 import Playground from "./Playground.vue";
+import { mdiBrightness4 } from "@mdi/js";
 
 @Component({
   components: {
     Playground
   }
 })
-class App extends Vue {}
+class App extends Vue {
+  icons = {
+    mdiBrightness4
+  };
+
+  toggleThemeMode() {
+    const value = !(this as any).$vuetify.theme.dark;
+
+    (this as any).$vuetify.theme.dark = value;
+  }
+}
 export default App;
 </script>

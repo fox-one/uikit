@@ -6,7 +6,11 @@ module.exports = {
   ignorePatterns: [
     "**/*.html",
     ".eslintrc.cjs",
+    ".github/**",
+    ".vscode/**",
+    ".yarn/**",
     "**/build/*",
+    "**/coverage/*",
     "**/node_modules/*"
   ],
   parserOptions: {
@@ -15,8 +19,7 @@ module.exports = {
   },
   rules: {
     ...base.rules,
-    "sort-keys": "off",
-    "vue/component-definition-name-casing": "off",
-    "vue/require-default-prop": "off"
+    "@typescript-eslint/restrict-plus-operands": "off",
+    "@typescript-eslint/ban-ts-comment": "off"
   }
 };

@@ -35,7 +35,7 @@ const sassLoaders = [
       sassOptions: {
         indentedSyntax: true
       },
-      additionalData: "@import '@foxone/uikit/styles/variables.scss'"
+      additionalData: "@import '@foxone/uikit/styles/variables/_index.scss'"
     }
   }
 ];
@@ -49,7 +49,7 @@ const scssLoaders = [
       sassOptions: {
         indentedSyntax: false
       },
-      additionalData: "@import '@foxone/uikit/styles/variables.scss';"
+      additionalData: "@import '@foxone/uikit/styles/variables/_index.scss';"
     }
   }
 ];

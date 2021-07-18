@@ -9,10 +9,10 @@ module.exports = {
   css: {
     loaderOptions: {
       sass: {
-        prependData: "@import '@foxone/uikit/src/styles/variables.scss'"
+        prependData: "@import '@/styles/variables.scss'"
       },
       scss: {
-        prependData: "@import '@foxone/uikit/src/styles/variables.scss';"
+        prependData: "@import '@/styles/variables.scss';"
       }
     }
   },

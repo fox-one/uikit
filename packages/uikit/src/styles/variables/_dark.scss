@@ -1,0 +1,28 @@
+$dark-colors: (
+  greyscale_1: #ffffff,
+  greyscale_2: #d8d8d8,
+  greyscale_3: #9f9f9f,
+  greyscale_4: #656565,
+  greyscale_5: #3c3c3c,
+  greyscale_6: #191919,
+  greyscale_7: #000000
+);
+
+$material-dark: (
+  "buttons": (
+    "disabled": map-get($dark-colors, "greyscale_7"),
+    "focused": map-get($dark-colors, "greyscale_5")
+  ),
+  "selection-controls": (
+    "thumb": (
+      "active": #000000,
+      "inactive": #000000,
+      "disabled": #010101
+    ),
+    "track": (
+      "active": #ffffff,
+      "inactive": #636466,
+      "disabled": #36383b
+    )
+  )
+);

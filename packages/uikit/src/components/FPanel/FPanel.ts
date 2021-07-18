@@ -1,17 +1,40 @@
 import "./FPanel.scss";
 
 import { VSheet } from "vuetify/lib";
-import { Component } from "vue-property-decorator";
+import Roundedable from "vuetify/lib/mixins/roundable";
+import Spacedable from "../../mixins/spacedable";
+
+import { PropType } from "vue";
+import { Component, Prop, Mixins } from "vue-property-decorator";
+
+export type NumberOrNumberString = PropType<string | number | undefined>;
 
 @Component({
   inheritAttrs: false
 })
-class FPanel extends VSheet {
+class FPanel extends Mixins(VSheet, Spacedable, Roundedable) {
   name = "FPanel";
 
-  classes() {
+  @Prop({ type: [String, Number], default: 2 })
+  elevation!: string | number;
+
+  @Prop({ type: [String, Boolean], default: true })
+  declare rounded: string | boolean;
+
+  @Prop({ type: [String, Number], default: 16 })
+  declare padding: string | number;
+
+  get classes() {
     return {
-      ...VSheet.options.computed.classes.call(this)
+      ...VSheet.options.computed.classes.call(this),
+      ...Roundedable.options.computed.roundedClasses.call(this)
+    };
+  }
+
+  get styles() {
+    return {
+      ...VSheet.options.computed.styles.call(this),
+      ...Spacedable.options.computed.spacedstyles.get.call(this)
     };
   }
 }

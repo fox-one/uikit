@@ -8,12 +8,12 @@ const routes: Array<RouteConfig> = [
     path: "/",
     name: "index",
     component: () => import("@/views/index.vue")
+  },
+  {
+    path: "/components/:component",
+    name: "page-component",
+    component: () => import("@/views/_components.vue")
   }
-  // {
-  //   path: "/components/:component",
-  //   name: "page-component",
-  //   component: () => import("@/views/_components.vue")
-  // }
 ];
 
 const router = new VueRouter({
