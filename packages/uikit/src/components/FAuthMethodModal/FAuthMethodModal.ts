@@ -22,11 +22,12 @@ class FAuthMethodModal extends Vue {
       logo: require("../../assets/images/wallet_fennec.png"),
       cb: () => {
         this.$emit("auth", "fennec");
-      },
+      }
     };
 
     if (!this.fennecAvaliable) {
       fennec.title = "Install Fennec";
+
       fennec.cb = () => {
         window.location.href = "https://github.com/fox-one/fennec";
       };
@@ -38,7 +39,7 @@ class FAuthMethodModal extends Vue {
       logo: require("../../assets/images/wallet_mm.png"),
       cb: () => {
         this.$emit("auth", "mixin");
-      },
+      }
     };
 
     if (this.useLinks) {
@@ -48,7 +49,7 @@ class FAuthMethodModal extends Vue {
         logo: require("../../assets/images/wallet_links.png"),
         cb: () => {
           this.$emit("auth", "links");
-        },
+        }
       };
     }
 
@@ -61,13 +62,13 @@ class FAuthMethodModal extends Vue {
     logo: string;
     cb: Function;
   }) {
-    const { title, subtitle, logo, cb } = wallet;
+    const { cb, logo, subtitle, title } = wallet;
     const h = this.$createElement;
 
     return h(
       FListItem,
       { props: { title, subtitle }, on: { click: () => cb() } },
-      [h(VAvatar, { slot: "head" }, [h(VImg, { props: { src: logo } })])],
+      [h(VAvatar, { slot: "head" }, [h(VImg, { props: { src: logo } })])]
     );
   }
 
@@ -78,20 +79,20 @@ class FAuthMethodModal extends Vue {
         props: {
           value: this.show,
           adaptive: true,
-          desktopWapper: "dialog",
+          desktopWapper: "dialog"
         },
         attrs: {
           maxWidth: 600,
-          ...this.$attrs,
+          ...this.$attrs
         },
-        on: { change: (v) => this.$emit("change", v) },
+        on: { change: (v) => this.$emit("change", v) }
       },
       [
         h("div", { slot: "title" }, this.title),
         h("div", { staticClass: "wallets" }, [
-          this.wallets.map((x) => this.genWalletItem(x)),
-        ]),
-      ],
+          this.wallets.map((x) => this.genWalletItem(x))
+        ])
+      ]
     );
   }
 }

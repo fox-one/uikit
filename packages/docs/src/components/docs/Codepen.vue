@@ -10,9 +10,6 @@
 </template>
 
 <script>
-// Utilities
-import { get } from "vuex-pathify";
-
 export default {
   name: "Codepen",
 
@@ -27,7 +24,7 @@ export default {
     }
   },
 
-  data: (vm) => ({}),
+  data: () => ({}),
 
   computed: {
     additionalResources() {

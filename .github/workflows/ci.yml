@@ -13,6 +13,14 @@ jobs:
         with:
           token: ${{ secrets.GH_PAT }}
 
+      - uses: actions/cache@v2
+        with:
+          path: |
+            .yarn/cache
+            node_modules
+            **/node_modules
+          key: ${{ runner.os }}-${{ hashFiles('./yarn.lock') }}
+
       - name: Build Release
         env:
           GH_PAT: ${{  secrets.GH_PAT }}

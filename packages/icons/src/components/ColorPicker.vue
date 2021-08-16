@@ -1,7 +1,7 @@
 <template>
   <v-menu :close-on-content-click="false">
     <template #activator="{ on }">
-      <v-chip class="picker" v-on="on" :color="color" dark>
+      <v-chip class="picker" :color="color" dark v-on="on">
         <span class="color"></span>
         {{ bindColor }}
       </v-chip>

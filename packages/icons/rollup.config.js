@@ -45,7 +45,7 @@ export default {
       // A self-executing function, suitable for inclusion as a <script> tag.
       // (If you want to create a bundle for your application, you probably want to use this.)
       name,
-      file: `build/index.min.js`,
+      file: "build/index.min.js",
       format: "iife",
       sourcemap: true,
       plugins: [terser()],

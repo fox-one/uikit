@@ -19,7 +19,7 @@ export default {
     }
   },
 
-  render(h, { children: nodes = [], data, props, slots }) {
+  render(h, { children: nodes = [], data, props }) {
     const children = [];
     const node = nodes[0] || {};
 

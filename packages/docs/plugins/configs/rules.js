@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 function addCodeRules(md) {
   const fence = md.renderer.rules.fence;
 

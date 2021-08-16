@@ -64,48 +64,42 @@
 <script lang="ts">
 import { Component, Vue, Prop } from "vue-property-decorator";
 /* import types */
-import type { CreateElement, VNode } from 'vue';
+import type { CreateElement, VNode } from "vue";
 
 @Component
 class ScopedBottomSheet extends Vue {
   @Prop() filter;
   @Prop() search;
 
-  render (h: CreateElement): VNode {
-    return h(
-      'f-bottom-sheet',
-      {
-        scopedSlots: {
-          activator: ({ on }) => {
-            return h(
-              'f-button',
-              {
-                props: {
-                  type: 'subtitle',
-                  block: true,
-                },
-                on
+  render(h: CreateElement): VNode {
+    return h("f-bottom-sheet", {
+      scopedSlots: {
+        activator: ({ on }) => {
+          return h(
+            "f-button",
+            {
+              props: {
+                type: "subtitle",
+                block: true
               },
-              'Show with Scoped Slot'
-            )
-          },
-          title: () => {
-            return '选择一个人物'
-          },
-          subheader: () => {
-            return h(
-              'f-input',
-              {
-                props: {
-                  value: this.filter,
-                  label: this.search
-                }
-              }
-            )
-          }
+              on
+            },
+            "Show with Scoped Slot"
+          );
+        },
+        title: () => {
+          return "选择一个人物";
+        },
+        subheader: () => {
+          return h("f-input", {
+            props: {
+              value: this.filter,
+              label: this.search
+            }
+          });
         }
       }
-    );
+    });
   }
 }
 
