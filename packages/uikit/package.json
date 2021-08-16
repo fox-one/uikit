@@ -1,12 +1,13 @@
 {
   "name": "@foxone/uikit",
   "version": "3.0.1-0",
-  "main": "./build/index.js",
+  "main": "./build/index.min.js",
   "types": "./types/index.d.ts",
   "scripts": {
     "dev": "cross-env NODE_ENV=development webpack serve --open --config configs/webpack.config.serve.js --hot",
-    "watch": "cross-env TARGET=development webpack --config configs/webpack.config.development.js --progress --watch",
     "build": "rimraf build && cross-env NODE_ENV=production webpack --config configs/webpack.config.production.js --progress",
+    "build:dev": "cross-env TARGET=development webpack --config configs/webpack.config.development.js --progress",
+    "watch": "yarn build:dev --watch",
     "format": "prettier --write src"
   },
   "files": [

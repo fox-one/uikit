@@ -1,6 +1,6 @@
 import Vue from "vue";
 import Vuetify from "vuetify/lib";
-import UIKit from "@foxone/uikit";
+import UIKit from "@foxone/uikit/build/index.js";
 import { mdiBrightness4 } from "@mdi/js";
 
 import "@foxone/uikit/build/index.css";
