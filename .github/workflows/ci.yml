@@ -1,4 +1,4 @@
-name: Push Next
+name: Push Main
 on:
   push:
     branches:
