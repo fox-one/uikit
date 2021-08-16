@@ -2,7 +2,7 @@ name: Push Next
 on:
   push:
     branches:
-      - next
+      - main
 
 jobs:
   build-deploy:
