@@ -1,6 +1,6 @@
 {
   "name": "@foxone/icons",
-  "version": "3.0.1-4",
+  "version": "3.0.1-5",
   "main": "./build/index.umd.js",
   "module": "./build/index.esm.js",
   "unpkg": "./build/index.min.js",
@@ -17,7 +17,7 @@
     "build"
   ],
   "dependencies": {
-    "@foxone/uikit": "3.0.1-4",
+    "@foxone/uikit": "3.0.1-5",
     "vue": "^2.6.11",
     "vue-class-component": "^7.2.3",
     "vue-property-decorator": "^9.1.2",
