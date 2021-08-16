@@ -12,92 +12,88 @@
   </div>
 </template>
 
-<script lang="ts">
-import { Component, Vue, Prop } from "vue-property-decorator";
+<script>
 import { capitalize } from "lodash";
 
-@Component
-class ColorPalette extends Vue {
-  @Prop() type;
+export default {
+  name: "ColorPalette",
 
-  light = this.$vuetify.theme.themes.light;
+  props: { type: String },
 
-  dark = this.$vuetify.theme.themes.dark;
+  data: () => {
+    return {};
+  },
 
-  get colors() {
-    if (this.type === "greyscales") {
-      return this.greyscales;
-    } else if (this.type === "themes") {
-      return this.themes;
-    } else {
-      return this.specials;
+  computed: {
+    light() {
+      return this.$vuetify.theme.themes.light;
+    },
+    dark() {
+      return this.$vuetify.theme.themes.dark;
+    },
+    colors() {
+      if (this.type === "greyscales") {
+        return this.greyscales;
+      } else if (this.type === "themes") {
+        return this.themes;
+      } else {
+        return this.specials;
+      }
+    },
+    greyscales() {
+      const { dark, light } = this;
+      const colors = [];
+
+      for (let i = 1; i <= 7; i++) {
+        colors.push({
+          text: `Greyscale / ${i} / Light`,
+          value: light[`greyscale_${i}`],
+          textColor: i <= 3 ? light.greyscale_7 : light.greyscale_1
+        });
+
+        colors.push({
+          text: `Greyscale / ${i} / Dark`,
+          value: dark[`greyscale_${i}`],
+          textColor: i <= 3 ? dark.greyscale_7 : dark.greyscale_1
+        });
+      }
+
+      return colors;
+    },
+    themes() {
+      const items = ["pink", "blue", "orange", "bright_green", "green"];
+
+      return this.getColors(items);
+    },
+    specials() {
+      const items = ["error", "warning", "success", "info"];
+
+      return this.getColors(items);
+    }
+  },
+
+  methods: {
+    getColors(items) {
+      const { dark, light } = this;
+      const colors = [];
+
+      for (const item of items) {
+        colors.push({
+          text: `Theme / ${capitalize(item)} / Light`,
+          value: light[item],
+          textColor: light.greyscale_7
+        });
+        colors.push({
+          text: `Theme / ${capitalize(item)} / Dark`,
+          value: dark[item],
+          textColor: light.greyscale_7
+        });
+      }
+
+      return colors;
     }
   }
-
-  get greyscales() {
-    const { dark, light } = this;
-    const colors: any[] = [];
-
-    for (let i = 1; i <= 7; i++) {
-      colors.push({
-        text: `Greyscale / ${i} / Light`,
-        value: light[`greyscale_${i}`],
-        textColor: i <= 3 ? light.greyscale_7 : light.greyscale_1
-      });
-
-      colors.push({
-        text: `Greyscale / ${i} / Dark`,
-        value: dark[`greyscale_${i}`],
-        textColor: i <= 3 ? dark.greyscale_7 : dark.greyscale_1
-      });
-    }
-
-    return colors;
-  }
-
-  get themes() {
-    const { dark, light } = this;
-    const items = ["pink", "blue", "orange", "bright_green", "green"];
-    const colors: any[] = [];
-
-    for (const item of items) {
-      colors.push({
-        text: `Theme / ${capitalize(item)} / Light`,
-        value: light[item],
-        textColor: light.greyscale_7
-      });
-      colors.push({
-        text: `Theme / ${capitalize(item)} / Dark`,
-        value: dark[item],
-        textColor: light.greyscale_7
-      });
-    }
-
-    return colors;
-  }
-
-  get specials() {
-    const { dark, light } = this;
-    const items = ["error", "warning", "success", "info"];
-    const colors: any[] = [];
-
-    for (const item of items) {
-      colors.push({
-        text: `Theme / ${capitalize(item)} / Light`,
-        value: light[item],
-        textColor: light.greyscale_7
-      });
-      colors.push({
-        text: `Theme / ${capitalize(item)} / Dark`,
-        value: dark[item],
-        textColor: light.greyscale_7
-      });
-    }
-
-    return colors;
-  }
-}
-export default ColorPalette;
+};
 </script>
 
 <style lang="scss" scoped>

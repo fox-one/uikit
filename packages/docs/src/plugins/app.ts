@@ -12,6 +12,8 @@ export function registerComponents(app) {
   for (const file of requireComponent.keys()) {
     const componentConfig = requireComponent(file);
 
+    console.log(file);
+
     app.component(
       componentConfig.default.name,
       componentConfig.default || componentConfig

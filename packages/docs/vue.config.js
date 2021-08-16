@@ -6,7 +6,7 @@ function resolve(dir) {
 }
 
 module.exports = {
-  publicPath: process.env.NODE_ENV === "production" ? "/next/" : "/",
+  publicPath: process.env.NODE_ENV === "production" ? "/uikit/next/" : "/",
   css: {
     loaderOptions: {
       sass: {

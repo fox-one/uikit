@@ -11,11 +11,15 @@ const routes: Array<RouteConfig> = [
       children: [route({ name: "Documentation" })],
       path: ":category/:page/"
     })
-  ])
+  ]),
+  {
+    path: "*",
+    redirect: "/en/styles/color"
+  }
 ];
 
 const router = new VueRouter({
-  mode: "history",
+  mode: "hash",
   base: process.env.BASE_URL,
   routes
 });

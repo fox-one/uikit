@@ -6,7 +6,7 @@ export default {
   methods: {
     async importTemplate() {
       try {
-        const file = "grid/rows";
+        const file = (this as any).file;
         const template = await import(
           /* webpackChunkName: "examples-source" */
           /* webpackMode: "lazy-once" */
