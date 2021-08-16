@@ -35,7 +35,7 @@ jobs:
         run: |
           cd packages/uikit && yarn build:dev
           cd ../docs && yarn build
-          cp packages/docs/dist/index.html packages/docs/dist/404.html
+          cp dist/index.html dist/404.html
 
       - name: Deploy with gh-pages
         run: |
