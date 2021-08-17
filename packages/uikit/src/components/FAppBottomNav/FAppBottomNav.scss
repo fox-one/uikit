@@ -12,3 +12,15 @@
 .v-item-group.v-bottom-navigation.f-bottom-navigation {
   justify-content: space-around;
 }
+
+.f-bottom-navigation {
+  .v-btn {
+    &::before {
+      content: none;
+    }
+  }
+
+  .v-ripple__container {
+    display: none;
+  }
+}
