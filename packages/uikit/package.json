@@ -12,7 +12,8 @@
   },
   "files": [
     "build",
-    "types"
+    "types",
+    "src"
   ],
   "dependencies": {
     "@foxone/icons": "3.0.1-10",
