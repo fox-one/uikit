@@ -18,6 +18,6 @@
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
 
-@Component({ name: "FIconQuestionFill" })
-export default class FIconQuestionFill extends Vue {}
+@Component({ name: "FIconInformationFill" })
+export default class FIconInformationFill extends Vue {}
 </script>

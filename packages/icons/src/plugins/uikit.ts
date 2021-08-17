@@ -16,7 +16,7 @@ requireComponent.keys().map((filename) => {
   Vue.component(componentName, component);
 });
 
-preset.icons.values = { ...preset.icons.values, ...addtionalIcons };
+preset.icons!.values = { ...preset.icons!.values, ...addtionalIcons };
 
 export default function () {
   Vue.use(Vuetify);
