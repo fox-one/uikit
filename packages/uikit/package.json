@@ -11,7 +11,8 @@
     "format": "prettier --write src"
   },
   "files": [
-    "build"
+    "build",
+    "types"
   ],
   "dependencies": {
     "@foxone/icons": "3.0.1-8",

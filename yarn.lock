@@ -1625,9 +1625,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@foxone/dev@npm:^0.2.8":
-  version: 0.2.8
-  resolution: "@foxone/dev@npm:0.2.8"
+"@foxone/dev@npm:^0.2.9":
+  version: 0.2.9
+  resolution: "@foxone/dev@npm:0.2.9"
   dependencies:
     "@babel/cli": ^7.13.16
     "@babel/core": ^7.13.16
@@ -1714,7 +1714,7 @@ __metadata:
     foxone-exec-prettier: scripts/foxone-exec-prettier
     foxone-exec-tsc: scripts/foxone-exec-tsc.cjs
     foxone-exec-webpack: scripts/foxone-exec-webpack.cjs
-  checksum: 4e96faa702c671c64dceed3286dbfb3f969363d52cfd7b9df3886366443728e8b85ae3a3eb0ebcd6f310133c7dc9b0c2059f0e75c038b4b5edfe2a327f6b7b66
+  checksum: 6432c23f3384653308d883a087777c450b0a3f4a411a2da723fe29590ca6a3f0aece7338b2f8cd0fa832c3e502797deac9b59ae81f7c202c032d7ac6832b342a
   languageName: node
   linkType: hard
 
@@ -20251,7 +20251,7 @@ resolve@^2.0.0-next.3:
   version: 0.0.0-use.local
   resolution: "uikit@workspace:."
   dependencies:
-    "@foxone/dev": ^0.2.8
+    "@foxone/dev": ^0.2.9
     schema-utils: ^3.1.1
   languageName: unknown
   linkType: soft
