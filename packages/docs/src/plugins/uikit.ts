@@ -1,6 +1,7 @@
 import Vue from "vue";
 import Vuetify from "vuetify/lib";
 import UIKit from "@foxone/uikit/build/index.js";
+import * as icons from "@foxone/icons";
 import { mdiBrightness4 } from "@mdi/js";
 
 import "@foxone/uikit/build/index.css";
@@ -10,7 +11,12 @@ export default function () {
 
   options.icons!.values = {
     ...options.icons!.values,
-    mdiBrightness4
+    mdiBrightness4,
+    ...Object.keys(icons).reduce((m, k) => {
+      m[k] = { component: icons[k] };
+
+      return m;
+    }, {})
   };
 
   const vuetify = new Vuetify(UIKit.preset);
