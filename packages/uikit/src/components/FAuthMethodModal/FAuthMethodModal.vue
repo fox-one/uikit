@@ -23,7 +23,7 @@
 <script lang="ts">
 import { Component, Vue, Prop } from "vue-property-decorator";
 import FBottomSheet from "../FBottomSheet";
-import FListItem from "../FList/FListItem.vue";
+import FListItem from "../FList/FListItem";
 import { VAvatar, VImg } from "vuetify/lib";
 import { $t } from "../../utils/helper";
 
