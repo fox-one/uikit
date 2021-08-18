@@ -13,6 +13,12 @@
   justify-content: space-around;
 }
 
+.v-item-group.v-bottom-navigation.f-bottom-navigation {
+  &--flat {
+    box-shadow: none;
+  }
+}
+
 .f-bottom-navigation {
   .v-btn {
     &::before {

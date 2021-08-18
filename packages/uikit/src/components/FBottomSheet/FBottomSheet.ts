@@ -37,6 +37,9 @@ export default baseMixins.extend({
     isDesktop(): boolean {
       return this.$vuetify.breakpoint.mdAndUp;
     },
+    showCloseIcon(): boolean {
+      return !this.isDesktop && !this.$attrs.persistent;
+    },
     contentClass(): string {
       const classes = [
         "f-bottom-sheet",
@@ -87,6 +90,8 @@ export default baseMixins.extend({
       return { wapper, props };
     },
     genCloseIcon() {
+      if (!this.showCloseIcon) return null;
+
       return this.$createElement(
         VIcon,
         {

@@ -6,8 +6,10 @@
   {
     "title": "components",
     "items": [
+      "auth-method-modal",
       "banner",
       "bottom-nav",
+      "bottom-sheet",
       "button",
       "chart",
       "dialog",
@@ -15,7 +17,6 @@
       "input",
       "list",
       "segment-control",
-      "sheet",
       "slider",
       "toast",
       "toggle",

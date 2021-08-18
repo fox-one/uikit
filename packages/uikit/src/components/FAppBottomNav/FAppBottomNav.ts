@@ -18,14 +18,17 @@ export default mixins(VBottomNavigation).extend({
 
   props: {
     items: { type: Array as PropType<NavItem[]>, default: () => [] },
-    customContent: { type: Boolean, default: false }
+    customContent: { type: Boolean, default: false },
+    flat: { type: Boolean, default: false },
+    height: { type: [String, Number], default: "66" }
   },
 
   computed: {
     classes(): object {
       return {
         ...VBottomNavigation.options.computed.classes.call(this),
-        "f-bottom-navigation": true
+        "f-bottom-navigation": true,
+        "f-bottom-navigation--flat": this.flat
       };
     }
   },
@@ -35,7 +38,7 @@ export default mixins(VBottomNavigation).extend({
       const h = this.$createElement;
 
       return h(VBtn, { props: { ripple: false, value } }, [
-        h("span", text),
+        h("span", { staticClass: "mt-2" }, text),
         h(VIcon, icon)
       ]);
     }

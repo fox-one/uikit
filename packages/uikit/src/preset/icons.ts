@@ -6,7 +6,7 @@ import {
   FIconConvertDirection,
   FIconConnectFill,
   FIconUpRightFill,
-  FIconQuestionFill,
+  FIconInformationFill,
   FIconArrowRight,
   FIconWarningFill
 } from "@foxone/icons";
@@ -23,7 +23,7 @@ export default {
     swap: { component: FIconConvertDirection },
     connect: { component: FIconConnectFill },
     fill: { component: FIconUpRightFill },
-    help: { component: FIconQuestionFill },
+    help: { component: FIconInformationFill },
     warning: { component: FIconWarningFill }
   }
 };

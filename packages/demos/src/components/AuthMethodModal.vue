@@ -1,19 +1,10 @@
 <template>
   <div>
-    <v-row>
-      <v-col class="d-flex justify-center">
-        <v-btn
-          depressed
-          rounded
-          color="primary"
-          min-width="400"
-          @click="handleShowAuthModal"
-        >
-          Connect
-        </v-btn>
-      </v-col>
-    </v-row>
-    <f-auth-method-modal v-model="show" fennec-avaliable @auth="handleAuth" />
+    <f-auth-method-modal title="Connect Wallet" @auth="handleAuth">
+      <template #activator="{ on }">
+        <v-btn depressed rounded color="primary" v-on="on"> Connect </v-btn>
+      </template>
+    </f-auth-method-modal>
   </div>
 </template>
 
@@ -28,12 +19,8 @@ class AuthModal extends Vue {
     this.show = true;
   }
 
-  handleAuth(wallet: "fennec" | "mixin" | "links") {
-    if (wallet === "fennec") {
-      alert("use fennec auth");
-    } else {
-      alert("use mixin or link auth");
-    }
+  handleAuth(val) {
+    console.log(val);
   }
 }
 export default AuthModal;
