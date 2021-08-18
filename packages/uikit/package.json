@@ -1,6 +1,6 @@
 {
   "name": "@foxone/uikit",
-  "version": "3.0.1-12",
+  "version": "3.0.1-13",
   "main": "./build/index.min.js",
   "types": "./types/index.d.ts",
   "scripts": {
@@ -16,7 +16,7 @@
     "src"
   ],
   "dependencies": {
-    "@foxone/icons": "3.0.1-12",
+    "@foxone/icons": "3.0.1-13",
     "@foxone/utils": "^0.2.6",
     "qrcode": "^1.4.4",
     "vue-class-component": "^7.2.3",
