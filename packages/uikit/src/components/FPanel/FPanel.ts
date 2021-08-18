@@ -10,11 +10,10 @@ import { Component, Prop, Mixins } from "vue-property-decorator";
 export type NumberOrNumberString = PropType<string | number | undefined>;
 
 @Component({
+  name: "FPanel",
   inheritAttrs: false
 })
 class FPanel extends Mixins(VSheet, Spacedable, Roundedable) {
-  name = "FPanel";
-
   @Prop({ type: [String, Number], default: 2 })
   elevation!: string | number;
 

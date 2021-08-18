@@ -31,6 +31,7 @@ import fennecLogo from "../../assets/images/wallet_fennec.png";
 import mmLogo from "../../assets/images/wallet_mm.png";
 
 @Component({
+  name: "FAuthMethodModal",
   components: {
     FBottomSheet,
     FListItem,

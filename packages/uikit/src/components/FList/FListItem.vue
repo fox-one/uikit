@@ -38,6 +38,7 @@ import {
 } from "vuetify/lib";
 
 @Component({
+  name: "FListItem",
   components: {
     VImg,
     VIcon,

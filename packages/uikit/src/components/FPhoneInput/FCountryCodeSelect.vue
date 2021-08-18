@@ -61,6 +61,7 @@ const countries = Object.keys(countryCodes).map((k) => ({
 }));
 
 @Component({
+  name: "FCountryCodeSelect",
   components: {
     VList,
     VIcon,

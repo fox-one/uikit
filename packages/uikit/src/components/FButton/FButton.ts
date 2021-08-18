@@ -6,6 +6,8 @@ import mixins from "vuetify/src/util/mixins";
 import type { VNode } from "vue";
 
 export default mixins(VBtn).extend({
+  name: "FButton",
+
   props: {
     rounded: { type: Boolean, default: true },
     ripple: { type: Boolean, default: false }

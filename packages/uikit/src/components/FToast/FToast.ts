@@ -6,7 +6,9 @@ import { VSnackbar, VDivider, VIcon } from "vuetify/lib";
 
 import type { ToastOptions, ToastProps, ToastAction } from "../../utils/toast";
 
-@Component
+@Component({
+  name: "FToast"
+})
 class FToast extends Vue {
   snackbar = false;
 

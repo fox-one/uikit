@@ -3,7 +3,9 @@ import { Component, Vue, Prop } from "vue-property-decorator";
 import { CreateElement, VNode } from "vue/types/umd";
 import { VImg, VSheet } from "vuetify/lib";
 
-@Component
+@Component({
+  name: "FMixinAssetLogo"
+})
 class FMixinAssetLogo extends Vue {
   @Prop({ type: Number, default: 64 }) size!: number;
 

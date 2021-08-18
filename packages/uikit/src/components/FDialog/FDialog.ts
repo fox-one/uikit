@@ -15,6 +15,7 @@ import type { CreateElement } from "vue";
 import type { Action, DialogOptions } from "../../utils/dialog";
 
 @Component({
+  name: "FDialog",
   components: {
     VDialog,
     VCard,

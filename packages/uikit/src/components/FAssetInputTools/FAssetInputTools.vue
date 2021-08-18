@@ -27,7 +27,9 @@
 <script lang="ts">
 import { Component, Vue, Prop } from "vue-property-decorator";
 
-@Component
+@Component({
+  name: "FAssetInputTools"
+})
 class FAssetInputTools extends Vue {
   @Prop({ type: [String, Number], default: "" }) balance!: string;
 

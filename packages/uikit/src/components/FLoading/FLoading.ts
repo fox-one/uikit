@@ -4,7 +4,9 @@ import { CreateElement } from "vue";
 import { VNode } from "vue";
 import { VOverlay, VProgressCircular } from "vuetify/lib";
 
-@Component
+@Component({
+  name: "FLoading"
+})
 class FLoading extends Vue {
   @Prop({ type: Boolean, default: false }) fullscreen!: boolean;
 

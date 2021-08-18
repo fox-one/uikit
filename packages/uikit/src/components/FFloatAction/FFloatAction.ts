@@ -3,7 +3,9 @@ import { Component, Vue, Prop } from "vue-property-decorator";
 import { CreateElement, VNode } from "vue/types/umd";
 import { VSheet } from "vuetify/lib";
 
-@Component
+@Component({
+  name: "FFloatAction"
+})
 class FFloatAction extends Vue {
   @Prop({ type: Number, default: 130 }) bottom!: number;
 

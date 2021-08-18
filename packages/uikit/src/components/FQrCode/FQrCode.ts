@@ -3,7 +3,9 @@ import { Component, Vue, Prop, Watch } from "vue-property-decorator";
 import { CreateElement, VNode } from "vue/types/umd";
 import QRCode from "qrcode";
 
-@Component
+@Component({
+  name: "FQrCode"
+})
 class FQrCode extends Vue {
   @Prop({ type: String, default: "" }) readonly text!: string;
 

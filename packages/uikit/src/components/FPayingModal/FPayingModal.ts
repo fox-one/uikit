@@ -5,7 +5,9 @@ import { VNode } from "vue";
 import { VOverlay, VBtn } from "vuetify/lib";
 import { $t } from "../../utils/helper";
 
-@Component
+@Component({
+  name: "FPayingModal"
+})
 class FPayingModal extends Vue {
   @Prop({ type: Boolean, default: false }) show!: boolean;
 
