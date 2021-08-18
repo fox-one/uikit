@@ -8,7 +8,7 @@
     "build": "vue-cli-service build"
   },
   "dependencies": {
-    "@foxone/icons": "3.0.1-12",
+    "@foxone/icons": "workspace:packages/icons",
     "@foxone/uikit": "3.0.1-12",
     "vue": "^2.6.11",
     "vue-class-component": "^7.2.3",
