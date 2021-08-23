@@ -11,10 +11,6 @@
       }
     }
   }
-
-  .v-btn__loader {
-    position: relative;
-  }
 }
 
 .v-btn:not(.v-btn--outlined).f-button--light {
@@ -25,6 +21,6 @@
   &.error,
   &.warning,
   &.info {
-    color: map-deep-get($material-light, 'text', 'primary');
+    color: map-deep-get($material-light, "text", "primary");
   }
 }

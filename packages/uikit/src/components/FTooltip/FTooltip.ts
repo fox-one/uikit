@@ -20,7 +20,8 @@ export default mixins(VTooltip, Themeable).extend({
   props: {
     openOnClick: { type: Boolean, default: true },
     openOnHover: { type: Boolean, default: false },
-    openOnFocus: { type: Boolean, default: false }
+    openOnFocus: { type: Boolean, default: false },
+    top: { type: Boolean, default: true }
   },
 
   computed: {

@@ -26,16 +26,24 @@
 
 <script lang="ts">
 import { Component, Vue, Prop } from "vue-property-decorator";
+import { VLayout, VIcon, VSpacer } from "vuetify/lib/components";
+import FButton from "../FButton";
 
 @Component({
-  name: "FAssetInputTools"
+  name: "FAssetInputTools",
+  components: {
+    VLayout,
+    VIcon,
+    VSpacer,
+    FButton
+  }
 })
 class FAssetInputTools extends Vue {
   @Prop({ type: [String, Number], default: "" }) balance!: string;
 
   @Prop({ type: Boolean, default: false }) walletConnected!: boolean;
 
-  @Prop({ type: String, default: "" }) fiatAmount!: boolean;
+  @Prop({ type: [String, Number], default: "" }) fiatAmount!: boolean;
 
   handleConnectWallet() {
     this.$emit("connect-wallet");

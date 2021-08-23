@@ -11,11 +11,11 @@
     </v-col>
     <p class="body-2">FButton</p>
     <v-col>
-      <f-button x-small class="mx-2">x-small</f-button>
-      <f-button small class="mx-2">small</f-button>
-      <f-button class="mx-2">normal</f-button>
-      <f-button large class="mx-2">large</f-button>
-      <f-button x-large class="mx-2">x-large</f-button>
+      <f-button x-small class="mx-2" color="primary">x-small</f-button>
+      <f-button small class="mx-2" color="primary">small</f-button>
+      <f-button class="mx-2" color="primary">normal</f-button>
+      <f-button large class="mx-2" color="primary">large</f-button>
+      <f-button x-large class="mx-2" color="primary">x-large</f-button>
     </v-col>
     <p class="text-h5 mt-5">Color</p>
     <v-col>
@@ -28,6 +28,7 @@
     <p class="text-h5 mt-5">State</p>
     <v-col>
       <f-button loading color="primary" class="mx-2"></f-button>
+      <f-button loading color="primary" class="mx-2">Loading</f-button>
       <f-button disabled color="primary" class="mx-2">disabled</f-button>
     </v-col>
   </v-container>

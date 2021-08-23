@@ -17,7 +17,7 @@
   ],
   "dependencies": {
     "@foxone/uikit": "3.0.1-15",
-    "vue": "^2.6.11",
+    "vue": "^2.6.12",
     "vue-class-component": "^7.2.3",
     "vue-property-decorator": "^9.1.2",
     "vue-router": "^3.2.0",

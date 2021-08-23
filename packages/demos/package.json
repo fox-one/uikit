@@ -11,7 +11,7 @@
     "@foxone/uikit": "3.0.1-15",
     "core-js": "^3.6.5",
     "vconsole": "^3.5.1",
-    "vue": "^2.6.11",
+    "vue": "^2.6.12",
     "vue-class-component": "^7.2.3",
     "vue-i18n": "^8.21.0",
     "vue-property-decorator": "^8.4.2",
