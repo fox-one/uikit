@@ -1,22 +1,25 @@
 <template>
-  <v-layout align-center class="f-asset-input-tools px-2">
-    <f-button
-      v-if="!walletConnected"
-      text
-      x-small
-      color="primary"
-      @click.stop="handleConnectWallet"
-    >
-      Connect Wallet
-      <v-icon size="12" class="ml-1">$connect</v-icon>
-    </f-button>
-
-    <template v-else>
-      <f-button text x-small color="primary" @click.stop="handleFill">
-        <span class="text--primary mr-1"> Bal. </span>
-        {{ balance }}
-        <v-icon size="12" class="ml-1">$fill</v-icon>
+  <v-layout align-center class="f-asset-input-tools">
+    <template v-if="balanceFill">
+      <f-button
+        v-if="!walletConnected"
+        text
+        x-small
+        color="primary"
+        @click.stop="handleConnectWallet"
+      >
+        Connect Wallet
+        <v-icon size="12" class="ml-1">$connect</v-icon>
       </f-button>
+
+      <template v-else>
+        <span class="text--primary mr-1"> Bal. </span>
+
+        <span color="primary" @click.stop="handleFill">
+          {{ balance }}
+        </span>
+        <v-icon size="12" class="ml-1" @click.stop="handleFill">$fill</v-icon>
+      </template>
     </template>
 
     <v-spacer />
@@ -26,7 +29,7 @@
 
 <script lang="ts">
 import { Component, Vue, Prop } from "vue-property-decorator";
-import { VLayout, VIcon, VSpacer } from "vuetify/lib/components";
+import { VLayout, VIcon, VSpacer } from "vuetify/src/components";
 import FButton from "../FButton";
 
 @Component({
@@ -39,6 +42,8 @@ import FButton from "../FButton";
   }
 })
 class FAssetInputTools extends Vue {
+  @Prop({ type: Boolean, default: true }) balanceFill!: boolean;
+
   @Prop({ type: [String, Number], default: "" }) balance!: string;
 
   @Prop({ type: Boolean, default: false }) walletConnected!: boolean;

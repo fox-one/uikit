@@ -44,7 +44,8 @@ class FLoading extends Vue {
       {
         props: {
           opacity: this.opacity,
-          value: this.loading
+          value: this.loading,
+          ...this.$attrs
         }
       },
       [circular]

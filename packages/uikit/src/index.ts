@@ -1,5 +1,3 @@
-import "./styles/index.scss";
-
 import * as components from "./components";
 import preset from "./preset";
 import Toast from "./utils/toast";

@@ -8,10 +8,10 @@
 
 .v-text-field.f-input {
   font-size: 16px;
-  font-weight: 600;
 
   & > .v-input__control > .v-input__slot {
     overflow: hidden;
+    font-weight: 600;
 
     &:before,
     &:after {
@@ -30,4 +30,6 @@
 
 .f-input__tools {
   font-size: $f-input-tool-font-size;
+  padding: 0 3 * $spacer;
+  margin: $spacer 0;
 }
