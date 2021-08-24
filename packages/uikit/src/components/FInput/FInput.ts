@@ -8,7 +8,8 @@ export default mixins(VTextField).extend({
   name: "FInput",
 
   props: {
-    filled: { type: Boolean, default: true }
+    filled: { type: Boolean, default: true },
+    hideMessage: { type: Boolean, default: false }
   },
 
   computed: {
@@ -23,14 +24,18 @@ export default mixins(VTextField).extend({
   methods: {
     genMessages() {
       const h = this.$createElement;
-      const messagesNode = VTextField.options.methods.genMessages.call(this);
+      let messagesNode: any = null;
+
+      if (!this.hideMessage) {
+        messagesNode = VTextField.options.methods.genMessages.call(this);
+      }
 
       return h("div", { staticClass: "f-input-messages" }, [
         this.$scopedSlots.tools &&
           h(
             "div",
             { staticClass: "f-input__tools" },
-            this.$scopedSlots.tools?.({})
+            this.$scopedSlots.tools?.({ message: this.messagesToDisplay })
           ),
         messagesNode
       ]);

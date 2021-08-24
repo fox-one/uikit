@@ -1,6 +1,6 @@
 <template>
   <v-layout align-center class="f-asset-input-tools">
-    <template v-if="balanceFill">
+    <slot name="right">
       <f-button
         v-if="!walletConnected"
         text
@@ -20,7 +20,7 @@
         </span>
         <v-icon size="12" class="ml-1" @click.stop="handleFill">$fill</v-icon>
       </template>
-    </template>
+    </slot>
 
     <v-spacer />
     <span class="greyscale_3--text"> ≈ {{ fiatAmount }} </span>
@@ -42,8 +42,6 @@ import FButton from "../FButton";
   }
 })
 class FAssetInputTools extends Vue {
-  @Prop({ type: Boolean, default: true }) balanceFill!: boolean;
-
   @Prop({ type: [String, Number], default: "" }) balance!: string;
 
   @Prop({ type: Boolean, default: false }) walletConnected!: boolean;
