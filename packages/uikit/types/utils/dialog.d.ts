@@ -28,9 +28,3 @@ export default Dialog;
 export type Keys = "show" | "warning";
 
 export type DialogMethods = Record<Keys, (options?: DialogOptions) => void>;
-
-declare module "vue/types/vue" {
-  interface Vue {
-    $uikit: { dialog: DialogMethods };
-  }
-}

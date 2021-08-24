@@ -1783,6 +1783,7 @@ __metadata:
     babel-loader: ^8.2.2
     babel-plugin-transform-define: ^2.0.0
     babel-polyfill: ^6.26.0
+    bignumber.js: ^9.0.1
     cross-env: ^7.0.3
     css-loader: ^5.2.6
     css-minimizer-webpack-plugin: ^3.0.1

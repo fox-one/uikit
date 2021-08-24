@@ -31,9 +31,3 @@ export default Toast;
 export type Keys = "show" | "success" | "info" | "error" | "warning";
 
 export type ToastMethods = Record<Keys, (options?: ToastOptions) => void>;
-
-declare module "vue/types/vue" {
-  interface Vue {
-    $uikit: { toast: ToastMethods };
-  }
-}

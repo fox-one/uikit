@@ -42,6 +42,10 @@
 }
 
 .f-app-bar--center {
+  .f-app-bar__nav-icon {
+    z-index: 2;
+  }
+
   .f-app-bar__title {
     position: absolute;
     left: 0;
@@ -52,6 +56,7 @@
     justify-content: center;
     font-size: 18px;
     font-weight: 500;
+    z-index: 1;
   }
 }
 

@@ -1,4 +1,5 @@
 import { toPrecision } from "@foxone/utils/number";
+import BigNumber from "bignumber.js";
 
 import mixins from "vuetify/src/util/mixins";
 
@@ -9,7 +10,8 @@ export default mixins(FInput).extend({
 
   props: {
     type: { type: String, default: "number" },
-    precision: { type: Number, default: 8 }
+    precision: { type: [Number, String], default: 8 },
+    precisionDisabled: { type: Boolean, default: false }
   },
 
   computed: {
@@ -20,18 +22,23 @@ export default mixins(FInput).extend({
       };
     },
     internalValue: {
-      get(): any {
+      get(): string {
         return this.lazyValue;
       },
-      set(val: any) {
-        let text = val;
+      set(value: string) {
+        let text = value;
 
-        if (val !== "" && val !== "-0") {
-          text = toPrecision({ n: val, dp: this.precision });
+        if (!this.precisionDisabled) {
+          const dp = new BigNumber(text).decimalPlaces();
+
+          if (dp > +this.precision) {
+            text = toPrecision({ n: text, dp: +this.precision });
+          }
         }
 
         this.lazyValue = text;
         this.$emit("input", this.lazyValue);
+        this.$forceUpdate();
       }
     }
   }
