@@ -1,6 +1,6 @@
 <template>
   <v-layout align-center class="f-asset-input-tools">
-    <slot name="right">
+    <slot name="left">
       <f-button
         v-if="!walletConnected"
         text

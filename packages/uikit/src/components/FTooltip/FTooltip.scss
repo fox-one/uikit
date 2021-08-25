@@ -12,6 +12,7 @@
 .f-tooltip__content.v-tooltip__content {
   padding: $spacer * 3;
   opacity: 1 !important;
+  pointer-events: auto;
 }
 
 .f-tooltip__arrow {

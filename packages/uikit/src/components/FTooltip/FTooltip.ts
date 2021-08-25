@@ -1,21 +1,19 @@
 import "./FTooltip.scss";
 
-import Vue from "vue";
 import mixins from "vuetify/src/util/mixins";
 
 import VTooltip from "vuetify/src/components/VTooltip";
+import FTooltipArrow from "./FTooltipArrow.vue";
 import Themeable from "vuetify/src/mixins/themeable";
 
-const Arrow = Vue.extend({
-  template: `<svg width="23" height="12" viewBox="0 0 23 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <path
-    d="M10.1984 1.11564C10.9474 0.47366 12.0526 0.47366 12.8016 1.11564L21.3951 8.4815C22.8049 9.6899 21.9503 12 20.0935 12H2.90652C1.0497 12 0.195138 9.6899 1.60493 8.4815L10.1984 1.11564Z"
-    fill="currentColor" />
-</svg>`
-});
+import ClickOutside from "vuetify/src/directives/click-outside";
 
 export default mixins(VTooltip, Themeable).extend({
   name: "FTooltip",
+
+  directives: {
+    ClickOutside
+  },
 
   props: {
     openOnClick: { type: Boolean, default: true },
@@ -70,13 +68,22 @@ export default mixins(VTooltip, Themeable).extend({
   },
 
   methods: {
+    closeConditional(e: Event) {
+      const target = e.target as HTMLElement;
+
+      return (
+        this.isActive &&
+        !this._isDestroyed &&
+        !this.$refs.content.contains(target)
+      );
+    },
     genArrow() {
       const h = this.$createElement;
 
       return h(
         "span",
         { staticClass: "f-tooltip__arrow", style: this.arrowStyles },
-        [h(Arrow)]
+        [h(FTooltipArrow)]
       );
     },
     genContent() {
@@ -87,6 +94,19 @@ export default mixins(VTooltip, Themeable).extend({
       render.children = [...children, this.genArrow()];
       render.data = {
         ...data,
+        directives: [
+          ...(data.directives || []),
+          {
+            name: "click-outside",
+            value: {
+              handler: () => {
+                this.isActive = false;
+              },
+              closeConditional: this.closeConditional,
+              include: () => [this.$el, ...this.getOpenDependentElements()]
+            }
+          }
+        ],
         class: {
           ...data.class,
           ...this.themeClasses,

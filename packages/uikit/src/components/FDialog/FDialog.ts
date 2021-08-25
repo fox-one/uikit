@@ -59,13 +59,14 @@ class FDialog extends Vue {
     let icon: any = null;
 
     if (this.options?.type === "warning") {
-      icon = "$warning";
+      icon = h(
+        VIcon,
+        { staticClass: "mr-2", props: { color: "error" } },
+        "$warning"
+      );
     }
 
-    return h(VCardTitle, [
-      h(VIcon, { staticClass: "mr-2", props: { color: "error" } }, icon),
-      this.options?.title
-    ]);
+    return h(VCardTitle, [icon, this.options?.title]);
   }
 
   genText() {
