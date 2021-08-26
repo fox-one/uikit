@@ -23,7 +23,7 @@
     </slot>
 
     <v-spacer />
-    <span class="greyscale_3--text"> ≈ {{ fiatAmount }} </span>
+    <span class="greyscale_3--text fiat-amount"> ≈ {{ fiatAmount }} </span>
   </v-layout>
 </template>
 
@@ -63,5 +63,9 @@ export default FAssetInputTools;
 .f-asset-input-tools {
   font-size: 12px;
   font-weight: 400;
+}
+
+.fiat-amount {
+  white-space: nowrap;
 }
 </style>

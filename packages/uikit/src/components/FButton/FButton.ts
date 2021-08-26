@@ -2,6 +2,7 @@ import "./FButton.scss";
 
 import { VBtn, VProgressCircular } from "vuetify/src/components";
 import mixins from "vuetify/src/util/mixins";
+import tinycolor from "tinycolor2";
 
 import type { VNode } from "vue";
 
@@ -14,11 +15,28 @@ export default mixins(VBtn).extend({
   },
 
   computed: {
-    classes() {
-      return { "f-btn": true, ...VBtn.options.computed.classes.call(this) };
+    classes(): object {
+      return {
+        "f-btn": true,
+        "f-button--light": this.isLight,
+        ...VBtn.options.computed.classes.call(this)
+      };
     },
 
-    isElevated() {
+    isLight(): boolean {
+      const color = (this.$vuetify as any).theme.currentTheme[this.color];
+      let isLight = false;
+
+      if (color) {
+        const luminance = tinycolor(color).getLuminance();
+
+        isLight = luminance > 0.6;
+      }
+
+      return isLight;
+    },
+
+    isElevated(): boolean {
       return Boolean(this.fab || this.elevation);
     }
   },

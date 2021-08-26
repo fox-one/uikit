@@ -20,6 +20,7 @@
     "@foxone/utils": "^0.2.6",
     "bignumber.js": "^9.0.1",
     "qrcode": "^1.4.4",
+    "tinycolor2": "^1.4.2",
     "vue-class-component": "^7.2.3",
     "vue-property-decorator": "^9.1.2"
   },
