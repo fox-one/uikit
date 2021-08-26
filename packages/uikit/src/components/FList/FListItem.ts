@@ -39,7 +39,7 @@ class FListItem extends Vue {
 
     return h(VListItemContent, { staticClass: "f-list-item__body" }, [
       h("div", { staticClass: "f-list-item__title" }, [this.title]),
-      h("div", { staticClass: "f-list-item__subtitle" }, [this.title])
+      h("div", { staticClass: "f-list-item__subtitle" }, [this.subtitle])
     ]);
   }
 
