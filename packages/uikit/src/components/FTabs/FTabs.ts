@@ -15,6 +15,10 @@ export default mixins(VTabs).extend({
     sliderLength: {
       type: [Number, String],
       default: 40
+    },
+    disableSliderLength: {
+      type: Boolean,
+      default: false
     }
   },
 
@@ -54,6 +58,18 @@ export default mixins(VTabs).extend({
         const el = activeTab.$el as HTMLElement;
         const length = Number(this.sliderLength);
         const size = Number(this.sliderSize);
+
+        if (this.disableSliderLength) {
+          this.slider = {
+            height: !this.vertical ? Number(this.sliderSize) : el.scrollHeight,
+            left: this.vertical ? 0 : el.offsetLeft,
+            right: this.vertical ? 0 : el.offsetLeft + el.offsetWidth,
+            top: el.offsetTop,
+            width: this.vertical ? Number(this.sliderSize) : el.scrollWidth
+          };
+
+          return true;
+        }
 
         if (this.vertical) {
           const gap = Math.max(0, Math.floor((el.scrollHeight - length) / 2));

@@ -3,3 +3,11 @@
     border-radius: 2px;
   }
 }
+
+.f-tabs .v-tab {
+  text-transform: capitalize;
+
+  &::before {
+    content: none;
+  }
+}
