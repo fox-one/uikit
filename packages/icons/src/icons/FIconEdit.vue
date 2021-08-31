@@ -1,0 +1,31 @@
+<template>
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
+    aria-hidden="true"
+    fill="none"
+  >
+    <path
+      d="M14.3573 5.56066C14.9431 4.97487 15.8928 4.97487 16.4786 5.56066L18.0696 7.15165C18.6554 7.73744 18.6554 8.68718 18.0696 9.27297L9.7655 17.5771C9.4842 17.8584 9.10267 18.0164 8.70484 18.0164L6.07748 18.0164C5.63439 18.0164 5.28789 17.6343 5.33105 17.1934L5.56152 14.8388C5.59536 14.4931 5.74812 14.1699 5.99373 13.9242L14.3573 5.56066Z"
+      stroke="currentColor"
+      stroke-width="1.5"
+      stroke-linejoin="round"
+    ></path>
+    <path
+      d="M8.25 18H19.5"
+      stroke="currentColor"
+      stroke-width="1.5"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    ></path>
+  </svg>
+</template>
+
+<script lang="ts">
+import { Component, Vue } from "vue-property-decorator";
+
+@Component({ name: "FIconEdit" })
+export default class FIconEdit extends Vue {}
+</script>

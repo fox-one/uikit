@@ -1,0 +1,32 @@
+<template>
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
+    aria-hidden="true"
+    fill="none"
+  >
+    <path
+      d="M5.25 7.125C5.25 6.29657 5.92157 5.625 6.75 5.625H10.7592C11.2696 5.625 11.745 5.88453 12.021 6.31386L13.2656 8.25H17.25C18.0784 8.25 18.75 8.92157 18.75 9.75V16.875C18.75 17.7034 18.0784 18.375 17.25 18.375H6.75C5.92157 18.375 5.25 17.7034 5.25 16.875V7.125Z"
+      stroke="currentColor"
+      stroke-width="1.5"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    ></path>
+    <path
+      d="M5.25 8.25H16.5"
+      stroke="currentColor"
+      stroke-width="1.5"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    ></path>
+  </svg>
+</template>
+
+<script lang="ts">
+import { Component, Vue } from "vue-property-decorator";
+
+@Component({ name: "FIconFile" })
+export default class FIconFile extends Vue {}
+</script>

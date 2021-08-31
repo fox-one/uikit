@@ -14,12 +14,7 @@ class FToast extends Vue {
 
   message: string | VNode | null = null;
 
-  defaultProps: ToastProps = {
-    timeout: 2000,
-    top: true,
-    app: true,
-    color: "greyscale_1"
-  };
+  defaultProps: ToastProps = {};
 
   options: ToastOptions | null = null;
 
@@ -44,6 +39,7 @@ class FToast extends Vue {
   get classes() {
     return {
       "f-toast": true,
+      "f-toast--action": this.options?.action,
       "f-toast--auto-width": this.options?.autoWidth !== false
     };
   }
@@ -56,7 +52,7 @@ class FToast extends Vue {
   }
 
   genAction() {
-    if (!this.action) return;
+    if (!this.action) return null;
     const h = this.$createElement;
 
     return h(

@@ -27,15 +27,26 @@ export interface ToastOptions {
 
 const ToastConstructor = Vue.extend(FToast);
 
-function install(Vue: VueConstructor, vuetify: Vuetify) {
+function install(
+  Vue: VueConstructor,
+  vuetify: Vuetify,
+  globalProps: ToastProps = {}
+) {
   let instance: any = null;
   const queue: ToastOptions[] = [];
 
   const create = (options: ToastOptions) => {
     const instance = new ToastConstructor();
     const app = document.querySelector("[data-app]");
+    const defaultProps: ToastProps = {
+      timeout: 2000,
+      top: true,
+      app: true,
+      color: "greyscale_1",
+      ...globalProps
+    };
 
-    Object.assign(instance, options);
+    Object.assign(instance, { ...options, defaultProps });
     instance.$vuetify = vuetify.framework;
     app?.appendChild(instance.$mount().$el);
 

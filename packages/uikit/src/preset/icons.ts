@@ -4,11 +4,11 @@ import {
   FIconChevronDown,
   FIconClose,
   FIconConvertDirection,
-  FIconConnectFill,
-  FIconUpRightFill,
-  FIconInformationFill,
-  FIconArrowRight,
-  FIconWarningFill
+  FIconConnect3PFill,
+  FIconUpRight3PFill,
+  FIconInformation3PFill,
+  FIconWarningFill,
+  FIconArrowRight4P
 } from "@foxone/icons";
 
 export default {
@@ -16,14 +16,14 @@ export default {
   values: {
     back: { component: FIconChevronLeft },
     next: { component: FIconChevronRight },
-    arrowRight: { component: FIconArrowRight },
+    arrowRight: { component: FIconArrowRight4P },
     close: { component: FIconClose },
     clear: { component: FIconClose },
     expand: { component: FIconChevronDown },
     swap: { component: FIconConvertDirection },
-    connect: { component: FIconConnectFill },
-    fill: { component: FIconUpRightFill },
-    help: { component: FIconInformationFill },
+    connect: { component: FIconConnect3PFill },
+    fill: { component: FIconUpRight3PFill },
+    help: { component: FIconInformation3PFill },
     warning: { component: FIconWarningFill }
   }
 };

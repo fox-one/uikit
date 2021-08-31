@@ -1,21 +1,21 @@
 <template>
   <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="32"
-    height="32"
-    viewBox="0 0 32 32"
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
     aria-hidden="true"
     fill="none"
   >
     <path
-      d="M24.4853 16.4142L16 24.8995L7.51472 16.4142"
+      d="M18.364 12.3107L12 18.6746L5.63604 12.3107"
       stroke="currentColor"
       stroke-width="1.5"
       stroke-linecap="round"
       stroke-linejoin="round"
     ></path>
     <path
-      d="M16 24V7"
+      d="M12 18V5.25"
       stroke="currentColor"
       stroke-width="1.5"
       stroke-linecap="round"

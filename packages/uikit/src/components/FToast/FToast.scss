@@ -1,4 +1,8 @@
 .f-toast {
+  .v-snack__action {
+    margin-right: 0 !important;
+  }
+
   &--auto-width {
     .v-snack__wrapper {
       min-width: auto;
@@ -15,7 +19,6 @@
     font-weight: 500;
     font-size: 14px;
     padding: 0;
-    padding-right: 8px;
   }
 
   .v-divider {
@@ -39,5 +42,6 @@
     align-items: center;
     cursor: pointer;
     line-height: 1;
+    padding-right: 8px;
   }
 }

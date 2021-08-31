@@ -1,14 +1,14 @@
 <template>
   <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="32"
-    height="32"
-    viewBox="0 0 32 32"
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
     aria-hidden="true"
     fill="none"
   >
     <path
-      d="M13 8L20 16L13 24"
+      d="M9.75 6L15 12L9.75 18"
       stroke="currentColor"
       stroke-width="1.5"
       stroke-linecap="round"

@@ -1,0 +1,35 @@
+<template>
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
+    aria-hidden="true"
+    fill="none"
+  >
+    <path
+      d="M6 8.25V16.5C6 17.3284 6.67157 18 7.5 18H15"
+      stroke="currentColor"
+      stroke-width="1.5"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    ></path>
+    <rect
+      x="9"
+      y="4.5"
+      width="9.75"
+      height="10.5"
+      rx="1.5"
+      stroke="currentColor"
+      stroke-width="1.5"
+      stroke-linejoin="round"
+    ></rect>
+  </svg>
+</template>
+
+<script lang="ts">
+import { Component, Vue } from "vue-property-decorator";
+
+@Component({ name: "FIconCopy" })
+export default class FIconCopy extends Vue {}
+</script>

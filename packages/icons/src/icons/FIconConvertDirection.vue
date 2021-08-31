@@ -1,35 +1,35 @@
 <template>
   <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="32"
-    height="32"
-    viewBox="0 0 32 32"
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
     aria-hidden="true"
     fill="none"
   >
     <path
-      d="M9.5 10L9.5 24"
+      d="M7.125 6.75L7.125 17.25"
       stroke="currentColor"
       stroke-width="1.5"
       stroke-linecap="round"
       stroke-linejoin="round"
     ></path>
     <path
-      d="M13.5 20L9.5 24L5.5 20"
+      d="M10.125 14.25L7.125 17.25L4.125 14.25"
       stroke="currentColor"
       stroke-width="1.5"
       stroke-linecap="round"
       stroke-linejoin="round"
     ></path>
     <path
-      d="M22.5 23L22.5 9"
+      d="M16.875 17.25L16.875 6.75"
       stroke="currentColor"
       stroke-width="1.5"
       stroke-linecap="round"
       stroke-linejoin="round"
     ></path>
     <path
-      d="M18.5 13L22.5 9L26.5 13"
+      d="M13.875 9.75L16.875 6.75L19.875 9.75"
       stroke="currentColor"
       stroke-width="1.5"
       stroke-linecap="round"

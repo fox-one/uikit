@@ -11,8 +11,8 @@ Vue.use(UIKit);
 
 const vuetify = new Vuetify(UIKit.preset);
 
-Vue.use(UIKit.Toast, vuetify);
-Vue.use(UIKit.Dialog, vuetify);
+Vue.use(UIKit.Toast, vuetify, { top: false, centered: true });
+Vue.use(UIKit.Dialog, vuetify, { flat: true });
 
 new Vue({
   vuetify,

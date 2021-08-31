@@ -16,62 +16,16 @@
 
 <script lang="ts">
 import { Component, Vue, Prop } from "vue-property-decorator";
+import meta from "@foxone/icons/src/meta.json";
 
-const icons3p = [
-  "FIconUpRightFill",
-  "FIconAddFill",
-  "FIconMaxFill",
-  "FIconConnectFill",
-  "FIconHelpFill",
-  "FIconInformationFill"
-];
-
-const icons4p = [];
-
-const icons6p = [
-  "FIconHomeFill",
-  "FIconGlobalFill",
-  "FIconAuctionFill",
-  "FIconPersonFill",
-  "FIconBankFill",
-  "FIconSwapFill",
-  "FIconPoolFill",
-  "FIconSupplyFill",
-  "FIconBorrowFill",
-  "FIconRepayFill",
-  "FIconWithdrawFill",
-  "FIconPledgeFill",
-  "FIconUnpledgeFill",
-  "FIconMarketFill",
-  "FIconWarningFill"
-];
-
-const icons8p = [
-  "FIconChevronLeft",
-  "FIconChevronRight",
-  "FIconChevronUp",
-  "FIconChevronDown",
-  "FIconCheck",
-  "FIconClose",
-  "FIconConvertDirection",
-  "FIconArrowDown",
-  "FIconAdd",
-  "FIconUpRight",
-  "FIconMore",
-  "FIconSetting",
-  "FIconMax",
-  "FIconRadioOff",
-  "FIconRadioOn"
-];
-
-const iconsColorful = [
-  "FIconLakeBrand",
-  "FIconLakeLogo",
-  "FIconLeafBrand",
-  "FIconLeafLogo",
-  "FIconRingsBrand",
-  "FIconRingsLogo"
-];
+const icons = [...meta.outline, ...meta.fill].map((x) => x.componentName);
+const icons3p = icons.filter((x) => x.includes("3P"));
+const icons4p = icons.filter((x) => x.includes("4P"));
+const icons8p = icons.filter((x) => x.includes("8P"));
+const icons6p = icons.filter(
+  (x) => !icons3p.includes(x) && !icons4p.includes(x) && !icons8p.includes(x)
+);
+const iconsColorful = meta.colorful.map((x) => x.componentName);
 
 @Component({
   name: "Icons"
@@ -99,22 +53,6 @@ class Icons extends Vue {
     } else if (this.type === "colorful") {
       this.icons = iconsColorful;
       this.size = 48;
-    } else {
-      const icons = this.$vuetify.icons.values as any;
-
-      this.icons = Object.keys(icons).filter((x) => {
-        return (
-          x.startsWith("FIcon") &&
-          ![
-            ...icons3p,
-            ...icons4p,
-            ...icons6p,
-            ...icons8p,
-            ...iconsColorful
-          ].includes(x)
-        );
-      });
-      this.size = 32;
     }
   }
 }

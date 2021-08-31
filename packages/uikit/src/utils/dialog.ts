@@ -23,7 +23,11 @@ export interface DialogOptions {
 
 const DialogConstructor = Vue.extend(FDialog);
 
-function install(Vue: VueConstructor, vuetify: Vuetify) {
+function install(
+  Vue: VueConstructor,
+  vuetify: Vuetify,
+  globalProps: Record<string, any> = {}
+) {
   let instance: any = null;
   const queue: DialogOptions[] = [];
 
@@ -31,7 +35,12 @@ function install(Vue: VueConstructor, vuetify: Vuetify) {
     const instance = new DialogConstructor();
     const app = document.querySelector("[data-app]");
 
-    Object.assign(instance, options);
+    const defaultProps: Record<string, any> = {
+      maxWidth: 420,
+      ...globalProps
+    };
+
+    Object.assign(instance, { ...options, defaultProps });
     instance.$vuetify = vuetify.framework;
     app?.appendChild(instance.$mount().$el);
 

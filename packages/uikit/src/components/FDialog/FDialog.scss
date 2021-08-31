@@ -1,4 +1,4 @@
-.v-dialog > .f-dialog__content.v-card {
+.v-dialog > .f-dialog__body.v-card {
   > .v-card__title {
     justify-content: center;
     padding-top: 32px;
@@ -16,4 +16,10 @@
   display: flex;
   justify-content: space-around;
   padding-bottom: 10px;
+}
+
+.v-dialog {
+  &.f-dialog--flat {
+    box-shadow: none !important;
+  }
 }

@@ -28,9 +28,7 @@ class FDialog extends Vue {
 
   options: DialogOptions | null = null;
 
-  defaultProps: Record<string, any> = {
-    maxWidth: 420
-  };
+  defaultProps: Record<string, any> = {};
 
   props: Record<string, any> = this.defaultProps;
 
@@ -45,6 +43,18 @@ class FDialog extends Vue {
   close() {
     this.dialog = false;
     this.options = null;
+  }
+
+  get contentClass() {
+    const classes = {
+      "f-dialog__content": true,
+      "f-dialog--flat": this.props.flat,
+      [this.props?.contentClass ?? ""]: true
+    };
+
+    return Object.keys(classes)
+      .filter((k) => k && classes[k])
+      .join(" ");
   }
 
   @Watch("dialog")
@@ -128,11 +138,15 @@ class FDialog extends Vue {
     return h(
       VDialog,
       {
-        props: { value: this.dialog, ...this.props },
+        props: {
+          value: this.dialog,
+          ...this.props,
+          contentClass: this.contentClass
+        },
         on: { input: (e) => (this.dialog = e) }
       },
       [
-        h(VCard, { staticClass: "f-dialog__content" }, [
+        h(VCard, { staticClass: "f-dialog__body", props: { flat: true } }, [
           this.genTitle(),
           this.genText(),
           h("div", { staticClass: "f-dialog__actions" }, [this.genActions()])

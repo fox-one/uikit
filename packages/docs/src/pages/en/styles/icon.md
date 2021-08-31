@@ -47,9 +47,3 @@ related:
 <icons type="colorful" />
 
 <br>
-
-## Others
-
-<icons />
-
-<br>

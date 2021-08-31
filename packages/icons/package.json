@@ -13,7 +13,8 @@
     "format": "prettier --write src"
   },
   "files": [
-    "build"
+    "build",
+    "src"
   ],
   "dependencies": {
     "@foxone/uikit": "3.0.1-24",

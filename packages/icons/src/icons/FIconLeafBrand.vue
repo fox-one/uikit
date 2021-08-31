@@ -28,17 +28,17 @@
         fill-rule="evenodd"
         clip-rule="evenodd"
         d="M35.3484 69.2147C32.0272 75.218 30.1001 82.0999 30.0038 89.4236C12.9446 86.3591 0 71.4412 0 53.4999C0 51.9767 0.0933146 50.4752 0.274539 49.0009C15.2176 49.0988 28.2629 57.1908 35.3484 69.2147Z"
-        fill="url(#paint0_linear)"
+        fill="url(#leaf_brand_linear_1)"
       />
       <path
         fill-rule="evenodd"
         clip-rule="evenodd"
         d="M36.5 89.9999C56.6584 89.9999 73 73.6583 73 53.4999C73 51.9767 72.9067 50.4752 72.7255 49.0009C50.2996 49.1479 32.148 67.2995 32.001 89.7254C33.4753 89.9066 34.9767 89.9999 36.5 89.9999Z"
-        fill="url(#paint1_linear)"
+        fill="url(#leaf_brand_linear_2)"
       />
       <defs>
         <linearGradient
-          id="paint0_linear"
+          id="leaf_brand_linear_1"
           x1="17.6742"
           y1="48.9384"
           x2="17.6742"
@@ -49,7 +49,7 @@
           <stop offset="1" stop-color="#9FF219" />
         </linearGradient>
         <linearGradient
-          id="paint1_linear"
+          id="leaf_brand_linear_2"
           x1="52.5005"
           y1="48.9375"
           x2="52.5005"

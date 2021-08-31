@@ -1,25 +1,25 @@
 <template>
   <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="32"
-    height="32"
-    viewBox="0 0 32 32"
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
     aria-hidden="true"
     fill="none"
   >
     <rect
-      x="7"
-      y="7"
-      width="18"
-      height="18"
-      rx="9"
-      stroke="black"
+      x="4"
+      y="4"
+      width="16"
+      height="16"
+      rx="8"
+      stroke="currentColor"
       stroke-width="1.5"
       stroke-linecap="round"
       stroke-linejoin="round"
     ></rect>
     <path
-      d="M11 16C11 13.2386 13.2386 11 16 11C18.7614 11 21 13.2386 21 16C21 18.7614 18.7614 21 16 21C13.2386 21 11 18.7614 11 16Z"
+      d="M9.75 12C9.75 10.7574 10.7574 9.75 12 9.75C13.2426 9.75 14.25 10.7574 14.25 12C14.25 13.2426 13.2426 14.25 12 14.25C10.7574 14.25 9.75 13.2426 9.75 12Z"
       fill="currentColor"
     ></path>
   </svg>
