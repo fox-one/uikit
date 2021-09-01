@@ -51,6 +51,11 @@ class FToast extends Vue {
     }
   }
 
+  handleActionCallback() {
+    this.snackbar = false;
+    this.action?.callback?.();
+  }
+
   genAction() {
     if (!this.action) return null;
     const h = this.$createElement;
@@ -59,7 +64,7 @@ class FToast extends Vue {
       "div",
       {
         staticClass: "f-toast__action",
-        on: { click: () => this.action?.callback?.() }
+        on: { click: () => this.handleActionCallback() }
       },
       [
         h(VDivider, { props: { vertical: true } }),
