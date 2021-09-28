@@ -4,14 +4,20 @@ const { optimize } = require("svgo");
 // disable attrs and removeAttrs optimize
 // so that handle color in svg file manaully
 
-const processSvg = (svg) => {
-  const optimized = optimize(svg, {
-    plugins: [
-      { name: "convertShapeToPath", active: false },
-      // { name: "removeAttrs", params: { attrs: "(fill|stroke.*)" } },
-      { name: "removeTitle", active: true }
-    ]
-  });
+const processSvg = (svg, style) => {
+  let plugins = [
+    { name: "convertShapeToPath", active: false },
+    { name: "removeTitle", active: true }
+  ];
+
+  // if (style === "outline") {
+  //   plugins = [
+  //     ...plugins,
+  //     { name: "removeAttrs", params: { attrs: "(fill|stroke.*)" } }
+  //   ];
+  // }
+
+  const optimized = optimize(svg, { plugins });
   const $ = cheerio.load(optimized.data);
 
   return $("body").children().html();
@@ -38,7 +44,7 @@ const getAttrs = (svg, style) => {
   const stroke = {
     fill: "none"
     // ":stroke": "color",
-    // "stroke-width": "1.5",
+    // ":stroke-width": "width",
     // "stroke-linecap": "round",
     // "stroke-linejoin": "round"
   };
@@ -52,7 +58,7 @@ const getAttrs = (svg, style) => {
 
 const getElementCode = (componentName, svg, style) => {
   const attrs = getAttrs(svg, style);
-  const content = style !== "colorful" ? processSvg(svg) : svg;
+  const content = style !== "colorful" ? processSvg(svg, style) : svg;
 
   const str = `
 <template>
@@ -62,11 +68,10 @@ const getElementCode = (componentName, svg, style) => {
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator';
+import { Component, Vue } from "vue-property-decorator";
 
 @Component({ name: "${componentName}" })
-export default class ${componentName} extends Vue {
-}
+export default class ${componentName} extends Vue {}
 </script>
 `;
 

@@ -8,7 +8,7 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
-    "@foxone/uikit": "3.0.1-27",
+    "@foxone/uikit": "workspace:packages/uikit",
     "core-js": "^3.6.5",
     "vconsole": "^3.5.1",
     "vue": "^2.6.12",

@@ -8,7 +8,8 @@ import {
   FIconUpRight3PFill,
   FIconInformation3PFill,
   FIconWarningFill,
-  FIconArrowRight4P
+  FIconArrowRight4P,
+  FIconClear3PFill
 } from "@foxone/icons";
 
 export default {
@@ -18,7 +19,7 @@ export default {
     next: { component: FIconChevronRight },
     arrowRight: { component: FIconArrowRight4P },
     close: { component: FIconClose },
-    clear: { component: FIconClose },
+    clear: { component: FIconClear3PFill },
     expand: { component: FIconChevronDown },
     swap: { component: FIconConvertDirection },
     connect: { component: FIconConnect3PFill },

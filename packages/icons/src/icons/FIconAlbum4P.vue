@@ -1,0 +1,31 @@
+<template>
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="16"
+    height="16"
+    viewBox="0 0 16 16"
+    aria-hidden="true"
+    fill="none"
+  >
+    <path
+      d="M2.34375 4.5C2.34375 3.67157 3.01532 3 3.84375 3H11.8438C12.6722 3 13.3438 3.67157 13.3438 4.5V11.5C13.3438 12.3284 12.6722 13 11.8437 13H3.84375C3.01532 13 2.34375 12.3284 2.34375 11.5V4.5Z"
+      stroke="currentColor"
+      stroke-width="1.5"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    ></path>
+    <path
+      d="M10 8L6.5 10L6.5 6L10 8Z"
+      stroke="currentColor"
+      stroke-width="1.5"
+      stroke-linejoin="round"
+    ></path>
+  </svg>
+</template>
+
+<script lang="ts">
+import { Component, Vue } from "vue-property-decorator";
+
+@Component({ name: "FIconAlbum4P" })
+export default class FIconAlbum4P extends Vue {}
+</script>

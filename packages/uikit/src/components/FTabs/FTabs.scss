@@ -6,6 +6,7 @@
 
 .f-tabs .v-tab {
   text-transform: capitalize;
+  letter-spacing: normal;
 
   &::before {
     content: none;

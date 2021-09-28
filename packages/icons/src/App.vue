@@ -1,54 +1,24 @@
 <template>
   <v-app>
     <v-container>
-      <div class="title">Outline Icons</div>
-      <div class="icons">
-        <icon
-          v-for="(icon, index) in outline"
-          :key="index + '_1'"
-          :icon="icon"
-          :color="color"
-          :size="size"
-        />
-      </div>
+      <h3 class="mt-10">3P</h3>
+      <icons type="3p" />
 
-      <div class="title">Fill Icons</div>
-      <div class="icons">
-        <icon
-          v-for="(icon, index) in fill"
-          :key="index + '_2'"
-          :icon="icon"
-          :color="color"
-          :size="size"
-        />
-      </div>
+      <h3 class="mt-10">4P</h3>
+      <icons type="4p" />
 
-      <div class="title">Colorful Icons</div>
-      <div class="icons">
-        <icon
-          v-for="(icon, index) in colorful"
-          :key="index + '_2'"
-          :icon="icon"
-          :color="color"
-          :size="size"
-        />
-      </div>
+      <h3 class="mt-10">6P</h3>
+      <icons type="6p" />
+
+      <h3 class="mt-10">8P</h3>
+      <icons type="8p" />
+
+      <h3 class="mt-10">colorful</h3>
+      <icons type="colorful" />
 
       <div class="my-10">
         <v-col>
-          <div>Color</div>
           <color-picker :color.sync="color" />
-        </v-col>
-
-        <v-col>
-          <div>Size: {{ size }} px</div>
-          <v-slider
-            v-model="size"
-            hint="size"
-            max="400"
-            min="12"
-            step="4"
-          ></v-slider>
         </v-col>
 
         <v-col>
@@ -61,27 +31,18 @@
 <script lang="ts">
 import { Component, Vue, Watch } from "vue-property-decorator";
 import ColorPicker from "./components/ColorPicker.vue";
-import Icon from "./components/Icon.vue";
-import meta from "./meta.json";
+import Icons from "./components/Icons.vue";
 
 @Component({
   components: {
     ColorPicker,
-    Icon
+    Icons
   }
 })
 class App extends Vue {
-  outline = meta.outline.map((x) => x.componentName);
-
-  fill = meta.fill.map((x) => x.componentName);
-
-  colorful = meta.colorful.map((x) => x.componentName);
+  dark = false;
 
   color = "#000000";
-
-  size = "24";
-
-  dark = false;
 
   @Watch("dark")
   handleThemeChange() {
@@ -91,15 +52,3 @@ class App extends Vue {
 
 export default App;
 </script>
-
-<style lang="scss">
-.title {
-  font-size: 20px;
-  margin: 10px 0;
-}
-
-.icons {
-  display: flex;
-  flex-wrap: wrap;
-}
-</style>

@@ -1,0 +1,32 @@
+<template>
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="16"
+    height="16"
+    viewBox="0 0 16 16"
+    aria-hidden="true"
+    fill="none"
+  >
+    <path
+      d="M4.60393 5.90219C4.83617 4.24164 6.25238 3 7.9291 3V3C9.59669 3 11.0093 4.22833 11.2429 5.87948C11.384 6.87715 11.5256 7.87242 11.6 8.38124C11.6432 8.67624 11.8012 8.97887 12.0172 9.26885C12.4704 9.87734 12.1143 11 11.3556 11H4.44984C3.7074 11 3.34473 9.93335 3.78347 9.33442C4.01036 9.02469 4.1829 8.69856 4.23705 8.38124C4.32323 7.87629 4.46547 6.89223 4.60393 5.90219Z"
+      stroke="currentColor"
+      stroke-width="1.5"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    ></path>
+    <path
+      d="M7.5 13H8.5"
+      stroke="currentColor"
+      stroke-width="1.5"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    ></path>
+  </svg>
+</template>
+
+<script lang="ts">
+import { Component, Vue } from "vue-property-decorator";
+
+@Component({ name: "FIconBell4P" })
+export default class FIconBell4P extends Vue {}
+</script>

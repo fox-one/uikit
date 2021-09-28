@@ -1,10 +1,10 @@
 import Vue from "vue";
 import Vuetify from "vuetify/lib";
-import UIKit from "@foxone/uikit";
+import UIKit from "@foxone/uikit/build/index.js";
 import * as icons from "@foxone/icons";
 import { mdiBrightness4 } from "@mdi/js";
 
-import "@foxone/uikit/build/index.min.css";
+import "@foxone/uikit/build/index.css";
 
 export default function () {
   const options = UIKit.preset;

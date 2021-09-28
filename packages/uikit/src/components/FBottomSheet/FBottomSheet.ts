@@ -26,6 +26,7 @@ export default baseMixins.extend({
     adaptive: { type: Boolean, default: true },
     title: { type: String, default: "" },
     subtitle: { type: String, default: "" },
+    hideCloseIcon: { type: Boolean, default: false },
     dialogProps: { type: Object, default: () => ({}) },
     menuProps: {
       type: Object,
@@ -38,7 +39,7 @@ export default baseMixins.extend({
       return this.$vuetify.breakpoint.mdAndUp;
     },
     showCloseIcon(): boolean {
-      return !this.isDesktop && !this.$attrs.persistent;
+      return !this.hideCloseIcon && !this.$attrs.persistent;
     },
     contentClass(): string {
       const classes = [

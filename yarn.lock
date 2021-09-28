@@ -7594,7 +7594,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "demos@workspace:packages/demos"
   dependencies:
-    "@foxone/uikit": 3.0.1-27
+    "@foxone/uikit": "workspace:packages/uikit"
     "@mdi/font": ^5.9.55
     "@mdi/js": ^5.5.55
     "@types/node": ^14.0.27

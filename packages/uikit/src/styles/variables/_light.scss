@@ -13,7 +13,8 @@ $light-colors: map-deep-merge(
     error: #f44c4c,
     success: #2cc94e,
     warning: #f58721,
-    info: #0f65c7
+    info: #0f65c7,
+    label: #656565
   ),
   $light-colors
 );
@@ -31,6 +32,7 @@ $material-light: (
   "success": map-get($light-colors, "success"),
   "warning": map-get($light-colors, "warning"),
   "info": map-get($light-colors, "info"),
+  "label": map-get($light-colors, "label"),
   // components
   "actionbar": map-get($light-colors, "greyscale_7"),
   "app-bar": map-get($light-colors, "greyscale_7"),
@@ -66,6 +68,7 @@ $material-light: (
   ),
   "text-fields": (
     "filled": map-get($light-colors, "greyscale_6"),
-    "filled-hover": map-get($light-colors, "greyscale_5")
+    "filled-hover": map-get($light-colors, "greyscale_5"),
+    "error-background": #fbf2f2
   )
 );

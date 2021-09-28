@@ -1,0 +1,23 @@
+<template>
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="16"
+    height="16"
+    viewBox="0 0 16 16"
+    aria-hidden="true"
+  >
+    <path
+      fill-rule="evenodd"
+      clip-rule="evenodd"
+      d="M11.9341 2.74419C11.6653 2.28337 11.172 2 10.6385 2H5.36158C4.82808 2 4.33473 2.28337 4.06591 2.74419L1.44091 7.24419C1.16847 7.71124 1.16847 8.28876 1.44091 8.75581L4.06591 13.2558C4.33473 13.7166 4.82808 14 5.36158 14H10.6385C11.172 14 11.6653 13.7166 11.9341 13.2558L14.5591 8.75581C14.8316 8.28876 14.8316 7.71124 14.5591 7.24419L11.9341 2.74419ZM8.00002 9.5C8.82845 9.5 9.50002 8.82843 9.50002 8C9.50002 7.17157 8.82845 6.5 8.00002 6.5C7.1716 6.5 6.50002 7.17157 6.50002 8C6.50002 8.82843 7.1716 9.5 8.00002 9.5Z"
+      fill="currentColor"
+    ></path>
+  </svg>
+</template>
+
+<script lang="ts">
+import { Component, Vue } from "vue-property-decorator";
+
+@Component({ name: "FIconSetting4PFill" })
+export default class FIconSetting4PFill extends Vue {}
+</script>

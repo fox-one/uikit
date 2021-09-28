@@ -1,0 +1,39 @@
+<template>
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="16"
+    height="16"
+    viewBox="0 0 16 16"
+    aria-hidden="true"
+    fill="none"
+  >
+    <path
+      d="M3 4C3 3.17157 3.67157 2.5 4.5 2.5H11.5C12.3284 2.5 13 3.17157 13 4V12C13 12.8284 12.3284 13.5 11.5 13.5H4.5C3.67157 13.5 3 12.8284 3 12V4Z"
+      stroke="currentColor"
+      stroke-width="1.5"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    ></path>
+    <path
+      d="M8 9H6"
+      stroke="currentColor"
+      stroke-width="1.5"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    ></path>
+    <path
+      d="M10 6H6"
+      stroke="currentColor"
+      stroke-width="1.5"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    ></path>
+  </svg>
+</template>
+
+<script lang="ts">
+import { Component, Vue } from "vue-property-decorator";
+
+@Component({ name: "FIconDocument4P" })
+export default class FIconDocument4P extends Vue {}
+</script>

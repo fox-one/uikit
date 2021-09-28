@@ -9,6 +9,7 @@ export default mixins(VTextField).extend({
 
   props: {
     filled: { type: Boolean, default: true },
+    color: { type: String, default: "label" },
     hideMessage: { type: Boolean, default: false }
   },
 

@@ -28,3 +28,4 @@ export * from "./FAssetInputTools";
 export * from "./FDialog";
 export * from "./FSlider";
 export * from "./FDivider";
+export * from "./FTextArea";

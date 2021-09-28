@@ -14,7 +14,7 @@ export type NumberOrNumberString = PropType<string | number | undefined>;
   inheritAttrs: false
 })
 class FPanel extends Mixins(VSheet, Spacedable, Roundedable) {
-  @Prop({ type: [String, Number], default: 2 })
+  @Prop({ type: [String, Number], default: 0 })
   elevation!: string | number;
 
   @Prop({ type: [String, Boolean], default: true })

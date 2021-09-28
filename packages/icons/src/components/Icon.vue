@@ -3,9 +3,9 @@
     <v-icon :color="color" :size="size">
       {{ "$" + icon }}
     </v-icon>
-    <span class="caption">
+    <div class="caption">
       {{ icon }}
-    </span>
+    </div>
   </div>
 </template>
 
@@ -25,10 +25,7 @@ export default Icon;
 
 <style lang="scss" scoped>
 .icon {
-  margin: 12px;
-  display: flex;
-  max-width: 100%;
-  flex-direction: column;
-  align-items: center;
+  text-align: center;
+  min-width: 200px;
 }
 </style>
