@@ -1,5 +1,7 @@
 export { default as FIconAdd } from "./icons/FIconAdd.vue";
 export { default as FIconAdd4P } from "./icons/FIconAdd4P.vue";
+export { default as FIconAdd4PBold } from "./icons/FIconAdd4PBold.vue";
+export { default as FIconAddBold } from "./icons/FIconAddBold.vue";
 export { default as FIconAddCircle8P } from "./icons/FIconAddCircle8P.vue";
 export { default as FIconAlbum } from "./icons/FIconAlbum.vue";
 export { default as FIconAlbum4P } from "./icons/FIconAlbum4P.vue";
@@ -79,7 +81,10 @@ export { default as FIconMenuBold } from "./icons/FIconMenuBold.vue";
 export { default as FIconMin4P } from "./icons/FIconMin4P.vue";
 export { default as FIconMin4PBold } from "./icons/FIconMin4PBold.vue";
 export { default as FIconMinBold } from "./icons/FIconMinBold.vue";
+export { default as FIconMinus } from "./icons/FIconMinus.vue";
 export { default as FIconMinus4P } from "./icons/FIconMinus4P.vue";
+export { default as FIconMinus4PBold } from "./icons/FIconMinus4PBold.vue";
+export { default as FIconMinusBold } from "./icons/FIconMinusBold.vue";
 export { default as FIconMinusCircle8P } from "./icons/FIconMinusCircle8P.vue";
 export { default as FIconMoreHorizon } from "./icons/FIconMoreHorizon.vue";
 export { default as FIconMoreHorizon4P } from "./icons/FIconMoreHorizon4P.vue";
