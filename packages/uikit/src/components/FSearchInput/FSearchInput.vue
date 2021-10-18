@@ -13,9 +13,16 @@
 
 <script lang="ts">
 import { Component, Model, Vue } from "vue-property-decorator";
+import { VIcon } from "vuetify/lib";
+import FInput from "../FInput";
 import { $t } from "../../utils/helper";
 
-@Component
+@Component({
+  components: {
+    VIcon,
+    FInput
+  }
+})
 class SearchInput extends Vue {
   @Model("input") value!: string;
 
