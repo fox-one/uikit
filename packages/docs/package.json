@@ -1,6 +1,6 @@
 {
   "name": "docs",
-  "version": "3.0.1-30",
+  "version": "3.0.1-31",
   "private": true,
   "main": "build/index.js",
   "scripts": {
@@ -8,8 +8,8 @@
     "build": "vue-cli-service build"
   },
   "dependencies": {
-    "@foxone/icons": "3.0.1-30",
-    "@foxone/uikit": "3.0.1-30",
+    "@foxone/icons": "3.0.1-31",
+    "@foxone/uikit": "3.0.1-31",
     "vue": "^2.6.12",
     "vue-class-component": "^7.2.3",
     "vue-i18n": "^8.25.0",
