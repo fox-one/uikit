@@ -4,8 +4,8 @@
       <div class="f-caption mb-2">Custom Activator</div>
       <f-asset-amount-input
         v-model="value0"
+        placeholder="Activator"
         :asset.sync="asset0"
-        label="activator"
         :precision="10"
         border
         @blur="handleBlur($event)"
@@ -22,7 +22,7 @@
       <div class="f-caption mb-2">Disabled</div>
       <f-asset-amount-input
         v-model="value1"
-        label="Disabled"
+        placeholder="Disabled"
         :assets="assets"
         :selectable="false"
         :asset.sync="asset1"
@@ -34,7 +34,7 @@
       <div class="f-caption mb-2 mt-2">Normal</div>
       <f-asset-amount-input
         v-model="value2"
-        label="Amount"
+        placeholder="Amount"
         :assets="assets"
         :selectable="selectable"
         :asset.sync="asset2"
@@ -61,20 +61,28 @@
       <div class="f-caption mb-2 mt-2">Loading</div>
       <f-asset-amount-input
         v-model="value5"
-        label="Loading"
+        placeholder="Loading"
         :assets="assets"
         :selectable="false"
         :asset.sync="asset1"
         :precision="precision"
         loading
       />
+
+      <v-text-field label="asdf" filled loading></v-text-field>
+
+      <f-input label="asdf" filled loading clearable />
+
+      <f-input placeholder="asdf" filled loading clearable />
+
+      <f-input label="asdf" filled loading single-line clearable />
     </f-panel>
 
     <f-panel>
       <div class="f-caption mb-2">Combine two w/ a small button</div>
       <f-asset-amount-input
         v-model="value3"
-        label="Pay amount"
+        placeholder="Pay amount"
         :assets="assets"
         :selectable="selectable"
         :asset.sync="asset3"
@@ -94,7 +102,7 @@
       </div>
       <f-asset-amount-input
         v-model="value4"
-        label="Obtain amount"
+        placeholder="Obtain amount"
         :assets="assets"
         :selectable="selectable"
         :asset.sync="asset4"
@@ -178,7 +186,7 @@ class AssetAmountInput extends Vue {
   }
 
   handleBlur() {
-    alert("user blur!");
+    // alert("user blur!");
   }
 }
 export default AssetAmountInput;

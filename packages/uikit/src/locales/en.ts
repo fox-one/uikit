@@ -1,5 +1,7 @@
 export default {
   uikit: {
+    balance_short: "Bal",
+    connect_wallet: "connect wallet",
     search: "Search",
     select_asset: "Select asset",
     select_phone_code: "Select phone code",

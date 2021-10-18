@@ -13,8 +13,7 @@ $dark-colors: map-deep-merge(
     error: #f67070,
     success: #56d471,
     warning: #f79f4d,
-    info: #79a4e4,
-    label: #656565
+    info: #79a4e4
   ),
   $dark-colors
 );
@@ -32,7 +31,6 @@ $material-dark: (
   "success": map-get($dark-colors, "success"),
   "warning": map-get($dark-colors, "warning"),
   "info": map-get($dark-colors, "info"),
-  "label": map-get($dark-colors, "label"),
   // components
   "actionbar": map-get($dark-colors, "greyscale_6"),
   "app-bar": map-get($dark-colors, "greyscale_7"),
@@ -65,6 +63,9 @@ $material-dark: (
       "inactive": map-get($dark-colors, "greyscale_4"),
       "disabled": map-get($dark-colors, "greyscale_5")
     )
+  ),
+  "text": (
+    "disabled": map-get($dark-colors, "greyscale_4")
   ),
   "text-fields": (
     "filled": map-get($dark-colors, "greyscale_6"),

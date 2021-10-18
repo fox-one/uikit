@@ -13,8 +13,7 @@ $light-colors: map-deep-merge(
     error: #f44c4c,
     success: #2cc94e,
     warning: #f58721,
-    info: #0f65c7,
-    label: #656565
+    info: #0f65c7
   ),
   $light-colors
 );
@@ -32,7 +31,6 @@ $material-light: (
   "success": map-get($light-colors, "success"),
   "warning": map-get($light-colors, "warning"),
   "info": map-get($light-colors, "info"),
-  "label": map-get($light-colors, "label"),
   // components
   "actionbar": map-get($light-colors, "greyscale_7"),
   "app-bar": map-get($light-colors, "greyscale_7"),
@@ -65,6 +63,9 @@ $material-light: (
       "inactive": map-get($light-colors, "greyscale_4"),
       "disabled": map-get($light-colors, "greyscale_5")
     )
+  ),
+  "text": (
+    "disabled": map-get($light-colors, "greyscale_4")
   ),
   "text-fields": (
     "filled": map-get($light-colors, "greyscale_6"),

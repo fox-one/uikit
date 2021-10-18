@@ -11,12 +11,7 @@
     </template>
 
     <f-bottom-sheet-subtitle>
-      <f-input
-        v-model="filter"
-        :label="meta.searchLabel"
-        hide-details
-        clearable
-      />
+      <f-search-input v-model="filter" hide-details clearable />
     </f-bottom-sheet-subtitle>
 
     <slot

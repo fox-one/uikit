@@ -1,16 +1,41 @@
 @import "./variables";
 
-.f-asset-amount-input.f-input.v-input {
+@include theme(f-asset-amount-input) using ($material) {
+  &--fullfilled {
+    background-color: map-deep-get($material, "text-fields", "filled");
+
+    &:hover {
+      background: map-deep-get($material, "text-fields", "filled-hover");
+    }
+
+    .v-input__slot {
+      background-color: transparent !important;
+    }
+  }
+}
+
+.f-asset-amount-input.f-input.v-text-field.v-input {
   font-size: 16px;
 
-  .v-label {
-    font-size: 20px;
+  input::placeholder,
+  textarea::placeholder {
+    font-size: 18px;
+    font-weight: 600;
+  }
+
+  &.f-asset-amount-input--fullfilled {
+    padding-bottom: 16px;
+
+    .v-text-field__details {
+      padding: 0 16px;
+    }
   }
 
   &.v-text-field--enclosed,
   &.v-text-field--full-width {
     .v-input__append-inner {
       margin-top: 4px;
+      padding-left: 0px;
     }
   }
 

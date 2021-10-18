@@ -3,6 +3,8 @@ import preset from "./preset";
 import Toast from "./utils/toast";
 import Dialog from "./utils/dialog";
 
+import "./styles/index.scss";
+
 import type { VueConstructor } from "vue/types/umd";
 
 export default {

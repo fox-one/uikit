@@ -7,10 +7,11 @@
       v-bind="$attrs"
       v-on="$listeners"
     >
-      <slot ref="input" name="input" />
+      <slot ref="input" name="input" :messages="inputMessages" />
 
       <div class="f-asset-swap-form__divider">
         <v-btn
+          v-show="!hideSwitch"
           icon
           small
           class="greyscale_5 f-asset-swap-form__swap"
@@ -20,33 +21,36 @@
         </v-btn>
       </div>
 
-      <slot ref="output" name="output" />
+      <slot ref="output" name="output" :messages="outputMessages" />
     </v-form>
-
-    <slot name="error-messages" :messages="messagesToDisplay">
-      <v-messages color="error" :value="messagesToDisplay" />
-    </slot>
   </div>
 </template>
 
 <script lang="ts">
-import { VForm, VIcon, VBtn, VMessages } from "vuetify/src/components";
+import { VForm, VIcon, VBtn } from "vuetify/src/components";
 import Themeable from "vuetify/src/mixins/themeable";
 import mixins from "vuetify/src/util/mixins";
 
 export default mixins(Themeable).extend({
   name: "FAssetSwapForm",
 
+  props: {
+    hideSwitch: {
+      type: Boolean,
+      default: false
+    }
+  },
+
   components: {
     VForm,
     VIcon,
-    VBtn,
-    VMessages
+    VBtn
   },
 
   data() {
     return {
-      messagesToDisplay: []
+      inputMessages: [],
+      outputMessages: []
     };
   },
 
@@ -60,11 +64,11 @@ export default mixins(Themeable).extend({
   },
 
   mounted() {
-    this.getForm()?.inputs.forEach((input) => {
+    this.getForm()?.inputs.forEach((input, index) => {
       this.$watch(
         () => input.messagesToDisplay,
         () => {
-          this.updateErrorMessages();
+          this.updateErrorMessages(index);
         }
       );
     });
@@ -74,13 +78,15 @@ export default mixins(Themeable).extend({
     getForm(): any {
       return this.$refs.form;
     },
-    updateErrorMessages() {
-      const messages = this.getForm()?.inputs.reduce((messages, input) => {
-        return [...(input.messagesToDisplay || []), ...messages];
-      }, []);
 
-      this.messagesToDisplay = messages;
+    updateErrorMessages(index) {
+      if (index === 0) {
+        this.inputMessages = this.getForm()?.inputs?.[0].messagesToDisplay;
+      } else {
+        this.outputMessages = this.getForm()?.inputs?.[1].messagesToDisplay;
+      }
     },
+
     handleSwitch() {
       this.$emit("switch");
     }

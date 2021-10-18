@@ -16,14 +16,16 @@ export default mixins(FNumberInput).extend({
     asset: { type: Object as PropType<Asset | null>, default: null },
     reverse: { type: Boolean, default: true },
     singleLine: { type: Boolean, default: true },
-    selectable: { type: Boolean, default: true }
+    selectable: { type: Boolean, default: true },
+    fullfilled: { type: Boolean, default: false }
   },
 
   computed: {
     classes(): object {
       return {
         ...FNumberInput.options.computed.classes.call(this),
-        "f-asset-amount-input": true
+        "f-asset-amount-input": true,
+        "f-asset-amount-input--fullfilled": this.fullfilled
       };
     }
   },
@@ -38,7 +40,7 @@ export default mixins(FNumberInput).extend({
           asset: this.asset
         },
         attrs: {
-          menuProps: { minWidth: 400 }
+          menuProps: { minWidth: 400, nudgeLeft: 16 }
         },
         on: { input: (e) => this.$emit("update:asset", e) },
         scopedSlots: {
