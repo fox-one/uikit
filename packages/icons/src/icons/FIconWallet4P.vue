@@ -1,0 +1,24 @@
+<template>
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="16"
+    height="16"
+    viewBox="0 0 16 16"
+    aria-hidden="true"
+    fill="none"
+  >
+    <path
+      fill-rule="evenodd"
+      clip-rule="evenodd"
+      d="M14 10.25V11.5C14 12.6046 13.1046 13.5 12 13.5H4C2.89543 13.5 2 12.6046 2 11.5V4.5C2 3.39543 2.89543 2.5 4 2.5H12C13.1046 2.5 14 3.39543 14 4.5V5.75H14.5C14.9142 5.75 15.25 6.08579 15.25 6.5V9.5C15.25 9.91421 14.9142 10.25 14.5 10.25H14ZM12.5 10.25V11.5C12.5 11.7761 12.2761 12 12 12H4C3.72386 12 3.5 11.7761 3.5 11.5V4.5C3.5 4.22386 3.72386 4 4 4H12C12.2761 4 12.5 4.22386 12.5 4.5V5.75H10.5C9.25736 5.75 8.25 6.75736 8.25 8C8.25 9.24264 9.25736 10.25 10.5 10.25H12.5ZM9.75 8C9.75 7.58579 10.0858 7.25 10.5 7.25H13.75V8.75H10.5C10.0858 8.75 9.75 8.41421 9.75 8Z"
+      fill="currentColor"
+    ></path>
+  </svg>
+</template>
+
+<script lang="ts">
+import { Component, Vue } from "vue-property-decorator";
+
+@Component({ name: "FIconWallet4P" })
+export default class FIconWallet4P extends Vue {}
+</script>

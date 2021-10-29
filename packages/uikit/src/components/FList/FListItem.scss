@@ -8,6 +8,7 @@
 
 .f-list-item {
   padding-right: $spacer * 2;
+  padding-left: 0;
   height: 72px;
 
   &__body {
@@ -20,6 +21,10 @@
 
   &__subtitle {
     font-size: 13px;
+    margin-top: 8px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
   }
 
   &__tail,

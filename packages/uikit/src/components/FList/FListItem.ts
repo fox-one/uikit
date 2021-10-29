@@ -28,6 +28,8 @@ class FListItem extends Vue {
 
   @Prop({ type: String, default: "" }) value!: string;
 
+  @Prop({ type: Boolean, default: false }) hideTail!: boolean;
+
   genHead() {
     return this.$slots.head;
   }
@@ -39,12 +41,15 @@ class FListItem extends Vue {
 
     return h(VListItemContent, { staticClass: "f-list-item__body" }, [
       h("div", { staticClass: "f-list-item__title" }, [this.title]),
-      h("div", { staticClass: "f-list-item__subtitle" }, [this.subtitle])
+      this.subtitle &&
+        h("div", { staticClass: "f-list-item__subtitle" }, [this.subtitle])
     ]);
   }
 
   genTail() {
     if (this.$slots.tail) return this.$slots.tail;
+
+    if (this.hideTail) return null;
 
     const h = this.$createElement;
 

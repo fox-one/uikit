@@ -1,6 +1,8 @@
 <template>
   <v-layout align-center :class="classes">
+    <v-icon v-if="!asset"> $question </v-icon>
     <f-mixin-asset-logo
+      v-else
       :logo="meta.logo"
       :chain-logo="meta.chainLogo"
       :size="32"

@@ -27,11 +27,12 @@ class FLoading extends Vue {
             ...this.$attrs
           }
         }),
-        h(
-          "span",
-          { staticClass: "f-loading--text mt-2 text--secondary caption" },
-          this.$slots.text
-        )
+        this.$slots.text &&
+          h(
+            "span",
+            { staticClass: "f-loading--text mt-2 text--secondary caption" },
+            this.$slots.text
+          )
       ])
     ];
 

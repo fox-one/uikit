@@ -63,7 +63,7 @@ class FAssetInputTools extends Vue {
 
   get text() {
     return {
-      balance: $t(this, "balance"),
+      balance: $t(this, "balance_short"),
       connect_wallet: $t(this, "connect_wallet")
     };
   }

@@ -1,6 +1,8 @@
 <template>
-  <div class="">
+  <v-container class="">
     <f-panel padding="0" class="py-2 mb-4">
+      <f-list-item title="asdf" hide-tail />
+      <f-list-item title="asdf" />
       <div class="f-caption f-greyscale-3 mx-4">With subtitle</div>
       <f-list>
         <f-list-item
@@ -63,7 +65,7 @@
         </f-list-item>
       </f-list>
     </f-panel>
-  </div>
+  </v-container>
 </template>
 
 <script lang="ts">

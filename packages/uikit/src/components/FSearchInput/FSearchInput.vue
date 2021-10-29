@@ -6,7 +6,7 @@
     v-on="$listeners"
   >
     <template #prepend-inner>
-      <v-icon color="label">$search</v-icon>
+      <v-icon color="greyscale_4">$search</v-icon>
     </template>
   </f-input>
 </template>
@@ -18,19 +18,20 @@ import FInput from "../FInput";
 import { $t } from "../../utils/helper";
 
 @Component({
+  name: "FSearchInput",
   components: {
     VIcon,
     FInput
   }
 })
-class SearchInput extends Vue {
+class FSearchInput extends Vue {
   @Model("input") value!: string;
 
   get text() {
     return { search: $t(this, "search") };
   }
 }
-export default SearchInput;
+export default FSearchInput;
 </script>
 
 <style lang="scss" scoped>

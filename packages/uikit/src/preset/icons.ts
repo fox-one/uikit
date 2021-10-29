@@ -10,7 +10,8 @@ import {
   FIconArrowRight4P,
   FIconClear3PFill,
   FIconArrowDown,
-  FIconSearch
+  FIconSearch,
+  FIconHelp3PFill
 } from "@foxone/icons";
 
 export default {
@@ -27,6 +28,7 @@ export default {
     fill: { component: FIconUpRight3PFill },
     help: { component: FIconInformation3PFill },
     warning: { component: FIconWarningFill },
-    search: { component: FIconSearch }
+    search: { component: FIconSearch },
+    question: { component: FIconHelp3PFill }
   }
 };

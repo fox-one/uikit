@@ -15,6 +15,7 @@
 
 .f-asset-select-field {
   padding: 8px;
+  height: 46px;
   cursor: pointer;
 
   &--rounded {
@@ -36,9 +37,11 @@
 
   &__symbol {
     font-weight: 600;
+    white-space: nowrap;
   }
 
   &__name {
     font-size: 12px;
+    white-space: nowrap;
   }
 }
