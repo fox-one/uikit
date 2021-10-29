@@ -30,8 +30,16 @@ class FListItem extends Vue {
 
   @Prop({ type: Boolean, default: false }) hideTail!: boolean;
 
+  @Prop({ type: Boolean, default: false }) hideHead!: boolean;
+
   genHead() {
-    return this.$slots.head;
+    const h = this.$createElement;
+
+    if (this.$slots.head) {
+      return h("div", { staticClass: "f-list-item__head" }, [this.$slots.head]);
+    }
+
+    return null;
   }
 
   genBody() {
