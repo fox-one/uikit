@@ -6,7 +6,7 @@
     v-on="$listeners"
   >
     <template #prepend-inner>
-      <v-icon color="greyscale_4">$search</v-icon>
+      <v-icon size="12" color="greyscale_4">$search</v-icon>
     </template>
   </f-input>
 </template>
