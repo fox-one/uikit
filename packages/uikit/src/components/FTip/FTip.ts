@@ -15,6 +15,7 @@ export default mixins(Themeable, Toggleable).extend({
     type: { type: String, default: "info" },
     value: { type: Boolean, default: true },
     closeable: { type: Boolean, default: true },
+    closeProps: { type: Object, defautl: () => ({}) },
     transition: {
       type: [String, Boolean],
       default: "dialog-transition"
@@ -52,9 +53,8 @@ export default mixins(Themeable, Toggleable).extend({
         {
           staticClass: "f-tip__close",
           props: {
-            width: 14,
-            height: 14,
-            color: "red",
+            width: 12,
+            height: 12,
             fab: true,
             dark: true
           },

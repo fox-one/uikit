@@ -2,11 +2,12 @@
   <f-input
     :placeholder="text.search"
     :value="value"
+    class="f-search-input"
     v-bind="$attrs"
     v-on="$listeners"
   >
     <template #prepend-inner>
-      <v-icon size="12" color="greyscale_4">$search</v-icon>
+      <v-icon color="greyscale_4">$search</v-icon>
     </template>
   </f-input>
 </template>

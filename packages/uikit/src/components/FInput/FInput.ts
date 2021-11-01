@@ -37,7 +37,7 @@ export default mixins(VTextField).extend({
           h(
             "div",
             { staticClass: "f-input__tools" },
-            this.$scopedSlots.tools?.({ message: this.messagesToDisplay })
+            this.$scopedSlots.tools?.({ messages: this.messagesToDisplay })
           ),
         messagesNode
       ]);

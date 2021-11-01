@@ -26,7 +26,7 @@
     <v-spacer />
 
     <slot name="right">
-      <template v-if="messages">
+      <template v-if="showMessages">
         <v-messages color="error" :value="messages" class="text-right" />
       </template>
       <template v-else>
@@ -60,6 +60,10 @@ class FAssetInputTools extends Vue {
   @Prop({ type: [String, Number], default: "" }) fiatAmount!: boolean;
 
   @Prop() messages;
+
+  get showMessages() {
+    return this.messages && this.messages?.length > 0;
+  }
 
   get text() {
     return {
