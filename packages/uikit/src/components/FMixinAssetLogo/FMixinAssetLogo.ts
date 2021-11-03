@@ -9,6 +9,8 @@ import { VImg, VSheet } from "vuetify/lib";
 class FMixinAssetLogo extends Vue {
   @Prop({ type: Number, default: 64 }) size!: number;
 
+  @Prop() chainSize!: number;
+
   @Prop({ type: String, default: "" }) logo!: string;
 
   @Prop({ type: String, default: "" }) chainLogo!: string;
@@ -22,13 +24,15 @@ class FMixinAssetLogo extends Vue {
       return null;
     }
 
-    const size = this.size <= 48 ? 12 : 16;
+    const defaultSize = this.size <= 48 ? 12 : 16;
+    const size = this.chainSize || defaultSize;
 
     return h(
       VSheet,
       {
         staticClass: "rounded-circle f-asset-logo__chain",
-        class: [this.size <= 48 ? "f-asset-logo__chain--small" : ""]
+        class: [this.size <= 48 ? "f-asset-logo__chain--small" : ""],
+        style: { width: `${size + 2}px`, height: `${size + 2}px` }
       },
       [
         h("div", [
