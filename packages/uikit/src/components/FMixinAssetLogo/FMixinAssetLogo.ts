@@ -13,10 +13,12 @@ class FMixinAssetLogo extends Vue {
 
   @Prop({ type: String, default: "" }) chainLogo!: string;
 
+  @Prop({ type: Boolean, default: false }) hideSame!: string;
+
   genChain() {
     const h = this.$createElement;
 
-    if (!this.chainLogo || this.chainLogo === this.logo) {
+    if (this.hideSame && (!this.chainLogo || this.chainLogo === this.logo)) {
       return null;
     }
 
