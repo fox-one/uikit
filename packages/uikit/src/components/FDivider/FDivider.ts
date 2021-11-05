@@ -13,15 +13,23 @@ export default mixins(VDivider).extend({
 
   props: {
     size: { type: [String, Number], default: 0.5 },
-    opacity: { type: [String, Number], default: 0.1 },
+    opacity: { type: [String, Number] },
+    opacityDark: { type: [String, Number], default: 0.2 },
+    opacityLight: { type: [String, Number], default: 0.1 },
     color: { type: String }
   },
 
   computed: {
     styles(): object {
+      const opacity = this.opacity
+        ? this.opacity
+        : this.$vuetify.theme.dark
+        ? this.opacityDark
+        : this.opacityLight;
+
       return {
         borderWidth: `${convertToUnit(this.size)} 0 0 0`,
-        opacity: this.opacity,
+        opacity: opacity,
         borderColor: this.color
       };
     }

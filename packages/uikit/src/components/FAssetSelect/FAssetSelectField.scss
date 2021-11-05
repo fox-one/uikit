@@ -8,8 +8,8 @@
     background: map-deep-get($material, "text-fields", "filled-hover");
   }
 
-  &__name {
-    color: map-deep-get($material, "text", "secondary");
+  .f-asset-select-field__name {
+    color: map-get($material, "greyscale_3");
   }
 }
 
@@ -32,7 +32,7 @@
   }
 
   &__labels {
-    padding-left: 4px;
+    padding-left: 8px;
   }
 
   &__symbol {

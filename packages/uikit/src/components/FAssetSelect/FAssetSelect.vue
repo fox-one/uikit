@@ -1,12 +1,12 @@
 <template>
   <f-bottom-sheet v-model="dialog" :title="meta.title" v-bind="$attrs">
     <template #activator="{ on }">
-      <slot name="activator" :on="on">
-        <f-asset-select-field
-          :asset="asset"
-          rounded
-          @click.native.stop="on.click"
-        />
+      <slot name="activator" :on="on" :asset="asset">
+        <f-asset-select-field :asset="asset" @click.native.stop="on.click">
+          <template #placeholder>
+            <span class="f-asset-select__placeholder">Select Asset</span>
+          </template>
+        </f-asset-select-field>
       </slot>
     </template>
 
@@ -91,3 +91,17 @@ class FAssetSelect extends Vue {
 }
 export default FAssetSelect;
 </script>
+
+<style lang="scss" scoped>
+.f-asset-select-field {
+  height: 56px;
+  border-radius: 8px;
+  padding: 0 16px;
+}
+
+.f-asset-select__placeholder {
+  font-weight: 500;
+  font-size: 16px;
+  color: var(--v-greyscale_4-base);
+}
+</style>

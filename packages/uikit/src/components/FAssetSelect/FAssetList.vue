@@ -44,7 +44,7 @@ export default FAssetList;
 
 <style lang="scss">
 .f-asset-list {
-  max-height: 60vh;
+  height: 60vh;
   overflow-y: auto;
 }
 </style>

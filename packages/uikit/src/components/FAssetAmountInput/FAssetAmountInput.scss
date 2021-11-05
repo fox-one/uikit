@@ -15,7 +15,7 @@
 }
 
 .f-asset-amount-input.f-input.v-text-field.v-input {
-  font-size: 16px;
+  font-size: 18px;
 
   input::placeholder,
   textarea::placeholder {
@@ -28,6 +28,10 @@
 
     .v-text-field__details {
       padding: 0 16px;
+    }
+
+    .f-input__tools {
+      margin: 0;
     }
   }
 

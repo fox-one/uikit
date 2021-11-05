@@ -1,7 +1,7 @@
 import {
   FIconChevronLeft,
   FIconChevronRight,
-  FIconChevronDown,
+  FIconChevronDown4P,
   FIconClose,
   FIconConnect3PFill,
   FIconUpRight3PFill,
@@ -22,7 +22,7 @@ export default {
     arrowRight: { component: FIconArrowRight4P },
     close: { component: FIconClose },
     clear: { component: FIconClear3PFill },
-    expand: { component: FIconChevronDown },
+    expand: { component: FIconChevronDown4P },
     swap: { component: FIconArrowDown },
     connect: { component: FIconConnect3PFill },
     fill: { component: FIconUpRight3PFill },

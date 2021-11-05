@@ -13,6 +13,7 @@
   justify-content: space-around;
   padding-bottom: constant(safe-area-inset-bottom) !important;
   padding-bottom: env(safe-area-inset-bottom) !important;
+  box-sizing: content-box;
 }
 
 .v-item-group.v-bottom-navigation.f-bottom-navigation {

@@ -22,9 +22,10 @@ module.exports = merge(base, {
   devServer: {
     hot: true,
     contentBase: "./public",
-    host: process.env.HOST || "localhost",
+    host: process.env.HOST || "0.0.0.0",
     port: process.env.PORT || "8081",
-    disableHostCheck: true
+    disableHostCheck: true,
+    useLocalIp: true
   },
   plugins: [
     new VuetifyLoaderPlugin(),

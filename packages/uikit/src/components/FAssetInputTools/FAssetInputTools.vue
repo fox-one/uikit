@@ -1,6 +1,6 @@
 <template>
   <v-layout align-center class="f-asset-input-tools">
-    <slot name="left">
+    <slot v-if="!disabled" name="left">
       <f-button
         v-if="!walletConnected"
         text
@@ -30,7 +30,7 @@
         <v-messages color="error" :value="messages" class="text-right" />
       </template>
       <template v-else>
-        <span class="greyscale_3--text fiat-amount"> ≈ {{ fiatAmount }} </span>
+        <span class="greyscale_3--text fiat-amount"> {{ fiatAmount }} </span>
       </template>
     </slot>
   </v-layout>
@@ -58,6 +58,8 @@ class FAssetInputTools extends Vue {
   @Prop({ type: Boolean, default: false }) walletConnected!: boolean;
 
   @Prop({ type: [String, Number], default: "" }) fiatAmount!: boolean;
+
+  @Prop({ type: Boolean, default: false }) disabled!: boolean;
 
   @Prop() messages;
 

@@ -45,7 +45,8 @@ export default {
       blue: "#3988FF",
       orange: "#FFB255",
       bright_green: "#CDFF38",
-      green: "#32EBC9"
+      green: "#32EBC9",
+      secondary: "red"
     }
   }
 };

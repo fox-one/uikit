@@ -1,11 +1,17 @@
 <template>
   <v-layout align-center :class="classes">
-    <v-icon v-if="!asset"> $question </v-icon>
+    <template v-if="!asset">
+      <slot name="placeholder">
+        <v-icon> $question </v-icon>
+      </slot>
+    </template>
+
     <f-mixin-asset-logo
       v-else
       :logo="meta.logo"
       :chain-logo="meta.chainLogo"
-      :size="32"
+      :size="24"
+      :chain-size="8"
       class="f-asset-select-field__logo"
     />
     <v-flex class="f-asset-select-field__labels">
@@ -16,9 +22,8 @@
         {{ meta.name }}
       </div>
     </v-flex>
-    <v-btn v-if="selectable" icon small>
-      <v-icon> $expand </v-icon>
-    </v-btn>
+
+    <v-icon v-if="selectable" size="16" class="ml-1"> $expand </v-icon>
   </v-layout>
 </template>
 

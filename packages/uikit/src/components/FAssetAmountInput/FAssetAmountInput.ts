@@ -30,6 +30,12 @@ export default mixins(FNumberInput).extend({
     }
   },
 
+  watch: {
+    asset() {
+      this.$nextTick(this.validate);
+    }
+  },
+
   methods: {
     genAssetSelect() {
       const h = this.$createElement;
