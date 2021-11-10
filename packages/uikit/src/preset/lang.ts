@@ -1,4 +1,4 @@
-import { en, ja, zhHans } from "vuetify/src/locale";
+import { en, ja, ko, de, fr, es, zhHans } from "vuetify/src/locale";
 import {
   en as uikitEn,
   ja as uikitJa,
@@ -9,6 +9,10 @@ export default {
   locales: {
     en: { ...en, ...uikitEn },
     ja: { ...ja, ...uikitJa },
-    zhHans: { ...zhHans, ...uikitZhHans }
+    zh: { ...zhHans, ...uikitZhHans },
+    ko,
+    de,
+    fr,
+    es
   }
 };

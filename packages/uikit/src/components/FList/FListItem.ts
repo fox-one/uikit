@@ -22,11 +22,11 @@ import type { CreateElement } from "vue";
   }
 })
 class FListItem extends Vue {
-  @Prop({ type: String, default: "" }) title!: string;
+  @Prop({ default: "" }) title;
 
-  @Prop({ type: String, default: "" }) subtitle!: string;
+  @Prop({ default: "" }) subtitle;
 
-  @Prop({ type: String, default: "" }) value!: string;
+  @Prop({ default: "" }) value;
 
   @Prop({ type: Boolean, default: false }) hideTail!: boolean;
 
