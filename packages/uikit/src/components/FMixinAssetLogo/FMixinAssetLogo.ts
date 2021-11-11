@@ -15,7 +15,7 @@ class FMixinAssetLogo extends Vue {
 
   @Prop({ type: String, default: "" }) chainLogo!: string;
 
-  @Prop({ type: Boolean, default: false }) hideSame!: string;
+  @Prop({ type: Boolean, default: true }) hideSame!: boolean;
 
   genChain() {
     const h = this.$createElement;
