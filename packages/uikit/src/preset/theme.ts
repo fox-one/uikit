@@ -33,7 +33,7 @@ export default {
       greyscale_3: "#9F9F9F",
       greyscale_4: "#656565",
       greyscale_5: "#3C3C3C",
-      greyscale_6: "#191919",
+      greyscale_6: "#303030",
       greyscale_7: "#000000",
       // error & warning
       error: "#F67070",

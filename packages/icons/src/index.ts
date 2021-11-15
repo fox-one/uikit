@@ -264,6 +264,8 @@ export { default as FIconWallet4PFill } from "./icons/FIconWallet4PFill.vue";
 export { default as FIconWalletAFill } from "./icons/FIconWalletAFill.vue";
 export { default as FIconWarningFill } from "./icons/FIconWarningFill.vue";
 export { default as FIconWithdrawFill } from "./icons/FIconWithdrawFill.vue";
+export { default as FIconFSwapBrand } from "./icons/FIconFSwapBrand.vue";
+export { default as FIconFSwapLogo } from "./icons/FIconFSwapLogo.vue";
 export { default as FIconLakeBrand } from "./icons/FIconLakeBrand.vue";
 export { default as FIconLakeLogo } from "./icons/FIconLakeLogo.vue";
 export { default as FIconLeafBrand } from "./icons/FIconLeafBrand.vue";

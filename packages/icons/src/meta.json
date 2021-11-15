@@ -288,6 +288,8 @@
     { "name": "Withdraw", "componentName": "FIconWithdrawFill" }
   ],
   "colorful": [
+    { "name": "FSwapBrand", "componentName": "FIconFSwapBrand" },
+    { "name": "FSwapLogo", "componentName": "FIconFSwapLogo" },
     { "name": "LakeBrand", "componentName": "FIconLakeBrand" },
     { "name": "LakeLogo", "componentName": "FIconLakeLogo" },
     { "name": "LeafBrand", "componentName": "FIconLeafBrand" },
