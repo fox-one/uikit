@@ -44,7 +44,7 @@ export default baseMixins.extend({
     contentClass(): string {
       const classes = [
         "f-bottom-sheet",
-        this.$attrs.contentClass || "",
+        this.$attrs["content-class"] || "",
         ...Object.keys(this.themeClasses).filter((k) => this.themeClasses[k])
       ];
 
