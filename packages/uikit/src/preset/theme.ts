@@ -18,6 +18,10 @@ export default {
       success: "#2CC94E",
       warning: "#F58721",
       info: "#0f65c7",
+      warning_bg: "#FCF8F0",
+      warning_emphsize: "#75080A",
+      error_bg: "#FBF2F2",
+      error_emphsize: "#75080A",
       // colors
       pink: "#EE4596",
       blue: "#076AFF",
@@ -40,6 +44,10 @@ export default {
       success: "#56D471",
       warning: "#F79F4D",
       info: "#79a4e4",
+      warning_bg: "#5C3A13",
+      warning_emphsize: "#FFE08F",
+      error_bg: "#4A2222",
+      error_emphsize: "#F34A4D",
       // colors
       pink: "#F16AAB",
       blue: "#3988FF",
