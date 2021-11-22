@@ -2,10 +2,23 @@
 
 @include theme("f-tooltip__content") using ($material) {
   color: map-deep-get($material, "text", "primary");
-  background-color: map-get($material, "greyscale_6");
+}
+
+.theme--light .f-tooltip__content {
+  filter: drop-shadow(0px 8px 32px rgba(0, 0, 0, 0.12));
+  background-color: var(--v-greyscale_7-base);
 
   .f-tooltip__arrow {
-    color: map-get($material, "greyscale_6");
+    color: var(--v-greyscale_7-base);
+  }
+}
+
+.theme--dark .f-tooltip__content {
+  filter: drop-shadow(0px 8px 32px rgba(255, 255, 255, 0.12));
+  background-color: var(--v-greyscale_5-base);
+
+  .f-tooltip__arrow {
+    color: var(--v-greyscale_5-base);
   }
 }
 

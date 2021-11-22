@@ -30,3 +30,6 @@ export * from "./FSlider";
 export * from "./FDivider";
 export * from "./FTextArea";
 export * from "./FSearchInput";
+export * from "./FFiatDivision";
+export * from "./FUserAvatar";
+export * from "./FHint";

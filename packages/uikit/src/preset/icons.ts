@@ -12,7 +12,9 @@ import {
   FIconArrowDown,
   FIconSearch,
   FIconHelp3PFill,
-  FIconCheck4P
+  FIconCheck4P,
+  FIconInfo4P,
+  FIconLink4P
 } from "@foxone/icons";
 
 export default {
@@ -31,6 +33,8 @@ export default {
     warning: { component: FIconWarningFill },
     search: { component: FIconSearch },
     question: { component: FIconHelp3PFill },
-    check: { component: FIconCheck4P }
+    check: { component: FIconCheck4P },
+    info: { component: FIconInfo4P },
+    link: { component: FIconLink4P }
   }
 };

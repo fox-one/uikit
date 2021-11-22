@@ -12,4 +12,6 @@ const base = {
   es
 };
 
-export default mergeDeep(base, locales);
+export default {
+  locales: mergeDeep(base, locales)
+};
