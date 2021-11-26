@@ -1,7 +1,7 @@
 {
   "uikit": {
     "balance_short": "Bal",
-    "connect_wallet": "connect wallet",
+    "connect_wallet": "Connect wallet",
     "search": "Search",
     "select_asset": "Select asset",
     "select_phone_code": "Select phone code",
@@ -15,6 +15,7 @@
     "links_wallet_subtitle": "iOS & Android Wallet",
     "details": "Details",
     "close": "Close",
-    "learn_more": "Learn More"
+    "learn_more": "Learn More",
+    "install": "Install"
   }
 }
