@@ -19,7 +19,9 @@
         <span @click.stop="handleFill">
           {{ balance }}
         </span>
-        <v-icon size="12" class="ml-1" @click.stop="handleFill">$fill</v-icon>
+        <v-icon v-if="fillable" size="12" class="ml-1" @click.stop="handleFill">
+          $fill
+        </v-icon>
       </div>
     </slot>
 
@@ -60,6 +62,8 @@ class FAssetInputTools extends Vue {
   @Prop({ type: [String, Number], default: "" }) fiatAmount!: boolean;
 
   @Prop({ type: Boolean, default: false }) disabled!: boolean;
+
+  @Prop({ type: Boolean, default: true }) fillable!: boolean;
 
   @Prop() messages;
 
