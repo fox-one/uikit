@@ -6,7 +6,7 @@
 
     <div class="f-hint-content f-hint-tooltip__content">
       <span v-if="html" v-html="hint" />
-      <span v-else v-text="hint" />
+      <f-render v-else :nodes="hint" />
 
       <f-hint-link v-if="href" :href="href" />
     </div>
@@ -24,7 +24,7 @@
     <div>
       <div class="f-hint-content f-hint-dialog__content pa-6 pt-0">
         <span v-if="html" v-html="hint" />
-        <span v-else v-text="hint" />
+        <f-render v-else :nodes="hint" />
 
         <f-hint-link v-if="href" :href="href" />
       </div>

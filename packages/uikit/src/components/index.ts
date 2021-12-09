@@ -33,3 +33,4 @@ export * from "./FSearchInput";
 export * from "./FFiatDivision";
 export * from "./FUserAvatar";
 export * from "./FHint";
+export * from "./FRender";
