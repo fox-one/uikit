@@ -15,6 +15,7 @@
         :fennec="fennec"
         v-bind="$attrs"
         v-on="$listeners"
+        @close="handleClose"
       />
 
       <f-auth-step-2
@@ -69,6 +70,10 @@ class FAuthMethodModal extends Vue {
       this.step = 1;
       this.select = "";
     }
+  }
+
+  handleClose() {
+    this.dialog = false;
   }
 
   onClick() {
