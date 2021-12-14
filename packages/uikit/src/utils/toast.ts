@@ -20,6 +20,8 @@ export interface ToastOptions {
   message: string | VNode;
   autoWidth?: boolean;
   color?: string;
+  type?: string;
+  isDark?: boolean;
   queueable?: boolean;
   props?: ToastProps;
   action?: ToastAction;
@@ -85,11 +87,11 @@ function install(
   };
 
   const shorts = () => {
-    const colors = ["success", "info", "error", "warning"];
+    const types = ["success", "info", "error", "warning"];
     const methods = {};
 
-    colors.forEach((color) => {
-      methods[color] = (options: ToastOptions) => show({ color, ...options });
+    types.forEach((type) => {
+      methods[type] = (options: ToastOptions) => show({ type, ...options });
     });
 
     return methods;

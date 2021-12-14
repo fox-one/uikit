@@ -24,11 +24,24 @@ class FToast extends Vue {
 
   show(options: ToastOptions) {
     const { message = "", color, props = {} } = options;
+    const isDark = options.isDark ?? this.$vuetify.theme.dark;
 
     this.options = options;
     this.message = message;
-    this.props = { ...this.defaultProps, ...props, color };
+    this.props = {
+      ...this.defaultProps,
+      ...props,
+      color,
+      light: !isDark,
+      dark: isDark
+    };
     this.snackbar = true;
+  }
+
+  get icon() {
+    const icons = { success: "$check", error: "$alert", warning: "$alert" };
+
+    return icons[this.options?.type ?? ""];
   }
 
   close() {
@@ -37,11 +50,17 @@ class FToast extends Vue {
   }
 
   get classes() {
-    return {
+    const classes = {
       "f-toast": true,
       "f-toast--action": this.options?.action,
       "f-toast--auto-width": this.options?.autoWidth !== false
     };
+
+    if (this.options?.type) {
+      classes[`f-toast--${this.options.type}`] = true;
+    }
+
+    return classes;
   }
 
   @Watch("snackbar")
@@ -77,10 +96,16 @@ class FToast extends Vue {
   genMessage() {
     const h = this.$createElement;
 
-    return h("div", { staticClass: "f-toast__message" }, [this.message]);
+    return h("div", { staticClass: "f-toast__message" }, [
+      this.icon &&
+        h(VIcon, { staticClass: "mr-4", props: { size: 16 } }, [this.icon]),
+      h("span", [this.message])
+    ]);
   }
 
   render(h: CreateElement): VNode {
+    console.log({ value: this.snackbar, ...this.props });
+
     return h(
       VSnackbar,
       {

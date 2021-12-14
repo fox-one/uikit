@@ -1,4 +1,44 @@
+@import "./variables.scss";
+
 .f-toast {
+  &.f-toast--success {
+    .v-snack__wrapper .f-toast__message,
+    .f-toast__message .v-icon {
+      color: var(--v-success-base);
+    }
+
+    .theme--dark.v-snack__wrapper {
+      background-color: var(--v-success_bg-base);
+    }
+  }
+
+  &.f-toast--error {
+    .v-snack__wrapper .f-toast__message,
+    .f-toast__message .v-icon {
+      color: var(--v-error-base);
+    }
+
+    .theme--dark.v-snack__wrapper {
+      background-color: var(--v-error_bg-base);
+    }
+  }
+
+  &.f-toast--warning {
+    .v-snack__wrapper .f-toast__message,
+    .f-toast__message .v-icon {
+      color: var(--v-warning-base);
+    }
+
+    .theme--dark.v-snack__wrapper {
+      background-color: var(--v-warning_bg-base);
+    }
+  }
+
+  .theme--light.v-snack__wrapper {
+    background-color: #ffffff;
+    box-shadow: 0px 8px 32px rgba(0, 0, 0, 0.1);
+  }
+
   .v-snack__action {
     margin-right: 0 !important;
   }
@@ -29,7 +69,7 @@
     flex: 1;
     display: flex;
     align-items: center;
-    padding: 0 24px;
+    padding: 0 16px;
   }
 
   &__action-text {

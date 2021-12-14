@@ -56,13 +56,14 @@ export default mixins(Themeable, Toggleable).extend({
             width: 12,
             height: 12,
             fab: true,
-            dark: true
+            dark: true,
+            color: this.type
           },
           on: {
             click: () => (this.isActive = false)
           }
         },
-        [h(VIcon, { props: { size: 12 } }, "$close")]
+        [h(VIcon, { props: { size: 12, color: "white" } }, "$close")]
       );
     },
     genContent() {

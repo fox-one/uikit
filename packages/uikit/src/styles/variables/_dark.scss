@@ -11,8 +11,13 @@ $dark-colors: map-deep-merge(
     greyscale_6: #303030,
     greyscale_7: #000000,
     error: #f67070,
+    error_bg: #4a2222,
+    error_emphsize: #f34a4d,
     success: #56d471,
+    success_bg: #1B4324,
     warning: #f79f4d,
+    warning_bg: #5c3a13,
+    warning_emphsize: #ffe08f,
     info: #79a4e4
   ),
   $dark-colors

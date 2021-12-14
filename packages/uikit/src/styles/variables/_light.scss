@@ -11,8 +11,13 @@ $light-colors: map-deep-merge(
     greyscale_6: #f5f5f5,
     greyscale_7: #ffffff,
     error: #f44c4c,
+    error_bg: #fbf2f2,
+    error_emphsize: #75080a,
     success: #2cc94e,
+    success_bg: #1b4324,
     warning: #f58721,
+    warning_bg: #fcf8f0,
+    warning_emphsize: #75080a,
     info: #0f65c7
   ),
   $light-colors

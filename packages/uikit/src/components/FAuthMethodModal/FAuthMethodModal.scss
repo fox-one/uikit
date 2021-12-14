@@ -1,0 +1,79 @@
+.f-auth-methods--content {
+  height: 324px;
+  position: relative;
+}
+
+.f-auth-methods__title {
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 22px;
+  padding-top: 32px;
+  padding-bottom: 16px;
+}
+
+.f-auth-methods__subtitle {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+}
+
+.f-auth-methods {
+  padding: 70px 0;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.f-auth-methods.f-auth-methods--mobile {
+  flex-direction: column;
+  padding: 32px 0;
+
+  .f-auth-method {
+    margin-bottom: 32px;
+  }
+}
+
+.f-auth-method {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  &__label {
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 17px;
+  }
+}
+
+.f-auth-fennec {
+  height: 324px;
+  display: grid;
+  grid-template-columns: 50% 50%;
+
+  .f-auth-fennec__right {
+    padding: 40px;
+    padding-top: 70px;
+  }
+
+  .f-auth-fennec__title {
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 22px;
+  }
+
+  .f-auth-fennec__subtitle {
+    margin-top: 20px;
+    margin-bottom: 24px;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 19px;
+    color: var(--v-greyscale_3-base);
+  }
+}
+
+.f-auth-step2__back {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  z-index: 11;
+}

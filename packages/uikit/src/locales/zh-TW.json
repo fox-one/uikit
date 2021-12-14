@@ -2,6 +2,7 @@
   "uikit": {
     "balance_short": "餘額",
     "connect_wallet": "連接錢包",
+    "connect_wallet_subtitle": "使用以下的方式連接錢包",
     "search": "搜索",
     "select_asset": "選擇幣種",
     "select_phone_code": "選擇地區號碼",
@@ -16,6 +17,8 @@
     "details": "詳情",
     "close": "關閉",
     "learn_more": "了解詳情",
-    "install": "安装"
+    "install": "安装",
+    "fennec_not_installed": "沒有安裝",
+    "fennec_introduction": "Fennec 是一個 Mixin 網絡瀏覽器錢包，連接前需要安裝 Fennec。"
   }
 }

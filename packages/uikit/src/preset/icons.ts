@@ -14,7 +14,9 @@ import {
   FIconHelp3PFill,
   FIconCheck4P,
   FIconInfo4P,
-  FIconLink4P
+  FIconLink4P,
+  FIconImport4PBold,
+  FIconAlert4P
 } from "@foxone/icons";
 
 export default {
@@ -35,6 +37,8 @@ export default {
     question: { component: FIconHelp3PFill },
     check: { component: FIconCheck4P },
     info: { component: FIconInfo4P },
-    link: { component: FIconLink4P }
+    link: { component: FIconLink4P },
+    install: { component: FIconImport4PBold },
+    alert: { component: FIconAlert4P }
   }
 };

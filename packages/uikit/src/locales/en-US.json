@@ -2,6 +2,7 @@
   "uikit": {
     "balance_short": "Bal",
     "connect_wallet": "Connect wallet",
+    "connect_wallet_subtitle": "Connect with one of our available wallet providers.",
     "search": "Search",
     "select_asset": "Select asset",
     "select_phone_code": "Select phone code",
@@ -16,6 +17,8 @@
     "details": "Details",
     "close": "Close",
     "learn_more": "Learn More",
-    "install": "Install"
+    "install": "Install",
+    "fennec_not_installed": "Fennec not installed",
+    "fennec_introduction": "Fennec is a Mixin network browser wallet, you need to install Fennec before the connection."
   }
 }

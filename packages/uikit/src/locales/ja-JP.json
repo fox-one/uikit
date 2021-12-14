@@ -2,6 +2,7 @@
   "uikit": {
     "balance_short": "バランス",
     "connect_wallet": "ウォレットを接続する",
+    "connect_wallet_subtitle": "Connect with one of our available wallet providers.",
     "search": "検索する",
     "select_asset": "通貨を選んでください",
     "select_phone_code": "市外局番を選択してください",
@@ -16,6 +17,8 @@
     "details": "詳細",
     "close": "選ぶ",
     "learn_more": "もっと詳しく知る",
-    "install": "Install"
+    "install": "Install",
+    "fennec_not_installed": "Fennec not installed",
+    "fennec_introduction": "Fennec is a Mixin network browser wallet, you need to install Fennec before the connection."
   }
 }
