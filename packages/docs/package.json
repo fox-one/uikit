@@ -1,58 +1,15 @@
 {
-  "name": "docs",
-  "version": "3.0.1-51",
-  "private": true,
-  "main": "build/index.js",
+  "name": "docs-uikit",
+  "version": "1.0.0",
+  "description": "Documentation for @foxone/uikit",
   "scripts": {
-    "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build"
+    "dev": "vuepress dev .",
+    "build": "vuepres build ."
   },
+  "author": "Fox.ONE",
+  "license": "ISC",
   "dependencies": {
-    "@foxone/icons": "3.0.1-51",
-    "@foxone/uikit": "3.0.1-51",
-    "vue": "^2.6.12",
-    "vue-class-component": "^7.2.3",
-    "vue-i18n": "^8.25.0",
-    "vue-property-decorator": "^9.1.2",
-    "vue-router": "^3.2.0",
-    "vuetify": "^2.5.4",
-    "vuex": "^3.4.0"
-  },
-  "devDependencies": {
-    "@mdi/js": "^5.9.55",
-    "@types/lodash": "^4.14.170",
-    "@types/webpack-env": "^1.16.0",
-    "@vue/cli-plugin-babel": "~4.4.0",
-    "@vue/cli-plugin-eslint": "~4.4.0",
-    "@vue/cli-plugin-router": "~4.4.0",
-    "@vue/cli-plugin-typescript": "~4.4.0",
-    "@vue/cli-plugin-vuex": "~4.4.0",
-    "@vue/cli-service": "~4.4.0",
-    "@vue/eslint-config-prettier": "^6.0.0",
-    "@vue/eslint-config-typescript": "^5.0.2",
-    "front-matter": "^4.0.2",
-    "frontmatter-markdown-loader": "^3.6.2",
-    "lodash": "^4.17.21",
-    "markdown-it": "^12.2.0",
-    "markdown-it-anchor": "^8.0.1",
-    "markdown-it-attrs": "^4.0.0",
-    "markdown-it-header-sections": "^1.0.0",
-    "markdown-it-prism": "^2.1.6",
-    "raw-loader": "4.0.1",
-    "sass": "1.26.11",
-    "sass-loader": "^8.0.2",
-    "schema-utils": "1.0.0",
-    "typescript": "~4.1.5",
-    "vue-cli-plugin-vuetify": "~2.0.7",
-    "vue-prism-component": "1.2.0",
-    "vue-template-compiler": "^2.6.11",
-    "vuetify-loader": "^1.7.2",
-    "vuex-pathify": "^1.5.1",
-    "webpack-virtual-modules": "^0.4.3"
-  },
-  "vuePlugins": {
-    "service": [
-      "./plugins/index.js"
-    ]
+    "@foxone/vuepress-theme-docs": "workspace:packages/theme-docs",
+    "vuepress": "^1.9.5"
   }
 }
