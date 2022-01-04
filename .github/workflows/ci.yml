@@ -31,18 +31,31 @@ jobs:
           yarn install --immutable | grep -v 'YN0013'
           yarn build:release
 
-      # - name: Build docs
-      #   run: |
-      #     cd packages/uikit && yarn build:dev
-      #     cd ../docs && yarn build
-      #     cp dist/index.html dist/404.html
+    docs:
+      needs: [build-deploy]
+      runs-on: ubuntu-latest
+      steps:
+        - uses: actions/checkout@v2
+          with:
+            token: ${{ secrets.GH_PAT }}
 
-      # - name: Deploy with gh-pages
-      #   run: |
-      #     git remote set-url origin https://git:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
-      #     npx gh-pages --dist packages/docs/dist --dest next -u "github-actions-bot <support+actions@github.com>"
-      #   env:
-      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        - uses: actions/cache@v2
+          with:
+            path: |
+              node_modules
+              **/node_modules
+            key: ${{ runner.os }}-${{ hashFiles('./yarn.lock') }}
+
+        - name: Build docs
+          run: |
+            cd packages/docs && yarn build
+
+        - name: Deploy with gh-pages
+          run: |
+            git remote set-url origin https://git:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
+            npx gh-pages --dist packages/docs/.vuepress/dist --dest next -u "github-actions-bot <support+actions@github.com>"
+          env:
+            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   dummy:
     runs-on: ubuntu-latest

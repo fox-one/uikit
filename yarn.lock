@@ -7861,10 +7861,9 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "docs-uikit@workspace:packages/docs"
   dependencies:
-    "@foxone/icons": "workspace:packages/icons"
-    "@foxone/uikit": "workspace:packages/uikit"
     "@foxone/vuepress-theme-docs": beta
     entities: 1.1.2
+    sass-loader: 10.1.0
     vuepress: ^1.9.5
   languageName: unknown
   linkType: soft
