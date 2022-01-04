@@ -6,7 +6,7 @@
     "paths": {
       "@docs/*": ["./packages/docs/src/*"]
     },
-    "types": ["vuetify", "node", "webpack-env", "vue-i18n"],
+    "types": ["vuetify", "node", "webpack-env"],
     "skipLibCheck": true
   },
   "exclude": ["node_modules"]

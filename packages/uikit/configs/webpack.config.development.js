@@ -10,12 +10,12 @@ module.exports = merge(base, {
   devtool: "source-map",
   mode: "development",
   output: {
-    filename: "index.js",
+    filename: "indexl.min.js",
     path: resolve("../build"),
     libraryTarget: "umd",
     libraryExport: "default",
     globalObject: "typeof self !== 'undefined' ? self : this"
   },
-  plugins: [new MiniCssExtractPlugin({ filename: "index.css" })],
+  plugins: [new MiniCssExtractPlugin({ filename: "index.min.css" })],
   externals
 });

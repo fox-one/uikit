@@ -4,12 +4,17 @@
   "description": "Documentation for @foxone/uikit",
   "scripts": {
     "dev": "vuepress dev .",
-    "build": "vuepres build ."
+    "build": "vuepress build ."
   },
   "author": "Fox.ONE",
   "license": "ISC",
-  "dependencies": {
-    "@foxone/vuepress-theme-docs": "workspace:packages/theme-docs",
+  "devDependencies": {
+    "@foxone/vuepress-theme-docs": "beta",
+    "entities": "1.1.2",
+    "sass-loader": "10.1.0",
     "vuepress": "^1.9.5"
+  },
+  "installConfig": {
+    "hoistingLimits": "workspaces"
   }
 }

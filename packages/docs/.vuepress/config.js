@@ -1,10 +1,10 @@
 const sidebar = require("./sidebar");
 const { path } = require("@vuepress/shared-utils");
-const icons = require("@foxone/icons");
 
 module.exports = (ctx) => {
   return {
     title: "Fox.ONE UIKit",
+    base: "/vuepress-theme-docs/next/",
     description:
       "Fox.ONE UIKit is a lib base on Vuetify, which contains customized styles for Fox.ONE Apps.",
     theme: "@foxone/vuepress-theme-docs",
