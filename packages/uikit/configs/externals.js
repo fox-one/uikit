@@ -7,10 +7,10 @@ module.exports = [
       root: "Vue"
     },
     "@mdi/js": "@mdi/js",
-    "bignumber.js": "bignumber.js",
     "@foxone/icons": "@foxone/icons",
     "@foxone/utils/number": "@foxone/utils/number",
     "vuetify/lib": "vuetify/lib",
+    "bignumber.js": "bignumber.js",
     qrcode: "qrcode",
     "vue-property-decorator": "vue-property-decorator"
   },

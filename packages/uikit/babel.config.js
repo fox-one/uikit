@@ -20,4 +20,9 @@ config.plugins.push([
   }
 ]);
 
+config.plugins.push([
+  "@babel/plugin-proposal-private-property-in-object",
+  { loose: true }
+]);
+
 module.exports = config;

@@ -16,5 +16,9 @@
   },
   "installConfig": {
     "hoistingLimits": "workspaces"
+  },
+  "dependencies": {
+    "@foxone/icons": "^3.0.1-0",
+    "@foxone/uikit": "workspace:packages/uikit"
   }
 }

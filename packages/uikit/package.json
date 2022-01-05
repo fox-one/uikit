@@ -4,9 +4,9 @@
   "main": "./build/index.min.js",
   "types": "./types/index.d.ts",
   "scripts": {
-    "dev": "cross-env NODE_ENV=development webpack serve --open --config configs/webpack.config.serve.js --hot",
-    "build": "rimraf build && cross-env NODE_ENV=production webpack --config configs/webpack.config.production.js --progress",
-    "build:dev": "cross-env TARGET=development webpack --config configs/webpack.config.development.js --progress",
+    "dev": "cross-env NODE_ENV=development ./node_modules/.bin/webpack serve --open --config configs/webpack.config.serve.js --hot",
+    "build": "rimraf build && cross-env NODE_ENV=production ./node_modules/.bin/webpack --config configs/webpack.config.production.js --progress",
+    "build:dev": "cross-env TARGET=development ./node_modules/.bin/webpack --config configs/webpack.config.development.js --progress",
     "watch": "yarn build:dev --watch",
     "format": "prettier --write src"
   },
@@ -17,14 +17,15 @@
   ],
   "dependencies": {
     "qrcode": "^1.5.0",
-    "tinycolor2": "^1.4.2",
-    "vue-class-component": "^7.2.3",
-    "vue-property-decorator": "^9.1.2"
+    "tinycolor2": "^1.4.2"
   },
   "peerDependencies": {
     "@foxone/icons": "^3.0.0",
     "@foxone/utils": "^0.2.6",
-    "vue": "^2.6.11",
+    "typescript": "^4.0.0",
+    "vue": "^2.6.12",
+    "vue-class-component": "^7.2.3",
+    "vue-property-decorator": "^9.1.2",
     "vuetify": "^2.4.5"
   },
   "devDependencies": {
@@ -70,7 +71,9 @@
     "ts-loader": "^9.2.2",
     "url-loader": "^4.1.1",
     "vue": "^2.6.12",
+    "vue-class-component": "^7.2.3",
     "vue-loader": "^15.9.7",
+    "vue-property-decorator": "^9.1.2",
     "vue-router": "^3.5.1",
     "vue-template-compiler": "^2.6.12",
     "vuetify": "^2.5.3",
@@ -78,5 +81,8 @@
     "webpack": "^5.38.1",
     "webpack-cli": "^4.7.0",
     "webpack-dev-server": "^3.11.2"
+  },
+  "installConfig": {
+    "hoistingLimits": "workspaces"
   }
 }
