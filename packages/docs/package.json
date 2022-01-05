@@ -1,6 +1,6 @@
 {
   "name": "docs-uikit",
-  "version": "3.0.1-52",
+  "version": "3.0.1-53",
   "description": "Documentation for @foxone/uikit",
   "scripts": {
     "dev": "vuepress dev .",
@@ -19,6 +19,6 @@
   },
   "dependencies": {
     "@foxone/icons": "^3.0.1-0",
-    "@foxone/uikit": "3.0.1-52"
+    "@foxone/uikit": "3.0.1-53"
   }
 }
