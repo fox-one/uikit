@@ -58,7 +58,9 @@ jobs:
 
       - name: Build docs
         run: |
-          cd packages/docs && yarn build
+          cd packages/docs
+          yarn
+          yarn build
 
       - name: Deploy with gh-pages
         run: |
