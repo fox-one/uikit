@@ -21,6 +21,11 @@ jobs:
             **/node_modules
           key: ${{ runner.os }}-${{ hashFiles('./yarn.lock') }}
 
+      - uses: actions/setup-node@v2
+        with:
+          node-version: "12.14.1"
+          cache: "yarn"
+
       - name: Build Release
         env:
           GH_PAT: ${{  secrets.GH_PAT }}
@@ -45,6 +50,11 @@ jobs:
             node_modules
             **/node_modules
           key: ${{ runner.os }}-${{ hashFiles('./yarn.lock') }}
+
+      - uses: actions/setup-node@v2
+        with:
+          node-version: "12.14.1"
+          cache: "yarn"
 
       - name: Build docs
         run: |
