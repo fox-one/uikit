@@ -1626,7 +1626,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@foxone/uikit@3.0.1-52, @foxone/uikit@workspace:packages/uikit":
+"@foxone/uikit@3.0.1-53, @foxone/uikit@workspace:packages/uikit":
   version: 0.0.0-use.local
   resolution: "@foxone/uikit@workspace:packages/uikit"
   dependencies:
@@ -7098,7 +7098,7 @@ __metadata:
   resolution: "docs-uikit@workspace:packages/docs"
   dependencies:
     "@foxone/icons": ^3.0.1-0
-    "@foxone/uikit": 3.0.1-52
+    "@foxone/uikit": 3.0.1-53
     "@foxone/vuepress-theme-docs": beta
     entities: 1.1.2
     sass-loader: 10.1.0
