@@ -22,10 +22,13 @@
 import { Component, Vue } from "vue-property-decorator";
 import { FIconImport4PBold } from "@foxone/icons";
 import { $t, getBrowser } from "../../utils/helper";
+import { VIcon, VImg } from "vuetify/lib";
 
 @Component({
   name: "FAuthFennecInstall",
   components: {
+    VIcon,
+    VImg,
     FIconImport4PBold
   }
 })

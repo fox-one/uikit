@@ -1,5 +1,5 @@
 import "./FPayingModal.scss";
-import { Component, Vue, Prop } from "vue-property-decorator";
+import { Component, Vue, Prop, Watch } from "vue-property-decorator";
 import { CreateElement } from "vue";
 import { VNode } from "vue";
 import { VOverlay, VBtn } from "vuetify/lib";
@@ -12,6 +12,29 @@ class FPayingModal extends Vue {
   @Prop({ type: Boolean, default: false }) show!: boolean;
 
   @Prop({ type: String, default: "" }) text!: boolean;
+
+  get displayText() {
+    return this.lasting ? $t(this, "lasting_tip") : this.text;
+  }
+
+  @Watch("show")
+  handleModalChange(value) {
+    this.lasting = false;
+
+    if (this.timer) {
+      clearTimeout(this.timer);
+    }
+
+    if (value) {
+      this.timer = setTimeout(() => {
+        this.lasting = true;
+      }, 5000);
+    }
+  }
+
+  timer: null | any = null;
+
+  lasting = false;
 
   genSpinner() {
     const h = this.$createElement;
@@ -32,7 +55,6 @@ class FPayingModal extends Vue {
         {
           props: {
             outlined: true,
-            block: true,
             rounded: true
           },
           on: {
@@ -57,8 +79,8 @@ class FPayingModal extends Vue {
         this.genSpinner(),
         h(
           "div",
-          { staticClass: "f-payment__hint text-center subtitle-2 my-5" },
-          [this.text]
+          { staticClass: "f-payment__hint text-center subtitle-2 pa-5" },
+          [this.displayText]
         ),
         this.genActions()
       ]

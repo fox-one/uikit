@@ -19,15 +19,16 @@ export default baseMixins.extend({
   name: "FBottomSheet",
 
   props: {
-    wapperInDesktop: {
-      type: String as PropType<WapperInDesktop>,
-      default: "menu"
-    },
     adaptive: { type: Boolean, default: true },
     title: { type: String, default: "" },
     subtitle: { type: String, default: "" },
     hideCloseIcon: { type: Boolean, default: false },
     dialogProps: { type: Object, default: () => ({}) },
+    hideTitleOnMenu: { type: Boolean, default: true },
+    wapperInDesktop: {
+      type: String as PropType<WapperInDesktop>,
+      default: "menu"
+    },
     menuProps: {
       type: Object,
       default: () => ({})
@@ -38,7 +39,14 @@ export default baseMixins.extend({
     isDesktop(): boolean {
       return this.$vuetify.breakpoint.mdAndUp;
     },
+    isMenu(): boolean {
+      return this.isDesktop && this.wapperInDesktop === "menu";
+    },
     showCloseIcon(): boolean {
+      if (this.isMenu) {
+        return false;
+      }
+
       return !this.hideCloseIcon && !this.$attrs.persistent;
     },
     contentClass(): string {
@@ -107,7 +115,7 @@ export default baseMixins.extend({
       const h = this.$createElement;
       const children = [this.genCloseIcon(), this.$slots.default];
 
-      if (this.title) {
+      if (!(this.isMenu && this.hideTitleOnMenu) && this.title) {
         children.unshift(h(FBottomSheetTitle, this.title));
       }
 

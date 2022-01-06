@@ -4,7 +4,9 @@
       <slot name="activator" :on="on" :asset="asset">
         <f-asset-select-field :asset="asset" @click.native.stop="on.click">
           <template #placeholder>
-            <span class="f-asset-select__placeholder">Select Asset</span>
+            <span class="f-asset-select__placeholder">
+              {{ meta.title }}
+            </span>
           </template>
         </f-asset-select-field>
       </slot>
@@ -34,7 +36,7 @@ import { Component, Vue, Prop, Model } from "vue-property-decorator";
 import { FBottomSheet, FBottomSheetSubtitle } from "../FBottomSheet";
 import FAssetList from "./FAssetList.vue";
 import FAssetSelectField from "./FAssetSelectField.vue";
-import FInput from "../FInput";
+import FSearchInput from "../FSearchInput";
 import { $t } from "../../utils/helper";
 
 import type { Asset } from "./types";
@@ -47,7 +49,7 @@ import type { Asset } from "./types";
     FBottomSheetSubtitle,
     FAssetList,
     FAssetSelectField,
-    FInput
+    FSearchInput
   }
 })
 class FAssetSelect extends Vue {

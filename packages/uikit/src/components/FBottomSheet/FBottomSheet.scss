@@ -25,11 +25,14 @@
     padding: $spacer * 6 $spacer * 4;
     font-weight: $bottom-sheet-title-font-weight;
     font-size: $bottom-sheet-title-font-size;
+
+    + .f-bottom-sheet__subtitle {
+      padding-top: 0;
+    }
   }
 
   .f-bottom-sheet__subtitle {
     padding: $spacer * 6 $spacer * 4;
-    padding-top: 0;
   }
 }
 

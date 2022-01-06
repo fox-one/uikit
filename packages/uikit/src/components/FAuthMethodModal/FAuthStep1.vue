@@ -26,10 +26,14 @@
 <script lang="ts">
 import { Component, Vue, Prop, PropSync } from "vue-property-decorator";
 import { $t } from "../../utils/helper";
+import { VImg } from "vuetify/lib";
 
 @Component({
   name: "FAuthStep1",
-  inheritAttrs: false
+  inheritAttrs: false,
+  components: {
+    VImg
+  }
 })
 class FAuthStep1 extends Vue {
   @Prop({ type: Boolean, default: false }) fennec;

@@ -3,19 +3,14 @@
     <template #activator="{ on }">
       <slot name="activator" :on="on">
         <div class="f-country-code-select__field" v-on="on">
-          <span>{{ "+" + code }}</span>
-          <v-icon>$expand</v-icon>
+          <span class="mr-1">{{ "+" + code }}</span>
+          <v-icon size="16">$expand</v-icon>
         </div>
       </slot>
     </template>
 
     <f-bottom-sheet-subtitle>
-      <f-input
-        v-model="filter"
-        :label="meta.searchLabel"
-        hide-details
-        clearable
-      />
+      <f-search-input v-model="filter" hide-details clearable />
     </f-bottom-sheet-subtitle>
 
     <slot

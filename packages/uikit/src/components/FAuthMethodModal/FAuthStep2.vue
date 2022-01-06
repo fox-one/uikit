@@ -11,12 +11,14 @@
 <script lang="ts">
 import { Component, Vue, Prop, PropSync } from "vue-property-decorator";
 import FAuthFennecInstall from "./FAuthFennecInstall.vue";
+import { VIcon } from "vuetify/lib";
 
 @Component({
   name: "FAuthStep2",
   inheritAttrs: false,
   components: {
-    FAuthFennecInstall
+    FAuthFennecInstall,
+    VIcon
   }
 })
 class FAuthStep2 extends Vue {

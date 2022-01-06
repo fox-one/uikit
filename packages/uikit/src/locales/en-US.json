@@ -5,7 +5,7 @@
     "connect_wallet_subtitle": "Connect with one of our available wallet providers.",
     "search": "Search",
     "select_asset": "Select asset",
-    "select_phone_code": "Select phone code",
+    "select_phone_code": "Select Phone Code",
     "phone_number": "Phone Number",
     "cancel": "Cancel",
     "continue": "Continue",
@@ -19,6 +19,7 @@
     "learn_more": "Learn More",
     "install": "Install",
     "fennec_not_installed": "Fennec not installed",
-    "fennec_introduction": "Fennec is a Mixin network browser wallet, you need to install Fennec before the connection."
+    "fennec_introduction": "Fennec is a Mixin network browser wallet, you need to install Fennec before the connection.",
+    "lasting_tip": "Possible transfer congestion currenttly. Your funds are safe, please be patient."
   }
 }

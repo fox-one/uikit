@@ -1,0 +1,10 @@
+{
+  "name": "@foxone/unused",
+  "version": "0.2.16",
+  "description": "Dummy",
+  "main": "index.js",
+  "author": "Fox.ONE",
+  "repository": "github:fox-one/fe-tools",
+  "bugs": "https://github.com/fox-one/fe-tools/issues",
+  "homepage": "https://github.com/fox-one/fe-tools"
+}
