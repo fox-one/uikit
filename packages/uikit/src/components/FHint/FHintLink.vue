@@ -11,6 +11,7 @@ import { VIcon } from "vuetify/lib";
 import { $t } from "../../utils/helper";
 
 @Component({
+  name: "FHintLink",
   components: {
     VIcon
   }

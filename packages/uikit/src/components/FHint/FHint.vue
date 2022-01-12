@@ -47,6 +47,7 @@ import FHintLink from "./FHintLink.vue";
 import { $t } from "../../utils/helper";
 
 @Component({
+  name: "FHint",
   components: {
     FHintActivator,
     FHintLink

@@ -14,6 +14,7 @@ import { Component, Vue } from "vue-property-decorator";
 import { VIcon } from "vuetify/lib";
 
 @Component({
+  name: "FHintActivator",
   components: {
     VIcon
   }
