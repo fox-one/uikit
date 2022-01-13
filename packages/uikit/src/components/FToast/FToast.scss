@@ -41,6 +41,8 @@
 
   .v-snack__action {
     margin-right: 0 !important;
+    align-self: stretch;
+    align-items: stretch;
   }
 
   &--auto-width {
@@ -58,18 +60,13 @@
     align-items: stretch;
     font-weight: 500;
     font-size: 14px;
-    padding: 0;
-  }
-
-  .v-divider {
-    height: 48px;
+    padding: 16px;
   }
 
   &__message {
     flex: 1;
     display: flex;
     align-items: center;
-    padding: 0 16px;
   }
 
   &__action-text {
