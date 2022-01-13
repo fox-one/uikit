@@ -28,7 +28,7 @@ class FPayingModal extends Vue {
     if (value) {
       this.timer = setTimeout(() => {
         this.lasting = true;
-      }, 5000);
+      }, 30000);
     }
   }
 
