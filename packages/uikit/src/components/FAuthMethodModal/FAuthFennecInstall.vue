@@ -9,9 +9,12 @@
       <div class="f-auth-fennec__subtitle">
         {{ labels[1] }}
       </div>
-      <f-button color="primary" @click="handleInstall">
-        <v-icon size="16" class="mr-1">$install</v-icon>
-
+      <f-button
+        color="greyscale_1"
+        class="f-auth-fennec__icon"
+        @click="handleInstall"
+      >
+        <v-icon size="16" color="greyscale_7" class="mr-1"> $install </v-icon>
         {{ labels[2] }}
       </f-button>
     </div>

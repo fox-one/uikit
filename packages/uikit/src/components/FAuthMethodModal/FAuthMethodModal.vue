@@ -3,7 +3,6 @@
     <template #activator>
       <slot name="activator" :on="{ click: onClick }"></slot>
     </template>
-
     <div
       class="f-auth-methods--content"
       :class="{ 'f-auth-methods--mobile': !meta.isDesktop }"
@@ -13,6 +12,7 @@
         :step.sync="step"
         :select.sync="select"
         :fennec="fennec"
+        :mixin="mixin"
         v-bind="$attrs"
         v-on="$listeners"
         @close="handleClose"
@@ -22,6 +22,11 @@
         v-if="step === 2"
         :step.sync="step"
         :select="select"
+        :client-id="clientId"
+        :scope="scope"
+        :code-challenge="codeChallenge"
+        :state="state"
+        :is-firesbox="isFiresbox"
         v-bind="$attrs"
         v-on="$listeners"
       />
@@ -35,6 +40,7 @@ import FBottomSheet from "../FBottomSheet";
 import FListItem from "../FList/FListItem";
 import { VAvatar, VImg } from "vuetify/lib";
 import { isMixin } from "@foxone/utils/mixin";
+import { authorize } from "../../utils/helper";
 
 import FAuthStep1 from "./FAuthStep1.vue";
 import FAuthStep2 from "./FAuthStep2.vue";
@@ -53,12 +59,20 @@ import FAuthStep2 from "./FAuthStep2.vue";
 })
 class FAuthMethodModal extends Vue {
   @Prop({ type: Boolean, default: false }) fennec!: boolean;
+  @Prop({ type: Boolean, default: false }) mixin!: boolean;
+  @Prop({ type: String }) clientId!: string;
+  @Prop({ type: String }) scope!: string;
+  @Prop({ type: String }) codeChallenge!: string;
+  @Prop({ type: String, default: "" }) state!: string;
+  @Prop({ type: Boolean, default: false }) isFiresbox!: boolean;
 
   dialog = false;
 
   step = 1;
 
   select = "";
+
+  authorize = authorize;
 
   get meta() {
     return { isDesktop: this.$vuetify.breakpoint.mdAndUp };
@@ -78,7 +92,7 @@ class FAuthMethodModal extends Vue {
 
   onClick() {
     if (isMixin()) {
-      this.$emit("auth", "mixin");
+      authorize(this);
     } else {
       this.dialog = true;
     }

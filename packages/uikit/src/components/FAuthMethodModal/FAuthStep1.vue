@@ -12,9 +12,18 @@
         :key="index"
         class="f-auth-method"
         @click="handleAuth(item)"
+        @mouseover="hoverIndex = index"
+        @mouseleave="hoverIndex = -1"
       >
         <span class="mb-3">
-          <v-img width="88" height="68" :src="item.logo" />
+          <v-icon
+            v-if="hoverIndex == index"
+            class="f-auth-method__icon"
+            color="greyscale_7"
+          >
+            $arrowRight
+          </v-icon>
+          <v-img v-else width="88" height="68" :src="item.logo" />
         </span>
 
         <span class="f-auth-method__label">{{ item.title }}</span>
@@ -26,23 +35,28 @@
 <script lang="ts">
 import { Component, Vue, Prop, PropSync } from "vue-property-decorator";
 import { $t } from "../../utils/helper";
-import { VImg } from "vuetify/lib";
+import { VImg, VIcon } from "vuetify/lib";
 
 @Component({
   name: "FAuthStep1",
   inheritAttrs: false,
   components: {
-    VImg
+    VImg,
+    VIcon
   }
 })
 class FAuthStep1 extends Vue {
   @Prop({ type: Boolean, default: false }) fennec;
+
+  @Prop({ type: Boolean, default: false }) mixin;
 
   @Prop({ type: String, default: "" }) title;
 
   @PropSync("step") bindStep;
 
   @PropSync("select") bindSelect;
+
+  hoverIndex = -1;
 
   get labels() {
     return [
@@ -60,7 +74,7 @@ class FAuthStep1 extends Vue {
         logo: "https://static.fox.one/image/logo_fennec@88x68.png"
       },
       {
-        avaliable: true,
+        avaliable: this.mixin,
         value: "mixin",
         title: "Mixin Messenger",
         logo: "https://static.fox.one/image/logo_mixin@88x68.png"

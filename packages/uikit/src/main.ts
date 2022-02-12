@@ -16,7 +16,6 @@ Vue.use(UIKit.Dialog, vuetify, { flat: true });
 
 new Vue({
   vuetify,
-
   render(h) {
     return h(App);
   }
