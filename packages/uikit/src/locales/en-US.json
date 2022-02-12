@@ -20,6 +20,8 @@
     "install": "Install",
     "fennec_not_installed": "Fennec not installed",
     "fennec_introduction": "Fennec is a Mixin network browser wallet, you need to install Fennec before the connection.",
-    "lasting_tip": "Possible transfer congestion currenttly. Your funds are safe, please be patient."
+    "lasting_tip": "Possible transfer congestion currenttly. Your funds are safe, please be patient.",
+    "scan_to_connect": "Scan to connect",
+    "mixin_connect_detail": "Open {0} on your mobile phone and scan the QR code, then confirm authorization to connect your wallet."
   }
 }

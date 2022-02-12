@@ -3,7 +3,6 @@
     <template #activator>
       <slot name="activator" :on="{ click: onClick }"></slot>
     </template>
-
     <div
       class="f-auth-methods--content"
       :class="{ 'f-auth-methods--mobile': !meta.isDesktop }"
@@ -35,6 +34,7 @@ import FBottomSheet from "../FBottomSheet";
 import FListItem from "../FList/FListItem";
 import { VAvatar, VImg } from "vuetify/lib";
 import { isMixin } from "@foxone/utils/mixin";
+import { authorize } from "../../utils/helper";
 
 import FAuthStep1 from "./FAuthStep1.vue";
 import FAuthStep2 from "./FAuthStep2.vue";
@@ -60,6 +60,8 @@ class FAuthMethodModal extends Vue {
 
   select = "";
 
+  authorize = authorize;
+
   get meta() {
     return { isDesktop: this.$vuetify.breakpoint.mdAndUp };
   }
@@ -78,7 +80,7 @@ class FAuthMethodModal extends Vue {
 
   onClick() {
     if (isMixin()) {
-      this.$emit("auth", "mixin");
+      authorize(this, true);
     } else {
       this.dialog = true;
     }

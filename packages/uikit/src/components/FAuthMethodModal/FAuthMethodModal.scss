@@ -38,10 +38,76 @@
   justify-content: center;
   align-items: center;
 
+  &__icon {
+    transition: all .3s ease-in;
+    height: 68px;
+    width: 88px;
+    background-color: var(--v-greyscale_1-base);
+    border-radius: 44px;
+  }
+
   &__label {
     font-size: 14px;
     font-weight: 600;
     line-height: 17px;
+  }
+}
+.f-auth-mixin {
+  height: 324px;
+  display: grid;
+  grid-template-columns: 50% 50%;
+  &__left {
+    width: 100%;
+    background-image: url("https://static.fox.one/image/bg_mixin_auth.png");
+    background-position: center center;
+    background-size: cover;
+    box-shadow: 0px 0px 32px rgba(181, 183, 189, 0.08);
+    z-index: -1;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  &__qr {
+    margin-top: 87px;
+    padding: 11px;
+    border: none !important;
+  }
+
+  &__img{
+    margin: auto;
+    position: absolute;
+    z-index: 999;
+    top: 50%;
+    border-radius: 8px;
+    background-color: #ffffff;
+  }
+
+  &__right{
+    padding: 40px;
+    padding-top: 99px;
+  }
+
+  &__title {
+    font-weight: 600;
+    font-size: 1.125rem;
+    line-height: 21px;
+  }
+
+  &__subtitle {
+    margin-top: 20px;
+    font-weight: 500;
+    font-size: 0.875rem;
+    line-height: 150%;
+    color: var(--v-greyscale_3-base);
+  }
+
+  &__link{
+    text-decoration: none;
+    color: var(--v-blue-base) !important;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 150%;
   }
 }
 
@@ -68,6 +134,10 @@
     font-size: 14px;
     line-height: 19px;
     color: var(--v-greyscale_3-base);
+  }
+
+  &__icon {
+    color: var(--v-greyscale_7-base) !important;
   }
 }
 

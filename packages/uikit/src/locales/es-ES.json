@@ -19,6 +19,7 @@
     "learn_more": "Learn More",
     "install": "Install",
     "fennec_not_installed": "Fennec not installed",
-    "fennec_introduction": "Fennec is a Mixin network browser wallet, you need to install Fennec before the connection."
+    "fennec_introduction": "Fennec is a Mixin network browser wallet, you need to install Fennec before the connection.",
+    "scan_to_connect": "Scan to connect"
   }
 }
