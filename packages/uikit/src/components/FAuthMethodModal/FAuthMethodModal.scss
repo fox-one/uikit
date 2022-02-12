@@ -90,19 +90,23 @@
 
   &__title {
     font-weight: 600;
-    font-size: 1.125rem;
+    font-size: 18px;
     line-height: 21px;
   }
 
   &__subtitle {
     margin-top: 20px;
     font-weight: 500;
-    font-size: 0.875rem;
+    font-size: 14px;
     line-height: 150%;
     color: var(--v-greyscale_3-base);
   }
 
   &__link{
+    display: inline-flex;
+    align-items: center;
+    column-gap: 4px;
+
     text-decoration: none;
     color: var(--v-blue-base) !important;
     font-weight: 600;

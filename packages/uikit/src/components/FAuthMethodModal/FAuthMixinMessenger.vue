@@ -32,8 +32,8 @@ import { Component, Vue } from "vue-property-decorator";
 import FQrCode from "../FQrCode";
 import FLoading from "../FLoading";
 import { $t } from "../../utils/helper";
-import { VIcon, VImg } from "vuetify/lib";
 import authorize from "../../utils/authorize";
+import { VIcon, VImg } from "vuetify/lib";
 
 @Component({
   name: "FAuthMixinMessenger",
@@ -45,7 +45,9 @@ import authorize from "../../utils/authorize";
   }
 })
 class FAuthMixinMessenger extends Vue {
-  mixin_icon = "https://static.fox.one/image/icon_mixin@24x24.png";
+  mixin_icon = "https://static.fox.one/image/icon_mixin@32x32.png";
+
+  app: any = null;
 
   qrUrl = "";
 

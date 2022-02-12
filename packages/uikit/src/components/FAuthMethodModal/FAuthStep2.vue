@@ -3,9 +3,7 @@
     <component :is="component" v-bind="$attrs" v-on="$listeners" />
 
     <span class="f-auth-step2__back" @click="handleBack">
-      <v-icon :color="select === 'fennec' ? 'white' : 'greyscale_1'"
-        >$back</v-icon
-      >
+      <v-icon :color="select === 'fennec' ? 'white' : 'black'">$back</v-icon>
     </span>
   </div>
 </template>

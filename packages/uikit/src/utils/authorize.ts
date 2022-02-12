@@ -62,16 +62,8 @@ export default function authorize(vm, isMixin: Boolean = false) {
         return false;
       }
 
-      if (isMixin) {
-        vm.$emit("authed", {
-          codeId: auth.code_id
-        });
-
-        return true;
-      }
-
       if (auth.authorization_code.length > 16) {
-        vm.$emit("authed", {
+        vm.$emit("auth", {
           authCode: auth.authorization_code
         });
 
@@ -89,6 +81,10 @@ export default function authorize(vm, isMixin: Boolean = false) {
       vm.lastCode = auth.code_id;
       vm.qrUrl = "https://mixin.one/codes/" + auth.code_id;
       vm.loading = false;
+
+      if (isMixin) {
+        window.open("mixin://codes/" + auth.code_id);
+      }
 
       return false;
     },

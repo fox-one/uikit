@@ -1625,6 +1625,7 @@ __metadata:
     "@typescript-eslint/eslint-plugin": ^4.18.0
     "@typescript-eslint/parser": ^4.18.0
     autoprefixer: ^10.2.6
+    axios: ^0.26.0
     babel-loader: ^8.2.2
     babel-plugin-transform-define: ^2.0.0
     babel-polyfill: ^6.26.0
@@ -3870,6 +3871,15 @@ __metadata:
   dependencies:
     follow-redirects: ^1.14.0
   checksum: e6d42b269b599d36eb13be0671c237781f32e6ae72be824297c55a3e1ce63b22ba4f46bad5ab28da7d3bae50a72637d55c792cf803be1cf9de6a8bcd6d0dcc1a
+  languageName: node
+  linkType: hard
+
+"axios@npm:^0.26.0":
+  version: 0.26.0
+  resolution: "axios@npm:0.26.0"
+  dependencies:
+    follow-redirects: ^1.14.8
+  checksum: f1f7571a5562d29a8dd4a02e687c07e9b566530a6d5febd393bf6571e94529ca39c83f3b034346d5ec4fee053a7293c4cc9c07e71c5c211f1c04e33f421f7dd2
   languageName: node
   linkType: hard
 
@@ -7223,6 +7233,16 @@ __metadata:
     debug:
       optional: true
   checksum: 5f486f1767a1fcd9ccb70495bc81489908632cdf119408aadabe128567ab69803ffbcfabdcf222c2b7d637fe3c60a7a712b0d17ade41ec943aadac07e46f42b8
+  languageName: node
+  linkType: hard
+
+"follow-redirects@npm:^1.14.8":
+  version: 1.14.9
+  resolution: "follow-redirects@npm:1.14.9"
+  peerDependenciesMeta:
+    debug:
+      optional: true
+  checksum: 1b602c548b4194c66d8d530d2c8f76b4116b6c498434acfa561f583f45b571fd9fc042fba778748cd863044051656cf4788ba11c8ff35407223ed0d38ffff0d4
   languageName: node
   linkType: hard
 
