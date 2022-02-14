@@ -10,7 +10,7 @@
 }
 
 .v-item-group.v-bottom-navigation.f-bottom-navigation {
-  justify-content: space-around;
+  justify-content: space-evenly;
   padding-bottom: constant(safe-area-inset-bottom) !important;
   padding-bottom: env(safe-area-inset-bottom) !important;
   box-sizing: content-box;
@@ -24,6 +24,8 @@
 
 .f-bottom-navigation {
   .v-btn {
+    padding: 0 !important;
+
     &::before {
       content: none;
     }

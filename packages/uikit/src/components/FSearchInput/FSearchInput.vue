@@ -13,7 +13,7 @@
 </template>
 
 <script lang="ts">
-import { Component, Model, Vue } from "vue-property-decorator";
+import { Component, Model, Vue, Prop } from "vue-property-decorator";
 import { VIcon } from "vuetify/lib";
 import FInput from "../FInput";
 import { $t } from "../../utils/helper";
@@ -28,8 +28,10 @@ import { $t } from "../../utils/helper";
 class FSearchInput extends Vue {
   @Model("input") value!: string;
 
+  @Prop({ type: String, default: "" }) placeholder!: string;
+
   get text() {
-    return { search: $t(this, "search") };
+    return { search: this.placeholder || $t(this, "search") };
   }
 }
 export default FSearchInput;
