@@ -92,7 +92,7 @@ class FAuthMethodModal extends Vue {
 
   onClick() {
     if (isMixin()) {
-      authorize(this);
+      authorize(this, true);
     } else {
       this.dialog = true;
     }

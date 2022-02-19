@@ -18,20 +18,8 @@ export function getBrowser() {
   return "others";
 }
 
-export function authorize(vm) {
-  if (!vm.clientId) {
-    vm.$emit("errorHandler", {
-      error: "Client Id cannot be empty"
-    });
-
-    return;
-  } else if (!vm.scope) {
-    vm.$emit("errorHandler", {
-      error: "scope Id cannot be empty"
-    });
-
-    return;
-  }
+export function authorize(vm, isMixin: Boolean = false) {
+  parameterChecker(vm);
 
   if (vm.isFiresbox) {
     vm.mixinClient = new MixinClient(
@@ -69,6 +57,14 @@ export function authorize(vm) {
         return false;
       }
 
+      if (isMixin) {
+        vm.$emit("getAuthInfo", {
+          codeId: auth.code_id
+        });
+
+        return true;
+      }
+
       if (auth.authorization_code.length > 16) {
         vm.$emit("getAuthInfo", {
           authCode: auth.authorization_code,
@@ -98,4 +94,20 @@ export function authorize(vm) {
     vm.scope,
     vm.codeChallenge
   );
+}
+
+function parameterChecker(vm) {
+  if (!vm.clientId) {
+    vm.$emit("errorHandler", {
+      error: "Client Id cannot be empty"
+    });
+
+    return;
+  } else if (!vm.scope) {
+    vm.$emit("errorHandler", {
+      error: "scope Id cannot be empty"
+    });
+
+    return;
+  }
 }
