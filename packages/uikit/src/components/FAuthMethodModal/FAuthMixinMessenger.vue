@@ -31,8 +31,9 @@
 import { Component, Vue } from "vue-property-decorator";
 import FQrCode from "../FQrCode";
 import FLoading from "../FLoading";
-import { $t, authorize } from "../../utils/helper";
+import { $t } from "../../utils/helper";
 import { VIcon, VImg } from "vuetify/lib";
+import authorize from "../../utils/authorize";
 
 @Component({
   name: "FAuthMixinMessenger",

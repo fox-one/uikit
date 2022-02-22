@@ -34,7 +34,7 @@ import FBottomSheet from "../FBottomSheet";
 import FListItem from "../FList/FListItem";
 import { VAvatar, VImg } from "vuetify/lib";
 import { isMixin } from "@foxone/utils/mixin";
-import { authorize } from "../../utils/helper";
+import authorize from "../../utils/authorize";
 
 import FAuthStep1 from "./FAuthStep1.vue";
 import FAuthStep2 from "./FAuthStep2.vue";
