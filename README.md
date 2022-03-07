@@ -2,9 +2,10 @@
 
 An UIkit based on Vue & Vuetify, mainly written in TypeScript, includes some useful components widely used in bots for Mixin Messenger.
 
-## Demos
 
-[Here](https://fox-one.github.io/uikit/) are components demos.
+## Documents & Live Demos
+
+[Here](https://fox-one.github.io/fe-docs/components/asset-input-tools.html) are components documents and demos.
 
 ## Figma files
 
