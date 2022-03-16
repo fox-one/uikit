@@ -25,6 +25,7 @@ import { VIcon } from "vuetify/lib";
 })
 class FAuthStep2 extends Vue {
   @PropSync("step") bindStep;
+
   @Prop() select;
 
   get component() {

@@ -1,20 +1,16 @@
 <template>
   <div class="f-auth-mixin">
     <div class="f-auth-mixin__left">
-      <f-loading :loading="loading" :fullscreen="true" />
-      <f-qr-code
-        v-if="!loading"
-        class="f-auth-mixin__qr"
-        :text="qrUrl"
-        :size="182"
-      />
-      <v-img
-        v-if="!loading"
-        class="f-auth-mixin__img"
-        height="32"
-        width="32"
-        :src="mixin_icon"
-      />
+      <template v-if="qrUrl">
+        <f-qr-code class="f-auth-mixin__qr" :text="qrUrl" :size="182" />
+        <v-img
+          class="f-auth-mixin__img"
+          height="32"
+          width="32"
+          src="https://static.fox.one/image/icon_mixin@32x32.png"
+        />
+      </template>
+      <f-loading v-else :fullscreen="false" class="d-flex" />
     </div>
     <div class="f-auth-mixin__right">
       <div class="f-auth-mixin__title">
@@ -28,7 +24,7 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from "vue-property-decorator";
+import { Component, Vue, Prop } from "vue-property-decorator";
 import FQrCode from "../FQrCode";
 import FLoading from "../FLoading";
 import { $t } from "../../utils/helper";
@@ -45,19 +41,15 @@ import { VIcon, VImg } from "vuetify/lib";
   }
 })
 class FAuthMixinMessenger extends Vue {
-  mixin_icon = "https://static.fox.one/image/icon_mixin@32x32.png";
+  @Prop({ default: false, type: Boolean }) isFiresbox!: boolean;
 
-  app: any = null;
+  @Prop() scope!: string;
+
+  @Prop() clientId!: string;
+
+  @Prop() codeChallenge!: string;
 
   qrUrl = "";
-
-  lastCode = "";
-
-  loading = true;
-
-  mixinClient: any = null;
-
-  authorize = authorize;
 
   get labels() {
     return [
@@ -77,7 +69,22 @@ class FAuthMixinMessenger extends Vue {
   }
 
   mounted() {
-    authorize(this);
+    authorize(
+      {
+        clientId: this.clientId,
+        scope: this.scope,
+        codeChallenge: this.codeChallenge
+      },
+      this.isFiresbox,
+      {
+        onShowUrl: (url) => (this.qrUrl = url),
+        onError: (error) => this.$emit("error", error),
+        onSuccess: (code) => {
+          this.$emit("close");
+          this.$emit("auth", { type: "mixin", code });
+        }
+      }
+    );
   }
 }
 export default FAuthMixinMessenger;

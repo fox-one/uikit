@@ -104,8 +104,6 @@ class FToast extends Vue {
   }
 
   render(h: CreateElement): VNode {
-    console.log({ value: this.snackbar, ...this.props });
-
     return h(
       VSnackbar,
       {

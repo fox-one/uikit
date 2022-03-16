@@ -37,9 +37,10 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
 
   &__icon {
-    transition: all .3s ease-in;
+    transition: all 0.3s ease-in;
     height: 68px;
     width: 88px;
     background-color: var(--v-greyscale_1-base);
@@ -52,6 +53,7 @@
     line-height: 17px;
   }
 }
+
 .f-auth-mixin {
   height: 324px;
   display: grid;
@@ -74,7 +76,7 @@
     border: none !important;
   }
 
-  &__img{
+  &__img {
     margin: auto;
     position: absolute;
     z-index: 999;
@@ -83,7 +85,7 @@
     background-color: #ffffff;
   }
 
-  &__right{
+  &__right {
     padding: 40px;
     padding-top: 99px;
   }
@@ -102,7 +104,7 @@
     color: var(--v-greyscale_3-base);
   }
 
-  &__link{
+  &__link {
     display: inline-flex;
     align-items: center;
     column-gap: 4px;

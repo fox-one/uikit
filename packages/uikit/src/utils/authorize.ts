@@ -1,95 +1,58 @@
 import MixinClient from "../services/mixin";
+import { isMixin } from "@foxone/utils/mixin";
 
-export function checkParams(vm) {
-  let error: String = "";
-
-  const props = ["client-id", "scope"];
-
-  for (const prop of props) {
-    if (!vm.$attrs[prop] || !vm.$attrs[prop].trim()) {
-      error = `Parameter ${prop} cannot be empty.`;
-      break;
-    }
-  }
-
-  if (error) {
-    vm.$emit("error", { error });
-
-    return true;
-  }
-
-  return false;
+export interface AuthParams {
+  clientId: string;
+  scope: string;
+  codeChallenge: string;
 }
 
-export default function authorize(vm, isMixin: Boolean = false) {
-  if (checkParams(vm)) {
-    return;
-  }
+export interface Callbacks {
+  onError?: (...args: any) => void;
+  onSuccess?: (...args: any) => void;
+  onShowUrl?: (...args: any) => void;
+}
 
-  if (vm.$attrs["is-firesbox"]) {
-    vm.mixinClient = new MixinClient(
-      "https://xuexi-api.firesbox.com",
-      "wss://xuexi-blaze.firesbox.com"
-    );
-  } else {
-    vm.mixinClient = new MixinClient(
-      "https://api.mixin.one",
-      "wss://blaze.mixin.one"
-    );
-  }
+export default function authorize(
+  params: AuthParams,
+  isFiresbox = false,
+  callbacks: Callbacks = {}
+) {
+  const [http, ws] = isFiresbox
+    ? ["https://xuexi-api.firesbox.com", "wss://xuexi-blaze.firesbox.com"]
+    : ["https://api.mixin.one", "wss://blaze.mixin.one"];
+  const client = new MixinClient(http, ws);
+  let opened = false;
 
-  vm.loading = true;
+  const handler = (resp) => {
+    const data = resp.data;
 
-  vm.mixinClient.connect(
-    (resp) => {
-      if (resp.error) {
-        if (resp.error.code === 400 || resp.error.code === 10002) {
-          vm.loading = false;
+    console.log(resp);
 
-          vm.$emit("error", {
-            error: resp.error
-          });
+    if (resp?.error?.code === 400 || resp?.error?.code === 10002) {
+      callbacks.onError?.(resp?.error);
 
-          return true;
-        }
+      return true;
+    }
 
-        return false;
-      }
+    if (!data) return false;
 
-      const auth = resp.data;
+    if (data.authorization_code.length > 16) {
+      callbacks.onSuccess?.(data.authorization_code);
 
-      if (!auth) {
-        return false;
-      }
+      return true;
+    }
 
-      if (auth.authorization_code.length > 16) {
-        vm.$emit("auth", {
-          authCode: auth.authorization_code
-        });
+    if (isMixin()) {
+      if (opened) return false;
+      window.open("mixin://codes/" + data.code_id);
+      opened = true;
+    } else {
+      callbacks.onShowUrl?.("https://mixin.one/codes/" + data.code_id);
+    }
 
-        return true;
-      }
+    return false;
+  };
 
-      if (auth.scopes.length === 0) {
-        return true;
-      }
-
-      if (vm.lastCode === auth.code_id) {
-        return false;
-      }
-
-      vm.lastCode = auth.code_id;
-      vm.qrUrl = "https://mixin.one/codes/" + auth.code_id;
-      vm.loading = false;
-
-      if (isMixin) {
-        window.open("mixin://codes/" + auth.code_id);
-      }
-
-      return false;
-    },
-    vm.$attrs["client-id"],
-    vm.$attrs["scope"],
-    vm.$attrs["code-challenge"]
-  );
+  client.connect(handler, params.clientId, params.scope, params.codeChallenge);
 }

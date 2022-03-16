@@ -21,8 +21,13 @@
         v-if="step === 2"
         :step.sync="step"
         :select="select"
+        :client-id="clientId"
+        :scope="scope"
+        :code-challenge="codeChallenge"
+        :is-firesbox="isFiresbox"
         v-bind="$attrs"
         v-on="$listeners"
+        @close="handleClose"
       />
     </div>
   </f-bottom-sheet>
@@ -54,6 +59,14 @@ import FAuthStep2 from "./FAuthStep2.vue";
 class FAuthMethodModal extends Vue {
   @Prop({ type: Boolean, default: false }) fennec!: boolean;
 
+  @Prop() clientId!: string;
+
+  @Prop() scope!: string;
+
+  @Prop() codeChallenge!: string;
+
+  @Prop({ default: false, type: Boolean }) isFiresbox!: boolean;
+
   dialog = false;
 
   step = 1;
@@ -80,7 +93,18 @@ class FAuthMethodModal extends Vue {
 
   onClick() {
     if (isMixin()) {
-      authorize(this, true);
+      authorize(
+        {
+          clientId: this.clientId,
+          scope: this.scope,
+          codeChallenge: this.codeChallenge
+        },
+        this.isFiresbox,
+        {
+          onError: (error) => this.$emit("error", error),
+          onSuccess: (code) => this.$emit("auth", { type: "mixin", code })
+        }
+      );
     } else {
       this.dialog = true;
     }
