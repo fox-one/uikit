@@ -83,9 +83,7 @@ class FAuthStep1 extends Vue {
   handleAuth(item) {
     if (item.avaliable) {
       this.$emit("close");
-      this.$emit("auth", {
-        fennec: true
-      });
+      this.$emit("auth", { type: "fennec" });
     } else {
       this.bindSelect = item.value;
       this.bindStep = 2;

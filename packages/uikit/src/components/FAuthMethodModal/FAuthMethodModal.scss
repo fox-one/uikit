@@ -1,5 +1,4 @@
 .f-auth-methods--content {
-  height: 324px;
   position: relative;
 }
 
@@ -55,11 +54,18 @@
 }
 
 .f-auth-mixin {
-  height: 324px;
-  display: grid;
-  grid-template-columns: 50% 50%;
+  display: flex;
+
+  &--small {
+    display: block;
+
+    .f-auth-mixin__right {
+      padding-top: 40px !important;
+    }
+  }
+
   &__left {
-    width: 100%;
+    min-width: 50%;
     background-image: url("https://static.fox.one/image/bg_mixin_auth.png");
     background-position: center center;
     background-size: cover;
@@ -68,6 +74,7 @@
     display: flex;
     justify-content: center;
     overflow: hidden;
+    height: 324px;
   }
 
   &__qr {
@@ -80,7 +87,7 @@
     margin: auto;
     position: absolute;
     z-index: 999;
-    top: 50%;
+    top: 162px;
     border-radius: 8px;
     background-color: #ffffff;
   }
@@ -118,9 +125,15 @@
 }
 
 .f-auth-fennec {
-  height: 324px;
-  display: grid;
-  grid-template-columns: 50% 50%;
+  display: flex;
+
+  &--small {
+    display: block;
+
+    .f-auth-fennec__right {
+      padding-top: 40px !important;
+    }
+  }
 
   .f-auth-fennec__right {
     padding: 40px;

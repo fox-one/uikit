@@ -1,6 +1,8 @@
 <template>
-  <div class="f-auth-fennec">
-    <v-img :src="bg" height="100%" />
+  <div class="f-auth-fennec" :class="{ 'f-auth-fennec--small': smAndDown }">
+    <div class="f-auth-fennec__left">
+      <v-img :src="bg" height="324" />
+    </div>
 
     <div class="f-auth-fennec__right">
       <div class="f-auth-fennec__title">
@@ -44,6 +46,10 @@ class FAuthFennecInstall extends Vue {
       $t(this, "fennec_introduction"),
       $t(this, "install")
     ];
+  }
+
+  get smAndDown() {
+    return this.$vuetify.breakpoint.smAndDown;
   }
 
   handleInstall() {

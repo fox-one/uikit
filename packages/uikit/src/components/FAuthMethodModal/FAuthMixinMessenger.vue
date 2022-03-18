@@ -1,5 +1,5 @@
 <template>
-  <div class="f-auth-mixin">
+  <div class="f-auth-mixin" :class="{ 'f-auth-mixin--small': smAndDown }">
     <div class="f-auth-mixin__left">
       <template v-if="qrUrl">
         <f-qr-code class="f-auth-mixin__qr" :text="qrUrl" :size="182" />
@@ -47,9 +47,11 @@ class FAuthMixinMessenger extends Vue {
 
   @Prop() clientId!: string;
 
-  @Prop() codeChallenge!: string;
-
   qrUrl = "";
+
+  get smAndDown() {
+    return this.$vuetify.breakpoint.smAndDown;
+  }
 
   get labels() {
     return [
@@ -69,22 +71,14 @@ class FAuthMixinMessenger extends Vue {
   }
 
   mounted() {
-    authorize(
-      {
-        clientId: this.clientId,
-        scope: this.scope,
-        codeChallenge: this.codeChallenge
-      },
-      this.isFiresbox,
-      {
-        onShowUrl: (url) => (this.qrUrl = url),
-        onError: (error) => this.$emit("error", error),
-        onSuccess: (code) => {
-          this.$emit("close");
-          this.$emit("auth", { type: "mixin", code });
-        }
+    authorize({ clientId: this.clientId, scope: this.scope }, this.isFiresbox, {
+      onShowUrl: (url) => (this.qrUrl = url),
+      onError: (error) => this.$emit("error", error),
+      onSuccess: (code) => {
+        this.$emit("close");
+        this.$emit("auth", { type: "mixin", code });
       }
-    );
+    });
   }
 }
 export default FAuthMixinMessenger;

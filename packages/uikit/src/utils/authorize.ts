@@ -4,7 +4,7 @@ import { isMixin } from "@foxone/utils/mixin";
 export interface AuthParams {
   clientId: string;
   scope: string;
-  codeChallenge: string;
+  codeChallenge?: string;
 }
 
 export interface Callbacks {
@@ -54,5 +54,10 @@ export default function authorize(
     return false;
   };
 
-  client.connect(handler, params.clientId, params.scope, params.codeChallenge);
+  client.connect(
+    handler,
+    params.clientId,
+    params.scope,
+    params?.codeChallenge ?? ""
+  );
 }

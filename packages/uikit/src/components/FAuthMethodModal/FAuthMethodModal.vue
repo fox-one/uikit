@@ -63,8 +63,6 @@ class FAuthMethodModal extends Vue {
 
   @Prop() scope!: string;
 
-  @Prop() codeChallenge!: string;
-
   @Prop({ default: false, type: Boolean }) isFiresbox!: boolean;
 
   dialog = false;
@@ -94,11 +92,7 @@ class FAuthMethodModal extends Vue {
   onClick() {
     if (isMixin()) {
       authorize(
-        {
-          clientId: this.clientId,
-          scope: this.scope,
-          codeChallenge: this.codeChallenge
-        },
+        { clientId: this.clientId, scope: this.scope },
         this.isFiresbox,
         {
           onError: (error) => this.$emit("error", error),
