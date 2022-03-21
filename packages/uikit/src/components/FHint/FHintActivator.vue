@@ -1,6 +1,6 @@
 <template>
   <v-icon
-    size="14"
+    size="12"
     color="greyscale_1"
     class="f-hint-activator"
     v-bind="$attrs"

@@ -1,7 +1,9 @@
 <template>
   <f-tooltip v-if="showTooltip" v-model="show" top>
     <template #activator="{ on }">
-      <f-hint-activator v-if="hasHint" @click.native="on.click" />
+      <slot v-if="hasHint" name="activator" :on="on">
+        <f-hint-activator @click.native="on.click" />
+      </slot>
     </template>
 
     <div class="f-hint-content f-hint-tooltip__content">
@@ -22,7 +24,7 @@
     </f-bottom-sheet-title>
 
     <div>
-      <div class="f-hint-content f-hint-dialog__content pa-6 pt-0">
+      <div class="f-hint-content f-hint-dialog__content px-4 py-0">
         <span v-if="html" v-html="hint" />
         <f-render v-else :nodes="hint" />
 
