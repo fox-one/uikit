@@ -1,14 +1,17 @@
 # Change Log
 
-## 3.0.0
+## 3.1.3
 
-- refactor componets
+- Update FAuthMethodModal
+- UI Update
 
 ## 3.1.1
 
 - refactor components
 
-## 3.1.2
+## 3.0.0
 
-- Update FAuthMethodModal
-- UI Update
+- refactor componets
+
+
+
