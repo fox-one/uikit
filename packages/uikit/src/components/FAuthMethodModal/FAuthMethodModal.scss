@@ -55,6 +55,9 @@
 
 .f-auth-mixin {
   display: flex;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  overflow: hidden;
 
   &--small {
     display: block;
@@ -126,6 +129,9 @@
 
 .f-auth-fennec {
   display: flex;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  overflow: hidden;
 
   &--small {
     display: block;
@@ -133,6 +139,14 @@
     .f-auth-fennec__right {
       padding-top: 40px !important;
     }
+
+    .f-auth-fennec__left {
+      max-width: 100% !important;
+    }
+  }
+
+  .f-auth-fennec__left {
+    max-width: 50%;
   }
 
   .f-auth-fennec__right {
