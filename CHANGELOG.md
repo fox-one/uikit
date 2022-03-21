@@ -7,3 +7,8 @@
 ## 3.1.1
 
 - refactor components
+
+## 3.1.2
+
+- Update FAuthMethodModal
+- UI Update
