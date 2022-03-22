@@ -15,6 +15,8 @@ export interface ToastOptions {
   message: string | VNode;
   autoWidth?: boolean;
   color?: string;
+  type?: string;
+  isDark?: boolean;
   queueable?: boolean;
   props?: ToastProps;
   action?: ToastAction;
