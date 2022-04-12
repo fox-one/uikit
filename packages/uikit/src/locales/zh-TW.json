@@ -19,6 +19,10 @@
     "learn_more": "了解詳情",
     "install": "安装",
     "fennec_not_installed": "沒有安裝",
-    "fennec_introduction": "Fennec 是一個 Mixin 網絡瀏覽器錢包，連接前需要安裝 Fennec。"
+    "fennec_introduction": "Fennec 是一個 Mixin 網絡瀏覽器錢包，連接前需要安裝 Fennec。",
+    "lasting_tip": "當前可能出現傳輸擁塞。 您的資金是安全的，請耐心等待",
+    "scan_to_connect": "掃描并連接",
+    "links_connect_detail": "在您的手機上打開 {0} 並掃描二維碼，然後確認授權以連接您的錢包。",
+    "mixin_connect_detail": "在您的手機上打開 {0} 並掃描二維碼，然後確認授權以連接您的錢包。"
   }
 }

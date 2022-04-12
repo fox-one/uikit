@@ -50,11 +50,34 @@ class FAuthStep1 extends Vue {
 
   @Prop({ type: String, default: "" }) title;
 
+  @Prop({ default: () => [] }) supportedWallets!: Array<string>;
+
   @PropSync("step") bindStep;
 
   @PropSync("select") bindSelect;
 
   hoverIndex = -1;
+
+  builtInWallets = {
+    fennec: {
+      avaliable: false,
+      value: "fennec",
+      title: "Fennec",
+      logo: "https://static.fox.one/image/logo_fennec@88x68.png"
+    },
+    mixin: {
+      avaliable: false,
+      value: "mixin",
+      title: "Mixin Messenger",
+      logo: "https://static.fox.one/image/logo_mixin@88x68.png"
+    },
+    links: {
+      avaliable: false,
+      value: "links",
+      title: "Links",
+      logo: "https://static.fox.one/image/logo_links@88x68.png"
+    }
+  };
 
   get labels() {
     return [
@@ -64,20 +87,31 @@ class FAuthStep1 extends Vue {
   }
 
   get items() {
-    return [
-      {
-        avaliable: this.fennec,
-        value: "fennec",
-        title: "Fennec",
-        logo: "https://static.fox.one/image/logo_fennec@88x68.png"
-      },
-      {
-        avaliable: false,
-        value: "mixin",
-        title: "Mixin Messenger",
-        logo: "https://static.fox.one/image/logo_mixin@88x68.png"
+    return this.getWalletsByNames(this.supportedWallets);
+  }
+
+  getWalletsByNames(names) {
+    if (names?.length === 0) {
+      return [this.builtInWallets.fennec, this.builtInWallets.mixin];
+    }
+
+    if (this.fennec) {
+      this.builtInWallets.fennec.avaliable = true;
+    }
+
+    const ret: Array<any> = [];
+
+    for (let ix = 0; ix < names.length; ix++) {
+      const name = names[ix];
+
+      if (this.builtInWallets[name]) {
+        ret.push(this.builtInWallets[name]);
       }
-    ];
+    }
+
+    console.log(ret);
+
+    return ret;
   }
 
   handleAuth(item) {

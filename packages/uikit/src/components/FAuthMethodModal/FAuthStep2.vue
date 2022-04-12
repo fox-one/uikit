@@ -12,6 +12,7 @@
 import { Component, Vue, Prop, PropSync } from "vue-property-decorator";
 import FAuthFennecInstall from "./FAuthFennecInstall.vue";
 import FAuthMixinMessenger from "./FAuthMixinMessenger.vue";
+import FAuthLinks from "./FAuthLinks.vue";
 import { VIcon } from "vuetify/lib";
 
 @Component({
@@ -20,6 +21,7 @@ import { VIcon } from "vuetify/lib";
   components: {
     FAuthFennecInstall,
     FAuthMixinMessenger,
+    FAuthLinks,
     VIcon
   }
 })
@@ -29,9 +31,14 @@ class FAuthStep2 extends Vue {
   @Prop() select;
 
   get component() {
-    return this.select === "fennec"
-      ? "FAuthFennecInstall"
-      : "FAuthMixinMessenger";
+    switch (this.select) {
+      case "fennec":
+        return "FAuthFennecInstall";
+      case "links":
+        return "FAuthLinks";
+      default:
+        return "FAuthMixinMessenger";
+    }
   }
 
   handleBack() {
