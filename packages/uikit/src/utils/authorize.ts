@@ -22,12 +22,11 @@ export default function authorize(
     ? ["https://xuexi-api.firesbox.com", "wss://xuexi-blaze.firesbox.com"]
     : ["https://api.mixin.one", "wss://blaze.mixin.one"];
   const client = new MixinClient(http, ws);
+
   let opened = false;
 
   const handler = (resp) => {
     const data = resp.data;
-
-    console.log(resp);
 
     if (resp?.error?.code === 400 || resp?.error?.code === 10002) {
       callbacks.onError?.(resp?.error);
@@ -45,6 +44,7 @@ export default function authorize(
 
     if (isMixin()) {
       if (opened) return false;
+
       window.open("mixin://codes/" + data.code_id);
       opened = true;
     } else {
@@ -60,4 +60,6 @@ export default function authorize(
     params.scope,
     params?.codeChallenge ?? ""
   );
+
+  return client;
 }

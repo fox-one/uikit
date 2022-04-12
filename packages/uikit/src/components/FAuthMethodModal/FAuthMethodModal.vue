@@ -12,7 +12,6 @@
         :step.sync="step"
         :select.sync="select"
         :fennec="fennec"
-        :wallets="wallets"
         v-bind="$attrs"
         v-on="$listeners"
         @close="handleClose"
@@ -65,7 +64,7 @@ class FAuthMethodModal extends Vue {
 
   @Prop({ default: false, type: Boolean }) isFiresbox!: boolean;
 
-  @Prop({ default: () => [] }) wallets!: Array<string>;
+  client: any = null;
 
   dialog = false;
 
@@ -77,6 +76,10 @@ class FAuthMethodModal extends Vue {
 
   get meta() {
     return { isDesktop: this.$vuetify.breakpoint.mdAndUp };
+  }
+
+  destroyed() {
+    this.client?.disconnect();
   }
 
   @Watch("dialog")
@@ -93,7 +96,7 @@ class FAuthMethodModal extends Vue {
 
   onClick() {
     if (isMixin()) {
-      authorize(
+      this.client = authorize(
         { clientId: this.clientId, scope: this.scope },
         this.isFiresbox,
         {

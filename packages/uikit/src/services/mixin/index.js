@@ -10,8 +10,14 @@ function MixinClient(api, endpoint) {
 }
 
 MixinClient.prototype = {
+  disconnect() {
+    const self = this;
+
+    self.ws.close();
+  },
   connect(callback, clientId, scope, codeChallenge) {
     const self = this;
+
     self.handled = false;
     self.callback = callback;
     self.ws = new ReconnectingWebSocket(self.endpoint, "Mixin-OAuth-1", {

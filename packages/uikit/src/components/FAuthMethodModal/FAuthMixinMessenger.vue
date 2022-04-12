@@ -49,6 +49,8 @@ class FAuthMixinMessenger extends Vue {
 
   qrUrl = "";
 
+  client: any = null;
+
   get smAndDown() {
     return this.$vuetify.breakpoint.smAndDown;
   }
@@ -71,14 +73,22 @@ class FAuthMixinMessenger extends Vue {
   }
 
   mounted() {
-    authorize({ clientId: this.clientId, scope: this.scope }, this.isFiresbox, {
-      onShowUrl: (url) => (this.qrUrl = url),
-      onError: (error) => this.$emit("error", error),
-      onSuccess: (code) => {
-        this.$emit("close");
-        this.$emit("auth", { type: "mixin", code });
+    this.client = authorize(
+      { clientId: this.clientId, scope: this.scope },
+      this.isFiresbox,
+      {
+        onShowUrl: (url) => (this.qrUrl = url),
+        onError: (error) => this.$emit("error", error),
+        onSuccess: (code) => {
+          this.$emit("close");
+          this.$emit("auth", { type: "mixin", code });
+        }
       }
-    });
+    );
+  }
+
+  destroyed() {
+    this.client?.disconnect();
   }
 }
 export default FAuthMixinMessenger;

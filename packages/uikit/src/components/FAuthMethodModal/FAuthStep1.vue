@@ -50,7 +50,7 @@ class FAuthStep1 extends Vue {
 
   @Prop({ type: String, default: "" }) title;
 
-  @Prop({ default: () => [] }) wallets!: Array<string>;
+  @Prop({ default: () => ["fennec", "mixin"] }) wallets!: Array<string>;
 
   @PropSync("step") bindStep;
 
@@ -58,26 +58,28 @@ class FAuthStep1 extends Vue {
 
   hoverIndex = -1;
 
-  builtInWallets = {
-    fennec: {
-      avaliable: false,
-      value: "fennec",
-      title: "Fennec",
-      logo: "https://static.fox.one/image/logo_fennec@88x68.png"
-    },
-    mixin: {
-      avaliable: false,
-      value: "mixin",
-      title: "Mixin Messenger",
-      logo: "https://static.fox.one/image/logo_mixin@88x68.png"
-    },
-    links: {
-      avaliable: false,
-      value: "links",
-      title: "Links",
-      logo: "https://static.fox.one/image/logo_links@88x68.png"
-    }
-  };
+  get builtInWallets() {
+    return [
+      {
+        needNextStep: !this.fennec,
+        value: "fennec",
+        title: "Fennec",
+        logo: "https://static.fox.one/image/logo_fennec@88x68.png"
+      },
+      {
+        needNextStep: true,
+        value: "mixin",
+        title: "Mixin Messenger",
+        logo: "https://static.fox.one/image/logo_mixin@88x68.png"
+      },
+      {
+        needNextStep: true,
+        value: "links",
+        title: "Links",
+        logo: "https://static.fox.one/image/logo_links@88x68.png"
+      }
+    ];
+  }
 
   get labels() {
     return [
@@ -87,31 +89,13 @@ class FAuthStep1 extends Vue {
   }
 
   get items() {
-    if (this.wallets?.length === 0) {
-      return [this.builtInWallets.fennec, this.builtInWallets.mixin];
-    }
-
-    if (this.fennec) {
-      this.builtInWallets.fennec.avaliable = true;
-    }
-
-    const ret: Array<any> = [];
-
-    for (let ix = 0; ix < this.wallets.length; ix++) {
-      const name = this.wallets[ix];
-
-      if (this.builtInWallets[name]) {
-        ret.push(this.builtInWallets[name]);
-      }
-    }
-
-    return ret;
+    return this.builtInWallets.filter((x) => this.wallets.includes(x.value));
   }
 
   handleAuth(item) {
-    if (item.avaliable) {
+    if (!item.needNextStep) {
       this.$emit("close");
-      this.$emit("auth", { type: "fennec" });
+      this.$emit("auth", { type: item.value });
     } else {
       this.bindSelect = item.value;
       this.bindStep = 2;
