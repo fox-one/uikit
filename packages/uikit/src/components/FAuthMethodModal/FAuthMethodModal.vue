@@ -12,7 +12,7 @@
         :step.sync="step"
         :select.sync="select"
         :fennec="fennec"
-        :supported-wallets="supportedWallets"
+        :wallets="wallets"
         v-bind="$attrs"
         v-on="$listeners"
         @close="handleClose"
@@ -65,7 +65,7 @@ class FAuthMethodModal extends Vue {
 
   @Prop({ default: false, type: Boolean }) isFiresbox!: boolean;
 
-  @Prop({ default: () => [] }) supportedWallets!: Array<string>;
+  @Prop({ default: () => [] }) wallets!: Array<string>;
 
   dialog = false;
 

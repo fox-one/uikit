@@ -50,7 +50,7 @@ class FAuthStep1 extends Vue {
 
   @Prop({ type: String, default: "" }) title;
 
-  @Prop({ default: () => [] }) supportedWallets!: Array<string>;
+  @Prop({ default: () => [] }) wallets!: Array<string>;
 
   @PropSync("step") bindStep;
 
@@ -87,11 +87,7 @@ class FAuthStep1 extends Vue {
   }
 
   get items() {
-    return this.getWalletsByNames(this.supportedWallets);
-  }
-
-  getWalletsByNames(names) {
-    if (names?.length === 0) {
+    if (this.wallets?.length === 0) {
       return [this.builtInWallets.fennec, this.builtInWallets.mixin];
     }
 
@@ -101,15 +97,13 @@ class FAuthStep1 extends Vue {
 
     const ret: Array<any> = [];
 
-    for (let ix = 0; ix < names.length; ix++) {
-      const name = names[ix];
+    for (let ix = 0; ix < this.wallets.length; ix++) {
+      const name = this.wallets[ix];
 
       if (this.builtInWallets[name]) {
         ret.push(this.builtInWallets[name]);
       }
     }
-
-    console.log(ret);
 
     return ret;
   }
