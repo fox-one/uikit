@@ -89,7 +89,9 @@ class FAuthStep1 extends Vue {
   }
 
   get items() {
-    return this.builtInWallets.filter((x) => this.wallets.includes(x.value));
+    return this.wallets.map((name) => {
+      return this.builtInWallets.find((x) => x.value === name);
+    });
   }
 
   handleAuth(item) {
