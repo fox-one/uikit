@@ -1,6 +1,6 @@
 {
   "uikit": {
-    "balance_short": "バランス",
+    "balance_short": "残高",
     "connect_wallet": "ウォレットを接続する",
     "connect_wallet_subtitle": "利用可能なウォレットプロバイダーの1つに接続します。",
     "search": "検索する",
