@@ -1,5 +1,12 @@
 @import "./_variable.scss";
 
+@include theme("v-btn") using ($material) {
+  &.v-btn--text.v-btn--disabled {
+    color: map-deep-get($material, 'buttons', 'disabled2') !important
+  }
+    
+}
+
 .f-btn.v-btn {
   font-weight: 600;
 

@@ -45,6 +45,7 @@ $material-dark: (
   "bottom-sheet": map-get($dark-colors, "greyscale_7"),
   "buttons": (
     "disabled": map-get($dark-colors, "greyscale_7"),
+    "disabled2": map-get($dark-colors, "greyscale_6"),
     "focused": map-get($dark-colors, "greyscale_5")
   ),
   "cards": map-get($dark-colors, "greyscale_7"),

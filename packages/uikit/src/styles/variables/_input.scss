@@ -3,6 +3,12 @@
 $text-field-border-radius: $border-radius-root !default;
 $text-field-filled-border-radius: $text-field-border-radius !default;
 $text-field-enclosed-details-padding: 0 16px !default;
-$text-field-filled-margin-top: 20px !default;
+$text-field-filled-margin-top: 16px !default;
 $text-field-filled-full-width-label-top: 16px !default;
 $text-field-append-prepend-margin: 16px !default;
+$text-field-filled-full-width-outlined-slot-min-height: 52px !default;
+$text-field-filled-full-width-outlined-dense-slot-min-height: 52px !default;
+$text-field-filled-full-width-outlined-single-line-slot-min-height: 52px !default;
+$text-field-enclosed-prepend-append-margin-top: 15px !default;
+$text-field-dense-prepend-append-margin-top: 15px !default;
+$text-field-single-line-prepend-append-margin-top: 15px !default;
