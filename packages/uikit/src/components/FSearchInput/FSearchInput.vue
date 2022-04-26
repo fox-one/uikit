@@ -52,6 +52,20 @@ export default FSearchInput;
 ::v-deep {
   .v-input__prepend-inner {
     transition: 0.1s ease;
+
+    .v-icon__component {
+      color: var(--v-greyscale_3-base) !important;
+    }
+  }
+
+  .v-input__append-inner {
+    .v-icon__component {
+      color: var(--v-greyscale_1-base) !important;
+    }
+  }
+
+  input::placeholder {
+    color: var(--v-greyscale_3-base) !important;
   }
 }
 </style>

@@ -1,5 +1,10 @@
 # Change Log
 
+## 3.1.4
+
+- [break change] Update FBottomSheet default desktop prop
+- Update height of FInput
+
 ## 3.1.3
 
 - Update FAuthMethodModal
@@ -12,6 +17,3 @@
 ## 3.0.0
 
 - refactor componets
-
-
-

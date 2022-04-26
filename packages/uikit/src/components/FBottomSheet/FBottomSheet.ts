@@ -25,14 +25,9 @@ export default baseMixins.extend({
     hideCloseIcon: { type: Boolean, default: false },
     dialogProps: { type: Object, default: () => ({}) },
     hideTitleOnMenu: { type: Boolean, default: true },
-    // Deprecated
-    wapperInDesktop: {
-      type: String as PropType<WapperInDesktop>,
-      default: "menu"
-    },
     desktop: {
       type: String as PropType<WapperInDesktop>,
-      default: ""
+      default: "dialog"
     },
     menuProps: {
       type: Object,
@@ -45,9 +40,7 @@ export default baseMixins.extend({
       return this.$vuetify.breakpoint.mdAndUp;
     },
     isMenu(): boolean {
-      const desktop = this.desktop || this.wapperInDesktop;
-
-      return this.isDesktop && desktop === "menu";
+      return this.desktop === "menu";
     },
     showCloseIcon(): boolean {
       if (this.isMenu) {
@@ -80,7 +73,7 @@ export default baseMixins.extend({
       };
 
       if (this.adaptive && this.isDesktop) {
-        if (this.wapperInDesktop === "menu") {
+        if (this.desktop === "menu") {
           const defaultMenuProps = {
             offsetY: true,
             nudgeTop: -10,
