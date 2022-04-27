@@ -16,6 +16,11 @@
 
 .f-asset-amount-input.f-input.v-text-field.v-input {
   font-size: 18px;
+  
+  input {
+    font-weight: 600;
+    font-feature-settings: 'salt' on;
+  }
 
   input::placeholder,
   textarea::placeholder {
