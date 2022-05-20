@@ -43,6 +43,8 @@ import { VIcon, VImg } from "vuetify/lib";
 class FAuthMixinMessenger extends Vue {
   @Prop({ default: false, type: Boolean }) isFiresbox!: boolean;
 
+  @Prop({ type: Boolean, default: false }) pkce!: boolean;
+
   @Prop() scope!: string;
 
   @Prop() clientId!: string;
@@ -74,14 +76,19 @@ class FAuthMixinMessenger extends Vue {
 
   mounted() {
     this.client = authorize(
-      { clientId: this.clientId, scope: this.scope },
+      { clientId: this.clientId, scope: this.scope, pkce: this.pkce },
       this.isFiresbox,
       {
         onShowUrl: (url) => (this.qrUrl = url),
         onError: (error) => this.$emit("error", error),
-        onSuccess: (code) => {
+        onSuccess: (data) => {
           this.$emit("close");
-          this.$emit("auth", { type: "mixin", code });
+
+          if (this.pkce) {
+            this.$emit("auth", { type: "mixin", token: data });
+          } else {
+            this.$emit("auth", { type: "mixin", code: data });
+          }
         }
       }
     );
