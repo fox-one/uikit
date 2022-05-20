@@ -1,5 +1,9 @@
 # Change Log
 
+## 3.1.5
+
+- Auth PKCE
+
 ## 3.1.4
 
 - [break change] Update FBottomSheet default desktop prop
