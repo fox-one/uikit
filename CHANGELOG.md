@@ -1,5 +1,9 @@
 # Change Log
 
+## 3.1.6
+
+- Auth PKCE in mixin
+
 ## 3.1.5
 
 - Auth PKCE
