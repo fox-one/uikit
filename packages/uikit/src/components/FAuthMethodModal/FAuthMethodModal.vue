@@ -24,6 +24,7 @@
         :client-id="clientId"
         :scope="scope"
         :is-firesbox="isFiresbox"
+        :pkce="pkce"
         v-bind="$attrs"
         v-on="$listeners"
         @close="handleClose"
@@ -64,6 +65,8 @@ class FAuthMethodModal extends Vue {
 
   @Prop({ default: false, type: Boolean }) isFiresbox!: boolean;
 
+  @Prop({ type: Boolean, default: false }) pkce!: boolean;
+
   client: any = null;
 
   dialog = false;
@@ -97,11 +100,17 @@ class FAuthMethodModal extends Vue {
   onClick() {
     if (isMixin()) {
       this.client = authorize(
-        { clientId: this.clientId, scope: this.scope },
+        { clientId: this.clientId, scope: this.scope, pkce: this.pkce },
         this.isFiresbox,
         {
           onError: (error) => this.$emit("error", error),
-          onSuccess: (code) => this.$emit("auth", { type: "mixin", code })
+          onSuccess: (data) => {
+            if (this.pkce) {
+              this.$emit("auth", { type: "mixin", token: data });
+            } else {
+              this.$emit("auth", { type: "mixin", code: data });
+            }
+          }
         }
       );
     } else {
