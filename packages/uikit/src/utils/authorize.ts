@@ -108,7 +108,7 @@ export default function authorize(
     if (isMixin()) {
       if (opened) return false;
 
-      window.open("mixin://codes/" + data.code_id);
+      window.location.replace("mixin://codes/" + data.code_id);
       opened = true;
     } else {
       callbacks.onShowUrl?.("https://mixin.one/codes/" + data.code_id);
