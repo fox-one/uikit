@@ -16,7 +16,9 @@
 
   <f-bottom-sheet v-else v-model="show" top wapper-in-desktop="dialog">
     <template #activator="{ on }">
-      <f-hint-activator v-if="hasHint" @click.native="on.click" />
+      <slot v-if="hasHint" name="activator" :on="on">
+        <f-hint-activator @click.native="on.click" />
+      </slot>
     </template>
 
     <f-bottom-sheet-title>
@@ -24,17 +26,11 @@
     </f-bottom-sheet-title>
 
     <div>
-      <div class="f-hint-content f-hint-dialog__content px-4 py-0">
+      <div class="f-hint-content f-hint-dialog__content px-4 pt-0 pb-8">
         <span v-if="html" v-html="hint" />
         <f-render v-else :nodes="hint" />
 
         <f-hint-link v-if="href" :href="href" />
-      </div>
-
-      <div class="text-center my-8">
-        <f-button color="primary" @click="handleClose">
-          {{ text.close }}
-        </f-button>
       </div>
     </div>
   </f-bottom-sheet>
