@@ -13,8 +13,9 @@
         :select.sync="select"
         :fennec="fennec"
         v-bind="$attrs"
-        v-on="$listeners"
-        @close="handleClose"
+        @auth="(e) => $emit('auth', e)"
+        @error="(e) => $emit('error', e)"
+        @close="close"
       />
 
       <f-auth-step-2
@@ -26,8 +27,9 @@
         :is-firesbox="isFiresbox"
         :pkce="pkce"
         v-bind="$attrs"
-        v-on="$listeners"
-        @close="handleClose"
+        @auth="(e) => $emit('auth', e)"
+        @error="(e) => $emit('error', e)"
+        @close="close"
       />
     </div>
   </f-bottom-sheet>
@@ -90,11 +92,17 @@ class FAuthMethodModal extends Vue {
     if (!value) {
       this.step = 1;
       this.select = "";
+      this.$emit("close");
     }
   }
 
-  handleClose() {
+  close() {
     this.dialog = false;
+  }
+
+  show() {
+    this.dialog = true;
+    console.log(this.$listeners);
   }
 
   onClick() {

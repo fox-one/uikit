@@ -16,6 +16,7 @@
     "src"
   ],
   "dependencies": {
+    "@foxone/fennec-dapp": "^0.5.4",
     "@nuxt/types": "^2.15.8",
     "axios": "^0.26.0",
     "crypto-js": "4.0.0",

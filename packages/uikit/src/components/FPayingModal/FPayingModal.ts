@@ -14,7 +14,9 @@ class FPayingModal extends Vue {
   @Prop({ type: String, default: "" }) text!: boolean;
 
   get displayText() {
-    return this.lasting ? $t(this, "lasting_tip") : this.text;
+    return this.lasting
+      ? $t(this, "lasting_tip")
+      : this.text || $t(this, "checking_payment");
   }
 
   @Watch("show")

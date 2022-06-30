@@ -1576,6 +1576,27 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@foxone/fennec-base@npm:0.5.4":
+  version: 0.5.4
+  resolution: "@foxone/fennec-base@npm:0.5.4"
+  dependencies:
+    browser-passworder: ^2.0.3
+    extensionizer: ^1.0.1
+    lodash: ^4.17.21
+    rxjs: ^6.6.3
+  checksum: 81531176c7b972c1e7cba1ded93dac02801384692cf12b72a88d713aae6d0318b05fec3901e4da484a3f5527c904b33dc60481b342c15b0707cfaaeadc0df4a6
+  languageName: node
+  linkType: hard
+
+"@foxone/fennec-dapp@npm:^0.5.4":
+  version: 0.5.4
+  resolution: "@foxone/fennec-dapp@npm:0.5.4"
+  dependencies:
+    "@foxone/fennec-base": 0.5.4
+  checksum: c75bb16e48484d4cb8b1ef297348eefab586e6b2666c81116cdafc0f1821a7d858092cb3c6944b8b44a2657babfcfdc84c87253160fad715762f84fa0bff5f93
+  languageName: node
+  linkType: hard
+
 "@foxone/icons@npm:3.0.1-51":
   version: 3.0.1-51
   resolution: "@foxone/icons@npm:3.0.1-51"
@@ -1616,6 +1637,7 @@ __metadata:
     "@babel/cli": ^7.14.5
     "@babel/core": ^7.14.6
     "@foxone/dev": ^0.2.2
+    "@foxone/fennec-dapp": ^0.5.4
     "@foxone/icons": 3.0.1-51
     "@foxone/utils": ^0.2.6
     "@mdi/font": ^5.9.55
@@ -4299,10 +4321,26 @@ __metadata:
   languageName: node
   linkType: hard
 
+"browser-passworder@npm:^2.0.3":
+  version: 2.0.3
+  resolution: "browser-passworder@npm:2.0.3"
+  dependencies:
+    browserify-unibabel: ^3.0.0
+  checksum: f1c4f73f833b5d5c5aa9b13a70cd34ad371adf358824c7b6d0c8e1cbc87b5f810e11d0cf554da2468ee02e2fc774a1b52a5c7bd1c337fd52aaa7185641d86a98
+  languageName: node
+  linkType: hard
+
 "browser-process-hrtime@npm:^1.0.0":
   version: 1.0.0
   resolution: "browser-process-hrtime@npm:1.0.0"
   checksum: 565847e5b0dc8c3762e545abb806ba886ed55de9b2c1479e382cf27e54f0af38ae3a1f81f3a98760403404419f65cbb20aff88d91cbee2b25e284bdebcc60a85
+  languageName: node
+  linkType: hard
+
+"browserify-unibabel@npm:^3.0.0":
+  version: 3.0.0
+  resolution: "browserify-unibabel@npm:3.0.0"
+  checksum: a38dda3c6689760e2895e1cf624f540eb55602551ef4c077b6c4e009aafd6071f265d4d7f607313a6f6b0142bb086477b98238dd70f4fa9c6fc760631622b5ba
   languageName: node
   linkType: hard
 
@@ -6884,6 +6922,13 @@ __metadata:
   version: 3.0.2
   resolution: "extend@npm:3.0.2"
   checksum: 1406da1f0c4b00b839497e4cdd0ec4303ce2ae349144b7c28064a5073c93ce8c08da4e8fb1bc5cb459ffcdff30a35fc0fe54344eb88320e70100c1baea6f195c
+  languageName: node
+  linkType: hard
+
+"extensionizer@npm:^1.0.1":
+  version: 1.0.1
+  resolution: "extensionizer@npm:1.0.1"
+  checksum: edffa57ca3eae3c4e24d68e65f0148af0b59534c9bf6ed51f26ab753a650ff4c4ecb4f8e6a08f7dddaca3d32b5ddbdcc6fb5a40c05e12c77e1d5b4756d365abe
   languageName: node
   linkType: hard
 
@@ -13373,7 +13418,7 @@ resolve@^2.0.0-next.3:
   languageName: node
   linkType: hard
 
-"rxjs@npm:^6.6.0":
+"rxjs@npm:^6.6.0, rxjs@npm:^6.6.3":
   version: 6.6.7
   resolution: "rxjs@npm:6.6.7"
   dependencies:

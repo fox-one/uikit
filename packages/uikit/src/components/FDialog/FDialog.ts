@@ -12,7 +12,7 @@ import FButton from "../FButton";
 import { $t } from "../../utils/helper";
 
 import type { CreateElement } from "vue";
-import type { Action, DialogOptions } from "../../utils/dialog";
+import type { Action, DialogOptions } from "../../services/dialog";
 
 @Component({
   name: "FDialog",

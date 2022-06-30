@@ -8,6 +8,7 @@
 .f-bottom-sheet.v-dialog:not(.f-bottom-sheet--no-padding) {
   padding-bottom: constant(safe-area-inset-bottom);
   padding-bottom: env(safe-area-inset-bottom);
+  overflow: hidden;
 }
 
 .f-bottom-sheet.v-dialog,

@@ -1,7 +1,9 @@
 import * as components from "./components";
 import preset from "./preset";
-import Toast from "./utils/toast";
-import Dialog from "./utils/dialog";
+import Toast from "./services/toast";
+import Dialog from "./services/dialog";
+import Auth from "./services/auth";
+import Payment from "./services/payment";
 
 import "./styles/index.scss";
 
@@ -18,5 +20,7 @@ export default {
 
   preset,
   Toast,
-  Dialog
+  Dialog,
+  Auth,
+  Payment
 };

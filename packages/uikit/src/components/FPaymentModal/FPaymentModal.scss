@@ -1,0 +1,61 @@
+.f-payment-modal__content.f-payment-modal__content--mobile {
+  flex-direction: column;
+  overflow: hidden;
+  width: 100%;
+  height: auto;
+
+  .f-payment-modal__left,
+  .f-payment-modal__right {
+    max-width: none;
+    min-width: none;
+  }
+
+  .f-payment-modal__left {
+    min-height: 322px;
+    background-size: 100% 100%;
+  }
+}
+
+.f-payment-modal__content {
+  width: 627px;
+  height: 325px;
+  display: flex;
+
+  .f-payment-modal__left {
+    max-width: 50%;
+    min-width: 50%;
+    background-image: url("https://static.fox.one/image/bg_mixin_auth.png");
+    background-position: center center;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+
+    .f-payment-modal__qr {
+      margin-top: 87px;
+      padding: 11px;
+      border: none !important;
+    }
+  }
+
+  .f-payment-modal__right {
+    max-width: 50%;
+    min-width: 50%;
+    padding: 40px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+
+    .f-payment-modal__amount {
+      font-weight: 600;
+      font-size: 18px;
+      line-height: 22px;
+    }
+
+    .f-payment-modal__hint {
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 150%;
+      color: var(--v-greyscale_3-base);
+    }
+  }
+}

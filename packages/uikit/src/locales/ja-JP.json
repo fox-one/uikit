@@ -22,7 +22,10 @@
     "fennec_introduction": "FennecはMixinのネットワークブラウザウォレットで、接続の前にFennecをインストールする必要があります。",
     "lasting_tip": "現在、転送が混雑している可能性があります。お客様の資金は安全ですので、しばらくお待ちください。",
     "scan_to_connect": "スキャンして接続",
+    "scan_to_pay": "スキャンして支払う",
     "links_connect_detail": "携帯電話で {0} を開き、QRコードを読み取り、認証を確認し、ウォレットを接続してください。",
-    "mixin_connect_detail": "携帯電話で {0} を開き、QRコードを読み取り、認証を確認し、ウォレットを接続してください。"
+    "mixin_connect_detail": "携帯電話で {0} を開き、QRコードを読み取り、認証を確認し、ウォレットを接続してください。",
+    "mixin_pay_detail": "携帯電話で{0}を開き、QRコードをスキャンして、支払いを確認します。",
+    "checking_payment": "Checking Payment..."
   }
 }

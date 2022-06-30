@@ -4,7 +4,11 @@ import { Component, Vue, Watch } from "vue-property-decorator";
 import { CreateElement, VNode } from "vue/types/umd";
 import { VSnackbar, VDivider, VIcon } from "vuetify/lib";
 
-import type { ToastOptions, ToastProps, ToastAction } from "../../utils/toast";
+import type {
+  ToastOptions,
+  ToastProps,
+  ToastAction
+} from "../../services/toast";
 
 @Component({
   name: "FToast"

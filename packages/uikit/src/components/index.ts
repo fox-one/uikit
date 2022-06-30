@@ -34,3 +34,4 @@ export * from "./FFiatDivision";
 export * from "./FUserAvatar";
 export * from "./FHint";
 export * from "./FRender";
+export * from "./FPaymentModal";
