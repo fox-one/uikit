@@ -12,6 +12,8 @@
         :step.sync="step"
         :select.sync="select"
         :fennec="fennec"
+        :wallets="wallets"
+        :mvm="mvm"
         v-bind="$attrs"
         @auth="(e) => $emit('auth', e)"
         @error="(e) => $emit('error', e)"
@@ -59,7 +61,13 @@ import FAuthStep2 from "./FAuthStep2.vue";
   }
 })
 class FAuthMethodModal extends Vue {
+  // support fennec or not
   @Prop({ type: Boolean, default: false }) fennec!: boolean;
+
+  // support mvm or not
+  @Prop({ type: Boolean, default: false }) mvm!: boolean;
+
+  @Prop({ default: () => ["fennec", "mixin"] }) wallets!: Array<string>;
 
   @Prop() clientId!: string;
 
@@ -101,8 +109,7 @@ class FAuthMethodModal extends Vue {
   }
 
   show() {
-    this.dialog = true;
-    console.log(this.$listeners);
+    this.onClick();
   }
 
   onClick() {

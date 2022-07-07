@@ -1,4 +1,4 @@
-import MixinClient from "../services/mixin";
+import MixinClient from "../services/mixin/oauth";
 import { isMixin } from "@foxone/utils/mixin";
 import sha256 from "crypto-js/sha256";
 import EncBase64 from "crypto-js/enc-base64";

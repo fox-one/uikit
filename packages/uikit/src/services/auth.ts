@@ -5,7 +5,8 @@ import type { VueConstructor } from "vue/types/umd";
 import type Vuetify from "vuetify/lib";
 
 export interface FAuthMethodModalProps {
-  fennec?: boolean;
+  wallets?: string[];
+  // Mixin oauth params
   clientId?: string;
   scope?: string;
   isFiresbox?: boolean;
@@ -14,7 +15,7 @@ export interface FAuthMethodModalProps {
 
 export interface FAuthMethodModalOptions {
   checkFennec?: () => boolean;
-  handleSuccess?: (...args: any) => void;
+  handleAuth?: (...args: any) => void;
   handleError?: (...args: any) => void;
 }
 
@@ -33,7 +34,7 @@ function install(
 
     Object.assign(instance, {
       ...globalProps,
-      fennec: options.checkFennec?.()
+      fennec: options?.checkFennec?.()
     });
     instance.$vuetify = vuetify.framework;
     app?.appendChild(instance.$mount().$el);
@@ -41,13 +42,15 @@ function install(
     return instance;
   };
 
-  const show = (options: FAuthMethodModalOptions) => {
+  const show = (options: FAuthMethodModalOptions = {}) => {
     if (instance) return;
 
     instance = create(options);
-    instance.show(options);
-    instance.$on("close", close);
-    instance.$on("auth", options.handleSuccess);
+    instance.show();
+    instance.$on("close", () => {
+      close();
+    });
+    instance.$on("auth", options.handleAuth);
     instance.$on("error", options.handleError);
   };
 

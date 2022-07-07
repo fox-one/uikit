@@ -2,6 +2,7 @@ const path = require("path");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const FriendlyErrorsWebpackPlugin = require("friendly-errors-webpack-plugin");
 const VueLoaderPlugin = require("vue-loader/lib/plugin");
+const NodePolyfillPlugin = require("node-polyfill-webpack-plugin");
 
 const isProd = process.env.NODE_ENV === "production";
 const extractCSS = isProd || process.env.TARGET === "development";
@@ -102,6 +103,7 @@ module.exports = {
     ]
   },
   plugins: [
+    new NodePolyfillPlugin(),
     new VueLoaderPlugin(),
     new FriendlyErrorsWebpackPlugin({
       clearConsole: true

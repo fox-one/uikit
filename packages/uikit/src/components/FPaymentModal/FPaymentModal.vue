@@ -7,8 +7,8 @@
       >
         <div class="f-payment-modal__left">
           <f-qr-code
-            v-if="href"
-            :text="href"
+            v-if="scheme"
+            :text="scheme"
             :size="182"
             class="f-payment-modal__qr"
           />
@@ -38,14 +38,14 @@
       </div>
     </f-bottom-sheet>
 
-    <f-paying-modal v-if="channel !== 'qr'" :show="checking" @cancel="cancel" />
+    <f-paying-modal v-if="!qr" :show="checking" @cancel="cancel" />
   </div>
 </template>
 
 <script lang="ts">
 import "./FPaymentModal.scss";
 import { Component, Vue, Watch } from "vue-property-decorator";
-import { genPaymentUrl, isMixin } from "@foxone/utils/mixin";
+import { isMixin } from "@foxone/utils/mixin";
 import { $t } from "../../utils/helper";
 import FQrCode from "../FQrCode";
 import FPayingModal from "../FPayingModal";
@@ -58,7 +58,7 @@ import type { PaymentOptions } from "../../services/payment";
   }
 })
 class FPaymentModal extends Vue {
-  href = "";
+  scheme = "";
 
   info: any = null;
 
@@ -69,6 +69,10 @@ class FPaymentModal extends Vue {
   timer: any = null;
 
   channel = "";
+
+  qr = false;
+
+  reject: any = null;
 
   get meta() {
     return {
@@ -98,61 +102,46 @@ class FPaymentModal extends Vue {
   @Watch("dialog")
   handleModalChange(value) {
     if (!value) {
+      if (this.reject && typeof this.reject === "function") {
+        this.reject(new Error("Cannelled"));
+      }
+
       this.timer && clearTimeout(this.timer);
       this.checking = false;
       this.channel = "";
-      this.href = "";
+      this.scheme = "";
       this.info = null;
+      this.reject = null;
     }
   }
 
   async show(options: PaymentOptions) {
-    const { checker, code, data, fennec, info, multisig, url } = options;
-    const href = url || (data && genPaymentUrl(data)) || "";
-    const requestPolling = () =>
-      new Promise((reslove) => {
-        this.polling(reslove, checker);
-      });
+    const { actions, channel, checker, info, scheme } = options;
 
     this.info = info;
+    this.scheme = scheme;
+    this.channel = channel;
 
-    if (isMixin()) {
-      // mixin scheme payment
-      window.location.href = href;
-
-      this.channel = "mixin";
-      requestPolling();
-    } else if (fennec?.connected) {
-      // fennec payment
-      this.channel = "fennec";
-
-      try {
-        if (multisig) {
-          await fennec.ctx?.wallet?.multisigsPayment({ code: code || "" });
-        } else {
-          await fennec.ctx?.wallet?.transfer({
-            asset_id: data?.assetId,
-            opponent_id: data?.recipient,
-            amount: data?.amount,
-            trace_id: data?.traceId,
-            memo: data?.memo
-          });
-        }
-
-        await requestPolling();
-      } catch (error) {
-        this.$emit("cancel");
+    if (channel === "mixin") {
+      if (isMixin()) {
+        await actions.mixin?.();
+        this.checking = true;
+      } else {
+        this.dialog = true;
+        this.qr = true;
       }
-    } else {
-      // scan QRCode to pay
-      this.channel = "qr";
-      this.href = href;
-      this.dialog = true;
-
-      await requestPolling();
-
-      this.dialog = false;
+    } else if (channel === "fennec") {
+      await actions.fennec?.();
+      this.checking = true;
+    } else if (channel === "mvm") {
+      await actions.mvm?.();
+      this.checking = true;
     }
+
+    return new Promise((reslove, reject) => {
+      this.reject = reject;
+      this.polling(reslove, checker);
+    });
   }
 
   async polling(reslove, checker) {
@@ -160,11 +149,13 @@ class FPaymentModal extends Vue {
 
     if (!completed) {
       this.timer = setTimeout(() => {
-        if (this.checking) {
+        if (this.dialog || this.checking) {
           this.polling(reslove, checker);
         }
       }, 3000);
     } else {
+      this.dialog = false;
+      this.checking = false;
       reslove();
     }
   }

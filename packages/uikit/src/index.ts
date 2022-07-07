@@ -4,6 +4,7 @@ import Toast from "./services/toast";
 import Dialog from "./services/dialog";
 import Auth from "./services/auth";
 import Payment from "./services/payment";
+import Passport from "./services/passport";
 
 import "./styles/index.scss";
 
@@ -22,5 +23,6 @@ export default {
   Toast,
   Dialog,
   Auth,
-  Payment
+  Payment,
+  Passport
 };

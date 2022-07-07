@@ -46,7 +46,7 @@ import { VImg, VIcon } from "vuetify/lib";
   }
 })
 class FAuthStep1 extends Vue {
-  @Prop({ type: Boolean, default: false }) fennec;
+  @Prop({ type: Boolean, default: false }) fennec!: boolean;
 
   @Prop({ type: String, default: "" }) title;
 
@@ -65,6 +65,12 @@ class FAuthStep1 extends Vue {
         value: "fennec",
         title: "Fennec",
         logo: "https://static.fox.one/image/logo_fennec@88x68.png"
+      },
+      {
+        needNextStep: false,
+        value: "mvm",
+        title: "Mixin Virtual Machine",
+        logo: "https://static.fox.one/image/logo_mixin@88x68.png"
       },
       {
         needNextStep: true,

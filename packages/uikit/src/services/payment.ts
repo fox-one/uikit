@@ -2,27 +2,22 @@ import Vue from "vue";
 import FPaymentModal from "../components/FPaymentModal";
 
 import type { VueConstructor } from "vue/types/umd";
-import type Fennec from "@foxone/fennec-dapp";
 import type Vuetify from "vuetify/lib";
 
 export interface PaymentOptions {
-  url?: string;
-  code?: string;
-  multisig?: boolean;
-  fennec?: Fennec;
-  data?: {
-    recipient: string;
-    assetId: string;
-    amount: string;
-    traceId: string;
-    memo: string;
+  scheme: string;
+  channel: "mixin" | "fennec" | "mvm";
+  actions: {
+    mixin: () => Promise<boolean>;
+    fennec: () => Promise<boolean>;
+    mvm: () => Promise<boolean>;
   };
-  info?: {
+  info: {
     symbol: string;
     logo: string;
     amount: string;
   };
-  checker: () => Promise<any>;
+  checker: () => Promise<boolean>;
 }
 
 const FPaymentModalConstructor = Vue.extend(FPaymentModal);
@@ -42,14 +37,13 @@ function install(Vue: VueConstructor, vuetify: Vuetify) {
 
   const show = (options: PaymentOptions) => {
     if (instance) {
-      instance.show(options);
-
-      return;
+      return instance.show(options);
     }
 
     instance = create();
-    instance.show(options);
     instance.$on("close", close);
+
+    return instance.show(options);
   };
 
   const close = () => {

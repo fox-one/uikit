@@ -3,7 +3,7 @@ import type Vuetify from "vuetify/lib";
 
 export interface AuthOptions {
   checkFennec?: () => boolean;
-  handleSuccess?: (...args: any) => void;
+  handleAuth?: (...args: any) => void;
   handleError?: (...args: any) => void;
 }
 declare function Auth(): void;

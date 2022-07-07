@@ -2,7 +2,7 @@
 
 import ReconnectingWebSocket from "reconnecting-websocket";
 import pako from "pako";
-import uuidv4 from "uuid/v4";
+import { v4 as uuidv4 } from "uuid";
 
 function MixinClient(api, endpoint) {
   this.api = api;
