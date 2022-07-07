@@ -1,6 +1,6 @@
 {
   "name": "@foxone/uikit",
-  "version": "3.1.8",
+  "version": "3.1.9-0",
   "main": "./build/index.min.js",
   "types": "./types/index.d.ts",
   "scripts": {
