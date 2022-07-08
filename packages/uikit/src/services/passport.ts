@@ -15,7 +15,7 @@ export interface PassportOptions {
 }
 
 export interface PassportPayload {
-  vuetify: Vuetify;
+  vuetify: (() => Vuetify) | Vuetify;
   options: PassportOptions;
   authModalProps: FAuthMethodModalProps;
 }
@@ -51,16 +51,17 @@ function install(Vue: VueConstructor, payload: PassportPayload) {
   const fennec = new Fennec();
   const mvm = new MVM();
   const mixin = new MixinAPI();
+  const _vuetify = typeof vuetify === "function" ? vuetify() : vuetify;
 
   let channel = "";
   let token = "";
 
   if (!Vue.prototype.$uikit.auth) {
-    Auth.install(Vue, vuetify, authModalProps);
+    Auth.install(Vue, _vuetify, authModalProps);
   }
 
   if (!Vue.prototype.$uikit.payment) {
-    Payment.install(Vue, vuetify);
+    Payment.install(Vue, _vuetify);
   }
 
   mixin.provider.instance.interceptors.request.use((config) => {

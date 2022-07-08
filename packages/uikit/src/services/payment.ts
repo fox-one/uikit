@@ -22,14 +22,15 @@ export interface PaymentOptions {
 
 const FPaymentModalConstructor = Vue.extend(FPaymentModal);
 
-function install(Vue: VueConstructor, vuetify: Vuetify) {
+function install(Vue: VueConstructor, vuetify: (() => Vuetify) | Vuetify) {
   let instance: any = null;
+  const _vuetify = typeof vuetify === "function" ? vuetify() : vuetify;
 
   const create = () => {
     const instance = new FPaymentModalConstructor();
     const app = document.querySelector("[data-app]");
 
-    instance.$vuetify = vuetify.framework;
+    instance.$vuetify = _vuetify.framework;
     app?.appendChild(instance.$mount().$el);
 
     return instance;

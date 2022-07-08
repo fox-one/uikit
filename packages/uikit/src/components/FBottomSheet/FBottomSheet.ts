@@ -36,6 +36,9 @@ export default baseMixins.extend({
   },
 
   computed: {
+    isDark(): boolean {
+      return this.$vuetify.theme.dark;
+    },
     isDesktop(): boolean {
       return this.$vuetify.breakpoint.mdAndUp;
     },
@@ -65,6 +68,8 @@ export default baseMixins.extend({
       this.isActive = false;
     },
     getWapper() {
+      console.log("f-bottom-sheet", this.$vuetify.theme.dark);
+
       let wapper: Component = VBottomSheet;
       let props = {
         ...this.$attrs,

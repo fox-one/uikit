@@ -26,6 +26,7 @@
     "links_connect_detail": "携帯電話で {0} を開き、QRコードを読み取り、認証を確認し、ウォレットを接続してください。",
     "mixin_connect_detail": "携帯電話で {0} を開き、QRコードを読み取り、認証を確認し、ウォレットを接続してください。",
     "mixin_pay_detail": "携帯電話で{0}を開き、QRコードをスキャンして、支払いを確認します。",
-    "checking_payment": "Checking Payment..."
+    "checking_payment": "Checking Payment...",
+    "paid": "Paid"
   }
 }

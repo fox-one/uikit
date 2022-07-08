@@ -25,10 +25,11 @@ const DialogConstructor = Vue.extend(FDialog);
 
 function install(
   Vue: VueConstructor,
-  vuetify: Vuetify,
+  vuetify: (() => Vuetify) | Vuetify,
   globalProps: Record<string, any> = {}
 ) {
   let instance: any = null;
+  const _vuetify = typeof vuetify === "function" ? vuetify() : vuetify;
   const queue: DialogOptions[] = [];
 
   const create = (options: DialogOptions) => {
@@ -41,7 +42,7 @@ function install(
     };
 
     Object.assign(instance, { ...options, defaultProps });
-    instance.$vuetify = vuetify.framework;
+    instance.$vuetify = _vuetify.framework;
     app?.appendChild(instance.$mount().$el);
 
     return instance;

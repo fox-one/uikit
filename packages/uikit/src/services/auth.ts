@@ -23,10 +23,11 @@ const FAuthMethodModalConstructor = Vue.extend(FAuthMethodModal);
 
 function install(
   Vue: VueConstructor,
-  vuetify: Vuetify,
+  vuetify: (() => Vuetify) | Vuetify,
   globalProps: FAuthMethodModalProps
 ) {
   let instance: any = null;
+  const _vuetify = typeof vuetify === "function" ? vuetify() : vuetify;
 
   const create = (options: FAuthMethodModalOptions) => {
     const instance = new FAuthMethodModalConstructor();
@@ -36,7 +37,7 @@ function install(
       ...globalProps,
       fennec: options?.checkFennec?.()
     });
-    instance.$vuetify = vuetify.framework;
+    instance.$vuetify = _vuetify.framework;
     app?.appendChild(instance.$mount().$el);
 
     return instance;
@@ -66,8 +67,8 @@ function install(
   Vue.prototype.$uikit.auth = { show };
 }
 
-function Toast() {}
+function Auth() {}
 
-Toast.install = install;
+Auth.install = install;
 
-export default Toast;
+export default Auth;

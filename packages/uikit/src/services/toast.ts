@@ -31,10 +31,12 @@ const ToastConstructor = Vue.extend(FToast);
 
 function install(
   Vue: VueConstructor,
-  vuetify: Vuetify,
+  vuetify: (() => Vuetify) | Vuetify,
   globalProps: ToastProps = {}
 ) {
   let instance: any = null;
+  const _vuetify = typeof vuetify === "function" ? vuetify() : vuetify;
+
   const queue: ToastOptions[] = [];
 
   const create = (options: ToastOptions) => {
@@ -49,7 +51,7 @@ function install(
     };
 
     Object.assign(instance, { ...options, defaultProps });
-    instance.$vuetify = vuetify.framework;
+    instance.$vuetify = _vuetify.framework;
     app?.appendChild(instance.$mount().$el);
 
     return instance;

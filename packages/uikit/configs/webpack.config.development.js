@@ -10,7 +10,7 @@ module.exports = merge(base, {
   devtool: "source-map",
   mode: "development",
   output: {
-    filename: "indexl.min.js",
+    filename: "index.min.js",
     path: resolve("../build"),
     libraryTarget: "umd",
     libraryExport: "default",

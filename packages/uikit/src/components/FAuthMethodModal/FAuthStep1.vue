@@ -70,7 +70,7 @@ class FAuthStep1 extends Vue {
         needNextStep: false,
         value: "mvm",
         title: "Mixin Virtual Machine",
-        logo: "https://static.fox.one/image/logo_mixin@88x68.png"
+        logo: "https://static.fox.one/image/logo_mvm@88x68.png"
       },
       {
         needNextStep: true,

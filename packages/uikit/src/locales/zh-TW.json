@@ -26,6 +26,7 @@
     "links_connect_detail": "在您的手機上打開 {0} 並掃描二維碼，然後確認授權以連接您的錢包。",
     "mixin_connect_detail": "在您的手機上打開 {0} 並掃描二維碼，然後確認授權以連接您的錢包。",
     "mixin_pay_detail": "在手機上打開{0}並掃描二維碼，然後確認付款。",
-    "checking_payment": "检查支付结果..."
+    "checking_payment": "检查支付结果...",
+    "paid": "已支付"
   }
 }
