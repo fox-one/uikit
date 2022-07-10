@@ -56,11 +56,11 @@ function install(Vue: VueConstructor, payload: PassportPayload) {
   let channel = "";
   let token = "";
 
-  if (!Vue.prototype.$uikit.auth) {
+  if (!Vue.prototype.$uikit?.auth) {
     Auth.install(Vue, _vuetify, authModalProps);
   }
 
-  if (!Vue.prototype.$uikit.payment) {
+  if (!Vue.prototype.$uikit?.payment) {
     Payment.install(Vue, _vuetify);
   }
 
