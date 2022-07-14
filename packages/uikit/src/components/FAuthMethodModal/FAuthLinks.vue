@@ -13,6 +13,16 @@
       <div class="f-auth-mixin__subtitle">
         <span v-html="labels[1]"></span>
       </div>
+      <f-button
+        color="greyscale_1"
+        class="f-auth-mixin__icon"
+        @click="handleInstall"
+      >
+        <v-icon size="16" color="greyscale_7" class="mr-1"> $install </v-icon>
+        <span class="f-auth-mixin__install_label greyscale_7--text">{{
+          labels[2]
+        }}</span>
+      </f-button>
     </div>
   </div>
 </template>
@@ -36,6 +46,8 @@ import { VIcon, VImg } from "vuetify/lib";
 })
 class FAuthLinks extends Vue {
   @Prop({ default: false, type: Boolean }) isFiresbox!: boolean;
+
+  @Prop({ type: Boolean, default: false }) pkce!: boolean;
 
   @Prop() scope!: string;
 
@@ -62,13 +74,14 @@ class FAuthLinks extends Vue {
           "<path d='M8.20674 7.2071C8.59727 6.81658 8.59727 6.18341 8.20674 5.79289C7.81622 5.40237 7.18305 5.40237 6.79253 5.79289L5.73187 6.85355C5.34134 7.24408 5.34134 7.87724 5.73187 8.26776C6.12239 8.65829 6.75556 8.65829 7.14608 8.26776L8.20674 7.2071Z' fill='#076aff'/>" +
           "</svg>",
         "</a>"
-      )
+      ),
+      $t(this, "install")
     ];
   }
 
   mounted() {
     this.client = authorize(
-      { clientId: this.clientId, scope: this.scope },
+      { clientId: this.clientId, scope: this.scope, pkce: this.pkce },
       this.isFiresbox,
       {
         onShowUrl: (url) => (this.qrUrl = url),

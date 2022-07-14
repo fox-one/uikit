@@ -17,7 +17,9 @@
         @click="handleInstall"
       >
         <v-icon size="16" color="greyscale_7" class="mr-1"> $install </v-icon>
-        {{ labels[2] }}
+        <span class="f-auth-fennec__install_label greyscale_7--text">{{
+          labels[2]
+        }}</span>
       </f-button>
     </div>
   </div>
