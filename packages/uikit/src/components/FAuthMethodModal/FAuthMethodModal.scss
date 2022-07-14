@@ -128,6 +128,15 @@
     font-size: 14px;
     line-height: 150%;
   }
+
+  .f-auth-mixin__subtitle {
+    margin-top: 20px;
+    margin-bottom: 24px;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 19px;
+    color: var(--v-greyscale_3-base);
+  }
 }
 
 .f-auth-fennec {
