@@ -97,6 +97,12 @@ class FAuthLinks extends Vue {
   destroyed() {
     this.client?.disconnect();
   }
+
+  handleInstall() {
+    const url = "https://getlinks.jp";
+
+    window.location.href = url;
+  }
 }
 export default FAuthLinks;
 </script>
