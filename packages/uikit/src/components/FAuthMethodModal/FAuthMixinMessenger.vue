@@ -25,7 +25,9 @@
         @click="handleInstall"
       >
         <v-icon size="16" color="greyscale_7" class="mr-1"> $install </v-icon>
-        <span class="f-auth-mixin__install_label greyscale_7--text">{{ labels[2] }}</span>
+        <span class="f-auth-mixin__install_label greyscale_7--text">{{
+          labels[2]
+        }}</span>
       </f-button>
     </div>
   </div>
@@ -105,6 +107,12 @@ class FAuthMixinMessenger extends Vue {
 
   destroyed() {
     this.client?.disconnect();
+  }
+
+  handleInstall() {
+    const url = "https://mixin.one/mm";
+
+    window.location.href = url;
   }
 }
 export default FAuthMixinMessenger;
