@@ -68,8 +68,6 @@ export default baseMixins.extend({
       this.isActive = false;
     },
     getWapper() {
-      console.log("f-bottom-sheet", this.$vuetify.theme.dark);
-
       let wapper: Component = VBottomSheet;
       let props = {
         ...this.$attrs,

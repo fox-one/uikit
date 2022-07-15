@@ -50,7 +50,7 @@ class FAuthStep1 extends Vue {
 
   @Prop({ type: String, default: "" }) title;
 
-  @Prop({ default: () => ["fennec", "mixin"] }) wallets!: Array<string>;
+  @Prop({ default: () => ["fennec", "mixin"] }) wallets!: string[];
 
   @PropSync("step") bindStep;
 

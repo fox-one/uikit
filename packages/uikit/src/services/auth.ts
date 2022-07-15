@@ -11,6 +11,7 @@ export interface FAuthMethodModalProps {
   scope?: string;
   isFiresbox?: boolean;
   pkce?: boolean;
+  hosts?: string[];
 }
 
 export interface FAuthMethodModalOptions {

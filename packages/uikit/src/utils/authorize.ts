@@ -44,11 +44,14 @@ function generateCodePair() {
 export default function authorize(
   params: AuthParams,
   isFiresbox = false,
+  hosts: string[],
   callbacks: Callbacks = {}
 ) {
-  const [http, ws] = isFiresbox
+  const [httpDefault, wsDefault] = isFiresbox
     ? ["https://xuexi-api.firesbox.com", "wss://xuexi-blaze.firesbox.com"]
     : ["https://api.mixin.one", "wss://blaze.mixin.one"];
+  const http = hosts[0] || httpDefault;
+  const ws = hosts[1] || wsDefault;
   const client = new MixinClient(http, ws);
 
   let opened = false;

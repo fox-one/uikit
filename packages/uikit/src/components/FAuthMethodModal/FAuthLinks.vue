@@ -19,9 +19,9 @@
         @click="handleInstall"
       >
         <v-icon size="16" color="greyscale_7" class="mr-1"> $install </v-icon>
-        <span class="f-auth-mixin__install_label greyscale_7--text">{{
-          labels[2]
-        }}</span>
+        <span class="f-auth-mixin__install_label greyscale_7--text">
+          {{ labels[2] }}
+        </span>
       </f-button>
     </div>
   </div>
@@ -49,11 +49,11 @@ class FAuthLinks extends Vue {
 
   @Prop({ type: Boolean, default: false }) pkce!: boolean;
 
+  @Prop({ default: () => [] }) hosts!: string[];
+
   @Prop() scope!: string;
 
   @Prop() clientId!: string;
-
-  @Prop({ type: Boolean, default: false }) pkce!: boolean;
 
   qrUrl = "";
 
@@ -85,6 +85,7 @@ class FAuthLinks extends Vue {
     this.client = authorize(
       { clientId: this.clientId, scope: this.scope, pkce: this.pkce },
       this.isFiresbox,
+      this.hosts,
       {
         onShowUrl: (url) => (this.qrUrl = url),
         onError: (error) => this.$emit("error", error),

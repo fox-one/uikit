@@ -18,6 +18,7 @@ Vue.use(UIKit.Passport, {
   options: { origin: "Text UKIT" },
   authModalProps: {
     wallets: ["fennec", "mixin", "mvm"],
+    hosts: ["https://xuexi-api.songy.info", "wss://xuexi-blaze.songy.info"],
     clientId: "0900a886-acde-4f7d-a77c-17d47c95fa7f",
     scope: "PROFILE:READ ASSETS:READ",
     pkce: true

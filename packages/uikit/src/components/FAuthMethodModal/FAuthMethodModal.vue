@@ -28,6 +28,7 @@
         :scope="scope"
         :is-firesbox="isFiresbox"
         :pkce="pkce"
+        :hosts="hosts"
         v-bind="$attrs"
         @auth="(e) => $emit('auth', e)"
         @error="(e) => $emit('error', e)"
@@ -67,13 +68,15 @@ class FAuthMethodModal extends Vue {
   // support mvm or not
   @Prop({ type: Boolean, default: false }) mvm!: boolean;
 
-  @Prop({ default: () => ["fennec", "mixin"] }) wallets!: Array<string>;
+  @Prop({ default: () => ["fennec", "mixin"] }) wallets!: string[];
 
   @Prop() clientId!: string;
 
   @Prop() scope!: string;
 
   @Prop({ default: false, type: Boolean }) isFiresbox!: boolean;
+
+  @Prop({ default: () => [] }) hosts!: string[];
 
   @Prop({ type: Boolean, default: false }) pkce!: boolean;
 
@@ -117,6 +120,7 @@ class FAuthMethodModal extends Vue {
       this.client = authorize(
         { clientId: this.clientId, scope: this.scope, pkce: this.pkce },
         this.isFiresbox,
+        this.hosts,
         {
           onError: (error) => this.$emit("error", error),
           onSuccess: (data) => {
