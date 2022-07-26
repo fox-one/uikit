@@ -27,7 +27,6 @@ declare module "vue/types/vue" {
       toast: ToastMethods;
       auth: AuthMethods;
       payment: PaymentMethods;
-      passport: PassportMethods;
     };
   }
 }

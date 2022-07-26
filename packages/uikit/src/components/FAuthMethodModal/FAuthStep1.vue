@@ -90,7 +90,9 @@ class FAuthStep1 extends Vue {
         value: "walletconnect",
         title: "WalletConnect",
         bg: grey,
-        logo: "https://static.fox.one/image/logo_walletconnect@40x40.png"
+        logo: isDark
+          ? "https://static.fox.one/image/logo_walletconnect_dark@40x40.png"
+          : "https://static.fox.one/image/logo_walletconnect@40x40.png"
       }
     ];
   }

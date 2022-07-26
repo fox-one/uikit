@@ -9,6 +9,7 @@
       </template>
       <f-loading
         v-else
+        color="black"
         :fullscreen="false"
         class="d-flex f-auth-step2__loading"
       />

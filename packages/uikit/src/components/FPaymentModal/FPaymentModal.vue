@@ -38,7 +38,11 @@
       </div>
     </f-bottom-sheet>
 
-    <f-paying-modal v-if="!qr" :show="checking" @cancel="cancel" />
+    <f-paying-modal
+      v-if="!qr && !hideCheckingModal"
+      :show="checking"
+      @cancel="cancel"
+    />
   </div>
 </template>
 
@@ -75,6 +79,8 @@ class FPaymentModal extends Vue {
   qr = false;
 
   reject: any = null;
+
+  hideCheckingModal = false;
 
   get meta() {
     return {
@@ -131,8 +137,9 @@ class FPaymentModal extends Vue {
     this.info = info;
     this.scheme = scheme;
     this.channel = channel;
+    this.hideCheckingModal = hideCheckingModal;
 
-    const showChecking = () => (this.checking = !hideCheckingModal);
+    const showChecking = () => (this.checking = true);
 
     if (channel === "mixin") {
       if (isMixin()) {
