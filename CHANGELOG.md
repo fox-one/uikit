@@ -4,6 +4,7 @@
 
 - Auth plugin
 - Payment plugin
+- Metamask and WalletConnect support
 - [Break Change] UIKit init options
 
 ## 3.1.6
