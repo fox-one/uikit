@@ -6,7 +6,8 @@ import type Vuetify from "vuetify/lib";
 
 export interface PaymentOptions {
   scheme: string;
-  channel: "mixin" | "fennec" | "mvm";
+  channel: "mixin" | "fennec" | "metamask" | "walletconnect";
+  hideCheckingModal?: boolean;
   actions: {
     mixin: () => Promise<boolean>;
     fennec: () => Promise<boolean>;

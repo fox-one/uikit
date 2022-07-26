@@ -1,5 +1,11 @@
 # Change Log
 
+## 3.2.1
+
+- Auth plugin
+- Payment plugin
+- [Break Change] UIKit init options
+
 ## 3.1.6
 
 - Auth PKCE in mixin

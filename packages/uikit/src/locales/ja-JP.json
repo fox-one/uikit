@@ -27,6 +27,8 @@
     "mixin_connect_detail": "携帯電話で {0} を開き、QRコードを読み取り、認証を確認し、ウォレットを接続してください。",
     "mixin_pay_detail": "携帯電話で{0}を開き、QRコードをスキャンして、支払いを確認します。",
     "checking_payment": "Checking Payment...",
-    "paid": "Paid"
+    "paid": "Paid",
+    "metamask_not_installed": "MetaMask not installed",
+    "metamask_introduction": "Using MVM requires pre-installation of Metamask compatible wallets, please make sure you have the wallet application ready."
   }
 }

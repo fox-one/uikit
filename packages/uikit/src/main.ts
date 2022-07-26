@@ -6,19 +6,15 @@ import UIKit from "./index";
 
 Vue.config.performance = true;
 
-Vue.use(Vuetify);
-Vue.use(UIKit);
-
 const vuetify = new Vuetify(UIKit.preset);
 
-Vue.use(UIKit.Toast, vuetify, { top: false, centered: true });
-Vue.use(UIKit.Dialog, vuetify, { flat: true });
-Vue.use(UIKit.Passport, {
+Vue.use(Vuetify);
+Vue.use(UIKit, {
   vuetify,
-  options: { origin: "Text UKIT" },
-  authModalProps: {
-    wallets: ["fennec", "mixin", "mvm"],
-    hosts: ["https://xuexi-api.songy.info", "wss://xuexi-blaze.songy.info"],
+  dialog: { top: false, centered: true },
+  toast: { flat: true },
+  auth: {
+    wallets: ["fennec", "mixin", "links", "metamask", "walletconnect"],
     clientId: "0900a886-acde-4f7d-a77c-17d47c95fa7f",
     scope: "PROFILE:READ ASSETS:READ",
     pkce: true

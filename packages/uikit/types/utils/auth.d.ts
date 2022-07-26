@@ -13,6 +13,7 @@ export interface FAuthMethodModalProps {
 
 export interface AuthOptions {
   checkFennec?: () => boolean;
+  checkMetamask?: () => boolean;
   handleAuth?: (...args: any) => void;
   handleError?: (...args: any) => void;
 }

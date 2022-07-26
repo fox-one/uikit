@@ -1,7 +1,8 @@
 /* eslint-disable  */
 
 import ReconnectingWebSocket from "reconnecting-websocket";
-import pako from "pako";
+import { gzip } from "pako/lib/deflate";
+import { ungzip } from "pako/lib/inflate";
 import { v4 as uuidv4 } from "uuid";
 
 function MixinClient(api, endpoint) {
@@ -35,7 +36,7 @@ MixinClient.prototype = {
       }
       const fileReader = new FileReader();
       fileReader.onload = function () {
-        const msg = pako.ungzip(new Uint8Array(this.result), { to: "string" });
+        const msg = ungzip(new Uint8Array(this.result), { to: "string" });
         const authorization = JSON.parse(msg);
         if (self.callback(authorization)) {
           self.handled = true;
@@ -78,7 +79,7 @@ MixinClient.prototype = {
 
   send(msg) {
     try {
-      this.ws.send(pako.gzip(JSON.stringify(msg)));
+      this.ws.send(gzip(JSON.stringify(msg)));
     } catch (e) {
       if (e instanceof DOMException) {
       } else {

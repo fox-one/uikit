@@ -49,12 +49,14 @@ import { isMixin } from "@foxone/utils/mixin";
 import { $t } from "../../utils/helper";
 import FQrCode from "../FQrCode";
 import FPayingModal from "../FPayingModal";
+import { VImg } from "vuetify/lib";
 import type { PaymentOptions } from "../../services/payment";
 
 @Component({
   components: {
     FQrCode,
-    FPayingModal
+    FPayingModal,
+    VImg
   }
 })
 class FPaymentModal extends Vue {
@@ -117,26 +119,35 @@ class FPaymentModal extends Vue {
   }
 
   async show(options: PaymentOptions) {
-    const { actions, channel, checker, info, scheme } = options;
+    const {
+      actions,
+      channel,
+      checker,
+      hideCheckingModal = false,
+      info,
+      scheme
+    } = options;
 
     this.info = info;
     this.scheme = scheme;
     this.channel = channel;
 
+    const showChecking = () => (this.checking = !hideCheckingModal);
+
     if (channel === "mixin") {
       if (isMixin()) {
         await actions.mixin?.();
-        this.checking = true;
+        showChecking();
       } else {
         this.dialog = true;
         this.qr = true;
       }
     } else if (channel === "fennec") {
       await actions.fennec?.();
-      this.checking = true;
-    } else if (channel === "mvm") {
+      showChecking();
+    } else {
       await actions.mvm?.();
-      this.checking = true;
+      showChecking();
     }
 
     return new Promise((reslove, reject) => {

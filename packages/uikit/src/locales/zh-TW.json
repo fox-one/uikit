@@ -27,6 +27,8 @@
     "mixin_connect_detail": "在您的手機上打開 {0} 並掃描二維碼，然後確認授權以連接您的錢包。",
     "mixin_pay_detail": "在手機上打開{0}並掃描二維碼，然後確認付款。",
     "checking_payment": "检查支付结果...",
-    "paid": "已支付"
+    "paid": "已支付",
+    "metamask_not_installed": "沒有安裝",
+    "metamask_introduction": "使用 MVM 需要预先安装 Metamask 兼容的钱包，请确保您已准备好钱包应用程序。"
   }
 }

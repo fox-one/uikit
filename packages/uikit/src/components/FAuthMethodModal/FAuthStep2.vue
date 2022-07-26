@@ -3,7 +3,7 @@
     <component :is="component" v-bind="$attrs" v-on="$listeners" />
 
     <span class="f-auth-step2__back" @click="handleBack">
-      <v-icon :color="select === 'fennec' ? 'white' : 'black'">$back</v-icon>
+      <v-icon :color="'black'">$back</v-icon>
     </span>
   </div>
 </template>
@@ -12,6 +12,7 @@
 import { Component, Vue, Prop, PropSync } from "vue-property-decorator";
 import FAuthFennecInstall from "./FAuthFennecInstall.vue";
 import FAuthMixinMessenger from "./FAuthMixinMessenger.vue";
+import FAuthMetamaskInstall from "./FAuthMetamaskInstall.vue";
 import FAuthLinks from "./FAuthLinks.vue";
 import { VIcon } from "vuetify/lib";
 
@@ -21,6 +22,7 @@ import { VIcon } from "vuetify/lib";
   components: {
     FAuthFennecInstall,
     FAuthMixinMessenger,
+    FAuthMetamaskInstall,
     FAuthLinks,
     VIcon
   }
@@ -36,6 +38,8 @@ class FAuthStep2 extends Vue {
         return "FAuthFennecInstall";
       case "links":
         return "FAuthLinks";
+      case "metamask":
+        return "FAuthMetamaskInstall";
       default:
         return "FAuthMixinMessenger";
     }

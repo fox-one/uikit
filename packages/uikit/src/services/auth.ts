@@ -16,6 +16,7 @@ export interface FAuthMethodModalProps {
 
 export interface FAuthMethodModalOptions {
   checkFennec?: () => boolean;
+  checkMetamask?: () => boolean;
   handleAuth?: (...args: any) => void;
   handleError?: (...args: any) => void;
 }
@@ -25,7 +26,7 @@ const FAuthMethodModalConstructor = Vue.extend(FAuthMethodModal);
 function install(
   Vue: VueConstructor,
   vuetify: (() => Vuetify) | Vuetify,
-  globalProps: FAuthMethodModalProps
+  globalProps: FAuthMethodModalProps = {}
 ) {
   let instance: any = null;
   const _vuetify = typeof vuetify === "function" ? vuetify() : vuetify;
@@ -36,7 +37,8 @@ function install(
 
     Object.assign(instance, {
       ...globalProps,
-      fennec: options?.checkFennec?.()
+      fennec: options?.checkFennec?.(),
+      metamask: options?.checkMetamask?.()
     });
     instance.$vuetify = _vuetify.framework;
     app?.appendChild(instance.$mount().$el);

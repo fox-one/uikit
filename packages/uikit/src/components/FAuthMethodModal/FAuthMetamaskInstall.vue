@@ -1,6 +1,6 @@
 <template>
   <div
-    class="f-auth-fennec f-auth-step2"
+    class="f-auth-metamask f-auth-step2"
     :class="{ 'f-auth-step2--small': smAndDown }"
   >
     <div class="f-auth-step2__left"></div>
@@ -29,22 +29,22 @@
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
 import { FIconImport4PBold } from "@foxone/icons";
-import { $t, getBrowser } from "../../utils/helper";
+import { $t } from "../../utils/helper";
 import { VIcon, VImg } from "vuetify/lib";
 
 @Component({
-  name: "FAuthFennecInstall",
+  name: "FAuthMetamaskInstall",
   components: {
     VIcon,
     VImg,
     FIconImport4PBold
   }
 })
-class FAuthFennecInstall extends Vue {
+class FAuthMetamaskInstall extends Vue {
   get labels() {
     return [
-      $t(this, "fennec_not_installed"),
-      $t(this, "fennec_introduction"),
+      $t(this, "metamask_not_installed"),
+      $t(this, "metamask_introduction"),
       $t(this, "install")
     ];
   }
@@ -54,13 +54,10 @@ class FAuthFennecInstall extends Vue {
   }
 
   handleInstall() {
-    const url =
-      getBrowser() === "firefox"
-        ? "https://addons.mozilla.org/firefox/addon/fox_fennec"
-        : "https://chrome.google.com/webstore/detail/fennec/eincngenkhohbbfpkohipekcmnkfamjp";
+    const url = "https://metamask.io/download/";
 
     window.open(url);
   }
 }
-export default FAuthFennecInstall;
+export default FAuthMetamaskInstall;
 </script>

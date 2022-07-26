@@ -2,31 +2,23 @@
   <div class="f-auth-step1">
     <div class="text-center f-auth-methods__title">{{ labels[0] }}</div>
 
-    <div class="text-center greyscale_3--text f-auth-methods__subtitle">
-      {{ labels[1] }}
-    </div>
+    <div class="pa-6 pt-2">
+      <div class="f-auth-methods">
+        <div
+          v-for="(item, index) in items"
+          :key="index"
+          :style="{ 'background-color': item.bg }"
+          class="f-auth-method"
+          @click="handleAuth(item)"
+          @mouseover="hoverIndex = index"
+          @mouseleave="hoverIndex = -1"
+        >
+          <span class="mb-3">
+            <v-img width="40" height="40" :src="item.logo" />
+          </span>
 
-    <div class="f-auth-methods">
-      <div
-        v-for="(item, index) in items"
-        :key="index"
-        class="f-auth-method"
-        @click="handleAuth(item)"
-        @mouseover="hoverIndex = index"
-        @mouseleave="hoverIndex = -1"
-      >
-        <span class="mb-3">
-          <v-icon
-            v-if="hoverIndex == index"
-            class="f-auth-method__icon"
-            color="greyscale_7"
-          >
-            $arrowRight
-          </v-icon>
-          <v-img v-else width="88" height="68" :src="item.logo" />
-        </span>
-
-        <span class="f-auth-method__label">{{ item.title }}</span>
+          <span class="f-auth-method__label">{{ item.title }}</span>
+        </div>
       </div>
     </div>
   </div>
@@ -48,6 +40,8 @@ import { VImg, VIcon } from "vuetify/lib";
 class FAuthStep1 extends Vue {
   @Prop({ type: Boolean, default: false }) fennec!: boolean;
 
+  @Prop({ type: Boolean, default: false }) metamask!: boolean;
+
   @Prop({ type: String, default: "" }) title;
 
   @Prop({ default: () => ["fennec", "mixin"] }) wallets!: string[];
@@ -59,30 +53,44 @@ class FAuthStep1 extends Vue {
   hoverIndex = -1;
 
   get builtInWallets() {
+    const isDark = this.$vuetify.theme.dark;
+    const grey = this.$vuetify.theme.currentTheme.greyscale_6;
+
     return [
       {
-        needNextStep: !this.fennec,
-        value: "fennec",
-        title: "Fennec",
-        logo: "https://static.fox.one/image/logo_fennec@88x68.png"
-      },
-      {
-        needNextStep: false,
-        value: "mvm",
-        title: "Mixin Virtual Machine",
-        logo: "https://static.fox.one/image/logo_mvm@88x68.png"
+        needNextStep: !this.metamask,
+        value: "metamask",
+        title: "MetaMask",
+        bg: isDark ? grey : "#FFEEDD",
+        logo: "https://static.fox.one/image/logo_metamask@40x40.png"
       },
       {
         needNextStep: true,
         value: "mixin",
-        title: "Mixin Messenger",
-        logo: "https://static.fox.one/image/logo_mixin@88x68.png"
+        title: "Mixin",
+        bg: isDark ? grey : "#EBF8FF",
+        logo: "https://static.fox.one/image/logo_mixin@40x40.png"
       },
       {
         needNextStep: true,
         value: "links",
         title: "Links",
-        logo: "https://static.fox.one/image/logo_links@88x68.png"
+        bg: isDark ? grey : "#EBF8FF",
+        logo: "https://static.fox.one/image/logo_links@40x40.png"
+      },
+      {
+        needNextStep: !this.fennec,
+        value: "fennec",
+        title: "Fennec",
+        bg: isDark ? grey : "#E6E7FD",
+        logo: "https://static.fox.one/image/logo_fennec@40x40.png"
+      },
+      {
+        needNextStep: false,
+        value: "walletconnect",
+        title: "WalletConnect",
+        bg: grey,
+        logo: "https://static.fox.one/image/logo_walletconnect@40x40.png"
       }
     ];
   }
@@ -95,9 +103,11 @@ class FAuthStep1 extends Vue {
   }
 
   get items() {
-    return this.wallets.map((name) => {
-      return this.builtInWallets.find((x) => x.value === name);
-    });
+    return this.wallets
+      .map((name) => {
+        return this.builtInWallets.find((x) => x.value === name);
+      })
+      .filter((v) => !!v);
   }
 
   handleAuth(item) {

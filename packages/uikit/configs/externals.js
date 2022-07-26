@@ -6,9 +6,14 @@ module.exports = [
       amd: "vue",
       root: "Vue"
     },
+    axios: "axios",
     "@foxone/icons": "@foxone/icons",
     "@foxone/utils/number": "@foxone/utils/number",
+    "@foxone/utils/mixin": "@foxone/utils/mixin",
+    "@foxone/utils/base64": "@foxone/utils/base64",
     "vuetify/lib": "vuetify/lib",
+    "vuetify/lib/util/helpers": "vuetify/lib/util/helpers",
+    "vuetify/lib/mixins/roundable": "vuetify/lib/mixins/roundable",
     "bignumber.js": "bignumber.js",
     "vue-property-decorator": "vue-property-decorator",
     qrcode: "qrcode"

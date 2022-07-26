@@ -2,7 +2,8 @@ const path = require("path");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const FriendlyErrorsWebpackPlugin = require("friendly-errors-webpack-plugin");
 const VueLoaderPlugin = require("vue-loader/lib/plugin");
-const NodePolyfillPlugin = require("node-polyfill-webpack-plugin");
+// const BundleAnalyzerPlugin =
+//   require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
 
 const isProd = process.env.NODE_ENV === "production";
 const extractCSS = isProd || process.env.TARGET === "development";
@@ -54,7 +55,8 @@ module.exports = {
     extensions: ["*", ".js", ".json", ".vue", ".ts"],
     alias: {
       "@foxone/uikit": path.resolve(__dirname, "../src")
-    }
+    },
+    fallback: { crypto: false, stream: false }
   },
   module: {
     rules: [
@@ -103,7 +105,7 @@ module.exports = {
     ]
   },
   plugins: [
-    new NodePolyfillPlugin(),
+    // new BundleAnalyzerPlugin(),
     new VueLoaderPlugin(),
     new FriendlyErrorsWebpackPlugin({
       clearConsole: true

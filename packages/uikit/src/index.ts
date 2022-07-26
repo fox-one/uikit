@@ -4,25 +4,28 @@ import Toast from "./services/toast";
 import Dialog from "./services/dialog";
 import Auth from "./services/auth";
 import Payment from "./services/payment";
-import Passport from "./services/passport";
 
 import "./styles/index.scss";
 
 import type { VueConstructor } from "vue/types/umd";
 
 export default {
-  install: function (Vue: VueConstructor) {
+  install: function (Vue: VueConstructor, options) {
     for (const key in components) {
       const component = components[key];
 
       Vue.component(key, component as typeof Vue);
     }
+
+    Dialog.install(Vue, options.vuetify, options.dialog);
+    Toast.install(Vue, options.vuetify, options.toast);
+    Auth.install(Vue, options.vuetify, options.auth);
+    Payment.install(Vue, options.vuetify);
   },
 
   preset,
   Toast,
   Dialog,
   Auth,
-  Payment,
-  Passport
+  Payment
 };

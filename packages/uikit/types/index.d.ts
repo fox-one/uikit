@@ -1,20 +1,22 @@
-import Toast, { ToastMethods } from "./utils/toast";
-import Dialog, { DialogMethods } from "./utils/dialog";
-import Auth, { AuthMethods } from "./utils/auth";
-import Payment, { PaymentMethods } from "./utils/payment";
-import Passport, { PassportMethods } from "./utils/passport";
+import { ToastMethods } from "./utils/toast";
+import { DialogMethods } from "./utils/dialog";
+import { AuthMethods, FAuthMethodModalProps } from "./utils/auth";
+import { PaymentMethods } from "./utils/payment";
 
+import type Vuetify from "vuetify/lib";
 import type { VueConstructor } from "vue/types/umd";
 import type { GlobalVuetifyPreset } from "vuetify/types/services/presets";
 
+export type UIKitOptions = {
+  vuetify: Vuetify;
+  dialog?: Record<string, string>;
+  toast?: Record<string, string>;
+  auth?: FAuthMethodModalProps;
+};
+
 declare const _default: {
-  install: (Vue: VueConstructor) => void;
+  install: (Vue: VueConstructor, options: UIKitOptions) => void;
   preset: GlobalVuetifyPreset;
-  Toast: typeof Toast;
-  Dialog: typeof Dialog;
-  Auth: typeof Auth;
-  Payment: typeof Payment;
-  Passport: typeof Passport;
 };
 export default _default;
 

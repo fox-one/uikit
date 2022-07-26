@@ -1,5 +1,9 @@
 <template>
-  <f-bottom-sheet v-model="dialog" wapper-in-desktop="dialog">
+  <f-bottom-sheet
+    v-model="dialog"
+    wapper-in-desktop="dialog"
+    :dialog-props="{ maxWidth: step === 1 ? 526 : 627 }"
+  >
     <template #activator>
       <slot name="activator" :on="{ click: onClick }"></slot>
     </template>
@@ -12,8 +16,8 @@
         :step.sync="step"
         :select.sync="select"
         :fennec="fennec"
+        :metamask="metamask"
         :wallets="wallets"
-        :mvm="mvm"
         v-bind="$attrs"
         @auth="(e) => $emit('auth', e)"
         @error="(e) => $emit('error', e)"
@@ -65,8 +69,8 @@ class FAuthMethodModal extends Vue {
   // support fennec or not
   @Prop({ type: Boolean, default: false }) fennec!: boolean;
 
-  // support mvm or not
-  @Prop({ type: Boolean, default: false }) mvm!: boolean;
+  // support metamask or not
+  @Prop({ type: Boolean, default: false }) metamask!: boolean;
 
   @Prop({ default: () => ["fennec", "mixin"] }) wallets!: string[];
 
