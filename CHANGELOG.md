@@ -1,6 +1,6 @@
 # Change Log
 
-## 3.2.1
+## 3.2.2
 
 - Auth plugin
 - Payment plugin
