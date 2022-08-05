@@ -29,6 +29,7 @@
     "checking_payment": "检查支付结果...",
     "paid": "已支付",
     "metamask_not_installed": "沒有安裝",
-    "metamask_introduction": "使用 MVM 需要预先安装 Metamask 兼容的钱包，请确保您已准备好钱包应用程序。"
+    "metamask_introduction": "使用 MVM 需要預先安裝 Metamask 兼容的錢包，請確保您已準備好錢包應用程序。",
+    "gas_fee_hint": "如果您使用 Metamask 或者其他钱包，您可以领取一些代幣作為 Gas 費。 <a href='https://catkin.pando.im/faucet/mvm/' target='_blank'>免費獲取</a>"
   }
 }

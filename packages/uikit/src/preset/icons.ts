@@ -17,7 +17,8 @@ import {
   FIconLink4P,
   FIconImport4PBold,
   FIconAlert4P,
-  FIconLink4PBold
+  FIconLink4PBold,
+  FIconHorn4P
 } from "@foxone/icons";
 
 export default {
@@ -41,6 +42,7 @@ export default {
     link: { component: FIconLink4P },
     install: { component: FIconImport4PBold },
     alert: { component: FIconAlert4P },
-    linkBold: { component: FIconLink4PBold }
+    linkBold: { component: FIconLink4PBold },
+    FIconHorn4P: { component: FIconHorn4P }
   }
 };

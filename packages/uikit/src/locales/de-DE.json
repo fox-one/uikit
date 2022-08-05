@@ -29,6 +29,7 @@
     "checking_payment": "Checking Payment...",
     "paid": "Paid",
     "metamask_not_installed": "MetaMask not installed",
-    "metamask_introduction": "Using MVM requires pre-installation of Metamask compatible wallets, please make sure you have the wallet application ready."
+    "metamask_introduction": "Using MVM requires pre-installation of Metamask compatible wallets, please make sure you have the wallet application ready.",
+    "gas_fee_hint": "If you use Metamask and Other wallet, you can claim some tokens as gas fee. <a href='https://catkin.pando.im/faucet/mvm/' target='_blank'>Get for free</a>"
   }
 }

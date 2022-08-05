@@ -20,6 +20,11 @@
           <span class="f-auth-method__label">{{ item.title }}</span>
         </div>
       </div>
+
+      <div class="f-auth-hint mt-6">
+        <v-icon size="16" color="warning" class="mr-2">$FIconHorn4P</v-icon>
+        <span v-html="labels[2]"></span>
+      </div>
     </div>
   </div>
 </template>
@@ -100,7 +105,8 @@ class FAuthStep1 extends Vue {
   get labels() {
     return [
       this.title || $t(this, "connect_wallet"),
-      $t(this, "connect_wallet_subtitle")
+      $t(this, "connect_wallet_subtitle"),
+      $t(this, "gas_fee_hint")
     ];
   }
 

@@ -13,15 +13,18 @@
         <v-icon size="12" class="ml-1">$connect</v-icon>
       </f-button>
 
-      <div v-else class="greyscale_3--text d-flex align-center">
-        <span class="mr-1"> {{ text.balance }} </span>
+      <div v-else class="d-flex align-center">
+        <span class="greyscale_3--text mr-1"> {{ text.balance }} </span>
 
         <span @click.stop="handleFill">
           {{ balance }}
         </span>
+
         <v-icon v-if="fillable" size="12" class="ml-1" @click.stop="handleFill">
           $fill
         </v-icon>
+
+        <slot name="append-left"></slot>
       </div>
     </slot>
 
@@ -83,7 +86,9 @@ class FAssetInputTools extends Vue {
   }
 
   handleFill() {
-    this.$emit("fill", this.balance);
+    if (this.fillable) {
+      this.$emit("fill", this.balance);
+    }
   }
 }
 export default FAssetInputTools;
@@ -92,8 +97,9 @@ export default FAssetInputTools;
 <style lang="scss" scoped>
 .f-asset-input-tools {
   font-size: 12px;
-  font-weight: 400;
+  font-weight: 500;
   padding: 0 16px;
+  line-height: 1;
 }
 
 .fiat-amount {

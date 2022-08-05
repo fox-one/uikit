@@ -151,3 +151,11 @@
   left: 16px;
   z-index: 11;
 }
+
+.f-auth-hint {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 15px;
+  color: var(--v-greyscale_3-base);
+  display: flex;
+}
