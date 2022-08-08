@@ -14,15 +14,24 @@
       </f-button>
 
       <div v-else class="d-flex align-center">
-        <span class="greyscale_3--text mr-1"> {{ text.balance }} </span>
+        <div
+          :class="{ 'balance-text': true, 'balance-text--fillable': fillable }"
+        >
+          <span class="greyscale_3--text mr-1"> {{ text.balance }} </span>
 
-        <span @click.stop="handleFill">
-          {{ balance }}
-        </span>
+          <span @click.stop="handleFill">
+            {{ balance }}
+          </span>
 
-        <v-icon v-if="fillable" size="12" class="ml-1" @click.stop="handleFill">
-          $fill
-        </v-icon>
+          <v-icon
+            v-if="fillable"
+            size="12"
+            class="ml-1"
+            @click.stop="handleFill"
+          >
+            $fill
+          </v-icon>
+        </div>
 
         <slot name="append-left"></slot>
       </div>
@@ -104,5 +113,11 @@ export default FAssetInputTools;
 
 .fiat-amount {
   white-space: nowrap;
+}
+
+.balance-text--fillable {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
 }
 </style>
