@@ -1,3 +1,9 @@
+.f-auth-methods-dialog__mobile.f-auth-methods-dialog__step2 {
+  .f-bottom-sheet__close {
+    color: #000000;
+  }
+}
+
 .f-auth-methods--content {
   position: relative;
 }
@@ -70,7 +76,7 @@
   &__left {
     min-width: 314px;
     background-position: center center;
-    background-size: 100% 100%;;
+    background-size: cover;
     box-shadow: 0px 0px 32px rgba(181, 183, 189, 0.08);
     z-index: -1;
     display: flex;
@@ -150,6 +156,7 @@
   top: 16px;
   left: 16px;
   z-index: 11;
+  display: flex;
 }
 
 .f-auth-hint {

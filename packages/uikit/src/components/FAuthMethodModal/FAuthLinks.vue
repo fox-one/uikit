@@ -45,6 +45,7 @@ import { VIcon, VImg } from "vuetify/lib";
 
 @Component({
   name: "FAuthLinks",
+  inheritAttrs: false,
   components: {
     VIcon,
     VImg,

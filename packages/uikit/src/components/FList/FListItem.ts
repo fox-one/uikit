@@ -22,15 +22,21 @@ import type { CreateElement } from "vue";
   }
 })
 class FListItem extends Vue {
-  @Prop({ default: "" }) title;
+  @Prop({ default: "" }) title!: string;
 
-  @Prop({ default: "" }) subtitle;
+  @Prop({ default: "" }) subtitle!: string;
 
-  @Prop({ default: "" }) value;
+  @Prop({ default: "" }) value!: string;
 
-  @Prop({ type: Boolean, default: false }) hideTail!: boolean;
+  @Prop({ default: "67" }) minHeight!: string;
+
+  @Prop({ type: Boolean, default: true }) hideTail!: boolean;
 
   @Prop({ type: Boolean, default: false }) hideHead!: boolean;
+
+  get style() {
+    return { "min-height": this.minHeight + "px" };
+  }
 
   genHead() {
     const h = this.$createElement;
@@ -73,6 +79,7 @@ class FListItem extends Vue {
       {
         staticClass: "f-list-item",
         props: { ripple: false, ...this.$attrs },
+        style: this.style,
         on: this.$listeners
       },
       [this.genHead(), this.genBody(), this.genTail()]

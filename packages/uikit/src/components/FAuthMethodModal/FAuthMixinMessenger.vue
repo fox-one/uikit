@@ -51,6 +51,7 @@ import { VIcon, VImg } from "vuetify/lib";
 
 @Component({
   name: "FAuthMixinMessenger",
+  inheritAttrs: false,
   components: {
     VIcon,
     VImg,

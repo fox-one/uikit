@@ -34,6 +34,7 @@ import { VIcon, VImg } from "vuetify/lib";
 
 @Component({
   name: "FAuthMetamaskInstall",
+  inheritAttrs: false,
   components: {
     VIcon,
     VImg,

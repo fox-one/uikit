@@ -34,6 +34,7 @@ import { VIcon, VImg } from "vuetify/lib";
 
 @Component({
   name: "FAuthFennecInstall",
+  inheritAttrs: false,
   components: {
     VIcon,
     VImg,

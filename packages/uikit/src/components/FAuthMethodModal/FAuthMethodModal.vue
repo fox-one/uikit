@@ -3,6 +3,7 @@
     v-model="dialog"
     wapper-in-desktop="dialog"
     :dialog-props="{ maxWidth: step === 1 ? 526 : 627 }"
+    :content-class="meta.contentClass"
   >
     <template #activator>
       <slot name="activator" :on="{ click: onClick }"></slot>
@@ -95,7 +96,14 @@ class FAuthMethodModal extends Vue {
   authorize = authorize;
 
   get meta() {
-    return { isDesktop: this.$vuetify.breakpoint.mdAndUp };
+    const isDesktop = this.$vuetify.breakpoint.mdAndUp;
+    const classes = [
+      "f-auth-methods-dialog",
+      "f-auth-methods-dialog__step" + this.step,
+      !isDesktop ? "f-auth-methods-dialog__mobile" : ""
+    ];
+
+    return { isDesktop, contentClass: classes.join(" ") };
   }
 
   destroyed() {

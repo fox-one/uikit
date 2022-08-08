@@ -53,6 +53,7 @@ export default baseMixins.extend({
       return !this.hideCloseIcon && !this.$attrs.persistent;
     },
     contentClass(): string {
+      console.log(this.$attrs);
       const classes = [
         "f-bottom-sheet",
         this.$attrs["content-class"] || "",
