@@ -14,7 +14,7 @@ export default mixins(Themeable, Toggleable).extend({
   props: {
     type: { type: String, default: "info" },
     value: { type: Boolean, default: true },
-    closeable: { type: Boolean, default: true },
+    closeable: { type: Boolean, default: false },
     closeProps: { type: Object, defautl: () => ({}) },
     transition: {
       type: [String, Boolean],

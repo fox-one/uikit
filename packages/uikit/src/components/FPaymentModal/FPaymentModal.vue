@@ -14,13 +14,13 @@
           />
         </div>
         <div class="f-payment-modal__right">
-          <template v-if="info">
+          <template v-if="asset">
             <div class="f-payment-modal__logo">
-              <v-img :src="info.logo" width="32" height="32" />
+              <v-img :src="meta.logo" width="32" height="32" />
             </div>
             <div class="f-payment-modal__amount mt-1">
               <div>{{ labels[0] }}</div>
-              <div>{{ info.amount + " " + info.symbol }}</div>
+              <div>{{ amount + " " + meta.symbol }}</div>
             </div>
           </template>
           <div class="f-payment-modal__hint mt-5" v-html="labels[1]" />
@@ -54,6 +54,8 @@ import { $t } from "../../utils/helper";
 import FQrCode from "../FQrCode";
 import FPayingModal from "../FPayingModal";
 import { VImg } from "vuetify/lib";
+import axios from "axios";
+
 import type { PaymentOptions } from "../../services/payment";
 
 @Component({
@@ -66,7 +68,11 @@ import type { PaymentOptions } from "../../services/payment";
 class FPaymentModal extends Vue {
   scheme = "";
 
-  info: any = null;
+  assetId = "";
+
+  asset: any = null;
+
+  amount = "";
 
   dialog = false;
 
@@ -85,7 +91,9 @@ class FPaymentModal extends Vue {
   get meta() {
     return {
       isDesktop: this.$vuetify.breakpoint.mdAndUp,
-      dark: this.$vuetify.theme.dark
+      dark: this.$vuetify.theme.dark,
+      logo: this.asset?.logo ?? "",
+      symbol: this.asset?.symbol ?? ""
     };
   }
 
@@ -119,7 +127,7 @@ class FPaymentModal extends Vue {
       this.checking = false;
       this.channel = "";
       this.scheme = "";
-      this.info = null;
+      this.asset = null;
       this.reject = null;
     }
   }
@@ -127,27 +135,30 @@ class FPaymentModal extends Vue {
   async show(options: PaymentOptions) {
     const {
       actions,
+      amount,
+      assetId,
       channel,
       checker,
       hideCheckingModal = false,
-      info,
       scheme
     } = options;
 
-    this.info = info;
     this.scheme = scheme;
     this.channel = channel;
+    this.assetId = assetId;
+    this.amount = amount;
     this.hideCheckingModal = hideCheckingModal;
 
     const showChecking = () => (this.checking = true);
 
     if (channel === "mixin") {
       if (isMixin()) {
-        await actions.mixin?.();
+        actions.mixin?.();
         showChecking();
       } else {
         this.dialog = true;
         this.qr = true;
+        this.requestAsset();
       }
     } else if (channel === "fennec") {
       await actions.fennec?.();
@@ -159,23 +170,29 @@ class FPaymentModal extends Vue {
 
     return new Promise((reslove, reject) => {
       this.reject = reject;
-      this.polling(reslove, checker);
+      this.polling(reslove, reject, checker);
     });
   }
 
-  async polling(reslove, checker) {
-    const completed = await checker();
+  async polling(reslove, reject, checker) {
+    try {
+      const completed = await checker();
 
-    if (!completed) {
-      this.timer = setTimeout(() => {
-        if (this.dialog || this.checking) {
-          this.polling(reslove, checker);
-        }
-      }, 3000);
-    } else {
+      if (!completed) {
+        this.timer = setTimeout(() => {
+          if (this.dialog || this.checking) {
+            this.polling(reslove, reject, checker);
+          }
+        }, 3000);
+      } else {
+        this.dialog = false;
+        this.checking = false;
+        reslove();
+      }
+    } catch (error) {
+      reject(error);
       this.dialog = false;
       this.checking = false;
-      reslove();
     }
   }
 
@@ -185,6 +202,14 @@ class FPaymentModal extends Vue {
 
   handlePaid() {
     this.checking = true;
+  }
+
+  async requestAsset() {
+    const resp = await axios.get(
+      `https://api.mixin.one/network/assets/${this.assetId}`
+    );
+
+    this.asset = resp.data.data;
   }
 }
 export default FPaymentModal;

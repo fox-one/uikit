@@ -57,4 +57,6 @@
 .v-item-group.f-actionbar--fixed {
   position: fixed;
   z-index: 4;
+  border-bottom-left-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
 }

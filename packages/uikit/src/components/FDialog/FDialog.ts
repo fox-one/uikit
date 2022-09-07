@@ -88,7 +88,8 @@ class FDialog extends Vue {
   }
 
   genAction(action: Action) {
-    const props = { text: true, ...(action.props || {}) };
+    const props = { ...(action.props || {}) };
+    const classes = { ...(action.classes || {}) };
     const text = action.text;
 
     if (!action.show) {
@@ -99,6 +100,7 @@ class FDialog extends Vue {
       FButton,
       {
         props,
+        class: classes,
         on: {
           click: () => {
             this.dialog = false;
@@ -118,16 +120,15 @@ class FDialog extends Vue {
     const cancel = {
       show: true,
       text: $t(this, "cancel"),
-      props: { color: "greyscale_3" },
+      props: { text: true },
       ...(this.options?.cancel || {})
     };
 
-    const defaultConfirmColor =
-      this.options?.type === "warning" ? "error" : "greyscale_1";
     const confirm = {
       show: true,
       text: $t(this, "continue"),
-      props: { color: defaultConfirmColor },
+      props: { color: "greyscale_1" },
+      classes: { "greyscale_7--text": true },
       ...(this.options?.confirm || {})
     };
 

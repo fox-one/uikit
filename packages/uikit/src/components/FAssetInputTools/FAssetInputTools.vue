@@ -77,6 +77,8 @@ class FAssetInputTools extends Vue {
 
   @Prop({ type: Boolean, default: true }) fillable!: boolean;
 
+  @Prop({ type: String, default: "" }) balanceLabel!: string;
+
   @Prop() messages;
 
   get showMessages() {
@@ -85,7 +87,7 @@ class FAssetInputTools extends Vue {
 
   get text() {
     return {
-      balance: $t(this, "balance_short"),
+      balance: this.balanceLabel || $t(this, "balance_short"),
       connect_wallet: $t(this, "connect_wallet")
     };
   }

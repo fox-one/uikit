@@ -2,6 +2,8 @@ import type { VueConstructor } from "vue/types/umd";
 import type Vuetify from "vuetify/lib";
 
 export interface PaymentOptions {
+  assetId: string;
+  amount: string;
   scheme: string;
   channel: "mixin" | "fennec" | "metamask" | "walletconnect";
   hideCheckingModal?: boolean;
@@ -10,13 +12,19 @@ export interface PaymentOptions {
     fennec: () => Promise<boolean>;
     mvm: () => Promise<boolean>;
   };
-  info: {
-    symbol: string;
-    logo: string;
-    amount: string;
-  };
   checker: () => Promise<boolean>;
 }
+
+export interface MixinPaymentOptions {
+  assetId: string;
+  amount: string;
+  recipient: string;
+  traceId: string;
+  memo: string;
+  hideCheckingModal?: boolean;
+  checker: () => Promise<boolean>;
+}
+
 declare function Payment(): void;
 declare namespace Payment {
   let install: (
@@ -26,6 +34,7 @@ declare namespace Payment {
 }
 export default Payment;
 
-export type Keys = "show";
-
-export type PaymentMethods = Record<Keys, (options?: PaymentOptions) => void>;
+export type PaymentMethods = {
+  show: (options?: PaymentOptions) => Promise<void>;
+  mixin: (options?: MixinPaymentOptions) => Promise<void>;
+};

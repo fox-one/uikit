@@ -28,14 +28,23 @@
     font-weight: 600;
   }
 
-  &.f-asset-amount-input--fullfilled {
-    padding-bottom: 16px;
+  .v-input__slot {
+    margin-bottom: 0px;
+  }
 
-    .v-text-field__details {
-      padding: 0 16px;
-    }
+  .v-text-field__details {
+    padding: 0 16px;
+  }
+
+  &.f-asset-amount-input--fullfilled {
+    padding-bottom: 8px;
 
     .f-input__tools {
+      margin: 0 0 8px 0;
+    }
+
+    .v-messages, .v-text-field__details {
+      min-height: auto;
       margin: 0;
     }
   }

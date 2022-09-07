@@ -8,6 +8,7 @@ export interface Action {
   show?: boolean;
   text?: string;
   props?: Record<string, any>;
+  classes?: Record<string, any>;
   callback?: (...args: any) => void;
 }
 

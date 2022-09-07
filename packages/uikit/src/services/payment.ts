@@ -3,21 +3,29 @@ import FPaymentModal from "../components/FPaymentModal";
 
 import type { VueConstructor } from "vue/types/umd";
 import type Vuetify from "vuetify/lib";
+import { genPaymentUrl } from "@foxone/utils/mixin";
 
 export interface PaymentOptions {
+  assetId: string;
+  amount: string;
   scheme: string;
   channel: "mixin" | "fennec" | "metamask" | "walletconnect";
   hideCheckingModal?: boolean;
   actions: {
-    mixin: () => Promise<boolean>;
-    fennec: () => Promise<boolean>;
-    mvm: () => Promise<boolean>;
+    mixin?: () => void;
+    fennec?: () => Promise<boolean>;
+    mvm?: () => Promise<boolean>;
   };
-  info: {
-    symbol: string;
-    logo: string;
-    amount: string;
-  };
+  checker: () => Promise<boolean>;
+}
+
+export interface MixinPaymentOptions {
+  assetId: string;
+  amount: string;
+  recipient: string;
+  traceId: string;
+  memo: string;
+  hideCheckingModal?: boolean;
   checker: () => Promise<boolean>;
 }
 
@@ -56,8 +64,19 @@ function install(Vue: VueConstructor, vuetify: (() => Vuetify) | Vuetify) {
     });
   };
 
+  const mixin = (options: MixinPaymentOptions) => {
+    const scheme = genPaymentUrl(options);
+
+    return show({
+      ...options,
+      channel: "mixin",
+      scheme,
+      actions: { mixin: () => (window.location.href = scheme) }
+    });
+  };
+
   Vue.prototype.$uikit = Vue.prototype.$uikit || {};
-  Vue.prototype.$uikit.payment = { show };
+  Vue.prototype.$uikit.payment = { show, mixin };
 }
 
 function Payment() {}
