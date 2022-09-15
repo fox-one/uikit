@@ -30,6 +30,10 @@
     "paid": "Paid",
     "metamask_not_installed": "MetaMask not installed",
     "metamask_introduction": "Using MVM requires pre-installation of Metamask compatible wallets, please make sure you have the wallet application ready.",
-    "gas_fee_hint": "If you use Metamask and Other wallet, you can claim some tokens as gas fee. <a href='https://catkin.pando.im/faucet/mvm/' target='_blank'>Get for free</a>"
+    "gas_fee_hint": "If you use Metamask and Other wallet, you can claim some tokens as gas fee. <a href='https://catkin.pando.im/faucet/mvm/' target='_blank'>Get for free</a>",
+    "metamask_not_installed_2": "Please open in the <span style='color: #F68614'>built-in browser of metamask mobile app</span> or desktop browser.",
+    "metamask_introduction_2": "You have two ways to connect to Metamask.<br>1: Copy the dApp address and open it in Metamask's built-in browser.<br>2: Open it in a desktop browser.",
+    "open_in_mixin": "Open in Mixin",
+    "open_in_links": "Open in Links"
   }
 }

@@ -24,14 +24,23 @@
             </div>
           </template>
           <div class="f-payment-modal__hint mt-5" v-html="labels[1]" />
-          <div>
-            <f-button
+          <div class="f-payment-modal__actions">
+            <!-- <f-button
               :loading="checking"
-              color="primary"
-              class="mt-4"
+              color="greyscale_1"
+              class="greyscale_7--text"
               @click.native="handlePaid"
             >
               {{ labels[2] }}
+            </f-button> -->
+
+            <f-button
+              :loading="checking"
+              color="greyscale_6"
+              class="greyscale_1--text"
+              @click.native="handleOpenInApp"
+            >
+              {{ labels[3] }}
             </f-button>
           </div>
         </div>
@@ -59,6 +68,7 @@ import axios from "axios";
 import type { PaymentOptions } from "../../services/payment";
 
 @Component({
+  name: "FPaymentModal",
   components: {
     FQrCode,
     FPayingModal,
@@ -92,7 +102,7 @@ class FPaymentModal extends Vue {
     return {
       isDesktop: this.$vuetify.breakpoint.mdAndUp,
       dark: this.$vuetify.theme.dark,
-      logo: this.asset?.logo ?? "",
+      logo: this.asset?.icon_url ?? "",
       symbol: this.asset?.symbol ?? ""
     };
   }
@@ -111,7 +121,8 @@ class FPaymentModal extends Vue {
           "</svg>",
         "</a>"
       ),
-      $t(this, "paid")
+      $t(this, "paid"),
+      $t(this, "open_in_mixin")
     ];
   }
 
@@ -202,6 +213,10 @@ class FPaymentModal extends Vue {
 
   handlePaid() {
     this.checking = true;
+  }
+
+  handleOpenInApp() {
+    window.location.href = this.scheme;
   }
 
   async requestAsset() {

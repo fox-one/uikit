@@ -13,7 +13,9 @@
     </div>
 
     <v-main>
-      <playground></playground>
+      <v-container>
+        <playground />
+      </v-container>
     </v-main>
   </v-app>
 </template>

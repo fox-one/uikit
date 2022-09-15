@@ -27,16 +27,23 @@
       <div class="f-auth-step2__subtitle">
         <span v-html="labels[1]"></span>
       </div>
-      <f-button
-        color="greyscale_1"
-        class="f-auth-step2__icon"
-        @click="handleInstall"
-      >
-        <v-icon size="16" color="greyscale_7" class="mr-1"> $install </v-icon>
-        <span class="f-auth-step2__install_label greyscale_7--text">
+
+      <div class="f-auth-step2__actions">
+        <f-button
+          color="greyscale_1"
+          class="greyscale_7--text"
+          @click="handleOpenInApp"
+        >
+          {{ labels[3] }}
+        </f-button>
+        <f-button
+          color="greyscale_6"
+          class="greyscale_1--text"
+          @click="handleInstall"
+        >
           {{ labels[2] }}
-        </span>
-      </f-button>
+        </f-button>
+      </div>
     </div>
   </div>
 </template>
@@ -92,7 +99,8 @@ class FAuthMixinMessenger extends Vue {
           "</svg>",
         "</a>"
       ),
-      $t(this, "install")
+      $t(this, "install"),
+      $t(this, "open_in_mixin")
     ];
   }
 
@@ -125,6 +133,10 @@ class FAuthMixinMessenger extends Vue {
     const url = "https://mixin.one/mm";
 
     window.location.href = url;
+  }
+
+  handleOpenInApp() {
+    window.location.href = this.qrUrl;
   }
 }
 export default FAuthMixinMessenger;

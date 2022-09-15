@@ -1,26 +1,23 @@
 <template>
   <div
     class="f-auth-metamask f-auth-step2"
-    :class="{ 'f-auth-step2--small': smAndDown }"
+    :class="{
+      'f-auth-step2--small': smAndDown,
+      'f-auth-metamask--mobile': !isDesktop
+    }"
   >
     <div class="f-auth-step2__left"></div>
 
     <div class="f-auth-step2__right">
-      <div class="f-auth-step2__title">
-        {{ labels[0] }}
-      </div>
-      <div class="f-auth-step2__subtitle">
-        {{ labels[1] }}
-      </div>
+      <div class="f-auth-step2__title" v-html="labels[0]" />
+      <div class="f-auth-step2__subtitle" v-html="labels[1]" />
       <f-button
+        v-if="isDesktop"
         color="greyscale_1"
-        class="f-auth-step2__icon"
+        class="greyscale_7--text"
         @click="handleInstall"
       >
-        <v-icon size="16" color="greyscale_7" class="mr-1"> $install </v-icon>
-        <span class="f-auth-step2__install_label greyscale_7--text">
-          {{ labels[2] }}
-        </span>
+        {{ labels[2] }}
       </f-button>
     </div>
   </div>
@@ -31,6 +28,7 @@ import { Component, Vue } from "vue-property-decorator";
 import { FIconImport4PBold } from "@foxone/icons";
 import { $t } from "../../utils/helper";
 import { VIcon, VImg } from "vuetify/lib";
+import { isDesktop } from "@foxone/utils/helper";
 
 @Component({
   name: "FAuthMetamaskInstall",
@@ -44,10 +42,19 @@ import { VIcon, VImg } from "vuetify/lib";
 class FAuthMetamaskInstall extends Vue {
   get labels() {
     return [
-      $t(this, "metamask_not_installed"),
-      $t(this, "metamask_introduction"),
-      $t(this, "install")
+      this.isDesktop
+        ? $t(this, "metamask_not_installed")
+        : $t(this, "metamask_not_installed_2"),
+      this.isDesktop
+        ? $t(this, "metamask_introduction")
+        : $t(this, "metamask_introduction_2"),
+      $t(this, "install"),
+      $t(this, "open_in_mixin")
     ];
+  }
+
+  get isDesktop() {
+    return isDesktop();
   }
 
   get smAndDown() {

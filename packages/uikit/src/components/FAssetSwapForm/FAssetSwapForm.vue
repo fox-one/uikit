@@ -3,6 +3,7 @@
     <v-form
       ref="form"
       :class="classes"
+      :disabled="loading"
       autocomplete="off"
       v-bind="$attrs"
       v-on="$listeners"
@@ -22,12 +23,19 @@
       </div>
 
       <slot ref="output" name="output" :messages="outputMessages" />
+
+      <v-progress-linear
+        v-if="loading"
+        color="primary"
+        height="2"
+        indeterminate
+      />
     </v-form>
   </div>
 </template>
 
 <script lang="ts">
-import { VForm, VIcon, VBtn } from "vuetify/src/components";
+import { VForm, VIcon, VBtn, VProgressLinear } from "vuetify/src/components";
 import Themeable from "vuetify/src/mixins/themeable";
 import mixins from "vuetify/src/util/mixins";
 
@@ -38,13 +46,18 @@ export default mixins(Themeable).extend({
     hideSwitch: {
       type: Boolean,
       default: false
+    },
+    loading: {
+      type: Boolean,
+      default: false
     }
   },
 
   components: {
     VForm,
     VIcon,
-    VBtn
+    VBtn,
+    VProgressLinear
   },
 
   data() {
@@ -58,7 +71,8 @@ export default mixins(Themeable).extend({
     classes(): object {
       return {
         ...this.themeClasses,
-        "f-asset-swap-form": true
+        "f-asset-swap-form": true,
+        "f-asset-swap-form--loading": this.loading
       };
     }
   },

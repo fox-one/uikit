@@ -56,6 +56,22 @@
       font-size: 14px;
       line-height: 150%;
       color: var(--v-greyscale_3-base);
+
+      a {
+        font-weight: 600;
+        text-decoration: none;
+        color: var(--v-blue-base) !important;
+        display: inline-flex;
+        gap: 4px;
+        align-items: center;
+      }
+    }
+
+    .f-payment-modal__actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-top: 16px;
     }
   }
 }

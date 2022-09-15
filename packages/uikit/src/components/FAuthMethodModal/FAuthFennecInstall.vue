@@ -14,13 +14,10 @@
       </div>
       <f-button
         color="greyscale_1"
-        class="f-auth-step2__icon"
+        class="greyscale_7--text"
         @click="handleInstall"
       >
-        <v-icon size="16" color="greyscale_7" class="mr-1"> $install </v-icon>
-        <span class="f-auth-step2__install_label greyscale_7--text">
-          {{ labels[2] }}
-        </span>
+        {{ labels[2] }}
       </f-button>
     </div>
   </div>

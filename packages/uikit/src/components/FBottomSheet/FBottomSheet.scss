@@ -23,7 +23,7 @@
   .f-bottom-sheet__title {
     display: flex;
     justify-content: center;
-    padding: $spacer * 6 $spacer * 4;
+    padding: $spacer * 4;
     font-weight: $bottom-sheet-title-font-weight;
     font-size: $bottom-sheet-title-font-size;
 
@@ -33,7 +33,7 @@
   }
 
   .f-bottom-sheet__subtitle {
-    padding: $spacer * 6 $spacer * 4;
+    padding: $spacer * 4;
     padding-top: 0;
     text-align: center;
   }
