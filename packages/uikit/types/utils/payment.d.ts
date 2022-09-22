@@ -8,9 +8,9 @@ export interface PaymentOptions {
   channel: "mixin" | "fennec" | "metamask" | "walletconnect";
   hideCheckingModal?: boolean;
   actions: {
-    mixin: () => Promise<boolean>;
-    fennec: () => Promise<boolean>;
-    mvm: () => Promise<boolean>;
+    mixin?: () => void;
+    fennec?: () => Promise<boolean>;
+    mvm?: () => Promise<boolean>;
   };
   checker: () => Promise<boolean>;
 }

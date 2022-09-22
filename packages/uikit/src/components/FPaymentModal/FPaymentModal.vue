@@ -1,6 +1,6 @@
 <template>
   <div class="payment-modal">
-    <f-bottom-sheet v-model="dialog" :dark="meta.dark">
+    <f-bottom-sheet v-model="dialog" :dark="meta.dark" maxWidth="780">
       <div
         class="f-payment-modal__content"
         :class="{ 'f-payment-modal__content--mobile': !meta.isDesktop }"
@@ -25,17 +25,16 @@
           </template>
           <div class="f-payment-modal__hint mt-5" v-html="labels[1]" />
           <div class="f-payment-modal__actions">
-            <!-- <f-button
+            <f-button
               :loading="checking"
               color="greyscale_1"
               class="greyscale_7--text"
               @click.native="handlePaid"
             >
               {{ labels[2] }}
-            </f-button> -->
+            </f-button>
 
             <f-button
-              :loading="checking"
               color="greyscale_6"
               class="greyscale_1--text"
               @click.native="handleOpenInApp"
