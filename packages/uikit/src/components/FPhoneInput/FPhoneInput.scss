@@ -1,5 +1,3 @@
-@import "./variable";
-
 @include theme(f-phone-input) using ($material) {
   .f-country-code-select__field {
     color: map-deep-get($material, "text", "primary");

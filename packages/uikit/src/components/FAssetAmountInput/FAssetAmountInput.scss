@@ -1,5 +1,3 @@
-@import "./variables";
-
 @include theme(f-asset-amount-input) using ($material) {
   &--fullfilled {
     background-color: map-deep-get($material, "text-fields", "filled");

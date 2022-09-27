@@ -1,5 +1,3 @@
-@import "./variables";
-
 @include theme(f-asset-swap-form) using ($material) {
   .f-asset-amount-input {
     background-color: map-deep-get($material, "text-fields", "filled");

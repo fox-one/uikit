@@ -28,6 +28,7 @@
 </template>
 
 <script lang="ts">
+import "./FAssetSelectField.scss";
 import FMixinAssetLogo from "../FMixinAssetLogo";
 import { VFlex, VBtn, VIcon, VLayout } from "vuetify/lib";
 import Themeable from "vuetify/src/mixins/themeable";
@@ -80,7 +81,3 @@ export default mixins(Themeable).extend({
   }
 });
 </script>
-
-<style lang="scss">
-@import "./FAssetSelectField.scss";
-</style>

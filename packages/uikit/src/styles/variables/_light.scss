@@ -23,6 +23,7 @@ $light-colors: map-deep-merge(
   $light-colors
 );
 
+$material-dark: () !default;
 $material-light: (
   // greyscales
   "greyscale_1": map-get($light-colors, "greyscale_1"),

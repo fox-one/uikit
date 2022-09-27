@@ -35,6 +35,7 @@
 </template>
 
 <script lang="ts">
+import "./FAssetSwapForm.scss";
 import { VForm, VIcon, VBtn, VProgressLinear } from "vuetify/src/components";
 import Themeable from "vuetify/src/mixins/themeable";
 import mixins from "vuetify/src/util/mixins";
@@ -107,7 +108,3 @@ export default mixins(Themeable).extend({
   }
 });
 </script>
-
-<style lang="scss">
-@import "./FAssetSwapForm.scss";
-</style>

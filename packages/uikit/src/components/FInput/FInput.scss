@@ -1,4 +1,4 @@
-@import "./variable.scss";
+$f-input-tool-font-size: 12px !default;
 
 @include theme("v-text-field.f-input") using ($material) {
   .f-input__tools {

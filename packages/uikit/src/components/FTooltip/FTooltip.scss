@@ -1,5 +1,3 @@
-@import "./variable.scss";
-
 @include theme("f-tooltip__content") using ($material) {
   color: map-deep-get($material, "text", "primary");
 }

@@ -1,9 +1,10 @@
 /* eslint-disable  */
 
 import ReconnectingWebSocket from "reconnecting-websocket";
-import { gzip } from "pako/lib/deflate";
-import { ungzip } from "pako/lib/inflate";
 import { v4 as uuidv4 } from "uuid";
+
+const ungzip = require("pako/lib/inflate").ungzip;
+const gzip = require("pako/lib/deflate").gzip;
 
 function MixinClient(api, endpoint) {
   this.api = api;

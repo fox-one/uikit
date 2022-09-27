@@ -1,5 +1,3 @@
-@import "./variables.scss";
-
 // Theme
 @include theme("v-bottom-navigation.f-bottom-navigation") using ($material) {
   background-color: map-get($material, "bottom-navigation");

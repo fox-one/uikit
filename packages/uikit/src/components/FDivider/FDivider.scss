@@ -1,5 +1,3 @@
-@import "./variable";
-
 @include theme("f-divider.v-divider") using ($material) {
   border-color: map-get($material, "f-dividers");
 }

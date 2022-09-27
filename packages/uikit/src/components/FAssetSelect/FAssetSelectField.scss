@@ -1,5 +1,3 @@
-@import "./variables";
-
 @include theme(f-asset-select-field) using ($material) {
   background-color: map-deep-get($material, "text-fields", "filled");
   color: map-deep-get($material, "text", "primary");

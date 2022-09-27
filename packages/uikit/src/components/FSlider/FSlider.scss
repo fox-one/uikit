@@ -1,5 +1,3 @@
-@import "./variable";
-
 @include theme(f-input__slider) using ($material) {
   .v-slider__thumb {
     border-color: map-get($material, "greyscale_1") !important;

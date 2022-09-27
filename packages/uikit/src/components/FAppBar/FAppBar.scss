@@ -1,4 +1,7 @@
-@import "./variables.scss";
+$f-app-bar-nav-icon-size: 32px !default;
+$f-app-bar-nav-icon-padding: 10px !default;
+$f-app-bar-title-padding: 4px !default;
+$f-app-bar-immersive-padding: 82px !default;
 
 .f-app-bar {
   .v-toolbar__content {

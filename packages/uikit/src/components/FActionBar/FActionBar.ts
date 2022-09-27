@@ -30,7 +30,6 @@ const baseMixins = mixins(
   Spacedable
 );
 
-/* @vue/component */
 export default baseMixins.extend({
   name: "FActionBar",
 

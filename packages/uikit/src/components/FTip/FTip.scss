@@ -1,9 +1,11 @@
-@import "./variable";
-
 @include theme("f-tip") using ($material) {
+  // @debug "in FTip theme: #{$material}";
+
   &--info {
     color: map-get($material, "info");
     background: rgba(map-get($material, "info"), 0.1);
+
+   
 
     .f-tip__close {
       color: map-get($material, "info");

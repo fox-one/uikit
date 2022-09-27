@@ -1,5 +1,3 @@
-@import "./variable";
-
 @include theme("f-info-grid-item") using ($material) {
   .f-info-grid-item__title {
     color: map-get($material, "greyscale_3");

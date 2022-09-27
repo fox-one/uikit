@@ -9,23 +9,19 @@ import "./styles/index.scss";
 
 import type { VueConstructor } from "vue/types/umd";
 
-export default {
-  install: function (Vue: VueConstructor, options) {
-    for (const key in components) {
-      const component = components[key];
+function install(Vue: VueConstructor, options) {
+  for (const key in components) {
+    const component = components[key];
 
-      Vue.component(key, component as typeof Vue);
-    }
+    Vue.component(key, component as typeof Vue);
+  }
 
-    Dialog.install(Vue, options.vuetify, options.dialog);
-    Toast.install(Vue, options.vuetify, options.toast);
-    Auth.install(Vue, options.vuetify, options.auth);
-    Payment.install(Vue, options.vuetify);
-  },
+  Dialog.install(Vue, options.vuetify, options.dialog);
+  Toast.install(Vue, options.vuetify, options.toast);
+  Auth.install(Vue, options.vuetify, options.auth);
+  Payment.install(Vue, options.vuetify);
+}
 
-  preset,
-  Toast,
-  Dialog,
-  Auth,
-  Payment
-};
+export default install;
+
+export { preset, install };

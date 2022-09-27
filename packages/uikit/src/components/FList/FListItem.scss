@@ -1,5 +1,3 @@
-@import "./variable";
-
 @include theme("v-list-item.f-list-item") using ($material) {
   .f-list-item__subtitle {
     color: map-get($material, "greyscale_3");

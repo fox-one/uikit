@@ -1,5 +1,3 @@
-@import "./variables";
-
 @include theme("v-btn-toggle.f-segment-control") using ($material) {
   &:not(.v-btn-toggle--group) {
     background: map-deep-get($material, "segment-controls", "background");

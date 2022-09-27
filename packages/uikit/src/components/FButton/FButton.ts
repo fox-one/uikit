@@ -2,7 +2,9 @@ import "./FButton.scss";
 
 import { VBtn, VProgressCircular } from "vuetify/src/components";
 import mixins from "vuetify/src/util/mixins";
-import tinycolor from "tinycolor2";
+
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const tinycolor = require("tinycolor2");
 
 import type { VNode } from "vue";
 

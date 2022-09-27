@@ -1,4 +1,15 @@
-@import "./_variable.scss";
+$btn-paddings: () !default;
+$btn-paddings: map-deep-merge(
+  (
+    "x-small": 8,
+    "small": 16,
+    "default": 32,
+    "large": 32,
+    "x-large": 32
+  ),
+  $btn-paddings
+);
+
 
 @include theme("v-btn") using ($material) {
   &.v-btn--text.v-btn--disabled {

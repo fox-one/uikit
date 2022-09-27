@@ -1,5 +1,3 @@
-@import "~vuetify/src/styles/styles.sass";
-
 @include theme("f-input--switch.v-input--switch") using ($material) {
   &.v-input--is-dirty {
     .v-input--switch__thumb {

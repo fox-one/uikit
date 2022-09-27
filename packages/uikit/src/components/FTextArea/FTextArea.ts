@@ -1,5 +1,3 @@
-import "./FTextArea.scss";
-
 import mixins from "vuetify/src/util/mixins";
 
 import { VTextarea } from "vuetify/src/components";
