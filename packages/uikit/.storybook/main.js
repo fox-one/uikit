@@ -28,7 +28,7 @@ module.exports = {
               indentedSyntax: true
             },
             additionalData:
-              "@import '@foxone/uikit/src/styles/variables/_index.scss'"
+              "@import '@foxone/uikit/src/styles/variables/_index.scss';"
           }
         }
       ]

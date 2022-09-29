@@ -10,8 +10,6 @@ import commonjs from "@rollup/plugin-commonjs";
 
 const name = "UIKit";
 
-console.log(process.NODE_ENV);
-
 export default {
   // input: "src/components/FBottomSheet/index.ts", // our source file
   input: "src/index.ts", // our source file

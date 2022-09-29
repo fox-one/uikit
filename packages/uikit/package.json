@@ -4,14 +4,17 @@
   "main": "./build/index.js",
   "types": "./types/index.d.ts",
   "scripts": {
-    "build": "rm -rf build && rollup -c",
+    "build": "concurrently \"yarn build:dist\" \"yarn build:lib\" --kill-others-on-fail",
+    "build:dist": "rm -rf dist && rollup -c",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "build:lib": "rm -rf lib && gulp --gulpfile gulp/index.js"
   },
   "files": [
     "build",
     "types",
-    "src"
+    "src",
+    "lib"
   ],
   "dependencies": {
     "@nuxt/types": "^2.15.8",
@@ -33,10 +36,12 @@
   },
   "devDependencies": {
     "@babel/core": "^7.19.1",
+    "@babel/plugin-transform-runtime": "^7.19.1",
     "@foxone/dev": "^0.2.2",
     "@foxone/icons": "3.0.1-51",
     "@foxone/utils": "^0.2.6",
     "@mdx-js/react": "^1.6.22",
+    "@omni-door/gulp-plugin-vue-sfc": "^0.1.0",
     "@rollup/plugin-alias": "^3.1.9",
     "@rollup/plugin-commonjs": "^22.0.0",
     "@rollup/plugin-image": "^2.1.1",
@@ -60,11 +65,24 @@
     "@vue/compiler-sfc": "^3.0.4",
     "babel-loader": "^8.2.5",
     "babel-plugin-transform-define": "^2.0.0",
+    "babel-preset-vue": "^2.0.2",
     "bignumber.js": "^9.0.1",
+    "concurrently": "^7.4.0",
     "cross-env": "^7.0.3",
     "css-loader": "^5.0.0",
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^8.0.0",
+    "gulp-babel": "^8.0.0",
+    "gulp-clean-css": "^4.3.0",
+    "gulp-concat-css": "^3.1.0",
+    "gulp-header": "^2.0.9",
+    "gulp-replace-path": "^0.4.0",
+    "gulp-rollup": "^2.17.0",
+    "gulp-sass": "^5.1.0",
+    "gulp-typescript": "^6.0.0-alpha.1",
     "mini-css-extract-plugin": "^1.6.0",
     "node-sass": "^6.0.0",
+    "node-sass-tilde-importer": "^1.0.2",
     "rimraf": "^3.0.2",
     "rollup": "^2.55.1",
     "rollup-plugin-filesize": "^9.1.1",
@@ -81,6 +99,6 @@
     "vue-loader": "15.9.2",
     "vue-property-decorator": "^9.1.2",
     "vue-template-compiler": "^2.6.12",
-    "vuetify": "^2.5.3"
+    "vuetify": "2.6.2"
   }
 }

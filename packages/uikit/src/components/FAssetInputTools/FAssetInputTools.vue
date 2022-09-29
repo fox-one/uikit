@@ -1,11 +1,59 @@
 <template>
-  <div>asdfa</div>
+  <v-layout align-center class="f-asset-input-tools">
+    <slot v-if="!disabled" name="left">
+      <f-button
+        v-if="!walletConnected"
+        text
+        x-small
+        color="primary"
+        class="ml-n2"
+        @click.stop="handleConnectWallet"
+      >
+        {{ text.connect_wallet }}
+        <v-icon size="12" class="ml-1">$connect</v-icon>
+      </f-button>
+
+      <div v-else class="d-flex align-center">
+        <div
+          :class="{ 'balance-text': true, 'balance-text--fillable': fillable }"
+        >
+          <span class="greyscale_3--text mr-1"> {{ text.balance }} </span>
+
+          <span @click.stop="handleFill">
+            {{ balance }}
+          </span>
+
+          <v-icon
+            v-if="fillable"
+            size="12"
+            class="ml-1"
+            @click.stop="handleFill"
+          >
+            $fill
+          </v-icon>
+        </div>
+
+        <slot name="append-left"></slot>
+      </div>
+    </slot>
+
+    <v-spacer />
+
+    <slot name="right">
+      <template v-if="showMessages">
+        <v-messages color="error" :value="messages" class="text-right" />
+      </template>
+      <template v-else>
+        <span class="greyscale_3--text fiat-amount"> {{ fiatAmount }} </span>
+      </template>
+    </slot>
+  </v-layout>
 </template>
 
 <script lang="ts">
 import { Component, Vue, Prop } from "vue-property-decorator";
 import { VLayout, VIcon, VSpacer, VMessages } from "vuetify/src/components";
-// import FButton from "../FButton";
+import FButton from "../FButton";
 import { $t } from "../../utils/helper";
 
 @Component({
@@ -14,7 +62,7 @@ import { $t } from "../../utils/helper";
     VLayout,
     VIcon,
     VSpacer,
-    // FButton,
+    FButton,
     VMessages
   }
 })

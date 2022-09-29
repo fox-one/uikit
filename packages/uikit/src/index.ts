@@ -25,3 +25,4 @@ function install(Vue: VueConstructor, options) {
 export default install;
 
 export { preset, install };
+export * from "./components";
