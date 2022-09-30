@@ -1,4 +1,5 @@
 const path = require("path");
+const externals = require("./externals");
 
 module.exports = {
   stories: ["../src/**/*.stories.mdx", "../src/**/*.stories.@(js|jsx|ts|tsx)"],
@@ -28,7 +29,7 @@ module.exports = {
               indentedSyntax: true
             },
             additionalData:
-              "@import '@foxone/uikit/src/styles/variables/_index.scss';"
+              "@import '@foxone/uikit/src/styles/variables/_index.scss'"
           }
         }
       ]
@@ -60,6 +61,18 @@ module.exports = {
         }
       ]
     });
+
+    config.module.rules.push({
+      test: /\.tsx?$/,
+      loader: "ts-loader",
+      options: {
+        transpileOnly: true,
+        allowTsInNodeModules: true,
+        appendTsSuffixTo: [/.vue$/]
+      }
+    });
+
+    config.externals = externals;
 
     // Return the altered config
     return config;

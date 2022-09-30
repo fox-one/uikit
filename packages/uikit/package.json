@@ -1,14 +1,14 @@
 {
   "name": "@foxone/uikit",
   "version": "3.2.9-1",
-  "main": "./build/index.js",
+  "main": "./dist/index.js",
   "types": "./types/index.d.ts",
   "scripts": {
     "build": "concurrently \"yarn build:dist\" \"yarn build:lib\" --kill-others-on-fail",
-    "build:dist": "rm -rf dist && rollup -c",
+    "build:dist": "rm -rf build && rollup -c",
+    "build:lib": "rm -rf lib && gulp --gulpfile gulp/index.js",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook",
-    "build:lib": "rm -rf lib && gulp --gulpfile gulp/index.js"
+    "build-storybook": "build-storybook"
   },
   "files": [
     "build",
@@ -35,7 +35,9 @@
     "vuetify": "^2.4.5"
   },
   "devDependencies": {
-    "@babel/core": "^7.19.1",
+    "@babel/cli": "^7.19.3",
+    "@babel/core": "^7.19.3",
+    "@babel/plugin-proposal-optional-chaining": "^7.18.9",
     "@babel/plugin-transform-runtime": "^7.19.1",
     "@foxone/dev": "^0.2.2",
     "@foxone/icons": "3.0.1-51",
@@ -43,6 +45,7 @@
     "@mdx-js/react": "^1.6.22",
     "@omni-door/gulp-plugin-vue-sfc": "^0.1.0",
     "@rollup/plugin-alias": "^3.1.9",
+    "@rollup/plugin-babel": "^5.3.1",
     "@rollup/plugin-commonjs": "^22.0.0",
     "@rollup/plugin-image": "^2.1.1",
     "@rollup/plugin-json": "^4.1.0",
@@ -64,7 +67,7 @@
     "@vitejs/plugin-vue": "^3.1.0",
     "@vue/compiler-sfc": "^3.0.4",
     "babel-loader": "^8.2.5",
-    "babel-plugin-transform-define": "^2.0.0",
+    "babel-plugin-transform-define": "^2.1.0",
     "babel-preset-vue": "^2.0.2",
     "bignumber.js": "^9.0.1",
     "concurrently": "^7.4.0",

@@ -47,13 +47,9 @@ import {
   VListItemGroup
 } from "vuetify/lib";
 import { FBottomSheet, FBottomSheetSubtitle } from "../FBottomSheet";
+import { FSearchInput } from "../FSearchInput";
 import { $t } from "../../utils/helper";
-import countryCodes from "../../assets/country-code.json";
-
-const countries = Object.keys(countryCodes).map((k) => ({
-  name: countryCodes[k].name,
-  code: String(countryCodes[k].dialCode) + ""
-}));
+import axios from "axios";
 
 @Component({
   name: "FCountryCodeSelect",
@@ -64,6 +60,7 @@ const countries = Object.keys(countryCodes).map((k) => ({
     VListItemTitle,
     VListItemGroup,
     FBottomSheet,
+    FSearchInput,
     FBottomSheetSubtitle
   }
 })
@@ -76,7 +73,7 @@ class FCountryCodeSelect extends Vue {
 
   filter = "";
 
-  countries = countries;
+  countries: any[] = [];
 
   get meta() {
     return {
@@ -86,12 +83,24 @@ class FCountryCodeSelect extends Vue {
   }
 
   get filterCounties() {
-    return countries.filter((country) => {
+    return this.countries.filter((country) => {
       const name = String(country.name).toLowerCase();
       const code = String(country.code).toLowerCase();
 
       return name.startsWith(this.filter) || code.startsWith(this.filter);
     });
+  }
+
+  async mounted() {
+    const resp = await axios.get(
+      "https://static.fox.one/assets/country-code.json"
+    );
+    const countries = resp.data;
+
+    this.countries = Object.keys(countries).map((k) => ({
+      name: countries[k].name,
+      code: String(countries[k].dialCode) + ""
+    }));
   }
 
   handleSelect(code: string) {

@@ -7,20 +7,16 @@ import vue from "rollup-plugin-vue";
 import alias from "@rollup/plugin-alias";
 import scss from "rollup-plugin-scss";
 import commonjs from "@rollup/plugin-commonjs";
-
-const name = "UIKit";
+import { DEFAULT_EXTENSIONS } from "@babel/core";
+import babel from "@rollup/plugin-babel";
 
 export default {
-  // input: "src/components/FBottomSheet/index.ts", // our source file
-  input: "src/index.ts", // our source file
+  input: "src/index.ts",
   inlineDynamicImports: true,
   output: [
     {
-      // Keep the bundle as an ES module file, suitable for other bundlers
-      // and inclusion as a <script type=module> tag in modern browsers
-      name,
-      dir: "build",
-      format: "esm", // the preferred format
+      dir: "dist",
+      format: "esm",
       compact: true,
       sourcemap: false
     }
@@ -40,6 +36,18 @@ export default {
     alias({
       entries: [{ find: /^vuetify\/src(.+)/, replacement: "vuetify/lib$1" }]
     }),
+    resolve({ extensions: [".js", ".ts", ".svg"] }),
+    vue({
+      css: false,
+      template: {
+        isProduction: true
+      }
+    }),
+    scss({
+      output: "dist/index.min.css",
+      outputStyle: "compressed",
+      prefix: "@import '@foxone/uikit/src/styles/variables/_index.scss';"
+    }),
     typescript({
       typescript: require("typescript"),
       module: "esnext",
@@ -48,19 +56,12 @@ export default {
       rollupCommonJSResolveHack: true
     }),
     commonjs(),
+    babel({
+      babelHelpers: "runtime",
+      extensions: [...DEFAULT_EXTENSIONS, ".ts", ".tsx", ".vue"]
+    }),
     json(),
-    vue({
-      css: false,
-      template: {
-        isProduction: true
-      }
-    }),
-    resolve({ extensions: [".js", ".ts", ".svg"] }),
     filesize({ showBrotliSize: true }),
-    scss({
-      output: "build/index.css",
-      prefix: "@import '@foxone/uikit/src/styles/variables/_index.scss';"
-    }),
     image()
   ]
 };

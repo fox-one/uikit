@@ -16,9 +16,11 @@ export type UIKitOptions = {
 
 declare const _default: {
   install: (Vue: VueConstructor, options: UIKitOptions) => void;
-  preset: GlobalVuetifyPreset;
 };
+
 export default _default;
+
+export const preset: GlobalVuetifyPreset;
 
 declare module "vue/types/vue" {
   interface Vue {
