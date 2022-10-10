@@ -3259,6 +3259,7 @@ __metadata:
     gulp-babel: ^8.0.0
     gulp-clean-css: ^4.3.0
     gulp-concat-css: ^3.1.0
+    gulp-copy: ^4.0.1
     gulp-header: ^2.0.9
     gulp-replace-path: ^0.4.0
     gulp-rollup: ^2.17.0
@@ -13474,6 +13475,17 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
+"gulp-copy@npm:^4.0.1":
+  version: 4.0.1
+  resolution: "gulp-copy@npm:4.0.1"
+  dependencies:
+    gulp: ^4.0.0
+    plugin-error: ^0.1.2
+    through2: ^2.0.3
+  checksum: bab2fb2a470f7bd04c3849683d8ab26753beb8af79059025b98a32b51abca859ae597d3ab028ea77d164f1688e14226071138b98f19f3255fa233f411e4bca4e
+  languageName: node
+  linkType: hard
+
 "gulp-header@npm:^2.0.9":
   version: 2.0.9
   resolution: "gulp-header@npm:2.0.9"
@@ -13541,7 +13553,7 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"gulp@npm:^4.0.2":
+"gulp@npm:^4.0.0, gulp@npm:^4.0.2":
   version: 4.0.2
   resolution: "gulp@npm:4.0.2"
   dependencies:

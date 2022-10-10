@@ -1,7 +1,7 @@
 {
   "name": "@foxone/uikit",
   "version": "3.2.9-2",
-  "main": "./dist/index.js",
+  "main": "./build/index.js",
   "types": "./types/index.d.ts",
   "scripts": {
     "build": "concurrently \"yarn build:dist\" \"yarn build:lib\" --kill-others-on-fail",
@@ -78,6 +78,7 @@
     "gulp-babel": "^8.0.0",
     "gulp-clean-css": "^4.3.0",
     "gulp-concat-css": "^3.1.0",
+    "gulp-copy": "^4.0.1",
     "gulp-header": "^2.0.9",
     "gulp-replace-path": "^0.4.0",
     "gulp-rollup": "^2.17.0",
