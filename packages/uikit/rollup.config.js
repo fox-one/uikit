@@ -15,7 +15,7 @@ export default {
   inlineDynamicImports: true,
   output: [
     {
-      dir: "dist",
+      dir: "build",
       format: "esm",
       compact: true,
       sourcemap: false
@@ -44,7 +44,7 @@ export default {
       }
     }),
     scss({
-      output: "dist/index.min.css",
+      output: "build/index.min.css",
       outputStyle: "compressed",
       prefix: "@import '@foxone/uikit/src/styles/variables/_index.scss';"
     }),

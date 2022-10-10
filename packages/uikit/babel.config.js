@@ -2,7 +2,7 @@ const package = require("./package.json");
 
 module.exports = {
   presets: [
-    ["@babel/preset-env", { modules: false, targets: "> 0.25%, not dead" }],
+    ["@babel/preset-env", { modules: false }],
     "babel-preset-vue",
     "@babel/preset-typescript"
   ],
