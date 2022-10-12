@@ -8,7 +8,6 @@ const sass = require("gulp-sass")(require("sass"));
 const tildeImporter = require("node-sass-tilde-importer");
 const autoprefixer = require("gulp-autoprefixer");
 const vue = require("@omni-door/gulp-plugin-vue-sfc");
-const copy = require("gulp-copy");
 
 const srcDir = path.resolve(__dirname, "../src");
 const destDir = path.resolve(__dirname, "../lib");

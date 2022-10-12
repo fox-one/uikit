@@ -8,7 +8,7 @@ import Payment from "./services/payment";
 
 import "./styles/index.scss";
 
-import type { VueConstructor } from "vue/types/umd";
+import type { VueConstructor } from "vue";
 import type Vuetify from "vuetify/lib";
 
 export type Options = {
@@ -22,7 +22,7 @@ function install(Vue: VueConstructor, options: Options = {}) {
   for (const key in components) {
     const component = components[key];
 
-    Vue.component(key, component as typeof Vue);
+    Vue.component(key, component);
   }
 
   if (options.vuetify) {
