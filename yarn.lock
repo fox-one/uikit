@@ -3176,12 +3176,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@foxone/icons@npm:^3.1.7":
-  version: 3.1.7
-  resolution: "@foxone/icons@npm:3.1.7"
+"@foxone/icons@npm:^3.1.9":
+  version: 3.1.9
+  resolution: "@foxone/icons@npm:3.1.9"
   peerDependencies:
     vue: ^2.6.12
-  checksum: 3a8bc81645a31429ed1b84aebf19094f7812834db8dedf30d4fd79b3fbeed0c2e0cb4481b609dc9a9a133e643232629e0870035ae879c384ef51645cd7875973
+  checksum: c393964b37ac14126c126caff7db3d0d41379153d0ab226bcf190890b8612d9d66dc4e1177f1ce3a7c9072e6052baa1ff65f0dac7324114db1c384f2bb2beb44
   languageName: node
   linkType: hard
 
@@ -3194,7 +3194,7 @@ __metadata:
     "@babel/plugin-proposal-optional-chaining": ^7.18.9
     "@babel/plugin-transform-runtime": ^7.19.1
     "@foxone/dev": ^0.2.2
-    "@foxone/icons": ^3.1.7
+    "@foxone/icons": ^3.1.9
     "@foxone/utils": ^0.2.6
     "@mdx-js/react": ^1.6.22
     "@nuxt/types": ^2.15.8

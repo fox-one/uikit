@@ -28,7 +28,7 @@ export default {
     "vue-property-decorator",
     "vue-class-component",
     "qrcode",
-    "@foxone/icons",
+    /^@foxone\/icons/,
     /^@foxone\/utils/,
     /^vuetify\/lib/
   ],

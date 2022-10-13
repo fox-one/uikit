@@ -72,7 +72,7 @@ module.exports = {
       }
     });
 
-    config.externals = externals;
+    // config.externals = externals;
 
     // Return the altered config
     return config;
