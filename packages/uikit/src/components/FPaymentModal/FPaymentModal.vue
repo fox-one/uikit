@@ -1,6 +1,6 @@
 <template>
   <div class="payment-modal">
-    <f-bottom-sheet v-model="dialog" :dark="meta.dark" max-width="780">
+    <f-bottom-sheet v-model="dialog" :dark="meta.dark" maxWidth="780">
       <div
         class="f-payment-modal__content"
         :class="{ 'f-payment-modal__content--mobile': !meta.isDesktop }"
