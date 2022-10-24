@@ -25,7 +25,7 @@
 
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
-import { FIconImport4PBold } from "@foxone/icons";
+import FIconImport4PBold from "@foxone/icons/FIconImport4PBold";
 import { $t } from "../../utils/helper";
 import { VIcon, VImg } from "vuetify/lib";
 import { isDesktop } from "@foxone/utils/helper";
