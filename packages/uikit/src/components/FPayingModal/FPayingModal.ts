@@ -75,7 +75,12 @@ class FPayingModal extends Vue {
       VOverlay,
       {
         staticClass: "f-payment-loading",
-        props: { value: this.show, opacity: 0.8, ...this.$attrs }
+        props: {
+          value: this.show,
+          opacity: 0.8,
+          "z-index": 111,
+          ...this.$attrs
+        }
       },
       [
         this.genSpinner(),

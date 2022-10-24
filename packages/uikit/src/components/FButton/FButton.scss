@@ -39,6 +39,6 @@ $btn-paddings: map-deep-merge(
   &.error,
   &.warning,
   &.info {
-    color: map-deep-get($material-light, "text", "primary");
+    color: rgba(0,0,0,.87) !important;
   }
 }
