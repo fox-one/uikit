@@ -17,6 +17,7 @@ export interface FAuthMethodModalProps {
 export interface FAuthMethodModalOptions {
   checkFennec?: () => boolean;
   checkMetamask?: () => boolean;
+  checkOnekey?: () => boolean;
   handleAuth?: (...args: any) => void;
   handleError?: (...args: any) => void;
 }
@@ -38,7 +39,8 @@ function install(
     Object.assign(instance, {
       ...globalProps,
       fennec: options?.checkFennec?.(),
-      metamask: options?.checkMetamask?.()
+      metamask: options?.checkMetamask?.(),
+      onekey: options?.checkOnekey?.()
     });
     instance.$vuetify = _vuetify.framework;
     app?.appendChild(instance.$mount().$el);
