@@ -18,6 +18,7 @@
         :select.sync="select"
         :fennec="fennec"
         :metamask="metamask"
+        :onekey="onekey"
         :wallets="wallets"
         v-bind="$attrs"
         @auth="(e) => $emit('auth', e)"
@@ -67,11 +68,14 @@ import FAuthStep2 from "./FAuthStep2.vue";
   }
 })
 class FAuthMethodModal extends Vue {
-  // support fennec or not
+  // current browser support fennec or not
   @Prop({ type: Boolean, default: false }) fennec!: boolean;
 
-  // support metamask or not
+  // current browser support metamask or not
   @Prop({ type: Boolean, default: false }) metamask!: boolean;
+
+  // current browser support metamask or not
+  @Prop({ type: Boolean, default: false }) onekey!: boolean;
 
   @Prop({ default: () => ["fennec", "mixin"] }) wallets!: string[];
 

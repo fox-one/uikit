@@ -68,7 +68,7 @@ export default mixins(Themeable).extend({
         "f-asset-select-field--inline": this.inline
       };
     },
-    meta(): object {
+    meta(): any {
       const { chainLogo, logo, name, symbol } = this.asset || {
         logo: "",
         chainLogo: "",

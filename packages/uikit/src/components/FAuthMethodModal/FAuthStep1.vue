@@ -47,6 +47,8 @@ class FAuthStep1 extends Vue {
 
   @Prop({ type: Boolean, default: false }) metamask!: boolean;
 
+  @Prop({ type: Boolean, default: false }) onekey!: boolean;
+
   @Prop({ type: String, default: "" }) title;
 
   @Prop({ default: () => ["fennec", "mixin"] }) wallets!: string[];
@@ -68,6 +70,13 @@ class FAuthStep1 extends Vue {
         title: "MetaMask",
         bg: isDark ? grey : "#FFEEDD",
         logo: "https://static.fox.one/image/logo_metamask@40x40.png"
+      },
+      {
+        needNextStep: !this.onekey,
+        value: "onekey",
+        title: "OneKey",
+        bg: isDark ? grey : "#E9FEE6",
+        logo: "https://static.fox.one/image/logo_onekey@40x40.png"
       },
       {
         needNextStep: true,
@@ -110,7 +119,7 @@ class FAuthStep1 extends Vue {
     ];
   }
 
-  get items() {
+  get items(): any {
     return this.wallets
       .map((name) => {
         return this.builtInWallets.find((x) => x.value === name);

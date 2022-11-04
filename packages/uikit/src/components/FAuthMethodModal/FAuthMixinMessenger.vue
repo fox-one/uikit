@@ -52,6 +52,7 @@
 import { Component, Vue, Prop } from "vue-property-decorator";
 import FQrCode from "../FQrCode";
 import FLoading from "../FLoading";
+import FButton from "../FButton";
 import { $t } from "../../utils/helper";
 import authorize from "../../utils/authorize";
 import { VIcon, VImg } from "vuetify/lib";
@@ -63,7 +64,8 @@ import { VIcon, VImg } from "vuetify/lib";
     VIcon,
     VImg,
     FQrCode,
-    FLoading
+    FLoading,
+    FButton
   }
 })
 class FAuthMixinMessenger extends Vue {

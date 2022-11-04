@@ -26,6 +26,7 @@
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
 import FIconImport4PBold from "@foxone/icons/FIconImport4PBold";
+import FButton from "../FButton";
 import { $t, getBrowser } from "../../utils/helper";
 import { VIcon, VImg } from "vuetify/lib";
 
@@ -33,6 +34,7 @@ import { VIcon, VImg } from "vuetify/lib";
   name: "FAuthFennecInstall",
   inheritAttrs: false,
   components: {
+    FButton,
     VIcon,
     VImg,
     FIconImport4PBold

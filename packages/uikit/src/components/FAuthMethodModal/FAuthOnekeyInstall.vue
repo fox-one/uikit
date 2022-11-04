@@ -1,9 +1,9 @@
 <template>
   <div
-    class="f-auth-metamask f-auth-step2"
+    class="f-auth-onekey f-auth-step2"
     :class="{
       'f-auth-step2--small': smAndDown,
-      'f-auth-metamask--mobile': !isDesktop
+      'f-auth-onekey--mobile': !isDesktop
     }"
   >
     <div class="f-auth-step2__left"></div>
@@ -32,7 +32,7 @@ import { VIcon, VImg } from "vuetify/lib";
 import { isDesktop } from "@foxone/utils/helper";
 
 @Component({
-  name: "FAuthMetamaskInstall",
+  name: "FAuthOneKeyInstall",
   inheritAttrs: false,
   components: {
     VIcon,
@@ -41,17 +41,16 @@ import { isDesktop } from "@foxone/utils/helper";
     FButton
   }
 })
-class FAuthMetamaskInstall extends Vue {
+class FAuthOneKeyInstall extends Vue {
   get labels() {
     return [
       this.isDesktop
-        ? $t(this, "metamask_not_installed")
-        : $t(this, "metamask_not_installed_2"),
+        ? $t(this, "onekey_not_installed")
+        : $t(this, "onekey_not_installed_2"),
       this.isDesktop
-        ? $t(this, "metamask_introduction")
-        : $t(this, "metamask_introduction_2"),
-      $t(this, "install"),
-      $t(this, "open_in_mixin")
+        ? $t(this, "onekey_introduction")
+        : $t(this, "onekey_introduction_2"),
+      $t(this, "install")
     ];
   }
 
@@ -64,10 +63,10 @@ class FAuthMetamaskInstall extends Vue {
   }
 
   handleInstall() {
-    const url = "https://metamask.io/download/";
+    const url = "https://onekey.so/download?client=browserExtension";
 
     window.open(url);
   }
 }
-export default FAuthMetamaskInstall;
+export default FAuthOneKeyInstall;
 </script>

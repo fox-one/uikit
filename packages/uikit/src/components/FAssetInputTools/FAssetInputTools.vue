@@ -117,6 +117,10 @@ export default FAssetInputTools;
   white-space: nowrap;
 }
 
+.balance-text {
+  color: var(--v-greyscale_1-base);
+}
+
 .balance-text--fillable {
   cursor: pointer;
   display: flex;

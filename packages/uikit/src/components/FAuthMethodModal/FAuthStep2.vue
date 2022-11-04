@@ -13,7 +13,9 @@ import { Component, Vue, Prop, PropSync } from "vue-property-decorator";
 import FAuthFennecInstall from "./FAuthFennecInstall.vue";
 import FAuthMixinMessenger from "./FAuthMixinMessenger.vue";
 import FAuthMetamaskInstall from "./FAuthMetamaskInstall.vue";
+import FAuthOnekeyInstall from "./FAuthOnekeyInstall.vue";
 import FAuthLinks from "./FAuthLinks.vue";
+import FButton from "../FButton";
 import { VIcon } from "vuetify/lib";
 
 @Component({
@@ -23,7 +25,9 @@ import { VIcon } from "vuetify/lib";
     FAuthFennecInstall,
     FAuthMixinMessenger,
     FAuthMetamaskInstall,
+    FAuthOnekeyInstall,
     FAuthLinks,
+    FButton,
     VIcon
   }
 })
@@ -40,6 +44,8 @@ class FAuthStep2 extends Vue {
         return "FAuthLinks";
       case "metamask":
         return "FAuthMetamaskInstall";
+      case "onekey":
+        return "FAuthOnekeyInstall";
       default:
         return "FAuthMixinMessenger";
     }

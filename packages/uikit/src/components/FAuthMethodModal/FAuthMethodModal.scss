@@ -64,6 +64,7 @@
   border-top-left-radius: 8px;
   border-top-right-radius: 8px;
   overflow: hidden;
+  width: 100%;
 
   &--small {
     display: block;
@@ -155,6 +156,10 @@
 
 .f-auth-metamask .f-auth-step2__left {
   background-image: url("https://static.fox.one/image/bg_metamask_install_2.png");
+}
+
+.f-auth-onekey .f-auth-step2__left {
+  background-image: url("https://static.fox.one/image/bg_onekey_install.png");
 }
 
 .f-auth-metamask.f-auth-metamask--mobile {
